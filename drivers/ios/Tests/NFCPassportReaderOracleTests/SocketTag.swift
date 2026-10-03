@@ -38,17 +38,6 @@ final class SocketTag: NSObject, NFCISO7816Tag {
         }
     }
 
-    @available(iOS 14.0, *)
-    func sendCommand(apdu: NFCISO7816APDU, resultHandler: @escaping (Result<NFCISO7816ResponseAPDU, Error>) -> Void) {
-        sendCommand(apdu: apdu) { data, sw1, sw2, error in
-            if let error = error {
-                resultHandler(.failure(error))
-            } else {
-                resultHandler(.success(NFCISO7816ResponseAPDU(data: data, statusWord1: sw1, statusWord2: sw2)))
-            }
-        }
-    }
-
     /// ISO 7816-4 short or extended encoding of a command APDU.
     static func encode(_ apdu: NFCISO7816APDU) -> Data {
         var out = Data([apdu.instructionClass, apdu.instructionCode, apdu.p1Parameter, apdu.p2Parameter])
