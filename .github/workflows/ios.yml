@@ -55,7 +55,7 @@ jobs:
           xcodebuild -list
           set -o pipefail
           TEST_RUNNER_CBO_PLAN="$RUNNER_TEMP/plan.json" TEST_RUNNER_CBO_BROKER_PORT=35963 \
-            xcodebuild test -scheme NFCPassportReaderOracle -destination "id=$UDID" 2>&1 | tee "$RUNNER_TEMP/test.log"
+            xcodebuild test -scheme NFCPassportReaderOracle-Package -destination "id=$UDID" 2>&1 | tee "$RUNNER_TEMP/test.log"
 
       - name: Collect run artifacts
         if: always()
