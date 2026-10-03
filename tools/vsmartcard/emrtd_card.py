@@ -18,13 +18,19 @@ Requires the pinned vsmartcard checkout with tools/vsmartcard/vsmartcard-python3
 applied (scripts/bootstrap-vsmartcard.sh), and the OpenPACE Python bindings.
 
 The card connects to a driver acting as the reader (vpcd socket protocol) and serves one
-session. --aa-sw makes INTERNAL AUTHENTICATE fail with that status word; vsmartcard frames
-the error with its own secure-messaging code.
+session. What it serves and which step it fails come from the profile's "vsmartcard" object
+(--profile): dg15, card_access, aa_sw (INTERNAL AUTHENTICATE answers with that status word,
+framed by vsmartcard's own secure-messaging code), and pace_sw with pace_step ("mse" for the
+first MSE:Set AT, "ga1" to "ga4" for the PACE General Authenticate steps, answered in plaintext
+since secure messaging is not yet established). --report writes {"fault_delivered": {...}} as
+soon as an injected failure is sent, the same report cmd/chip-serve writes, so every driver
+observes delivery the same way.
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 from pathlib import Path
 
@@ -56,6 +62,25 @@ class InjectedSwError(SwError):
         self.message = f"injected status word {sw:04X}"
 
 
+class Report:
+    """Writes which injected failures were delivered to the reader."""
+
+    def __init__(self, path: str):
+        self.path = Path(path) if path else None
+        self.delivered = {"PACE": False, "AA": False}
+        self.write()
+
+    def mark(self, mechanism: str) -> None:
+        self.delivered[mechanism] = True
+        self.write()
+
+    def write(self) -> None:
+        if self.path is not None:
+            tmp = self.path.with_suffix(".tmp")
+            tmp.write_text(json.dumps({"fault_delivered": self.delivered}), encoding="utf-8")
+            tmp.replace(self.path)
+
+
 def hexfile(name: str) -> bytes:
     return bytes.fromhex((FIXTURES / name).read_text(encoding="utf-8").strip())
 
@@ -83,29 +108,66 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--port", type=int, required=True)
-    ap.add_argument("--dg15", action="store_true", help="serve DG15 so readers attempt Active Authentication")
-    ap.add_argument("--aa-sw", default="", help="fail INTERNAL AUTHENTICATE with this status word (hex)")
+    ap.add_argument("--profile", default="", help="profile JSON; its \"vsmartcard\" object configures the card")
+    ap.add_argument("--report", default="", help="write the delivered-fault report here")
     ap.add_argument("--log-level", default="WARNING", help="vsmartcard logging level")
-    ap.add_argument("--card-access", choices=("pace-only", "npa"), default="pace-only",
-                    help="EF.CardAccess: the PACEInfo only, or the nPA card's own (TA, CA and PACE infos)")
     args = ap.parse_args()
+    vs = json.loads(Path(args.profile).read_text(encoding="utf-8")).get("vsmartcard", {}) if args.profile else {}
+    card_access = vs.get("card_access", "pace-only")
+    if card_access not in ("pace-only", "npa"):
+        raise SystemExit(f"unknown card_access {card_access!r}")
+    pace_step = vs.get("pace_step", "")
+    if pace_step not in ("", "mse", "ga1", "ga2", "ga3", "ga4"):
+        raise SystemExit(f"unknown pace_step {pace_step!r}")
+    report = Report(args.report)
 
     vicc = VirtualICC(None, "nPA", args.host, args.port, logginglevel=getattr(logging, args.log_level.upper()))
     os_ = vicc.os
     shipped = os_.SAM.mrz
     assert shipped[:59] == MRZ[:59] and shipped[60:] == MRZ[60:], "vsmartcard nPA MRZ changed; update the harness profile"
     os_.SAM.mrz = MRZ
-    os_.mf.append(emrtd_application(os_.mf, args.dg15))
-    if args.card_access == "pace-only":
+    os_.mf.append(emrtd_application(os_.mf, bool(vs.get("dg15"))))
+    if card_access == "pace-only":
         os_.mf.select("fid", 0x011C).data = CARD_ACCESS_PACE_ONLY
 
-    if args.aa_sw:
-        sw = int(args.aa_sw, 16)
+    if vs.get("aa_sw"):
+        aa_sw = int(vs["aa_sw"], 16)
 
         def failing_internal_authenticate(p1, p2, data):
-            raise InjectedSwError(sw)
+            report.mark("AA")
+            raise InjectedSwError(aa_sw)
 
         os_.ins2handler[0x88] = failing_internal_authenticate
+
+    if pace_step:
+        pace_sw = int(vs["pace_sw"], 16)
+        if pace_step == "mse":
+            real_mse = os_.ins2handler[0x22]
+            mse_calls = [0]
+
+            def failing_mse(p1, p2, data):
+                # Only the first MSE:Set AT (the one that starts PACE) fails.
+                mse_calls[0] += 1
+                if mse_calls[0] == 1:
+                    report.mark("PACE")
+                    raise InjectedSwError(pace_sw)
+                return real_mse(p1, p2, data)
+
+            os_.ins2handler[0x22] = failing_mse
+        else:
+            target = int(pace_step[2])
+            real_ga = os_.ins2handler[0x86]
+            ga_calls = [0]
+
+            def failing_ga(p1, p2, data):
+                # PACE is the first four General Authenticate commands of the session.
+                ga_calls[0] += 1
+                if ga_calls[0] == target:
+                    report.mark("PACE")
+                    raise InjectedSwError(pace_sw)
+                return real_ga(p1, p2, data)
+
+            os_.ins2handler[0x86] = failing_ga
 
     try:
         vicc.run()

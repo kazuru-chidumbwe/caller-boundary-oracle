@@ -70,13 +70,8 @@ def serve_one(reader: socket.socket, chip_serve: str, out: Path) -> None:
     listener.listen(1)
     port = listener.getsockname()[1]
     if profile.get("peer") == "vsmartcard":
-        vs = profile.get("vsmartcard", {})
         cmd = [sys.executable, str(ROOT / "tools/vsmartcard/emrtd_card.py"), "--port", str(port),
-               "--card-access", vs.get("card_access", "pace-only")]
-        if vs.get("dg15"):
-            cmd.append("--dg15")
-        if vs.get("aa_sw"):
-            cmd += ["--aa-sw", vs["aa_sw"]]
+               "--profile", str(ROOT / profile_path), "--report", str(report)]
     else:
         cmd = [chip_serve, "-profile", str(ROOT / profile_path), "-port", str(port), "-report", str(report)]
     chip_proc = subprocess.Popen(cmd, cwd=ROOT)
@@ -84,17 +79,12 @@ def serve_one(reader: socket.socket, chip_serve: str, out: Path) -> None:
     chip, _ = listener.accept()
     listener.close()
 
-    sent_aa = threading.Event()
-
     def reader_to_chip() -> None:
-        # Watch for INTERNAL AUTHENTICATE so vsmartcard runs can report whether AA was sent.
         try:
             while True:
                 msg = read_msg(reader)
                 if msg is None:
                     break
-                if len(msg) >= 2 and msg[1] == 0x88:
-                    sent_aa.set()
                 chip.sendall(struct.pack("!H", len(msg)) + msg)
         except OSError:
             pass
@@ -115,9 +105,6 @@ def serve_one(reader: socket.socket, chip_serve: str, out: Path) -> None:
         chip_proc.wait(timeout=10)
     except subprocess.TimeoutExpired:
         chip_proc.kill()
-    if profile.get("peer") == "vsmartcard":
-        aa = bool(profile.get("vsmartcard", {}).get("aa_sw")) and sent_aa.is_set()
-        report.write_text(json.dumps({"fault_delivered": {"AA": aa}}), encoding="utf-8")
     reader.close()
     chip.close()
 

@@ -13,5 +13,6 @@
   "injection": {
     "pace_fail_on": "general_authenticate",
     "pace_sw": "6A80"
-  }
+  },
+  "icao_p4": "ISO7816_C_10a"
 }

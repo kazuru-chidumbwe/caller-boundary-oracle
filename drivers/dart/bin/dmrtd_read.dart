@@ -155,15 +155,8 @@ Future<int> _run(List<String> argv) async {
   final report = '${Directory.systemTemp.path}/chip-report-${DateTime.now().microsecondsSinceEpoch}-$pid.json';
 
   final provider = vsc
-      ? VpcdProvider('python3', (p) {
-          final vs = (profile['vsmartcard'] as Map<String, dynamic>?) ?? {};
-          return [
-            '$root/tools/vsmartcard/emrtd_card.py', '--port', '$p',
-            if (vs['dg15'] == true) '--dg15',
-            if ((vs['aa_sw'] as String? ?? '').isNotEmpty) ...['--aa-sw', vs['aa_sw'] as String],
-            '--card-access', vs['card_access'] as String? ?? 'pace-only',
-          ];
-        })
+      ? VpcdProvider('python3',
+          (p) => ['$root/tools/vsmartcard/emrtd_card.py', '--port', '$p', '--profile', profilePath, '--report', report])
       : VpcdProvider(a['-chip-serve'] ?? 'bin/chip-serve', (p) => ['-profile', profilePath, '-port', '$p', '-report', report]);
 
   var stepFailed = false, stepSucceeded = false, accessControl = '';
@@ -211,14 +204,10 @@ Future<int> _run(List<String> argv) async {
 
   var fired = false;
   final reportFile = File(report);
-  if (!vsc && reportFile.existsSync()) {
+  if (reportFile.existsSync()) {
     final r = jsonDecode(reportFile.readAsStringSync()) as Map<String, dynamic>;
     fired = ((r['fault_delivered'] as Map<String, dynamic>?) ?? {})[mechanism] == true;
     reportFile.deleteSync();
-  }
-  if (vsc && mechanism == 'AA') {
-    final vs = (profile['vsmartcard'] as Map<String, dynamic>?) ?? {};
-    fired = (vs['aa_sw'] as String? ?? '').isNotEmpty && provider.trace.any((t) => t['label'] == 'INS 88');
   }
 
   final obs = Observation(fired, stepFailed, stepSucceeded, readErr.isNotEmpty, false);
@@ -257,8 +246,16 @@ Future<int> _run(List<String> argv) async {
 
 String _faultPoint(Map<String, dynamic> p, String mechanism, bool vsc) {
   if (mechanism == 'PACE') {
+    if (vsc) {
+      // "mse" is PACE/mse_set_at, "gaN" is PACE/general_authenticate_stepN (internal/profile).
+      final step = ((p['vsmartcard'] as Map<String, dynamic>?) ?? {})['pace_step'] as String? ?? '';
+      if (step.isEmpty) return '';
+      if (step == 'mse') return 'PACE/mse_set_at';
+      if (step.length == 3 && step.startsWith('ga')) return 'PACE/general_authenticate_step${step.substring(2)}';
+      return 'PACE/$step';
+    }
     final failOn = (p['injection'] as Map<String, dynamic>?)?['pace_fail_on'] as String?;
-    if (vsc || (p['card_access_hex'] as String? ?? '').isEmpty || failOn == null) return '';
+    if ((p['card_access_hex'] as String? ?? '').isEmpty || failOn == null) return '';
     return 'PACE/$failOn';
   }
   if (mechanism == 'AA') {

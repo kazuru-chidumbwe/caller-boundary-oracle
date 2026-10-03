@@ -1,0 +1,18 @@
+{
+  "id": "VSC-pace-ga1-6f00",
+  "name": "Independent chip: PACE fails at General Authenticate step 1 (SW 6F00)",
+  "mechanism": "PACE",
+  "condition": "pace_fail_independent",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "pace_sw": "6F00",
+    "pace_step": "ga1"
+  },
+  "icao_p4": "ISO7816_C_10b"
+}

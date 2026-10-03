@@ -5,10 +5,17 @@ Each profile targets one mechanism and injects one failure. Axes are limited to 
 can change library behaviour: where the failure is injected and what kind of failure it is.
 The MRZ is fixed (ICAO Doc 9303 Part 11 worked example), since it only changes key material.
 
-  pace/      2 injection points x 9 failure kinds (6 status words, 3 channel faults) = 18
-  ca/        Chip Authentication rejected at MSE:Set AT, 6 status words
-  aa/        Active Authentication rejected at INTERNAL AUTHENTICATE, 6 status words
-  controls/  no-injection and interoperability controls
+  pace/         2 injection points x 16 failure kinds (13 status words, 3 channel faults) = 32
+  ca/           Chip Authentication rejected at MSE:Set AT, 13 status words
+  aa/           Active Authentication rejected at INTERNAL AUTHENTICATE, 13 status words
+  controls/     no-injection and interoperability controls
+  independent/  vsmartcard chip: PACE positive controls, PACE failed at MSE:Set AT and at each
+                General Authenticate step (the ICAO status-word cases), AA rejected under SM
+
+The status words are the union of the words the ICAO inspection-system conformity tests inject
+(ICAO TR RF and Protocol Testing Part 4 V2.11: ISO7816_C_08, C_10, C_12, C_18, C_24, G_15) and
+words outside them that exercise error-mapping code (6982, 6A88, 6FFF). Profiles that reproduce
+an ICAO case carry its ID in "icao_p4"; ICAO has no status-word case for Active Authentication.
 """
 
 from __future__ import annotations
@@ -23,9 +30,28 @@ MRZ = {"document_number": "L898902C", "date_of_birth": "690806", "date_of_expiry
 CARD_ACCESS_PACE = "31143012060A04007F0007020204020402010202010D"
 # Same PACEInfo with parameter 32: proprietary domain parameters, valid under Doc 9303 Part 11.
 CARD_ACCESS_PROPRIETARY = "31143012060A04007F00070202040204020102020120"
-STATUS_WORDS = ["6F00", "6FFF", "6300", "6982", "6A80", "6A88"]
+STATUS_WORDS = ["6300", "6700", "6800", "6900", "6982", "6A00", "6A80", "6A88", "6B00", "6C00", "6E00", "6F00", "6FFF"]
 CHANNEL_FAULTS = ["no_response", "timeout", "transport_abort"]
 PACE_POINTS = ["mse_set_at", "general_authenticate"]
+
+# ICAO TR RF and Protocol Testing Part 4 V2.11 status-word cases, by PACE step and status word.
+ICAO_PACE = {
+    "mse": {"6A80": "ISO7816_C_08a", "6A88": "ISO7816_C_08b", "6F00": "ISO7816_C_08c"},
+    "ga1": {"6A80": "ISO7816_C_10a", "6F00": "ISO7816_C_10b"},
+    "ga2": {"6A80": "ISO7816_C_12a", "6F00": "ISO7816_C_12b"},
+    "ga3": {"6A80": "ISO7816_C_18a", "6F00": "ISO7816_C_18b"},
+    "ga4": {"6300": "ISO7816_C_24a", "6A80": "ISO7816_C_24b", "6F00": "ISO7816_C_24c"},
+}
+# ISO7816_G_15: status word in response to Chip Authentication (injected here at MSE:Set AT).
+ICAO_CA = {sw: f"ISO7816_G_15{c}" for sw, c in zip(
+    ["6300", "6700", "6800", "6900", "6A00", "6B00", "6C00", "6E00", "6F00"], "abcdefghi")}
+# The harness chip fails the first General Authenticate, which is PACE step 1.
+HARNESS_PACE_STEP = {"mse_set_at": "mse", "general_authenticate": "ga1"}
+
+
+def tag_icao(p: dict, case: str | None) -> None:
+    if case:
+        p["icao_p4"] = case
 
 
 def base(pid: str, name: str, mechanism: str, condition: str) -> dict:
@@ -45,6 +71,8 @@ def pace_profiles() -> dict[str, dict]:
             if channel != "sw":
                 inj["pace_channel"] = channel
             p["injection"] = inj
+            if channel == "sw":
+                tag_icao(p, ICAO_PACE[HARNESS_PACE_STEP[point]].get(sw))
             out[f"pace/{pid}.json"] = p
     return out
 
@@ -56,6 +84,7 @@ def ca_profiles() -> dict[str, dict]:
         p = base(pid, f"Chip Authentication rejected at MSE:Set AT (SW {sw})", "CA", "ca_reject_after_bac")
         p["dg14_hex_path"] = "testdata/dg14/ca-v2-sample.hex"
         p["ca_injection"] = {"ca_fail_on": "mse_set_at", "ca_sw": sw}
+        tag_icao(p, ICAO_CA.get(sw))
         out[f"ca/{pid}.json"] = p
     return out
 
@@ -99,6 +128,16 @@ def independent_profiles() -> dict[str, dict]:
                  "PACE", "pace_success")
     multi.update({"tier": "independent", "peer": "vsmartcard", "mrz": dict(VSC_MRZ), "vsmartcard": {"card_access": "npa"}})
     out["independent/VSC-pace-success-multi-info.json"] = multi
+    steps = {"mse": "MSE:Set AT", "ga1": "General Authenticate step 1", "ga2": "General Authenticate step 2",
+             "ga3": "General Authenticate step 3", "ga4": "General Authenticate step 4"}
+    for step, cases in ICAO_PACE.items():
+        for sw, case in cases.items():
+            pid = f"VSC-pace-{step}-{sw.lower()}"
+            p = base(pid, f"Independent chip: PACE fails at {steps[step]} (SW {sw})", "PACE", "pace_fail_independent")
+            p.update({"tier": "independent", "peer": "vsmartcard", "mrz": dict(VSC_MRZ),
+                      "vsmartcard": {"pace_sw": sw, "pace_step": step}})
+            tag_icao(p, case)
+            out[f"independent/{pid}.json"] = p
     for sw in STATUS_WORDS:
         pid = f"VSC-aa-internal-authenticate-{sw.lower()}"
         p = base(pid, f"Independent chip: PACE, then INTERNAL AUTHENTICATE rejected with SW {sw} under SM", "AA", "aa_reject_after_pace")

@@ -161,6 +161,474 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6700-gmrtd-8fea245-default",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-gmrtd-64bd6ab-default",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-gmrtd-8fea245-guard",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-gmrtd-b861835-default",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-gmrtd-b861835-guard",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-jmrtd-propagate",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-jmrtd-catch-continue",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-emrtd-dotnet-default",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-dmrtd-default",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-gmrtd-8fea245-default",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-gmrtd-64bd6ab-default",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-gmrtd-8fea245-guard",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-gmrtd-b861835-default",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-gmrtd-b861835-guard",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-jmrtd-propagate",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-jmrtd-catch-continue",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-emrtd-dotnet-default",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-dmrtd-default",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-gmrtd-8fea245-default",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-gmrtd-64bd6ab-default",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-gmrtd-8fea245-guard",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-gmrtd-b861835-default",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-gmrtd-b861835-guard",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-jmrtd-propagate",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-jmrtd-catch-continue",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-emrtd-dotnet-default",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-dmrtd-default",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6982-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6982",
       "library": "gmrtd",
@@ -317,6 +785,162 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6a00-gmrtd-8fea245-default",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-gmrtd-64bd6ab-default",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-gmrtd-8fea245-guard",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-gmrtd-b861835-default",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-gmrtd-b861835-guard",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-jmrtd-propagate",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-jmrtd-catch-continue",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-emrtd-dotnet-default",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-dmrtd-default",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6a80",
       "library": "gmrtd",
@@ -328,7 +952,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-64bd6ab-default",
@@ -342,7 +967,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-64bd6ab-allow-fallback",
@@ -356,7 +982,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-8fea245-guard",
@@ -370,7 +997,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-64bd6ab-guard",
@@ -384,7 +1012,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-b861835-default",
@@ -398,7 +1027,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-b861835-allow-fallback",
@@ -412,7 +1042,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-b861835-guard",
@@ -426,7 +1057,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-jmrtd-propagate",
@@ -437,7 +1069,8 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-jmrtd-catch-continue",
@@ -448,7 +1081,8 @@
       "driver": "java",
       "integrator": "catch-continue",
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "silent"
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-emrtd-dotnet-default",
@@ -459,7 +1093,8 @@
       "cell": "PACE",
       "driver": "dotnet",
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-dmrtd-default",
@@ -470,7 +1105,8 @@
       "cell": "PACE",
       "driver": "dart",
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10a"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a88-gmrtd-8fea245-default",
@@ -629,6 +1265,474 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6b00-gmrtd-8fea245-default",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-gmrtd-64bd6ab-default",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-gmrtd-8fea245-guard",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-gmrtd-b861835-default",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-gmrtd-b861835-guard",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-jmrtd-propagate",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-jmrtd-catch-continue",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-emrtd-dotnet-default",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-dmrtd-default",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-gmrtd-8fea245-default",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-gmrtd-64bd6ab-default",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-gmrtd-8fea245-guard",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-gmrtd-b861835-default",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-gmrtd-b861835-guard",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-jmrtd-propagate",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-jmrtd-catch-continue",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-emrtd-dotnet-default",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-dmrtd-default",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-gmrtd-8fea245-default",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-gmrtd-64bd6ab-default",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-gmrtd-8fea245-guard",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-gmrtd-b861835-default",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-gmrtd-b861835-guard",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-jmrtd-propagate",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-jmrtd-catch-continue",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-emrtd-dotnet-default",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-dmrtd-default",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6f00",
       "library": "gmrtd",
@@ -640,7 +1744,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-64bd6ab-default",
@@ -654,7 +1759,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-64bd6ab-allow-fallback",
@@ -668,7 +1774,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-8fea245-guard",
@@ -682,7 +1789,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-64bd6ab-guard",
@@ -696,7 +1804,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-b861835-default",
@@ -710,7 +1819,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-b861835-allow-fallback",
@@ -724,7 +1834,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-b861835-guard",
@@ -738,7 +1849,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-jmrtd-propagate",
@@ -749,7 +1861,8 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-jmrtd-catch-continue",
@@ -760,7 +1873,8 @@
       "driver": "java",
       "integrator": "catch-continue",
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "silent"
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-emrtd-dotnet-default",
@@ -771,7 +1885,8 @@
       "cell": "PACE",
       "driver": "dotnet",
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-dmrtd-default",
@@ -782,7 +1897,8 @@
       "cell": "PACE",
       "driver": "dart",
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_10b"
     },
     {
       "scenario_id": "PACE-general-authenticate-6fff-gmrtd-8fea245-default",
@@ -1565,6 +2681,474 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6700-gmrtd-8fea245-default",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-gmrtd-64bd6ab-default",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-gmrtd-8fea245-guard",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-gmrtd-b861835-default",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-gmrtd-b861835-guard",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-jmrtd-propagate",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-jmrtd-catch-continue",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-emrtd-dotnet-default",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-dmrtd-default",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-gmrtd-8fea245-default",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-gmrtd-64bd6ab-default",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-gmrtd-8fea245-guard",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-gmrtd-b861835-default",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-gmrtd-b861835-guard",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-jmrtd-propagate",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-jmrtd-catch-continue",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-emrtd-dotnet-default",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-dmrtd-default",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-gmrtd-8fea245-default",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-gmrtd-64bd6ab-default",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-gmrtd-8fea245-guard",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-gmrtd-b861835-default",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-gmrtd-b861835-guard",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-jmrtd-propagate",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-jmrtd-catch-continue",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-emrtd-dotnet-default",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-dmrtd-default",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "surfaced"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6982-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-6982",
       "library": "gmrtd",
@@ -1721,6 +3305,162 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6a00-gmrtd-8fea245-default",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-gmrtd-64bd6ab-default",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-gmrtd-8fea245-guard",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-gmrtd-b861835-default",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-gmrtd-b861835-guard",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-jmrtd-propagate",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-jmrtd-catch-continue",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-emrtd-dotnet-default",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-dmrtd-default",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-6a80",
       "library": "gmrtd",
@@ -1732,7 +3472,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-64bd6ab-default",
@@ -1746,7 +3487,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-64bd6ab-allow-fallback",
@@ -1760,7 +3502,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-8fea245-guard",
@@ -1774,7 +3517,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-64bd6ab-guard",
@@ -1788,7 +3532,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-b861835-default",
@@ -1802,7 +3547,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-b861835-allow-fallback",
@@ -1816,7 +3562,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-b861835-guard",
@@ -1830,7 +3577,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-jmrtd-propagate",
@@ -1841,7 +3589,8 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-jmrtd-catch-continue",
@@ -1852,7 +3601,8 @@
       "driver": "java",
       "integrator": "catch-continue",
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "silent"
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-emrtd-dotnet-default",
@@ -1863,7 +3613,8 @@
       "cell": "PACE",
       "driver": "dotnet",
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-dmrtd-default",
@@ -1874,7 +3625,8 @@
       "cell": "PACE",
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08a"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-gmrtd-8fea245-default",
@@ -1888,7 +3640,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-gmrtd-64bd6ab-default",
@@ -1902,7 +3655,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-gmrtd-64bd6ab-allow-fallback",
@@ -1916,7 +3670,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-gmrtd-8fea245-guard",
@@ -1930,7 +3685,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-gmrtd-64bd6ab-guard",
@@ -1944,7 +3700,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-gmrtd-b861835-default",
@@ -1958,7 +3715,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-gmrtd-b861835-allow-fallback",
@@ -1972,7 +3730,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-gmrtd-b861835-guard",
@@ -1986,7 +3745,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-jmrtd-propagate",
@@ -1997,7 +3757,8 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-jmrtd-catch-continue",
@@ -2008,7 +3769,8 @@
       "driver": "java",
       "integrator": "catch-continue",
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "silent"
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-emrtd-dotnet-default",
@@ -2019,7 +3781,8 @@
       "cell": "PACE",
       "driver": "dotnet",
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08b"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-dmrtd-default",
@@ -2030,6 +3793,475 @@
       "cell": "PACE",
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08b"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-gmrtd-8fea245-default",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-gmrtd-64bd6ab-default",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-gmrtd-8fea245-guard",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-gmrtd-b861835-default",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-gmrtd-b861835-guard",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-jmrtd-propagate",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-jmrtd-catch-continue",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-emrtd-dotnet-default",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-dmrtd-default",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-gmrtd-8fea245-default",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-gmrtd-64bd6ab-default",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-gmrtd-8fea245-guard",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-gmrtd-b861835-default",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-gmrtd-b861835-guard",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-jmrtd-propagate",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-jmrtd-catch-continue",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-emrtd-dotnet-default",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-dmrtd-default",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-gmrtd-8fea245-default",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-gmrtd-64bd6ab-default",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-gmrtd-8fea245-guard",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-gmrtd-64bd6ab-guard",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-gmrtd-b861835-default",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-gmrtd-b861835-allow-fallback",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-gmrtd-b861835-guard",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "PACE",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-jmrtd-propagate",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-jmrtd-catch-continue",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "PACE",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-emrtd-dotnet-default",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "PACE",
+      "driver": "dotnet",
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-dmrtd-default",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "PACE",
+      "driver": "dart",
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
       "expect_outcome": "surfaced"
     },
     {
@@ -2044,7 +4276,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-gmrtd-64bd6ab-default",
@@ -2058,7 +4291,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-gmrtd-64bd6ab-allow-fallback",
@@ -2072,7 +4306,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-gmrtd-8fea245-guard",
@@ -2086,7 +4321,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-gmrtd-64bd6ab-guard",
@@ -2100,7 +4336,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-gmrtd-b861835-default",
@@ -2114,7 +4351,8 @@
       "allow_bac_fallback": false,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-gmrtd-b861835-allow-fallback",
@@ -2128,7 +4366,8 @@
       "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-gmrtd-b861835-guard",
@@ -2142,7 +4381,8 @@
       "allow_bac_fallback": false,
       "guard": true,
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-jmrtd-propagate",
@@ -2153,7 +4393,8 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-jmrtd-catch-continue",
@@ -2164,7 +4405,8 @@
       "driver": "java",
       "integrator": "catch-continue",
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "silent"
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-emrtd-dotnet-default",
@@ -2175,7 +4417,8 @@
       "cell": "PACE",
       "driver": "dotnet",
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-dmrtd-default",
@@ -2186,7 +4429,8 @@
       "cell": "PACE",
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08c"
     },
     {
       "scenario_id": "PACE-mse-set-at-6fff-gmrtd-8fea245-default",

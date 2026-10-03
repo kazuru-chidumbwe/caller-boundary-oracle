@@ -51,25 +51,28 @@ type Vsmartcard struct {
 	AaSW string `json:"aa_sw,omitempty"`
 	// CardAccess is "pace-only" (default) or "npa" (the nPA card's TA, CA and PACE infos).
 	CardAccess string `json:"card_access,omitempty"`
+	// PaceSW and PaceStep fail one PACE step: "mse" (first MSE:Set AT) or "ga1" to "ga4".
+	PaceSW   string `json:"pace_sw,omitempty"`
+	PaceStep string `json:"pace_step,omitempty"`
 }
 
 type Profile struct {
 	// Peer selects the chip: "" for the harness simulator, "vsmartcard" for the independent card.
-	Peer       string     `json:"peer,omitempty"`
-	Vsmartcard Vsmartcard `json:"vsmartcard,omitempty"`
-	ID            string       `json:"id"`
-	Name          string       `json:"name"`
-	Mechanism     string       `json:"mechanism"`
-	Condition     string       `json:"condition"`
-	Tier          string       `json:"tier"`
-	MRZ           MRZ          `json:"mrz"`
-	CardAccessHex string       `json:"card_access_hex"`
-	Dg14HexPath   string       `json:"dg14_hex_path,omitempty"`
-	Dg15HexPath   string       `json:"dg15_hex_path,omitempty"`
-	Injection     Injection    `json:"injection,omitempty"`
-	CAInjection   CAInjection  `json:"ca_injection,omitempty"`
-	AAInjection   AAInjection  `json:"aa_injection,omitempty"`
-	TAInjection   TAInjection  `json:"ta_injection,omitempty"`
+	Peer          string      `json:"peer,omitempty"`
+	Vsmartcard    Vsmartcard  `json:"vsmartcard,omitempty"`
+	ID            string      `json:"id"`
+	Name          string      `json:"name"`
+	Mechanism     string      `json:"mechanism"`
+	Condition     string      `json:"condition"`
+	Tier          string      `json:"tier"`
+	MRZ           MRZ         `json:"mrz"`
+	CardAccessHex string      `json:"card_access_hex"`
+	Dg14HexPath   string      `json:"dg14_hex_path,omitempty"`
+	Dg15HexPath   string      `json:"dg15_hex_path,omitempty"`
+	Injection     Injection   `json:"injection,omitempty"`
+	CAInjection   CAInjection `json:"ca_injection,omitempty"`
+	AAInjection   AAInjection `json:"aa_injection,omitempty"`
+	TAInjection   TAInjection `json:"ta_injection,omitempty"`
 	// PeerSupport documents asymmetric mechanisms (e.g. TA: gmrtd unsupported).
 	PeerSupport map[string]string `json:"peer_support,omitempty"`
 }
@@ -101,4 +104,18 @@ func LoadHexFile(path string) ([]byte, error) {
 		return r
 	}, string(raw))
 	return hex.DecodeString(s)
+}
+
+// VsmartcardPaceFaultPoint names the PACE step a vsmartcard profile fails ("" for none):
+// "mse" is "PACE/mse_set_at", "gaN" is "PACE/general_authenticate_stepN".
+func VsmartcardPaceFaultPoint(step string) string {
+	switch {
+	case step == "":
+		return ""
+	case step == "mse":
+		return "PACE/mse_set_at"
+	case len(step) == 3 && step[:2] == "ga":
+		return "PACE/general_authenticate_step" + step[2:]
+	}
+	return "PACE/" + step
 }

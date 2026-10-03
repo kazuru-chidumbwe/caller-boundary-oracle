@@ -78,7 +78,7 @@ public final class JmrtdRead {
         switch (mechanism) {
             case "PACE" -> {
                 if (vsc) {
-                    VsmartcardCardService card = new VsmartcardCardService(root, false, "", profile.vsmartcard == null ? null : profile.vsmartcard.cardAccess);
+                    VsmartcardCardService card = new VsmartcardCardService(root, a.profilePath);
                     try {
                         PassportService service = openService(card);
                         readWithPace(service, readCardAccess(service), bacKey, integrator, step, true);
@@ -87,7 +87,7 @@ public final class JmrtdRead {
                     } finally {
                         card.close();
                     }
-                    fired = card.faultDelivered();
+                    fired = card.faultDelivered("PACE");
                     trace = trace(card.trace());
                 } else {
                     String paceSw = profile.injection != null && profile.injection.paceSw != null ? profile.injection.paceSw : "6FFF";
@@ -105,7 +105,7 @@ public final class JmrtdRead {
             }
             case "AA" -> {
                 if (vsc) {
-                    VsmartcardCardService card = new VsmartcardCardService(root, profile.vsmartcard.dg15, profile.vsmartcard.aaSw, profile.vsmartcard.cardAccess);
+                    VsmartcardCardService card = new VsmartcardCardService(root, a.profilePath);
                     try {
                         PassportService service = openService(card);
                         readWithAa(service, readCardAccess(service), bacKey, integrator, step);
@@ -114,7 +114,7 @@ public final class JmrtdRead {
                     } finally {
                         card.close();
                     }
-                    fired = card.faultDelivered();
+                    fired = card.faultDelivered("AA");
                     trace = trace(card.trace());
                 } else {
                     String aaSw = profile.aaInjection != null && profile.aaInjection.aaSw != null ? profile.aaInjection.aaSw : "6982";
@@ -281,14 +281,30 @@ public final class JmrtdRead {
     static String faultPoint(HarnessProfile profile, String mechanism) {
         boolean vsc = "vsmartcard".equals(profile.peer);
         return switch (mechanism) {
-            case "PACE" -> vsc || profile.cardAccessHex == null || profile.cardAccessHex.isEmpty()
-                    || profile.injection == null || profile.injection.paceFailOn == null
-                    ? "" : "PACE/" + profile.injection.paceFailOn;
+            case "PACE" -> vsc
+                    ? vscPaceFaultPoint(profile.vsmartcard == null ? null : profile.vsmartcard.paceStep)
+                    : profile.cardAccessHex == null || profile.cardAccessHex.isEmpty()
+                        || profile.injection == null || profile.injection.paceFailOn == null
+                        ? "" : "PACE/" + profile.injection.paceFailOn;
             case "AA" -> vsc
                     ? (profile.vsmartcard == null || profile.vsmartcard.aaSw == null || profile.vsmartcard.aaSw.isEmpty()
                         ? "" : "AA/internal_authenticate")
                     : (profile.aaInjection == null ? "" : "AA/" + profile.aaInjection.aaFailOn);
             default -> "";
         };
+    }
+
+    /** "mse" is PACE/mse_set_at, "gaN" is PACE/general_authenticate_stepN (internal/profile). */
+    static String vscPaceFaultPoint(String step) {
+        if (step == null || step.isEmpty()) {
+            return "";
+        }
+        if (step.equals("mse")) {
+            return "PACE/mse_set_at";
+        }
+        if (step.length() == 3 && step.startsWith("ga")) {
+            return "PACE/general_authenticate_step" + step.substring(2);
+        }
+        return "PACE/" + step;
     }
 }

@@ -67,7 +67,7 @@ func main() {
 	if err != nil {
 		fatal("password", err)
 	}
-	chip, closeChip, err := openChip(p, pass)
+	chip, closeChip, err := openChip(p, *profilePath, pass)
 	if err != nil {
 		fatal("chip", err)
 	}
@@ -131,6 +131,9 @@ func main() {
 func faultPoint(p *profile.Profile, m guard.Mechanism) string {
 	switch m {
 	case guard.PACE:
+		if p.Peer == "vsmartcard" {
+			return profile.VsmartcardPaceFaultPoint(p.Vsmartcard.PaceStep)
+		}
 		if p.CardAccessHex == "" || p.Injection.PaceFailOn == "" {
 			return ""
 		}
@@ -150,7 +153,7 @@ func faultPoint(p *profile.Profile, m guard.Mechanism) string {
 }
 
 // openChip returns the peer the profile asks for and a function that releases it.
-func openChip(p *profile.Profile, pass *password.Password) (gmrtdrun.Chip, func(), error) {
+func openChip(p *profile.Profile, profilePath string, pass *password.Password) (gmrtdrun.Chip, func(), error) {
 	switch p.Peer {
 	case "":
 		cfg, err := simulator.ChipConfigFromProfile(p)
@@ -163,7 +166,7 @@ func openChip(p *profile.Profile, pass *password.Password) (gmrtdrun.Chip, func(
 		if err != nil {
 			return nil, nil, err
 		}
-		peer, err := simulator.StartVsmartcard(root, simulator.VsmartcardConfig{Dg15: p.Vsmartcard.Dg15, AaSW: p.Vsmartcard.AaSW, CardAccess: p.Vsmartcard.CardAccess})
+		peer, err := simulator.StartVsmartcard(root, simulator.VsmartcardConfig{ProfilePath: profilePath})
 		if err != nil {
 			return nil, nil, err
 		}

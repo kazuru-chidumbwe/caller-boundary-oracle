@@ -13,5 +13,6 @@
   "injection": {
     "pace_fail_on": "mse_set_at",
     "pace_sw": "6A80"
-  }
+  },
+  "icao_p4": "ISO7816_C_08a"
 }

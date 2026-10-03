@@ -26,7 +26,7 @@ string readErr = "";
 string? accessControl = null;
 VpcdTransport transport = vsc
     ? new VpcdTransport("python3", port => [Path.Combine(root, "tools/vsmartcard/emrtd_card.py"), "--port", port.ToString(),
-        "--card-access", (string?)profile["vsmartcard"]?["card_access"] ?? "pace-only"])
+        "--profile", a.Profile, "--report", report])
     : new VpcdTransport(a.ChipServe, port => ["-profile", a.Profile, "-port", port.ToString(), "-report", report]);
 try
 {
@@ -43,7 +43,7 @@ finally
 }
 
 bool fired = false;
-if (!vsc && File.Exists(report))
+if (File.Exists(report))
 {
     fired = JsonNode.Parse(File.ReadAllText(report))!["fault_delivered"]?["PACE"]?.GetValue<bool>() ?? false;
     File.Delete(report);
@@ -99,9 +99,21 @@ return 0;
 
 static string FaultPoint(JsonObject profile, bool vsc)
 {
+    if (vsc)
+    {
+        // "mse" is PACE/mse_set_at, "gaN" is PACE/general_authenticate_stepN (internal/profile).
+        string step = (string?)profile["vsmartcard"]?["pace_step"] ?? "";
+        return step switch
+        {
+            "" => "",
+            "mse" => "PACE/mse_set_at",
+            _ when step.Length == 3 && step.StartsWith("ga") => "PACE/general_authenticate_step" + step[2..],
+            _ => "PACE/" + step,
+        };
+    }
     string? cardAccess = (string?)profile["card_access_hex"];
     string? failOn = (string?)profile["injection"]?["pace_fail_on"];
-    return vsc || string.IsNullOrEmpty(cardAccess) || string.IsNullOrEmpty(failOn) ? "" : "PACE/" + failOn;
+    return string.IsNullOrEmpty(cardAccess) || string.IsNullOrEmpty(failOn) ? "" : "PACE/" + failOn;
 }
 
 static JsonObject Provenance(string root, Args a)

@@ -13,5 +13,6 @@
   "ca_injection": {
     "ca_fail_on": "mse_set_at",
     "ca_sw": "6300"
-  }
+  },
+  "icao_p4": "ISO7816_G_15a"
 }

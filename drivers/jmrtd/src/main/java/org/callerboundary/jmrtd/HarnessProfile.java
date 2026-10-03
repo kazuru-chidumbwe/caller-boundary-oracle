@@ -49,6 +49,11 @@ public final class HarnessProfile {
         public String aaSw;
         @SerializedName("card_access")
         public String cardAccess;
+        @SerializedName("pace_sw")
+        public String paceSw;
+        /** "mse" (first MSE:Set AT) or "ga1" to "ga4" (PACE General Authenticate steps). */
+        @SerializedName("pace_step")
+        public String paceStep;
     }
 
     public static final class AaInjection {

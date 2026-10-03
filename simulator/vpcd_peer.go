@@ -2,6 +2,7 @@ package simulator
 
 import (
 	"encoding/binary"
+	"encoding/json"
 	"fmt"
 	"io"
 	"net"
@@ -20,14 +21,11 @@ const (
 	vpcdGetATR   = 0x04
 )
 
-// VsmartcardConfig selects what the independent vsmartcard chip serves.
+// VsmartcardConfig selects the profile the independent vsmartcard chip serves.
 type VsmartcardConfig struct {
-	// Dg15 serves DG15 so readers attempt Active Authentication.
-	Dg15 bool
-	// AaSW fails INTERNAL AUTHENTICATE with this status word (hex, empty for no fault).
-	AaSW string
-	// CardAccess selects the chip's EF.CardAccess ("" or "pace-only", or "npa").
-	CardAccess string
+	// ProfilePath is the profile JSON; the card reads its "vsmartcard" object (what to serve,
+	// which step to fail).
+	ProfilePath string
 }
 
 // VsmartcardPeer runs tools/vsmartcard/emrtd_card.py and acts as its reader: it accepts
@@ -39,7 +37,7 @@ type VsmartcardPeer struct {
 	conn    net.Conn
 	ln      net.Listener
 	atr     []byte
-	aaSent  bool
+	report  string
 	lastErr error
 }
 
@@ -50,16 +48,15 @@ func StartVsmartcard(repoRoot string, cfg VsmartcardConfig) (*VsmartcardPeer, er
 		return nil, err
 	}
 	port := ln.Addr().(*net.TCPAddr).Port
-	args := []string{filepath.Join(repoRoot, "tools", "vsmartcard", "emrtd_card.py"), "--port", fmt.Sprint(port)}
-	if cfg.Dg15 {
-		args = append(args, "--dg15")
+	rf, err := os.CreateTemp("", "vsmartcard-report-*.json")
+	if err != nil {
+		ln.Close()
+		return nil, err
 	}
-	if cfg.AaSW != "" {
-		args = append(args, "--aa-sw", cfg.AaSW)
-	}
-	if cfg.CardAccess != "" {
-		args = append(args, "--card-access", cfg.CardAccess)
-	}
+	report := rf.Name()
+	rf.Close()
+	args := []string{filepath.Join(repoRoot, "tools", "vsmartcard", "emrtd_card.py"), "--port", fmt.Sprint(port),
+		"--profile", cfg.ProfilePath, "--report", report}
 	if lvl := os.Getenv("VSMARTCARD_LOG_LEVEL"); lvl != "" {
 		args = append(args, "--log-level", lvl)
 	}
@@ -70,7 +67,7 @@ func StartVsmartcard(repoRoot string, cfg VsmartcardConfig) (*VsmartcardPeer, er
 		ln.Close()
 		return nil, fmt.Errorf("start vsmartcard card: %w", err)
 	}
-	p := &VsmartcardPeer{cfg: cfg, cmd: cmd, ln: ln}
+	p := &VsmartcardPeer{cfg: cfg, cmd: cmd, ln: ln, report: report}
 	if tl, ok := ln.(*net.TCPListener); ok {
 		_ = tl.SetDeadline(time.Now().Add(30 * time.Second))
 	}
@@ -121,9 +118,6 @@ var _ iso7816.Transceiver = (*VsmartcardPeer)(nil)
 // Transceive forwards the encoded command APDU to the card and returns its response.
 // A transport failure is returned as an empty response, which gmrtd treats as an error.
 func (p *VsmartcardPeer) Transceive(_, ins, _, _ int, _ []byte, _ int, encodedData []byte) []byte {
-	if byte(ins) == iso7816.INS_INTERNAL_AUTHENTICATE {
-		p.aaSent = true
-	}
 	if err := p.send(encodedData); err != nil {
 		p.lastErr = err
 		return nil
@@ -136,10 +130,20 @@ func (p *VsmartcardPeer) Transceive(_, ins, _, _ int, _ []byte, _ int, encodedDa
 	return rsp
 }
 
-// FaultDelivered reports whether the configured fault was exercised. Only Active
-// Authentication can be failed on this chip; PACE and CA always run unmodified.
+// FaultDelivered reports whether the card sent the injected failure for mechanism, as recorded
+// in the card's delivered-fault report.
 func (p *VsmartcardPeer) FaultDelivered(mechanism string) bool {
-	return mechanism == "AA" && p.cfg.AaSW != "" && p.aaSent
+	data, err := os.ReadFile(p.report)
+	if err != nil {
+		return false
+	}
+	var r struct {
+		FaultDelivered map[string]bool `json:"fault_delivered"`
+	}
+	if json.Unmarshal(data, &r) != nil {
+		return false
+	}
+	return r.FaultDelivered[mechanism]
 }
 
 // TransportError returns the first socket error seen, if any.

@@ -58,7 +58,8 @@ EXPECT = {
 # plaintext, a response object only survives for status words matching (sw & 0x6700) == 0x6700
 # (secure messaging skips them as "wrong length"): 6F00 and 6FFF. With the independent chip,
 # which answers errors under secure messaging, it survives for every status word.
-JMRTD_AA_SWALLOWED = {"6F00", "6FFF"}
+def _jmrtd_aa_swallowed(sw: str) -> bool:
+    return int(sw, 16) & 0x6700 == 0x6700
 
 CONTROL_EXPECT = {
     "CTRL-bac-only": {arm: NA for arm in EXPECT["PACE"]},
@@ -88,7 +89,7 @@ def _add_v132(table: dict) -> None:
 
 def expect_for(prof: dict, mechanism: str) -> dict[str, str | None]:
     expect = dict(EXPECT[mechanism])
-    if mechanism == "AA" and prof["aa_injection"]["aa_sw"] in JMRTD_AA_SWALLOWED:
+    if mechanism == "AA" and _jmrtd_aa_swallowed(prof["aa_injection"]["aa_sw"]):
         expect["propagate"] = S
         expect["catch-continue"] = S
     return expect
@@ -119,6 +120,9 @@ INDEPENDENT_PACE_FLAKY = {"gmrtd", "dmrtd"}
 
 for _table in (EXPECT, CONTROL_EXPECT, CONTROL_RETURNED_ERROR, INDEPENDENT_EXPECT):
     _add_v132(_table)
+
+# PACE failed by the independent chip: predicted as on the harness chip, measured below.
+INDEPENDENT_PACE_FAULT = dict(EXPECT["PACE"])
 
 
 def entries_for(
@@ -176,6 +180,8 @@ def entries_for(
             "expect_outcome": expect[arm],
         })
     for e in out:
+        if prof.get("icao_p4"):
+            e["icao_p4"] = prof["icao_p4"]
         want = dict(observation or {})
         if returned_error:
             want["returned_error"] = returned_error[e.get("arm", e["variant"])]
@@ -208,7 +214,15 @@ def main() -> None:
 
     independent = []
     for rel, p in load_profiles("independent"):
-        if p["mechanism"] == "PACE":
+        if p["mechanism"] == "PACE" and p.get("vsmartcard", {}).get("pace_step"):
+            # PACE failed by the independent chip at one step. The chip offers no BAC, so arms
+            # that fall back after the failure cannot finish the read; see INDEPENDENT_PACE_FAULT.
+            entries = entries_for(rel, p, "VSC-PACE", INDEPENDENT_PACE_FAULT)
+            for e in entries:
+                if e["library"] in INDEPENDENT_PACE_FLAKY:
+                    e["expect_outcome"] = [e["expect_outcome"], NA]
+            independent += entries
+        elif p["mechanism"] == "PACE":
             # Positive controls: nothing is injected, so every arm is not applicable. JMRTD and
             # emrtd-dotnet must also complete PACE and the read; gmrtd and dmrtd may fail PACE
             # intermittently (see INDEPENDENT_PACE_FLAKY).

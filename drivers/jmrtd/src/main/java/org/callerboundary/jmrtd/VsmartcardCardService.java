@@ -9,12 +9,14 @@ import net.sf.scuba.util.Hex;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -27,36 +29,25 @@ public final class VsmartcardCardService extends CardService {
     private static final byte POWER_OFF = 0x00;
     private static final byte POWER_ON = 0x01;
     private static final byte GET_ATR = 0x04;
-    private static final int INS_INTERNAL_AUTHENTICATE = 0x88;
 
-    private final String aaSw;
+    private final Path report;
     private transient Process card;
     private transient ServerSocket server;
     private transient Socket socket;
     private transient DataInputStream in;
     private transient DataOutputStream out;
     private byte[] atr = new byte[0];
-    private boolean aaSent;
     private final List<PaceFailureCardService.TraceEntry> trace = new ArrayList<>();
 
-    public VsmartcardCardService(Path repoRoot, boolean dg15, String aaSw, String cardAccess) throws IOException {
-        this.aaSw = aaSw == null ? "" : aaSw;
+    /** Starts the card for the profile at profilePath (its "vsmartcard" object configures the card). */
+    public VsmartcardCardService(Path repoRoot, String profilePath) throws IOException {
+        report = Files.createTempFile("vsmartcard-report-", ".json");
         server = new ServerSocket(0, 1, InetAddress.getLoopbackAddress());
         server.setSoTimeout(30_000);
         List<String> cmd = new ArrayList<>(List.of("python3",
                 repoRoot.resolve("tools/vsmartcard/emrtd_card.py").toString(),
-                "--port", Integer.toString(server.getLocalPort())));
-        if (dg15) {
-            cmd.add("--dg15");
-        }
-        if (!this.aaSw.isEmpty()) {
-            cmd.add("--aa-sw");
-            cmd.add(this.aaSw);
-        }
-        if (cardAccess != null && !cardAccess.isEmpty()) {
-            cmd.add("--card-access");
-            cmd.add(cardAccess);
-        }
+                "--port", Integer.toString(server.getLocalPort()),
+                "--profile", profilePath, "--report", report.toString()));
         String level = System.getenv("VSMARTCARD_LOG_LEVEL");
         if (level != null && !level.isEmpty()) {
             cmd.add("--log-level");
@@ -106,9 +97,6 @@ public final class VsmartcardCardService extends CardService {
 
     @Override
     public ResponseAPDU transmit(CommandAPDU capdu) throws CardServiceException {
-        if (capdu.getINS() == INS_INTERNAL_AUTHENTICATE) {
-            aaSent = true;
-        }
         try {
             send(capdu.getBytes());
             byte[] rsp = recv();
@@ -159,8 +147,15 @@ public final class VsmartcardCardService extends CardService {
         return trace;
     }
 
-    /** Whether the configured fault was exercised (only Active Authentication can be failed). */
-    public boolean faultDelivered() {
-        return !aaSw.isEmpty() && aaSent;
+    /** Whether the card sent the injected failure for mechanism, per its delivered-fault report. */
+    @SuppressWarnings("unchecked")
+    public boolean faultDelivered(String mechanism) {
+        try {
+            Map<String, Object> r = new com.google.gson.Gson().fromJson(Files.readString(report), Map.class);
+            Object d = r == null ? null : r.get("fault_delivered");
+            return d instanceof Map<?, ?> m && Boolean.TRUE.equals(m.get(mechanism));
+        } catch (IOException | com.google.gson.JsonParseException e) {
+            return false;
+        }
     }
 }
