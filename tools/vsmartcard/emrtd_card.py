@@ -14,6 +14,12 @@ there, which readers reject when parsing DG1):
 i.e. document number T22000129, date of birth 640812, date of expiry 201031. The PACE key
 derives from those three fields and their own check digits, which the change leaves intact.
 
+The nPA card implements PACE but not Basic Access Control, which eMRTDs that support PACE also
+offer. A reader that falls back to BAC after a PACE failure would otherwise be refused (6985)
+for a reason no passport gives. The card therefore also answers BAC: EXTERNAL AUTHENTICATE
+outside an EAC session runs vsmartcard's own ICAO BAC (cards/ePass.py, keys from the same MRZ)
+and hands secure messaging to that session.
+
 Requires the pinned vsmartcard checkout with tools/vsmartcard/vsmartcard-python3.patch
 applied (scripts/bootstrap-vsmartcard.sh), and the OpenPACE Python bindings.
 
@@ -30,11 +36,14 @@ observes delivery the same way.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 from pathlib import Path
 
 from virtualsmartcard.SmartcardFilesystem import DF, TransparentStructureEF
+from virtualsmartcard.SmartcardSAM import SAM
+from virtualsmartcard.cards.ePass import PassportSAM, ePass_SE
 from virtualsmartcard.SWutils import SwError
 from virtualsmartcard.TLVutils import pack
 from virtualsmartcard.VirtualSmartcard import VirtualICC
@@ -79,6 +88,30 @@ class Report:
             tmp = self.path.with_suffix(".tmp")
             tmp.write_text(json.dumps({"fault_delivered": self.delivered}), encoding="utf-8")
             tmp.replace(self.path)
+
+
+def install_bac(os_, mrz: bytes) -> None:
+    """Answer BAC with vsmartcard's ePass implementation, keyed from the TD1 MRZ."""
+    line1, line2 = mrz[:30], mrz[30:60]
+    # document number + check digit, date of birth + check digit, date of expiry + check digit
+    seed = hashlib.sha1(line1[5:15] + line2[0:7] + line2[8:15]).digest()[:16]
+    bac = PassportSAM.__new__(PassportSAM)  # its constructor expects a TD3 DG1 at a fixed path
+    SAM.__init__(bac, None, None, os_.mf, default_se=ePass_SE)
+    bac.KSeed = seed
+    bac.KEnc = PassportSAM.derive_key(seed, 1)
+    bac.KMac = PassportSAM.derive_key(seed, 2)
+    npa_sam = os_.SAM
+    npa_external_authenticate = os_.ins2handler[0x82]
+
+    def external_authenticate(p1, p2, data):
+        if getattr(npa_sam.current_SE, "eac_step", 0) == 4:
+            return npa_external_authenticate(p1, p2, data)  # Terminal Authentication
+        bac.last_challenge = npa_sam.last_challenge
+        sw, resp = bac.external_authenticate(p1, p2, data)
+        os_.SAM = bac  # secure messaging now uses the BAC session keys
+        return sw, resp
+
+    os_.ins2handler[0x82] = external_authenticate
 
 
 def hexfile(name: str) -> bytes:
@@ -126,6 +159,7 @@ def main() -> None:
     shipped = os_.SAM.mrz
     assert shipped[:59] == MRZ[:59] and shipped[60:] == MRZ[60:], "vsmartcard nPA MRZ changed; update the harness profile"
     os_.SAM.mrz = MRZ
+    install_bac(os_, MRZ)
     os_.mf.append(emrtd_application(os_.mf, bool(vs.get("dg15"))))
     if card_access == "pace-only":
         os_.mf.select("fid", 0x011C).data = CARD_ACCESS_PACE_ONLY
