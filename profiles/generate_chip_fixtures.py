@@ -7,8 +7,12 @@ The hashes are real SHA-256 digests of the served files, so Document.Verify pass
 The signer is a throwaway self-signed certificate: Passive Authentication fails against
 the empty CSCA pool the drivers use, which gmrtd records without aborting the read.
 
-Outputs (committed): simulator/fixtures/sod-dg14.hex, sod-dg15.hex, and vsc-*.hex for the
-independent vsmartcard chip.
+The harness chip is consistent: it serves DG1 (a TD3 MRZ for the ICAO 9303 Part 11 worked
+example document used by every harness profile) and EF.COM and EF.SOD list exactly the data
+groups it serves (DG1, plus DG14 or DG15 when a profile configures them).
+
+Outputs (committed): simulator/fixtures/dg1.hex, sod-dg1.hex, sod-dg1-dg14.hex,
+sod-dg1-dg15.hex, and vsc-*.hex for the independent vsmartcard chip.
 """
 
 from __future__ import annotations
@@ -163,6 +167,38 @@ def write_hex(name: str, data: bytes) -> None:
     print(f"wrote {out.relative_to(ROOT)} ({len(data)} bytes)")
 
 
+def check_digit(s: str) -> str:
+    total = 0
+    for i, c in enumerate(s):
+        v = 0 if c == "<" else int(c) if c.isdigit() else ord(c) - 55
+        total += v * (7, 3, 1)[i % 3]
+    return str(total % 10)
+
+
+def harness_td3_mrz() -> bytes:
+    """TD3 MRZ for document L898902C, born 690806, expiring 940623 (the MRZ data of every
+    harness profile; ICAO 9303 Part 11 worked example), with valid check digits."""
+    line1 = "P<UTOERIKSSON<<ANNA<MARIA".ljust(44, "<")
+    doc, dob, doe, opt = "L898902C<", "690806", "940623", "ZE184226B".ljust(14, "<")
+    parts = [doc + check_digit(doc), dob + check_digit(dob), doe + check_digit(doe), opt + check_digit(opt)]
+    line2 = parts[0] + "UTO" + parts[1] + "F" + parts[2] + parts[3]
+    line2 += check_digit(parts[0] + parts[1] + parts[2] + parts[3])
+    assert len(line1) == 44 and len(line2) == 44, (len(line1), len(line2))
+    return (line1 + line2).encode("ascii")
+
+
+def harness_fixtures(key: rsa.RSAPrivateKey, cert: bytes) -> None:
+    """DG1, and SODs listing DG1 alone or with DG14 / DG15, with real hashes."""
+    dg1 = tlv(bytes([0x61]), tlv(bytes([0x5F, 0x1F]), harness_td3_mrz()))
+    write_hex("dg1.hex", dg1)
+    dgs = {n: bytes.fromhex(p.read_text(encoding="utf-8").strip()) for n, p in DG_FILES.items()}
+    for name, groups in (("sod-dg1.hex", {1: dg1}),
+                         ("sod-dg1-dg14.hex", {1: dg1, 14: dgs[14]}),
+                         ("sod-dg1-dg15.hex", {1: dg1, 15: dgs[15]})):
+        econtent = lds_security_object({n: hashlib.sha256(b).digest() for n, b in groups.items()})
+        write_hex(name, retag_as_ef_sod(sign_sod(key, [cert], econtent, "sha256")))
+
+
 def vsmartcard_fixtures(key: rsa.RSAPrivateKey, cert: bytes) -> None:
     """DG1 with the vsmartcard MRZ, and SODs listing DG1 (and DG15) with real hashes."""
     dg1 = tlv(bytes([0x61]), tlv(bytes([0x5F, 0x1F]), VSC_MRZ))
@@ -175,10 +211,7 @@ def vsmartcard_fixtures(key: rsa.RSAPrivateKey, cert: bytes) -> None:
 
 def main() -> None:
     key, cert = self_signed()
-    for number, path in DG_FILES.items():
-        dg = bytes.fromhex(path.read_text(encoding="utf-8").strip())
-        econtent = lds_security_object({number: hashlib.sha256(dg).digest()})
-        write_hex(f"sod-dg{number}.hex", retag_as_ef_sod(sign_sod(key, [cert], econtent, "sha256")))
+    harness_fixtures(key, cert)
     vsmartcard_fixtures(key, cert)
 
 

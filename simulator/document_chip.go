@@ -10,20 +10,27 @@ import (
 	"github.com/gmrtd/gmrtd/utils"
 )
 
-//go:embed fixtures/base-ef-sod.hex
-var baseEfSodHex string
+//go:embed fixtures/dg1.hex
+var dg1Hex string
 
-//go:embed fixtures/sod-dg14.hex
-var sodDg14Hex string
+//go:embed fixtures/sod-dg1.hex
+var sodDg1Hex string
 
-//go:embed fixtures/sod-dg15.hex
-var sodDg15Hex string
+//go:embed fixtures/sod-dg1-dg14.hex
+var sodDg1Dg14Hex string
+
+//go:embed fixtures/sod-dg1-dg15.hex
+var sodDg1Dg15Hex string
 
 // ICAO Doc 9303 Part 10 Table 31 EF.DIR sample.
 var baseEfDir = utils.HexToBytes("61094F07A000000247100161094F07A000000247200161094F07A000000247200261094F07A0000002472003")
 
-// ICAO Doc 9303 Part 10 EF.COM sample (gmrtd document/com_test.go).
-var baseEfCom = utils.HexToBytes("60145F0104303130365F36063034303030305C026175")
+// efCom builds EF.COM (LDS 1.7, Unicode 4.0.0) listing the given data-group tags.
+func efCom(tags ...byte) []byte {
+	body := append(utils.HexToBytes("5F0104303130375F3606303430303030"), 0x5C, byte(len(tags)))
+	body = append(body, tags...)
+	return append([]byte{0x60, byte(len(body))}, body...)
+}
 
 // File IDs read by gmrtd reader.ReadDocument.
 const (
@@ -31,6 +38,7 @@ const (
 	fileIDEFSOD      = uint16(0x011D)
 	fileIDEFCOM      = uint16(0x011E)
 	fileIDEFDIR      = uint16(0x2F00)
+	fileIDDG1        = uint16(0x0101)
 	fileIDDG14       = uint16(0x010E)
 	fileIDDG15       = uint16(0x010F)
 )
@@ -75,10 +83,12 @@ func NewDocumentChip(cfg ChipConfig, pass *password.Password) *DocumentChip {
 	if paceSW == "" {
 		paceSW = "6FFF"
 	}
-	sod := baseEfSodHex
+	// EF.COM and EF.SOD list exactly the data groups served: DG1, plus DG14 or DG15.
+	sod := sodDg1Hex
+	comTags := []byte{0x61}
 	files := map[uint16][]byte{
 		fileIDEFDIR: bytesClone(baseEfDir),
-		fileIDEFCOM: bytesClone(baseEfCom),
+		fileIDDG1:   utils.HexToBytes(strings.TrimSpace(dg1Hex)),
 	}
 	if cfg.CardAccessHex != "" {
 		files[fileIDCardAccess] = utils.HexToBytes(cfg.CardAccessHex)
@@ -86,11 +96,14 @@ func NewDocumentChip(cfg ChipConfig, pass *password.Password) *DocumentChip {
 	switch {
 	case cfg.Dg14Hex != "":
 		files[fileIDDG14] = utils.HexToBytes(cfg.Dg14Hex)
-		sod = sodDg14Hex
+		sod = sodDg1Dg14Hex
+		comTags = append(comTags, 0x6E)
 	case cfg.Dg15Hex != "":
 		files[fileIDDG15] = utils.HexToBytes(cfg.Dg15Hex)
-		sod = sodDg15Hex
+		sod = sodDg1Dg15Hex
+		comTags = append(comTags, 0x6F)
 	}
+	files[fileIDEFCOM] = efCom(comTags...)
 	files[fileIDEFSOD] = utils.HexToBytes(strings.TrimSpace(sod))
 	chip := &DocumentChip{
 		bac:   NewPaceBacTransceiverWithChannel(paceSW, cfg.PaceFailOn, cfg.PaceChannel, pass),
