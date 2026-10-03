@@ -1,0 +1,26 @@
+name: dmrtd_read
+description: Caller-boundary oracle driver for dmrtd (ZeroPass).
+publish_to: none
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  dmrtd:
+    path: ../../../_vendor/dmrtd
+  logging: ^1.3.0
+
+# dmrtd declares Flutter-only packages that its reader code does not use: flutter_nfc_kit
+# (imported only by its NFC provider, which the driver replaces with its own ComProvider),
+# expandable and diffie_hellman (never imported). Empty stand-ins let plain Dart resolve
+# dmrtd; scripts/bootstrap-dart.sh checks those import facts against the pinned dmrtd.
+# tripledes_nullsafety is used (3DES for BAC); bootstrap-dart.sh prepares the published
+# 1.0.3 code with its unused Flutter dependency line removed. No dmrtd code is changed.
+dependency_overrides:
+  tripledes_nullsafety:
+    path: ../../../_vendor/tripledes_nullsafety
+  flutter_nfc_kit:
+    path: stubs/flutter_nfc_kit
+  expandable:
+    path: stubs/expandable
+  diffie_hellman:
+    path: stubs/diffie_hellman

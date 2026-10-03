@@ -1,0 +1,27 @@
+--- a/Sources/NFCPassportReader/PassportReader.swift
++++ b/Sources/NFCPassportReader/PassportReader.swift
+@@ -45,3 +45,3 @@
+     public weak var trackingDelegate: PassportReaderTrackingDelegate?
+-    private var passport : NFCPassportModel = NFCPassportModel()
++    var passport : NFCPassportModel = NFCPassportModel()
+     
+@@ -50,7 +50,7 @@
+     
+-    private var dataGroupsToRead : [DataGroupId] = []
+-    private var readAllDatagroups = false
+-    private var skipSecureElements = true
+-    private var skipCA = false
+-    private var skipPACE = false
++    var dataGroupsToRead : [DataGroupId] = []
++    var readAllDatagroups = false
++    var skipSecureElements = true
++    var skipCA = false
++    var skipPACE = false
+     
+@@ -62,4 +62,4 @@
+     private var paceHandler : PACEHandler?
+-    private var mrzKey : String = ""
+-    private var aaChallenge: [UInt8]?
++    var mrzKey : String = ""
++    var aaChallenge: [UInt8]?
+     private var dataAmountToReadOverride : Int? = nil

@@ -1,0 +1,57 @@
+diff --git a/virtualsmartcard/src/vpicc/virtualsmartcard/SEutils.py b/virtualsmartcard/src/vpicc/virtualsmartcard/SEutils.py
+index c20efe0..099fcc9 100644
+--- a/virtualsmartcard/src/vpicc/virtualsmartcard/SEutils.py
++++ b/virtualsmartcard/src/vpicc/virtualsmartcard/SEutils.py
+@@ -35,7 +35,7 @@ class ControlReferenceTemplate:
+     Reference Template:
+     HT, AT, KT, CCT, DST, CT-sym, CT-asym.
+     """
+-    def __init__(self, tag, config=""):
++    def __init__(self, tag, config=b""):
+         """
+         Generates a new CRT
+ 
+@@ -62,7 +62,7 @@ class ControlReferenceTemplate:
+         self.algorithm = None
+         self.blocklength = None
+         self.usage_qualifier = None
+-        if config != "":
++        if config:
+             self.parse_SE_config(config)
+         self.__config_string = config
+ 
+@@ -282,7 +282,7 @@ class Security_Environment(object):
+         """
+ 
+         structure = unpack(CAPDU.data)
+-        return_data = ["", ]
++        return_data = [b"", ]
+ 
+         cla = None
+         ins = None
+diff --git a/virtualsmartcard/src/vpicc/virtualsmartcard/TLVutils.py b/virtualsmartcard/src/vpicc/virtualsmartcard/TLVutils.py
+index d1b8dfb..e30d4c7 100644
+--- a/virtualsmartcard/src/vpicc/virtualsmartcard/TLVutils.py
++++ b/virtualsmartcard/src/vpicc/virtualsmartcard/TLVutils.py
+@@ -118,7 +118,7 @@ def pack(tlv_data, recalculate_length=False):
+     result = []
+ 
+     for data in tlv_data:
+-        if not isinstance(data, tuple):
++        if not isinstance(data, (tuple, list)):
+             break
+         tag, length, value = data[:3]
+         if tag in (0xff, 0x00):
+diff --git a/virtualsmartcard/src/vpicc/virtualsmartcard/utils.py b/virtualsmartcard/src/vpicc/virtualsmartcard/utils.py
+index 3b796f8..b2ec48a 100644
+--- a/virtualsmartcard/src/vpicc/virtualsmartcard/utils.py
++++ b/virtualsmartcard/src/vpicc/virtualsmartcard/utils.py
+@@ -24,6 +24,8 @@ from virtualsmartcard.SWutils import SW_MESSAGES
+ 
+ 
+ def stringtoint(data):
++    if isinstance(data, int):
++        return data
+     i = 0
+     if data:
+         if isinstance(data, str):

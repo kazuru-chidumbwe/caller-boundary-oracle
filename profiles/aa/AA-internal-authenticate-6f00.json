@@ -1,0 +1,17 @@
+{
+  "id": "AA-internal-authenticate-6f00",
+  "name": "Active Authentication rejected at INTERNAL AUTHENTICATE (SW 6F00)",
+  "mechanism": "AA",
+  "condition": "aa_reject_after_bac",
+  "tier": "wire",
+  "mrz": {
+    "document_number": "L898902C",
+    "date_of_birth": "690806",
+    "date_of_expiry": "940623"
+  },
+  "dg15_hex_path": "testdata/dg15/aa-rsa-sample.hex",
+  "aa_injection": {
+    "aa_fail_on": "internal_authenticate",
+    "aa_sw": "6F00"
+  }
+}

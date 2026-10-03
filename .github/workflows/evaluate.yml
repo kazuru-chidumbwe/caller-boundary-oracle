@@ -1,0 +1,58 @@
+name: evaluate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          path: harness
+
+      - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
+        with:
+          go-version: '1.26.5'
+          cache: false
+
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build dependencies for the independent chip
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq autoconf automake libtool pkg-config libssl-dev swig python3-dev gengetopt help2man
+
+      - name: Pinned vendors
+        working-directory: harness
+        run: |
+          bash scripts/bootstrap-vendor.sh
+          bash scripts/install-jmrtd-local.sh
+          bash scripts/bootstrap-vsmartcard.sh
+          bash scripts/bootstrap-dotnet.sh
+          bash scripts/bootstrap-dart.sh
+
+      - name: Tests (both gmrtd pins, Python, Java)
+        working-directory: harness
+        run: make test
+
+      - name: Smoke and full evaluation
+        working-directory: harness
+        run: make evaluate
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: evaluation
+          path: |
+            harness/artifacts/
+            harness/logs/
+          retention-days: 30

@@ -1,0 +1,1176 @@
+{
+  "suite_id": "independent",
+  "description": "Independent vsmartcard/OpenPACE chip: PACE positive control; AA rejected under secure messaging.",
+  "seed": 1,
+  "n": 1,
+  "entries": [
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-gmrtd-8fea245-default",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-gmrtd-64bd6ab-default",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-gmrtd-8fea245-guard",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-gmrtd-64bd6ab-guard",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-gmrtd-b861835-default",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-gmrtd-b861835-guard",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-jmrtd-propagate",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-jmrtd-catch-continue",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-dmrtd-default",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "VSC-AA",
+      "driver": "dart",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-gmrtd-8fea245-default",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-gmrtd-64bd6ab-default",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-gmrtd-8fea245-guard",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-gmrtd-64bd6ab-guard",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-gmrtd-b861835-default",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-gmrtd-b861835-guard",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-jmrtd-propagate",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-jmrtd-catch-continue",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-dmrtd-default",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "VSC-AA",
+      "driver": "dart",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-gmrtd-8fea245-default",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-gmrtd-64bd6ab-default",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-gmrtd-8fea245-guard",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-gmrtd-64bd6ab-guard",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-gmrtd-b861835-default",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-gmrtd-b861835-guard",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-jmrtd-propagate",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-jmrtd-catch-continue",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-dmrtd-default",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "VSC-AA",
+      "driver": "dart",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-gmrtd-8fea245-default",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-gmrtd-64bd6ab-default",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-gmrtd-8fea245-guard",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-gmrtd-64bd6ab-guard",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-gmrtd-b861835-default",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-gmrtd-b861835-guard",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-jmrtd-propagate",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-jmrtd-catch-continue",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-dmrtd-default",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "VSC-AA",
+      "driver": "dart",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-gmrtd-8fea245-default",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-gmrtd-64bd6ab-default",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-gmrtd-8fea245-guard",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-gmrtd-64bd6ab-guard",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-gmrtd-b861835-default",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-gmrtd-b861835-guard",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-jmrtd-propagate",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-jmrtd-catch-continue",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-dmrtd-default",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "VSC-AA",
+      "driver": "dart",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-gmrtd-8fea245-default",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-gmrtd-64bd6ab-default",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-gmrtd-8fea245-guard",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-gmrtd-64bd6ab-guard",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-gmrtd-b861835-default",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-gmrtd-b861835-guard",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-jmrtd-propagate",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-jmrtd-catch-continue",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-AA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-dmrtd-default",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "VSC-AA",
+      "driver": "dart",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": [
+        "surfaced",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-gmrtd-8fea245-default",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-gmrtd-64bd6ab-default",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-gmrtd-8fea245-guard",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-gmrtd-64bd6ab-guard",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-gmrtd-b861835-default",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-gmrtd-b861835-guard",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-jmrtd-propagate",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-jmrtd-catch-continue",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-emrtd-dotnet-default",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "dotnet",
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-dmrtd-default",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "dart",
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": false,
+        "returned_error": true
+      }
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-8fea245-default",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "VSC-pace-success",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-64bd6ab-default",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "VSC-pace-success",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-pace-success",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-8fea245-guard",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "VSC-pace-success",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-64bd6ab-guard",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "VSC-pace-success",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-b861835-default",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "VSC-pace-success",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-pace-success",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-b861835-guard",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "VSC-pace-success",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-jmrtd-propagate",
+      "test_case": "VSC-pace-success",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-pace-success",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "VSC-pace-success-jmrtd-catch-continue",
+      "test_case": "VSC-pace-success",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-pace-success",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "VSC-pace-success-emrtd-dotnet-default",
+      "test_case": "VSC-pace-success",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "VSC-pace-success",
+      "driver": "dotnet",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "VSC-pace-success-dmrtd-default",
+      "test_case": "VSC-pace-success",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "VSC-pace-success",
+      "driver": "dart",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable"
+    }
+  ]
+}

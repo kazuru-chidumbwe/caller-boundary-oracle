@@ -1,0 +1,158 @@
+[
+  {
+    "id": "silent-catch-continue",
+    "scenario": "library throws; integrator catches and continues on the weaker path",
+    "input": {
+      "fired": true,
+      "failed": true,
+      "succeeded": false,
+      "returned_error": false,
+      "status_signal": false
+    },
+    "outcome": "silent",
+    "score": 0
+  },
+  {
+    "id": "silent-library-claims-success",
+    "scenario": "peer failed the step but the library reports success",
+    "input": {
+      "fired": true,
+      "failed": false,
+      "succeeded": true,
+      "returned_error": false,
+      "status_signal": false
+    },
+    "outcome": "silent",
+    "score": 0
+  },
+  {
+    "id": "silent-library-drops-failure",
+    "scenario": "peer failed the step; library reports neither failure nor success",
+    "input": {
+      "fired": true,
+      "failed": false,
+      "succeeded": false,
+      "returned_error": false,
+      "status_signal": false
+    },
+    "outcome": "silent",
+    "score": 0
+  },
+  {
+    "id": "status-only-session-field",
+    "scenario": "call returns success; failure recorded in a returned session/status field",
+    "input": {
+      "fired": true,
+      "failed": true,
+      "succeeded": false,
+      "returned_error": false,
+      "status_signal": true
+    },
+    "outcome": "status_only",
+    "score": 1
+  },
+  {
+    "id": "surfaced-error",
+    "scenario": "call returns an error for the failed step",
+    "input": {
+      "fired": true,
+      "failed": true,
+      "succeeded": false,
+      "returned_error": true,
+      "status_signal": false
+    },
+    "outcome": "surfaced",
+    "score": 2
+  },
+  {
+    "id": "surfaced-error-and-status",
+    "scenario": "call returns an error and also records the failure in status",
+    "input": {
+      "fired": true,
+      "failed": true,
+      "succeeded": false,
+      "returned_error": true,
+      "status_signal": true
+    },
+    "outcome": "surfaced",
+    "score": 2
+  },
+  {
+    "id": "surfaced-later-step",
+    "scenario": "targeted step swallowed; a later step fails and returns an error",
+    "input": {
+      "fired": true,
+      "failed": false,
+      "succeeded": false,
+      "returned_error": true,
+      "status_signal": false
+    },
+    "outcome": "surfaced",
+    "score": 2
+  },
+  {
+    "id": "not-fired",
+    "scenario": "no failure delivered; step succeeded",
+    "input": {
+      "fired": false,
+      "failed": false,
+      "succeeded": true,
+      "returned_error": false,
+      "status_signal": false
+    },
+    "outcome": "not_applicable",
+    "score": null
+  },
+  {
+    "id": "not-fired-local-error",
+    "scenario": "no failure delivered; the library failed the step locally and the call returned an error",
+    "input": {
+      "fired": false,
+      "failed": true,
+      "succeeded": false,
+      "returned_error": true,
+      "status_signal": true
+    },
+    "outcome": "not_applicable",
+    "score": null
+  },
+  {
+    "id": "not-fired-no-step",
+    "scenario": "step not attempted (mechanism not advertised)",
+    "input": {
+      "fired": false,
+      "failed": false,
+      "succeeded": false,
+      "returned_error": false,
+      "status_signal": false
+    },
+    "outcome": "not_applicable",
+    "score": null
+  },
+  {
+    "id": "invalid-both",
+    "scenario": "library reports the step as both failed and successful",
+    "input": {
+      "fired": true,
+      "failed": true,
+      "succeeded": true,
+      "returned_error": false,
+      "status_signal": false
+    },
+    "outcome": "invalid",
+    "score": null
+  },
+  {
+    "id": "invalid-even-if-not-fired",
+    "scenario": "contradiction is reported regardless of injection",
+    "input": {
+      "fired": false,
+      "failed": true,
+      "succeeded": true,
+      "returned_error": true,
+      "status_signal": true
+    },
+    "outcome": "invalid",
+    "score": null
+  }
+]

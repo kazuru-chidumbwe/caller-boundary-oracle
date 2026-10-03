@@ -1,0 +1,6 @@
+name: diffie_hellman
+description: Empty stand-in; dmrtd declares diffie_hellman but never imports it (it has its own DH code).
+version: 0.1.2
+publish_to: none
+environment:
+  sdk: ^3.6.0

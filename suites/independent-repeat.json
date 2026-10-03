@@ -1,0 +1,89 @@
+{
+  "suite_id": "independent-repeat",
+  "description": "PACE positive control on the independent chip, 100 runs per library.",
+  "seed": 1,
+  "n": 1,
+  "entries": [
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-8fea245-default",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "VSC-PACE-REPEAT",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "n": 100
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-64bd6ab-default",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "VSC-PACE-REPEAT",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "n": 100
+    },
+    {
+      "scenario_id": "VSC-pace-success-gmrtd-b861835-default",
+      "test_case": "VSC-pace-success",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "VSC-PACE-REPEAT",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "n": 100
+    },
+    {
+      "scenario_id": "VSC-pace-success-jmrtd-propagate",
+      "test_case": "VSC-pace-success",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-PACE-REPEAT",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "n": 100
+    },
+    {
+      "scenario_id": "VSC-pace-success-emrtd-dotnet-default",
+      "test_case": "VSC-pace-success",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "VSC-PACE-REPEAT",
+      "driver": "dotnet",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "n": 100
+    },
+    {
+      "scenario_id": "VSC-pace-success-dmrtd-default",
+      "test_case": "VSC-pace-success",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "VSC-PACE-REPEAT",
+      "driver": "dart",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "n": 100
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.git
+.gitignore
+logs/
+**/target/
+**/.harness-build/
+*.md.bak
+.DS_Store
+Thumbs.db
+scripts/smoke-jmrtd-local.ps1

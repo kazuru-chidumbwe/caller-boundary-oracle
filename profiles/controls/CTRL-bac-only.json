@@ -1,0 +1,12 @@
+{
+  "id": "CTRL-bac-only",
+  "name": "No EF.CardAccess: PACE not advertised, BAC succeeds",
+  "mechanism": "PACE",
+  "condition": "pace_not_advertised",
+  "tier": "wire",
+  "mrz": {
+    "document_number": "L898902C",
+    "date_of_birth": "690806",
+    "date_of_expiry": "940623"
+  }
+}

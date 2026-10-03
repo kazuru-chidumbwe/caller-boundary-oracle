@@ -1,0 +1,13 @@
+{
+  "id": "CTRL-pace-proprietary-params",
+  "name": "PACE advertised with proprietary domain parameters (ID 32); no failure injected on the wire",
+  "mechanism": "PACE",
+  "condition": "pace_unsupported_locally",
+  "tier": "wire",
+  "mrz": {
+    "document_number": "L898902C",
+    "date_of_birth": "690806",
+    "date_of_expiry": "940623"
+  },
+  "card_access_hex": "31143012060A04007F00070202040204020102020120"
+}

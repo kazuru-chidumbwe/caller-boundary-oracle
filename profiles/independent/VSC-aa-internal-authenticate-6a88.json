@@ -1,0 +1,17 @@
+{
+  "id": "VSC-aa-internal-authenticate-6a88",
+  "name": "Independent chip: PACE, then INTERNAL AUTHENTICATE rejected with SW 6A88 under SM",
+  "mechanism": "AA",
+  "condition": "aa_reject_after_pace",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "dg15": true,
+    "aa_sw": "6A88"
+  }
+}

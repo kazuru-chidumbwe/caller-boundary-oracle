@@ -1,0 +1,6 @@
+name: expandable
+description: Empty stand-in so dmrtd resolves without Flutter; dmrtd does not import it.
+version: 5.0.1
+publish_to: none
+environment:
+  sdk: ^3.6.0

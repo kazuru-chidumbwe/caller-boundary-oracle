@@ -1,0 +1,16 @@
+{
+  "id": "VSC-pace-success-multi-info",
+  "name": "Independent chip: PACE succeeds; EF.CardAccess lists TA and CA infos before the PACEInfo (nPA layout)",
+  "mechanism": "PACE",
+  "condition": "pace_success",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "card_access": "npa"
+  }
+}

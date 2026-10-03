@@ -1,0 +1,186 @@
+#!/usr/bin/env python3
+"""Build EF.SOD fixtures whose hash lists match the DG14/DG15 the simulated chip serves.
+
+gmrtd's ReadDocument only reads data groups listed in EF.SOD, so CA and AA are reached
+through the shipped call path only when the SOD lists DG14 (CA info) or DG15 (AA key).
+The hashes are real SHA-256 digests of the served files, so Document.Verify passes.
+The signer is a throwaway self-signed certificate: Passive Authentication fails against
+the empty CSCA pool the drivers use, which gmrtd records without aborting the read.
+
+Outputs (committed): simulator/fixtures/sod-dg14.hex, sod-dg15.hex, and vsc-*.hex for the
+independent vsmartcard chip.
+"""
+
+from __future__ import annotations
+
+import datetime
+import hashlib
+from pathlib import Path
+
+from asn1crypto import algos, cms, core, x509 as asn1_x509
+from cryptography import x509
+from cryptography.hazmat.primitives import hashes, serialization
+from cryptography.hazmat.primitives.asymmetric import padding, rsa
+from cryptography.x509.oid import NameOID
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "simulator" / "fixtures"
+DG_FILES = {
+    14: ROOT / "testdata" / "dg14" / "ca-v2-sample.hex",
+    15: ROOT / "testdata" / "dg15" / "aa-rsa-sample.hex",
+}
+
+
+ID_MRTD_LDS_SECURITY_OBJECT = "2.23.136.1.1.1"
+DIGEST_OID = {"sha256": "sha256"}
+HASH_CLS = {"sha256": hashes.SHA256}
+CMS_SIG = {"sha256": "sha256_rsa"}
+
+
+def _der_len(n: int) -> bytes:
+    if n < 0x80:
+        return bytes([n])
+    b = []
+    while n:
+        b.insert(0, n & 0xFF)
+        n >>= 8
+    return bytes([0x80 | len(b)]) + bytes(b)
+
+
+def retag_as_ef_sod(content_info_der: bytes) -> bytes:
+    return b"\x77" + _der_len(len(content_info_der)) + content_info_der
+
+
+def sign_sod(key: rsa.RSAPrivateKey, certs_der: list[bytes], econtent: bytes, digest: str) -> bytes:
+    h = hashes.Hash(HASH_CLS[digest]())
+    h.update(econtent)
+    message_digest = h.finalize()
+    signed_attrs = cms.CMSAttributes(
+        [
+            cms.CMSAttribute(
+                {"type": "content_type", "values": [cms.ContentType(ID_MRTD_LDS_SECURITY_OBJECT)]}
+            ),
+            cms.CMSAttribute({"type": "message_digest", "values": [core.OctetString(message_digest)]}),
+        ]
+    )
+    signature = key.sign(signed_attrs.dump(), padding.PKCS1v15(), HASH_CLS[digest]())
+    dsc_der = certs_der[0]
+    signer_info = cms.SignerInfo(
+        {
+            "version": "v1",
+            "sid": cms.SignerIdentifier(
+                {
+                    "issuer_and_serial_number": cms.IssuerAndSerialNumber(
+                        {
+                            "issuer": asn1_x509.Certificate.load(dsc_der)["tbs_certificate"]["issuer"],
+                            "serial_number": asn1_x509.Certificate.load(dsc_der)["tbs_certificate"][
+                                "serial_number"
+                            ],
+                        }
+                    )
+                }
+            ),
+            "digest_algorithm": algos.DigestAlgorithm({"algorithm": DIGEST_OID[digest]}),
+            "signed_attrs": signed_attrs,
+            "signature_algorithm": algos.SignedDigestAlgorithm({"algorithm": CMS_SIG[digest]}),
+            "signature": signature,
+        }
+    )
+    cert_set = [
+        cms.CertificateChoices({"certificate": asn1_x509.Certificate.load(d)}) for d in certs_der
+    ]
+    signed_data = cms.SignedData(
+        {
+            "version": "v3",
+            "digest_algorithms": cms.DigestAlgorithms(
+                [algos.DigestAlgorithm({"algorithm": DIGEST_OID[digest]})]
+            ),
+            "encap_content_info": cms.EncapsulatedContentInfo(
+                {
+                    "content_type": cms.ContentType(ID_MRTD_LDS_SECURITY_OBJECT),
+                    "content": core.ParsableOctetString(econtent),
+                }
+            ),
+            "certificates": cms.CertificateSet(cert_set),
+            "signer_infos": cms.SignerInfos([signer_info]),
+        }
+    )
+    return cms.ContentInfo({"content_type": "signed_data", "content": signed_data}).dump()
+
+
+def lds_security_object(dg_hashes: dict[int, bytes]) -> bytes:
+    hash_alg = algos.DigestAlgorithm({"algorithm": "sha256"}).dump()
+    entries = b""
+    for number, digest in sorted(dg_hashes.items()):
+        body = core.Integer(number).dump() + core.OctetString(digest).dump()
+        entries += b"\x30" + _der_len(len(body)) + body
+    values = b"\x30" + _der_len(len(entries)) + entries
+    body = core.Integer(0).dump() + hash_alg + values
+    return b"\x30" + _der_len(len(body)) + body
+
+
+def self_signed() -> tuple[rsa.RSAPrivateKey, bytes]:
+    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+    name = x509.Name([
+        x509.NameAttribute(NameOID.COUNTRY_NAME, "XX"),
+        x509.NameAttribute(NameOID.COMMON_NAME, "Synthetic Document Signer"),
+    ])
+    cert = (
+        x509.CertificateBuilder()
+        .subject_name(name)
+        .issuer_name(name)
+        .public_key(key.public_key())
+        .serial_number(1)
+        .not_valid_before(datetime.datetime(2020, 1, 1, tzinfo=datetime.timezone.utc))
+        .not_valid_after(datetime.datetime(2035, 1, 1, tzinfo=datetime.timezone.utc))
+        .sign(key, hashes.SHA256())
+    )
+    return key, cert.public_bytes(serialization.Encoding.DER)
+
+
+# MRZ of the independent vsmartcard chip (tools/vsmartcard/emrtd_card.py); TD1, 90 characters.
+VSC_MRZ = (
+    b"IDD<<T220001293<<<<<<<<<<<<<<<"
+    b"6408125<2010315D<<<<<<<<<<<<<4"
+    b"MUSTERMANN<<ERIKA<<<<<<<<<<<<<"
+)
+
+
+def tlv(tag: bytes, value: bytes) -> bytes:
+    n = len(value)
+    if n < 0x80:
+        length = bytes([n])
+    elif n < 0x100:
+        length = bytes([0x81, n])
+    else:
+        length = bytes([0x82]) + n.to_bytes(2, "big")
+    return tag + length + value
+
+
+def write_hex(name: str, data: bytes) -> None:
+    out = OUT / name
+    out.write_bytes(data.hex().upper().encode("ascii") + bytes([0x0A]))
+    print(f"wrote {out.relative_to(ROOT)} ({len(data)} bytes)")
+
+
+def vsmartcard_fixtures(key: rsa.RSAPrivateKey, cert: bytes) -> None:
+    """DG1 with the vsmartcard MRZ, and SODs listing DG1 (and DG15) with real hashes."""
+    dg1 = tlv(bytes([0x61]), tlv(bytes([0x5F, 0x1F]), VSC_MRZ))
+    dg15 = bytes.fromhex(DG_FILES[15].read_text(encoding="utf-8").strip())
+    write_hex("vsc-dg1.hex", dg1)
+    for name, groups in (("vsc-sod-dg1.hex", {1: dg1}), ("vsc-sod-dg1-dg15.hex", {1: dg1, 15: dg15})):
+        econtent = lds_security_object({n: hashlib.sha256(b).digest() for n, b in groups.items()})
+        write_hex(name, retag_as_ef_sod(sign_sod(key, [cert], econtent, "sha256")))
+
+
+def main() -> None:
+    key, cert = self_signed()
+    for number, path in DG_FILES.items():
+        dg = bytes.fromhex(path.read_text(encoding="utf-8").strip())
+        econtent = lds_security_object({number: hashlib.sha256(dg).digest()})
+        write_hex(f"sod-dg{number}.hex", retag_as_ef_sod(sign_sod(key, [cert], econtent, "sha256")))
+    vsmartcard_fixtures(key, cert)
+
+
+if __name__ == "__main__":
+    main()

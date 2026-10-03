@@ -1,0 +1,6 @@
+name: flutter_nfc_kit
+description: Empty stand-in so dmrtd resolves without Flutter; the harness never imports dmrtd NFC provider.
+version: 3.6.0
+publish_to: none
+environment:
+  sdk: ^3.6.0

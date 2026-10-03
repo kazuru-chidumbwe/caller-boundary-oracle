@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CallerBoundary.EmrtdDotnet</RootNamespace>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <!-- Pinned emrtd-dotnet checkout, created by scripts/bootstrap-dotnet.sh. -->
+    <EmrtdDotnetDir Condition="'$(EmrtdDotnetDir)' == ''">$(MSBuildThisFileDirectory)../../../_vendor/emrtd-dotnet</EmrtdDotnetDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(EmrtdDotnetDir)/src/Emrtd/Emrtd.csproj" />
+  </ItemGroup>
+
+</Project>

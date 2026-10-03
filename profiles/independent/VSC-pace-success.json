@@ -1,0 +1,13 @@
+{
+  "id": "VSC-pace-success",
+  "name": "Independent chip: PACE succeeds, EF.COM read over the PACE channel",
+  "mechanism": "PACE",
+  "condition": "pace_success",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard"
+}

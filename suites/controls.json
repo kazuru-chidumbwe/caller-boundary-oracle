@@ -1,0 +1,392 @@
+{
+  "suite_id": "controls",
+  "description": "No-injection control (BAC-only chip) and interoperability control (proprietary PACE domain parameters).",
+  "seed": 1,
+  "n": 1,
+  "entries": [
+    {
+      "scenario_id": "CTRL-bac-only-gmrtd-8fea245-default",
+      "test_case": "CTRL-bac-only",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "CTRL-bac-only",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-gmrtd-64bd6ab-default",
+      "test_case": "CTRL-bac-only",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "CTRL-bac-only",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CTRL-bac-only",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CTRL-bac-only",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-gmrtd-8fea245-guard",
+      "test_case": "CTRL-bac-only",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "CTRL-bac-only",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-gmrtd-64bd6ab-guard",
+      "test_case": "CTRL-bac-only",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "CTRL-bac-only",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-gmrtd-b861835-default",
+      "test_case": "CTRL-bac-only",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "CTRL-bac-only",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-gmrtd-b861835-allow-fallback",
+      "test_case": "CTRL-bac-only",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CTRL-bac-only",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-gmrtd-b861835-guard",
+      "test_case": "CTRL-bac-only",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "CTRL-bac-only",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-jmrtd-propagate",
+      "test_case": "CTRL-bac-only",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CTRL-bac-only",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-jmrtd-catch-continue",
+      "test_case": "CTRL-bac-only",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CTRL-bac-only",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-emrtd-dotnet-default",
+      "test_case": "CTRL-bac-only",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "CTRL-bac-only",
+      "driver": "dotnet",
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-bac-only-dmrtd-default",
+      "test_case": "CTRL-bac-only",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "CTRL-bac-only",
+      "driver": "dart",
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-gmrtd-8fea245-default",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "gmrtd",
+      "variant": "8fea245-default",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-gmrtd-64bd6ab-default",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "gmrtd",
+      "variant": "64bd6ab-default",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": true
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-gmrtd-8fea245-guard",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "gmrtd",
+      "variant": "8fea245-guard",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "8fea245",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": true
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-gmrtd-64bd6ab-guard",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "gmrtd",
+      "variant": "64bd6ab-guard",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": true
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-gmrtd-b861835-default",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "gmrtd",
+      "variant": "b861835-default",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": true
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-gmrtd-b861835-allow-fallback",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-gmrtd-b861835-guard",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "gmrtd",
+      "variant": "b861835-guard",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": false,
+      "guard": true,
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": true
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-jmrtd-propagate",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": true
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-jmrtd-catch-continue",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-emrtd-dotnet-default",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "emrtd-dotnet",
+      "variant": "default",
+      "arm": "emrtd-dotnet",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "dotnet",
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-dmrtd-default",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "dmrtd",
+      "variant": "default",
+      "arm": "dmrtd",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "dart",
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": true
+      }
+    }
+  ]
+}
