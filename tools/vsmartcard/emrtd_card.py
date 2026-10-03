@@ -18,7 +18,10 @@ The nPA card implements PACE but not Basic Access Control, which eMRTDs that sup
 offer. A reader that falls back to BAC after a PACE failure would otherwise be refused (6985)
 for a reason no passport gives. The card therefore also answers BAC: EXTERNAL AUTHENTICATE
 outside an EAC session runs vsmartcard's own ICAO BAC (cards/ePass.py, keys from the same MRZ)
-and hands secure messaging to that session.
+and hands secure messaging to that session. Its responses follow Doc 9303 Part 11: DO'87'
+(when there is data), DO'99' (the status word) and DO'8E' (MAC) on every protected response,
+errors included; vsmartcard's generic ISO 7816 secure messaging leaves out DO'99' and the MAC
+on errors.
 
 Requires the pinned vsmartcard checkout with tools/vsmartcard/vsmartcard-python3.patch
 applied (scripts/bootstrap-vsmartcard.sh), and the OpenPACE Python bindings.
@@ -41,6 +44,7 @@ import json
 import logging
 from pathlib import Path
 
+import virtualsmartcard.CryptoUtils as vsCrypto
 from virtualsmartcard.SmartcardFilesystem import DF, TransparentStructureEF
 from virtualsmartcard.SmartcardSAM import SAM
 from virtualsmartcard.cards.ePass import PassportSAM, ePass_SE
@@ -90,13 +94,27 @@ class Report:
             tmp.replace(self.path)
 
 
+class IcaoBacSE(ePass_SE):
+    """BAC secure messaging with ICAO Doc 9303 Part 11 response protection."""
+
+    def protect_response(self, sw, result):
+        out = b""
+        if result:
+            cryptogram = b"" + self.encipher(0x82, 0x80, result)
+            out += pack([(0x87, len(cryptogram), cryptogram)])
+        out += pack([(0x99, 2, sw.to_bytes(2, "big"))])
+        mac = self.compute_cryptographic_checksum(0x8E, 0x80, vsCrypto.append_padding(self.cct.blocklength, out))
+        out += pack([(0x8E, len(mac), mac)])
+        return sw, out
+
+
 def install_bac(os_, mrz: bytes) -> None:
     """Answer BAC with vsmartcard's ePass implementation, keyed from the TD1 MRZ."""
     line1, line2 = mrz[:30], mrz[30:60]
     # document number + check digit, date of birth + check digit, date of expiry + check digit
     seed = hashlib.sha1(line1[5:15] + line2[0:7] + line2[8:15]).digest()[:16]
     bac = PassportSAM.__new__(PassportSAM)  # its constructor expects a TD3 DG1 at a fixed path
-    SAM.__init__(bac, None, None, os_.mf, default_se=ePass_SE)
+    SAM.__init__(bac, None, None, os_.mf, default_se=IcaoBacSE)
     bac.KSeed = seed
     bac.KEnc = PassportSAM.derive_key(seed, 1)
     bac.KMac = PassportSAM.derive_key(seed, 2)
