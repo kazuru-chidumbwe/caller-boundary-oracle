@@ -12,6 +12,7 @@ mkdir -p "$VENDOR_DIR"
 VENDOR_DIR="$(cd "$VENDOR_DIR" && pwd)"
 OPENPACE_COMMIT=7bc871ab0063c6f1e2443a9b7168262bbe8fa8be
 VSMARTCARD_COMMIT=82bc5ad066b26ee057d2af200c1a66e3a65a9743
+PYCRYPTODOMEX_VERSION=3.23.0
 PREFIX="$VENDOR_DIR/openpace-prefix"
 PYVER="$(python3 -c "import sys; print(f'python{sys.version_info.major}.{sys.version_info.minor}')")"
 SITE="$PREFIX/local/lib/$PYVER/dist-packages"
@@ -50,11 +51,16 @@ if [[ -z "$EGG" ]]; then
   echo "bootstrap-vsmartcard: OpenPACE Python bindings not found under $PREFIX" >&2
   exit 1
 fi
+# vsmartcard's DES/3DES (BAC secure messaging) comes from PyCryptodome; PACE runs in OpenPACE.
+PYDEPS="$VENDOR_DIR/vsmartcard-pydeps"
+if [[ ! -d "$PYDEPS/Cryptodome" ]]; then
+  python3 -m pip install -q --target "$PYDEPS" "pycryptodomex==$PYCRYPTODOMEX_VERSION"
+fi
 cat > "$VENDOR_DIR/vsmartcard.env" <<ENV
-export PYTHONPATH="$EGG:$VENDOR_DIR/vsmartcard/virtualsmartcard/src/vpicc\${PYTHONPATH:+:\$PYTHONPATH}"
+export PYTHONPATH="$EGG:$VENDOR_DIR/vsmartcard/virtualsmartcard/src/vpicc:$PYDEPS\${PYTHONPATH:+:\$PYTHONPATH}"
 export LD_LIBRARY_PATH="$PREFIX/lib\${LD_LIBRARY_PATH:+:\$LD_LIBRARY_PATH}"
 ENV
 # shellcheck source=/dev/null
 source "$VENDOR_DIR/vsmartcard.env"
-python3 -c "import eac; from virtualsmartcard.cards import nPA" 
+python3 -c "import eac; from virtualsmartcard.cards import nPA; from Cryptodome.Cipher import DES3"
 echo "vsmartcard ready: OpenPACE ${OPENPACE_COMMIT:0:7}, vsmartcard ${VSMARTCARD_COMMIT:0:7} (+patch); env in $VENDOR_DIR/vsmartcard.env"
