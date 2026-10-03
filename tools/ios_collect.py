@@ -53,7 +53,13 @@ def step_state(mechanism: str, r: dict) -> tuple[bool, bool]:
 
 def fault_point(profile: dict, mechanism: str) -> str:
     if profile.get("peer") == "vsmartcard":
-        return "AA/internal_authenticate" if mechanism == "AA" and profile.get("vsmartcard", {}).get("aa_sw") else ""
+        vs = profile.get("vsmartcard", {})
+        if mechanism == "AA":
+            return "AA/internal_authenticate" if vs.get("aa_sw") else ""
+        step = vs.get("pace_step", "")
+        if not step:
+            return ""
+        return "PACE/mse_set_at" if step == "mse" else f"PACE/general_authenticate_step{step[2:]}"
     if mechanism == "PACE":
         fail_on = profile.get("injection", {}).get("pace_fail_on")
         return f"PACE/{fail_on}" if profile.get("card_access_hex") and fail_on else ""
@@ -105,6 +111,7 @@ def main() -> None:
         outcome = classify(obs)
         artifact = {
             "run_id": entry["run_id"],
+            "scenario_id": entry["scenario_id"],
             "test_case": profile["id"],
             "library": "nfcpassportreader",
             "mechanism": mechanism,

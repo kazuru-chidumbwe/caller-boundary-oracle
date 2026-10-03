@@ -4,6 +4,8 @@
 #   vsmartcard 82bc5ad + tools/vsmartcard/vsmartcard-python3.patch -> ../_vendor/vsmartcard
 # and write ../_vendor/vsmartcard.env with PYTHONPATH / LD_LIBRARY_PATH for the card script.
 # Build deps (Debian): autoconf automake libtool pkg-config libssl-dev swig python3-dev gengetopt help2man
+# Build deps (macOS, Homebrew): autoconf automake libtool pkg-config openssl@3 swig gengetopt help2man,
+# with PKG_CONFIG_PATH pointing at openssl@3
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -27,7 +29,7 @@ if [[ "$(cat "$PREFIX/.commit" 2>/dev/null)" != "$OPENPACE_COMMIT" ]]; then
     git fetch -q origin && git checkout -q "$OPENPACE_COMMIT"
     autoreconf --install > /dev/null 2>&1
     ./configure --prefix="$PREFIX" --enable-python > /dev/null
-    make -j"$(nproc)" > /dev/null
+    make -j"$(nproc 2>/dev/null || getconf _NPROCESSORS_ONLN)" > /dev/null
     # setuptools only installs the bindings into a directory that is on PYTHONPATH.
     mkdir -p "$SITE"
     PYTHONPATH="$SITE" make install > /dev/null
@@ -59,6 +61,7 @@ fi
 cat > "$VENDOR_DIR/vsmartcard.env" <<ENV
 export PYTHONPATH="$EGG:$VENDOR_DIR/vsmartcard/virtualsmartcard/src/vpicc:$PYDEPS\${PYTHONPATH:+:\$PYTHONPATH}"
 export LD_LIBRARY_PATH="$PREFIX/lib\${LD_LIBRARY_PATH:+:\$LD_LIBRARY_PATH}"
+export DYLD_LIBRARY_PATH="$PREFIX/lib\${DYLD_LIBRARY_PATH:+:\$DYLD_LIBRARY_PATH}"
 ENV
 # shellcheck source=/dev/null
 source "$VENDOR_DIR/vsmartcard.env"

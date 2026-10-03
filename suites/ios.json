@@ -1,0 +1,908 @@
+{
+  "suite_id": "ios",
+  "description": "NFCPassportReader in the iOS Simulator: every harness and independent-chip profile (.github/workflows/ios.yml).",
+  "seed": 1,
+  "n": 1,
+  "entries": [
+    {
+      "scenario_id": "PACE-general-authenticate-6300-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6300",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6300.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6800-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6982-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6982",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6982.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a80-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10a"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a88-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6a88",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6a88.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6b00-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6c00-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6f00-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10b"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6fff-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-6fff",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-6fff.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-no-response-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-no-response",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-no-response.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-timeout-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-timeout",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-timeout.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-transport-abort-nfcpassportreader-default",
+      "test_case": "PACE-general-authenticate-transport-abort",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-general-authenticate-transport-abort.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6300-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6300",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6300.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6700-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6900-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6982-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6982",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6982.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a80-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08a"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a88-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6a88",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08b"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6c00-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6f00-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08c"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6fff-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-6fff",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-no-response-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-no-response",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-no-response.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-timeout-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-timeout",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-timeout.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-transport-abort-nfcpassportreader-default",
+      "test_case": "PACE-mse-set-at-transport-abort",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "PACE",
+      "driver": "ios",
+      "profile": "profiles/pace/PACE-mse-set-at-transport-abort.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6300-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6300",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6300.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15a"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6700-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6700",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6700.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15b"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6800-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6800",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6800.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15c"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6900-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6900",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6900.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15d"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6982-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6982",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6982.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a00-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6a00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6a00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15e"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a80-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6a80.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a88-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6a88",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6a88.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6b00-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6b00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6b00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15f"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6c00-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6c00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6c00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15g"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6e00-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6e00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6e00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15h"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6f00-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15i"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6fff-nfcpassportreader-default",
+      "test_case": "CA-mse-set-at-6fff",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CA",
+      "driver": "ios",
+      "profile": "profiles/ca/CA-mse-set-at-6fff.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6300-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6300",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6300.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6700-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6700",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6800-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6800",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6900-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6900",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6982-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6982",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6982.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6a00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6a00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6a80-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6a80.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6a88-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6a88",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6a88.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6b00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6b00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6c00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6c00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6e00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6e00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6f00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6f00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6fff-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6fff",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6fff.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "CTRL-bac-only-nfcpassportreader-default",
+      "test_case": "CTRL-bac-only",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CTRL-bac-only",
+      "driver": "ios",
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-nfcpassportreader-default",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "ios",
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6700-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6700",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6800-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6800",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6900-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6900",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6a00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6b00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6b00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6c00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6c00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6e00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6e00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "VSC-pace-ga1-6a80-nfcpassportreader-default",
+      "test_case": "VSC-pace-ga1-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-ga1-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10a"
+    },
+    {
+      "scenario_id": "VSC-pace-ga1-6f00-nfcpassportreader-default",
+      "test_case": "VSC-pace-ga1-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-ga1-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10b"
+    },
+    {
+      "scenario_id": "VSC-pace-ga2-6a80-nfcpassportreader-default",
+      "test_case": "VSC-pace-ga2-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-ga2-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_12a"
+    },
+    {
+      "scenario_id": "VSC-pace-ga2-6f00-nfcpassportreader-default",
+      "test_case": "VSC-pace-ga2-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-ga2-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_12b"
+    },
+    {
+      "scenario_id": "VSC-pace-ga3-6a80-nfcpassportreader-default",
+      "test_case": "VSC-pace-ga3-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-ga3-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_18a"
+    },
+    {
+      "scenario_id": "VSC-pace-ga3-6f00-nfcpassportreader-default",
+      "test_case": "VSC-pace-ga3-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-ga3-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_18b"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4-6300-nfcpassportreader-default",
+      "test_case": "VSC-pace-ga4-6300",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-ga4-6300.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_24a"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4-6a80-nfcpassportreader-default",
+      "test_case": "VSC-pace-ga4-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-ga4-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_24b"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4-6f00-nfcpassportreader-default",
+      "test_case": "VSC-pace-ga4-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-ga4-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_24c"
+    },
+    {
+      "scenario_id": "VSC-pace-mse-6a80-nfcpassportreader-default",
+      "test_case": "VSC-pace-mse-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-mse-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08a"
+    },
+    {
+      "scenario_id": "VSC-pace-mse-6a88-nfcpassportreader-default",
+      "test_case": "VSC-pace-mse-6a88",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-mse-6a88.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08b"
+    },
+    {
+      "scenario_id": "VSC-pace-mse-6f00-nfcpassportreader-default",
+      "test_case": "VSC-pace-mse-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-PACE",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-mse-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08c"
+    },
+    {
+      "scenario_id": "VSC-pace-success-multi-info-nfcpassportreader-default",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-nfcpassportreader-default",
+      "test_case": "VSC-pace-success",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-pace-success",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    }
+  ]
+}

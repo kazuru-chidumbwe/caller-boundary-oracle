@@ -190,6 +190,50 @@ def entries_for(
     return out
 
 
+# NFCPassportReader (iOS): one arm, run by .github/workflows/ios.yml in the iOS Simulator.
+# TagReader.send treats a response as an error only when sw1 != 0x90 AND sw2 != 0x00 (upstream
+# PR #272), so every status word with SW2 = 00 reaches the caller as a success response. For PACE
+# and CA the step is still recorded as failed; Active Authentication then fails verification
+# without an error (status-only) instead of throwing (surfaced).
+def ios_expect(prof: dict) -> str:
+    mechanism = prof["mechanism"]
+    if prof["id"].startswith("CTRL-") or prof.get("condition") == "pace_success":
+        return NA
+    if mechanism == "AA":
+        sw = prof.get("aa_injection", {}).get("aa_sw") or prof.get("vsmartcard", {}).get("aa_sw")
+        return ST if sw.endswith("00") else SU
+    return ST  # PACE falls back to BAC; CA is recorded in chipAuthenticationStatus
+
+
+def ios_cell(p: dict) -> str:
+    """Same cells as the Linux suites: controls and positive controls are their own cell."""
+    if p["id"].startswith("CTRL-") or p.get("condition") == "pace_success":
+        return p["id"]
+    return ("VSC-" if p.get("peer") == "vsmartcard" else "") + p["mechanism"]
+
+
+def ios_entries() -> list[dict]:
+    out = []
+    for sub in ("pace", "ca", "aa", "controls", "independent"):
+        for rel, p in load_profiles(sub):
+            e = {
+                "scenario_id": f"{p['id']}-nfcpassportreader-default",
+                "test_case": p["id"],
+                "library": "nfcpassportreader",
+                "variant": "default",
+                "cell": ios_cell(p),
+                "driver": "ios",
+                "profile": rel,
+                "expect_outcome": ios_expect(p),
+            }
+            if p.get("icao_p4"):
+                e["icao_p4"] = p["icao_p4"]
+            if p.get("condition") == "pace_success" and p.get("vsmartcard", {}).get("card_access") != "npa":
+                e["expect_observation"] = {"succeeded": True, "returned_error": False}
+            out.append(e)
+    return out
+
+
 def write(suite_id: str, description: str, entries: list[dict]) -> None:
     doc = {"suite_id": suite_id, "description": description, "seed": 1, "n": 1, "entries": entries}
     path = ROOT / "suites" / f"{suite_id}.json"
@@ -255,6 +299,9 @@ def main() -> None:
                 e["n"] = REPEAT_N
                 repeat.append(e)
     write("independent-repeat", f"PACE positive control on the independent chip, {REPEAT_N} runs per library.", repeat)
+
+    write("ios", "NFCPassportReader in the iOS Simulator: every harness and independent-chip profile (.github/workflows/ios.yml).",
+          ios_entries())
 
     smoke_profile = "profiles/pace/PACE-mse-set-at-6fff.json"
     smoke = [e for e in pace if e["profile"] == smoke_profile]
