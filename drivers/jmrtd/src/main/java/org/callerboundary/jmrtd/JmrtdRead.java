@@ -78,7 +78,7 @@ public final class JmrtdRead {
         switch (mechanism) {
             case "PACE" -> {
                 if (vsc) {
-                    VsmartcardCardService card = new VsmartcardCardService(root, a.profilePath);
+                    VsmartcardCardService card = new VsmartcardCardService(root, a.profilePath.toString());
                     try {
                         PassportService service = openService(card);
                         readWithPace(service, readCardAccess(service), bacKey, integrator, step, true);
@@ -105,7 +105,7 @@ public final class JmrtdRead {
             }
             case "AA" -> {
                 if (vsc) {
-                    VsmartcardCardService card = new VsmartcardCardService(root, a.profilePath);
+                    VsmartcardCardService card = new VsmartcardCardService(root, a.profilePath.toString());
                     try {
                         PassportService service = openService(card);
                         readWithAa(service, readCardAccess(service), bacKey, integrator, step);
