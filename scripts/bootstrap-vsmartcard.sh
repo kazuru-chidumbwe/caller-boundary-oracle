@@ -5,7 +5,7 @@
 # and write ../_vendor/vsmartcard.env with PYTHONPATH / LD_LIBRARY_PATH for the card script.
 # Build deps (Debian): autoconf automake libtool pkg-config libssl-dev swig python3-dev gengetopt help2man
 # Build deps (macOS, Homebrew): autoconf automake libtool pkg-config openssl@3 swig gengetopt help2man,
-# with PKG_CONFIG_PATH pointing at openssl@3
+# with PKG_CONFIG_PATH pointing at openssl@3, and setuptools for the Python that runs the card
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
