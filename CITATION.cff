@@ -1,11 +1,7 @@
 cff-version: 1.2.0
-title: "eMRTD differential harness"
+title: "Caller-boundary oracle"
 message: >-
-  If you use this software or its locked-run artifacts, please cite it using
-  GitHub Release v1.0.12 (clean-provenance re-execution of the v1.0.7 defect
-  and v1.0.9 remeasurement deposits; identical scores). The archived source
-  tree on Zenodo is tag v1.0.9 (10.5281/zenodo.22097289); this tip records
-  v1.0.12 yet.
+  If you use this software, please cite it using the metadata below.
 type: software
 authors:
   - family-names: Kazuru
@@ -14,45 +10,19 @@ authors:
     email: kazuruuni@gmail.com
     affiliation: Independent Researcher
 repository-code: "https://github.com/kazuru-chidumbwe/caller-boundary-oracle"
-url: "https://github.com/kazuru-chidumbwe/caller-boundary-oracle/releases/tag/v1.0.12"
 abstract: >-
-  Differential test harness for open-source eMRTD reader libraries. Identical
-  synthetic chip profiles are replayed against multiple stacks; each run captures
-  APDU traces and classifies whether negotiation failures or specification-permitted
-  downgrades reach a typical application caller (Observability Score; same 0/1/2
-  rubric as Caller-Path Policy-Enforcement Score in the associated measurement paper).
+  A test harness and oracle that decides whether a failed negotiation or
+  authentication step inside a library reaches the application that called it.
+  Faults are injected by emulated chips into PACE, Chip Authentication and Active
+  Authentication; each run is classified as surfaced, status-only, silent, not
+  applicable or invalid. The case study covers five eMRTD reader libraries in five
+  languages (gmrtd, JMRTD, emrtd-dotnet, dmrtd, NFCPassportReader).
 keywords:
+  - test oracle
+  - fault injection
+  - error handling
   - eMRTD
   - ICAO Doc 9303
-  - differential testing
   - PACE
-  - BAC
-  - observability
-  - JMRTD
-  - gmrtd
-  - pymrtd
 license: MIT
-version: "1.0.12"
-date-released: "2026-09-08"
-identifiers:
-  - type: url
-    value: "https://github.com/kazuru-chidumbwe/caller-boundary-oracle/releases/tag/v1.0.12"
-  - type: doi
-    value: "10.5281/zenodo.22097289"
-    description: "Archived source tree, tag v1.0.9"
-  - type: doi
-    value: "10.5281/zenodo.22095366"
-    description: "Concept DOI"
-  - type: doi
-    value: "10.5281/zenodo.22314067"
-preferred-citation:
-  type: software
-  authors:
-    - family-names: Kazuru
-      given-names: Seke
-      orcid: "https://orcid.org/0009-0002-4099-1059"
-  title: "eMRTD differential harness"
-  version: "1.0.12"
-  url: "https://github.com/kazuru-chidumbwe/caller-boundary-oracle/releases/tag/v1.0.12"
-  year: 2026
-  month: 9
+version: "1.0.0"
