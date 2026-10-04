@@ -47,8 +47,10 @@ fi
   git apply "$ROOT/tools/vsmartcard/vsmartcard-python3.patch"
 )
 
-EGG="$( (compgen -G "$PREFIX/local/lib/python3*/dist-packages/OpenPACE-*.egg" \
-  || compgen -G "$PREFIX/lib/python3*/site-packages/OpenPACE-*.egg" || true) | head -n 1)"
+# The bindings land in an OpenPACE-*.egg (older setuptools) or straight in a site/dist-packages
+# directory (newer setuptools, e.g. on macOS); use whichever directory holds eac.py.
+EAC_PY="$(find "$PREFIX" -name eac.py -path "*-packages*" 2>/dev/null | head -n 1)"
+EGG="${EAC_PY:+$(dirname "$EAC_PY")}"
 if [[ -z "$EGG" ]]; then
   echo "bootstrap-vsmartcard: OpenPACE Python bindings not found under $PREFIX" >&2
   exit 1
