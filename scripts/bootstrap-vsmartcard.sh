@@ -52,6 +52,14 @@ fi
 EAC_PY="$(find "$PREFIX" -name eac.py -path "*-packages*" 2>/dev/null | head -n 1)"
 EGG="${EAC_PY:+$(dirname "$EAC_PY")}"
 if [[ -z "$EGG" ]]; then
+  # Some setuptools versions install outside the prefix (the interpreter's own site-packages).
+  EGG="$(LD_LIBRARY_PATH="$PREFIX/lib" DYLD_LIBRARY_PATH="$PREFIX/lib" \
+    python3 -c "import eac, os; print(os.path.dirname(eac.__file__))" 2>/dev/null || true)"
+fi
+if [[ -z "$EGG" ]]; then
+  find "$PREFIX" -name "*eac*" -o -name "OpenPACE*" | head -20 >&2
+fi
+if [[ -z "$EGG" ]]; then
   echo "bootstrap-vsmartcard: OpenPACE Python bindings not found under $PREFIX" >&2
   exit 1
 fi
