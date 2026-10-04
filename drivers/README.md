@@ -4,7 +4,7 @@ Each driver reads one chip profile, connects the library to a chip, calls the li
 
 | Directory | Library | Language | Chip connection |
 | --- | --- | --- | --- |
-| `jmrtd/` | JMRTD 0.8.9 | Java | In-process harness chip, or the independent chip over the vpcd socket |
+| `jmrtd/` | JMRTD 0.8.9 | Java | `cmd/chip-serve` or the independent chip, over the vpcd socket |
 | `dotnet/` | emrtd-dotnet | C# | `cmd/chip-serve` or the independent chip, over the vpcd socket |
 | `dart/` | dmrtd | Dart | `cmd/chip-serve` or the independent chip, over the vpcd socket |
 | `ios/` | NFCPassportReader | Swift | XCTest in the iOS Simulator, through `tools/chip_broker.py` |
