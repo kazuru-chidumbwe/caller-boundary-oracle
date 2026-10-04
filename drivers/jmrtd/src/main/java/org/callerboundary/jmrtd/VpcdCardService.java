@@ -164,11 +164,16 @@ public final class VpcdCardService extends CardService {
             // nothing left to release
         }
         if (card != null) {
-            card.destroy();
+            // cmd/chip-serve writes its delivered-fault report when the session ends: let it exit
+            // on its own before forcing it, or the report can be lost.
             try {
-                card.waitFor(5, TimeUnit.SECONDS);
+                if (!card.waitFor(10, TimeUnit.SECONDS)) {
+                    card.destroy();
+                    card.waitFor(5, TimeUnit.SECONDS);
+                }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
+                card.destroy();
             }
         }
     }
