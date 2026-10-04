@@ -1,22 +1,15 @@
-# Frozen schemas (v1) — bump version only with migration notes.
+# Schemas (version 1)
 
-Tip schema docs. Citable locked-run evidence: GitHub Release `v1.0.12`.
+JSON Schemas for the files the harness writes. Change a schema only together with a version bump and a migration note.
 
-See [SCHEMA.md](../docs/SCHEMA.md) for the Scenario → Artifact pipeline.
+| Schema | Validates |
+| --- | --- |
+| [`run-artifact-v1.json`](run-artifact-v1.json) | One run artifact (one library, one profile, one run) |
+| [`provenance-v1.json`](provenance-v1.json) | The provenance block inside each run artifact |
+| [`artifact-manifest-v1.json`](artifact-manifest-v1.json) | The per-suite `artifact-manifest.json` written by aggregation |
 
-| Schema | Version file | Current |
-| --- | --- | --- |
-| Artifact manifest | [`artifact-manifest-v1.json`](artifact-manifest-v1.json) | 1 |
-| Run artifact | [`run-artifact-v1.json`](run-artifact-v1.json) | 1 |
-| Provenance block | [`provenance-v1.json`](provenance-v1.json) | 1 |
-| Profile catalog | [`profile-catalog-v1.json`](profile-catalog-v1.json) (validates `profiles/catalog.json` → `catalog_version`) | 1 |
-
-## Enforcement
-
-`classifier/verify_manifest.py` validates `artifact-manifest.json` and each referenced per-run JSON against these schemas (requires `jsonschema`; see `classifier/requirements-verify.txt`).
+`classifier/verify_manifest.py` validates each manifest and every run it references against these schemas (needs `jsonschema`, installed by `make venv`).
 
 ```bash
-pip install -r classifier/requirements-verify.txt
-python3 classifier/verify_manifest.py logs/suite-... --manifest suites/ac-01-wire.json
-python3 -m unittest classifier.test_schemas -v
+make verify-manifest LOG_DIR=logs/suite-pace-<timestamp> MANIFEST=suites/pace.json
 ```
