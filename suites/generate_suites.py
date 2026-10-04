@@ -274,8 +274,9 @@ def main() -> None:
             multi = p.get("vsmartcard", {}).get("card_access") == "npa"
             for e in entries:
                 if multi and e["library"] == "dmrtd":
-                    # dmrtd reads only the first SecurityInfo, misses PACE and is refused BAC
-                    e["expect_observation"] = {"succeeded": False, "returned_error": True}
+                    # dmrtd reads only the first SecurityInfo, misses PACE and reads over BAC
+                    # without telling the caller that the chip offered PACE (a silent downgrade)
+                    e["expect_observation"] = {"succeeded": False, "returned_error": False}
                 elif e["library"] not in INDEPENDENT_PACE_FLAKY:
                     e["expect_observation"] = {"succeeded": True, "returned_error": False}
             independent += entries

@@ -97,6 +97,14 @@ class Report:
 class IcaoBacSE(ePass_SE):
     """BAC secure messaging with ICAO Doc 9303 Part 11 response protection."""
 
+    def compute_cryptographic_checksum(self, p1, p2, data):
+        # vsmartcard prepends the SSC as a minimal-length integer, so a counter whose top byte
+        # is zero (about 1 session in 256) is MACed as 7 bytes; Doc 9303 uses all 8.
+        if p1 != 0x8E or p2 != 0x80:
+            raise InjectedSwError(0x6A86)
+        self.ssc += 1
+        return vsCrypto.crypto_checksum("CC", self.cct.key, self.ssc.to_bytes(8, "big") + data)
+
     def protect_response(self, sw, result):
         out = b""
         if result:
