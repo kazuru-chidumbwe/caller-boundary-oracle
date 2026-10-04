@@ -30,7 +30,7 @@ dart:
 verify-gmrtd-pin:
 	bash scripts/verify_gmrtd_pin.sh
 
-# Go tests run against both gmrtd pins.
+# Go tests run against all three gmrtd pins.
 test-go:
 	go vet ./...
 	go test ./...

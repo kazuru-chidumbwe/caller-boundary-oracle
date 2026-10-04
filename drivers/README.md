@@ -1,9 +1,12 @@
-# Stack drivers
+# Library drivers
 
-| Directory | Stack | Interface |
-| --- | --- | --- |
-| `jmrtd/` | JMRTD + passport applet simulator | Java — APDU transceiver |
-| `gmrtd/` | gmrtd | Go — `iso7816.NfcSession` mock |
-| `pymrtd-offline/` | pymrtd | Python — `run_smoke.py` for TC-PA-* (offline tier) |
+Each driver reads one chip profile, connects the library to a chip, calls the library the way an application would, applies the oracle, and writes one run artifact. The gmrtd driver is `cmd/gmrtd-read`.
 
-Each driver emits a normalized trace format consumed by `classifier/`.
+| Directory | Library | Language | Chip connection |
+| --- | --- | --- | --- |
+| `jmrtd/` | JMRTD 0.8.9 | Java | In-process harness chip, or the independent chip over the vpcd socket |
+| `dotnet/` | emrtd-dotnet | C# | `cmd/chip-serve` or the independent chip, over the vpcd socket |
+| `dart/` | dmrtd | Dart | `cmd/chip-serve` or the independent chip, over the vpcd socket |
+| `ios/` | NFCPassportReader | Swift | XCTest in the iOS Simulator, through `tools/chip_broker.py` |
+
+Every driver implements the same oracle and checks it against `testdata/observability-vectors.json` (`-check-vectors`).

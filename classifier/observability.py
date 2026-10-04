@@ -1,8 +1,8 @@
-"""Caller-boundary oracle (same predicate as classifier/observability.go and Observability.java).
+"""Caller-boundary oracle (same predicate in Go, Java, C# and Dart; see the drivers).
 
 A driver injects a failure into one negotiation or authentication step, calls the library
 API the way an integrator would, and records four events visible at the API boundary.
-``classify`` maps them to an outcome; testdata/observability-vectors.json keeps the three
+``classify`` maps them to an outcome; testdata/observability-vectors.json keeps the five
 implementations aligned.
 """
 
