@@ -76,57 +76,26 @@ public final class JmrtdRead {
         boolean fired;
         boolean vsc = "vsmartcard".equals(profile.peer);
         switch (mechanism) {
-            case "PACE" -> {
-                if (vsc) {
-                    VsmartcardCardService card = new VsmartcardCardService(root, a.profilePath.toString());
-                    try {
-                        PassportService service = openService(card);
-                        readWithPace(service, readCardAccess(service), bacKey, integrator, step, true);
-                    } catch (ReadFailure e) {
-                        readErr = e.getMessage();
-                    } finally {
-                        card.close();
+            case "PACE", "AA" -> {
+                // Both chips speak the vpcd socket protocol and write a delivered-fault report.
+                VpcdCardService card = vsc
+                        ? VpcdCardService.independent(root, a.profilePath.toString())
+                        : VpcdCardService.harness(a.chipServe, a.profilePath.toString());
+                try {
+                    PassportService service = openService(card);
+                    byte[] cardAccess = readCardAccess(service);
+                    if (mechanism.equals("PACE")) {
+                        readWithPace(service, cardAccess, bacKey, integrator, step, true);
+                    } else {
+                        readWithAa(service, cardAccess, bacKey, integrator, step);
                     }
-                    fired = card.faultDelivered("PACE");
-                    trace = trace(card.trace());
-                } else {
-                    String paceSw = profile.injection != null && profile.injection.paceSw != null ? profile.injection.paceSw : "6FFF";
-                    String failOn = profile.injection != null && profile.injection.paceFailOn != null ? profile.injection.paceFailOn : "mse_set_at";
-                    String channel = profile.injection != null && profile.injection.paceChannel != null ? profile.injection.paceChannel : "sw";
-                    PaceFailureCardService card = new PaceFailureCardService(bacKey, paceSw, failOn, channel);
-                    try {
-                        readWithPace(openService(card), profileCardAccess(profile), bacKey, integrator, step, false);
-                    } catch (ReadFailure e) {
-                        readErr = e.getMessage();
-                    }
-                    fired = card.faultDelivered();
-                    trace = trace(card.trace());
+                } catch (ReadFailure e) {
+                    readErr = e.getMessage();
+                } finally {
+                    card.close();
                 }
-            }
-            case "AA" -> {
-                if (vsc) {
-                    VsmartcardCardService card = new VsmartcardCardService(root, a.profilePath.toString());
-                    try {
-                        PassportService service = openService(card);
-                        readWithAa(service, readCardAccess(service), bacKey, integrator, step);
-                    } catch (ReadFailure e) {
-                        readErr = e.getMessage();
-                    } finally {
-                        card.close();
-                    }
-                    fired = card.faultDelivered("AA");
-                    trace = trace(card.trace());
-                } else {
-                    String aaSw = profile.aaInjection != null && profile.aaInjection.aaSw != null ? profile.aaInjection.aaSw : "6982";
-                    AaFailureCardService card = new AaFailureCardService(bacKey, aaSw);
-                    try {
-                        readWithAa(openService(card), null, bacKey, integrator, step);
-                    } catch (ReadFailure e) {
-                        readErr = e.getMessage();
-                    }
-                    fired = card.faultDelivered();
-                    trace = trace(card.trace());
-                }
+                fired = card.faultDelivered(mechanism);
+                trace = trace(card.trace());
             }
             default -> throw new IllegalArgumentException("unsupported mechanism " + profile.mechanism);
         }
@@ -181,10 +150,6 @@ public final class JmrtdRead {
         } catch (Exception e) {
             return null;
         }
-    }
-
-    static byte[] profileCardAccess(HarnessProfile profile) {
-        return profile.cardAccessHex == null || profile.cardAccessHex.isEmpty() ? null : Hex.hexStringToBytes(profile.cardAccessHex);
     }
 
     /**
@@ -264,9 +229,9 @@ public final class JmrtdRead {
         return e.getMessage() == null ? e.getClass().getSimpleName() : e.getMessage();
     }
 
-    static List<Map<String, Object>> trace(List<PaceFailureCardService.TraceEntry> entries) {
+    static List<Map<String, Object>> trace(List<VpcdCardService.TraceEntry> entries) {
         List<Map<String, Object>> out = new ArrayList<>();
-        for (PaceFailureCardService.TraceEntry e : entries) {
+        for (VpcdCardService.TraceEntry e : entries) {
             Map<String, Object> row = new LinkedHashMap<>();
             row.put("label", e.label);
             row.put("capdu", e.capdu);

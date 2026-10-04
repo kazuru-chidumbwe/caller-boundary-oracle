@@ -29,6 +29,7 @@ final class RunnerArgs {
     int runIndex = 1;
     String figureId = "";
     String integrator = "";
+    Path chipServe = Path.of("bin/chip-serve");
 
     static RunnerArgs parse(String[] args) {
         RunnerArgs a = new RunnerArgs();
@@ -43,6 +44,7 @@ final class RunnerArgs {
                 case "-run-index" -> a.runIndex = Integer.parseInt(args[++i]);
                 case "-figure-id" -> a.figureId = args[++i];
                 case "-integrator" -> a.integrator = args[++i];
+                case "-chip-serve" -> a.chipServe = Path.of(args[++i]);
                 default -> { }
             }
         }

@@ -43,3 +43,5 @@ drivers/dotnet/obj/
 drivers/dart/.dart_tool/
 drivers/dart/pubspec.lock
 drivers/dart/build/
+
+analysis/data/

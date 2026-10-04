@@ -1243,7 +1243,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6300.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6300-jmrtd-catch-continue",
@@ -1477,7 +1477,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6800.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6800-jmrtd-catch-continue",
@@ -1594,7 +1594,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6900.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6900-jmrtd-catch-continue",
@@ -1711,7 +1711,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6982.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6982-jmrtd-catch-continue",
@@ -1828,7 +1828,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6a00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6a00-jmrtd-catch-continue",
@@ -1945,7 +1945,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6a80.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6a80-jmrtd-catch-continue",
@@ -2062,7 +2062,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6a88.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6a88-jmrtd-catch-continue",
@@ -2179,7 +2179,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6b00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6b00-jmrtd-catch-continue",
@@ -2296,7 +2296,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6c00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6c00-jmrtd-catch-continue",
@@ -2413,7 +2413,7 @@
       "driver": "java",
       "integrator": "propagate",
       "profile": "profiles/aa/AA-internal-authenticate-6e00.json",
-      "expect_outcome": "surfaced"
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "AA-internal-authenticate-6e00-jmrtd-catch-continue",

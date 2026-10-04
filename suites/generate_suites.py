@@ -54,12 +54,12 @@ EXPECT = {
 }
 # JMRTD 0.8.9 AAAPDUSender.sendInternalAuthenticate returns the response data for any status
 # word once a response object exists (an empty array counts), so doAA returns normally and no
-# integrator pattern sees the failure. With the harness simulator, which answers errors in
-# plaintext, a response object only survives for status words matching (sw & 0x6700) == 0x6700
-# (secure messaging skips them as "wrong length"): 6F00 and 6FFF. With the independent chip,
-# which answers errors under secure messaging, it survives for every status word.
+# integrator pattern sees the failure. Both chips answer an error to INTERNAL AUTHENTICATE as a
+# protected response (Doc 9303 Part 11 §9.8.3 and §9.8.5: only secure-messaging errors are
+# answered in plain), so the response object survives for every status word. (An earlier Java
+# in-process chip answered these errors in plain; there only (sw & 0x6700) == 0x6700 survived.)
 def _jmrtd_aa_swallowed(sw: str) -> bool:
-    return int(sw, 16) & 0x6700 == 0x6700
+    return True
 
 CONTROL_EXPECT = {
     "CTRL-bac-only": {arm: NA for arm in EXPECT["PACE"]},

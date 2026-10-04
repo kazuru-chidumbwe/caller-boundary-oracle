@@ -148,7 +148,7 @@ def main() -> int:
     go_bins = build_go_bins(ROOT, go_builds) if go_builds else {}
     jmrtd_jar = ensure_jmrtd_jar(ROOT) if any(e["driver"] == "java" for e in manifest["entries"]) else None
     drivers = {e["driver"] for e in manifest["entries"]}
-    chip_serve = ensure_chip_serve(ROOT) if drivers & {"dotnet", "dart"} else None
+    chip_serve = ensure_chip_serve(ROOT) if drivers & {"dotnet", "dart", "java"} else None
     dotnet_dll = ensure_dotnet_driver(ROOT) if "dotnet" in drivers else None
     dart_exe = ensure_dart_driver(ROOT) if "dart" in drivers else None
 
@@ -168,8 +168,8 @@ def main() -> int:
                 pin = entry.get("gmrtd_pin", DEFAULT_GMRTD_PIN)
                 run_go(go_bins[(entry["command"], pin)], log_dir, flags + go_flags(entry))
             elif driver == "java":
-                assert jmrtd_jar is not None
-                run_java(jmrtd_jar, log_dir, flags + ["-integrator", entry["integrator"]])
+                assert jmrtd_jar is not None and chip_serve is not None
+                run_java(jmrtd_jar, log_dir, flags + ["-integrator", entry["integrator"], "-chip-serve", str(chip_serve)])
             elif driver == "dotnet":
                 assert dotnet_dll is not None and chip_serve is not None
                 run_dotnet(dotnet_dll, chip_serve, log_dir, flags)

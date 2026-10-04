@@ -1,0 +1,4 @@
+arm,mechanism,chip,fault point,outcome by failure kind
+JMRTD 0.8.9 propagate,AA,harness,AA/internal_authenticate,silent: 6700 6F00 6FFF; surfaced: 6300 6800 6900 6982 6A00 6A80 6A88 6B00 6C00 6E00
+NFCPassportReader,AA,harness,AA/internal_authenticate,status_only: 6300 6700 6800 6900 6A00 6B00 6C00 6E00 6F00; surfaced: 6982 6A80 6A88 6FFF
+NFCPassportReader,AA,independent,AA/internal_authenticate,status_only: 6300 6700 6800 6900 6A00 6B00 6C00 6E00 6F00; surfaced: 6982 6A80 6A88 6FFF
