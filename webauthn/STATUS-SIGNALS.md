@@ -16,4 +16,4 @@ The observations are derived in `webauthn/run.py` (`observe`, `STATUS_FIELDS`); 
 
 **Arms.** One caller choice is measured: webauthn4j offers two ways to build its manager, and the non-strict factory replaces the attestation statement verifiers with ones that do not verify. Every other library is called with its defaults and with user verification required, which is the relying-party policy that makes 7.1 step 16 and 7.2 step 17 mandatory.
 
-**Pre-registration.** `webauthn/expectations.json` gives the expected outcome of every (library, case) with its source reason. It was written after the drivers were wired up against the fault peer (development runs, not kept) and before the run that is reported; the run of record is verified against it with `python3 webauthn/run.py --verify`.
+**Pre-registration.** Expectations for an evaluation run are derived from each library's source at the pinned version, written to a file with the source reason for every entry, and committed before that run; the run is verified against the file with `python3 webauthn/run.py --expectations FILE`. The rule above is frozen with this file.

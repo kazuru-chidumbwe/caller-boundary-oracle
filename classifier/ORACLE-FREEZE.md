@@ -19,4 +19,4 @@ None.
 
 ## Transfer check (WebAuthn arm, 8 October 2026)
 
-The WebAuthn run of record (`webauthn/out/RUN.json`, harness `11d3916`, clean tree) classified every run with `classifier/observability.py`, SHA-256 `e29e03eca5bfd6b935453a5bac7af68a6449564ede074e284c6156e4014a1bb9`, the value frozen above. No oracle file was changed for the second domain; the domain-specific work is in the fault peer, the drivers and the status-field rule (`webauthn/STATUS-SIGNALS.md`).
+The WebAuthn development run (`webauthn/dev/2026-10-08-11d3916/RUN.json`, harness `11d3916`, clean tree) classified every run with `classifier/observability.py`, SHA-256 `e29e03eca5bfd6b935453a5bac7af68a6449564ede074e284c6156e4014a1bb9`, the value frozen above. No oracle file was changed for the second domain; the domain-specific work is in the fault peer, the drivers and the status-field rule (`webauthn/STATUS-SIGNALS.md`).

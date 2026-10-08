@@ -15,9 +15,9 @@ unchanged; see classifier/ORACLE-FREEZE.md):
   succeeded       a field of the returned result reports that same check as passed
 
 Results go to <out>/results.jsonl with the peer, driver and library provenance of each run, and are
-compared with webauthn/expectations.json (committed before the runs) when --verify is given.
+compared with an expectations file (committed before the run) when --expectations is given.
 
-Usage: python3 webauthn/run.py --drivers webauthn/drivers.json --out logs/webauthn/<run-id> [--verify]
+Usage: python3 webauthn/run.py --drivers webauthn/drivers.json --out logs/webauthn/<run-id> [--expectations FILE]
 """
 
 from __future__ import annotations
@@ -84,7 +84,7 @@ def main() -> None:
     ap.add_argument("--cases", default=None, help="existing case directory; default: generate into <out>/cases")
     ap.add_argument("--out", required=True)
     ap.add_argument("--only", default=None, help="comma-separated library names")
-    ap.add_argument("--verify", action="store_true")
+    ap.add_argument("--expectations", default=None, help="expectations JSON committed before the run")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -121,8 +121,8 @@ def main() -> None:
     with (out / "results.jsonl").open("w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r) + "\n")
-    if a.verify:
-        exp = json.loads((ROOT / "webauthn" / "expectations.json").read_text(encoding="utf-8"))
+    if a.expectations:
+        exp = json.loads(Path(a.expectations).read_text(encoding="utf-8"))
         bad = []
         for r in rows:
             e = exp.get(r["library"], {}).get(r["case"])

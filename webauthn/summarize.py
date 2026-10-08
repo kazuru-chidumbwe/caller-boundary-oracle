@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
-"""Summarise a WebAuthn run (webauthn/out/results.jsonl) into webauthn/out/RESULTS.md."""
+"""Summarise a WebAuthn run directory (results.jsonl, RUN.json, VERIFY.txt) into RESULTS.md in that directory.
+
+Usage: python3 webauthn/summarize.py <run-dir>
+"""
 
 from __future__ import annotations
 
 import json
+import sys
 from collections import Counter
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE / "out"
 
 
 def main() -> None:
+    OUT = Path(sys.argv[1])
     rows = [json.loads(l) for l in (OUT / "results.jsonl").open(encoding="utf-8")]
     run = json.loads((OUT / "RUN.json").read_text(encoding="utf-8"))
     libs = list(dict.fromkeys(r["library"] for r in rows))
