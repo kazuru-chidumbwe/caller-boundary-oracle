@@ -18,7 +18,7 @@ Steps refer to W3C Web Authentication Level 3, Recommendation of 25 August 2026,
 | R-ALG | registration | the RP's `pubKeyCredParams` lists only RS256 (-257); the credential key is ES256 | 7.1 step 20 |
 | A-UH | authentication | `userHandle` is another user's handle | 7.2 step 6 |
 | A-CRED | authentication | the credential ID is not in `allowCredentials` | 7.2 step 5 |
-| A-CNTEQ | authentication | `signCount` equal to the stored nonzero count | 7.2 step 23 (policy, as A-CNT) |
+| A-CNTEQ | authentication | `signCount` equal to the stored nonzero count | 7.2 steps 22 and 23 (policy, as A-CNT) |
 
 The 17 development cases and the three positive controls are run in the same evaluation, so every release has a full matrix; the pre-registered claim covers every (release, case) pair not run during development.
 

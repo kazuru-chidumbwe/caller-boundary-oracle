@@ -22,7 +22,7 @@ The fault peer is a deterministic software authenticator (`webauthn/authenticato
 | A-UV | authentication | UV flag clear while user verification is required | 7.2 step 17 | If user verification is required, verify that the UV bit is set |
 | A-BS | authentication | BS flag set while BE is clear | 7.2 step 18 | If the BE bit is not set, verify that the BS bit is not set |
 | A-SIG | authentication | assertion signature invalid | 7.2 step 21 | Verify that sig is a valid signature over authData and the client data hash |
-| A-CNT | authentication | `signCount` lower than the stored count (both nonzero) | 7.2 step 22 | A count that does not increase "is a signal, but not proof, that the authenticator may be cloned"; whether to fail the ceremony is relying-party policy |
+| A-CNT | authentication | `signCount` lower than the stored count (both nonzero) | 7.2 steps 22 and 23 | A count that does not increase "is a signal, but not proof, that the authenticator may be cloned"; whether to fail the ceremony is relying-party policy |
 
 Positive controls: one correct registration and one correct authentication per library; nothing injected, outcome not applicable, and the ceremony must succeed.
 
