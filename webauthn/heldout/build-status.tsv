@@ -1,0 +1,8 @@
+arm	release	built	note
+py_webauthn	2.8.0	yes	
+simplewebauthn	13.3.3	yes	
+go-webauthn	v0.17.4	yes	
+java-webauthn-server	1.12.4	no	  symbol:   method isUserVerified()
+webauthn4j	0.30.3.RELEASE	yes	
+fido2-net-lib	3.0.1	no	error CS0246: The type or namespace name 'RequestNewCredentialParams' could not be found (are you missing a using directive or an assembly reference?) 
+fido2-net-lib	5.0.0-preview.7	yes	

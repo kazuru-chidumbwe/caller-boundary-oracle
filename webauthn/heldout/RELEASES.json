@@ -1,0 +1,51 @@
+{
+ "resolved": "2026-10-08",
+ "rule": "HELD-OUT-DESIGN.md, Releases",
+ "pinned": {
+  "py_webauthn": "3.0.1",
+  "simplewebauthn": "14.0.3",
+  "go-webauthn": "v0.18.2",
+  "java-webauthn-server": "2.10.0",
+  "webauthn4j": "0.31.11.RELEASE",
+  "fido2-net-lib": "4.2.0"
+ },
+ "held_out": {
+  "py_webauthn": "2.8.0",
+  "simplewebauthn": "13.3.3",
+  "go-webauthn": "v0.17.4",
+  "java-webauthn-server": "1.12.4",
+  "webauthn4j": "0.30.3.RELEASE",
+  "fido2-net-lib": [
+   "3.0.1",
+   "5.0.0-preview.7"
+  ]
+ },
+ "not_built": {
+  "java-webauthn-server@1.12.4": "driver does not compile: RegistrationResult has no isUserVerified() in 1.x",
+  "fido2-net-lib@3.0.1": "driver does not compile: no RequestNewCredentialParams in 3.x"
+ },
+ "artifacts": {
+  "py_webauthn@2.8.0": {
+   "source": "PyPI",
+   "dist_info_RECORD_sha256": "de078fceb0324ccb2928f81232980f33fdfde2d71d4e9e48d5eb25c547d26a69"
+  },
+  "simplewebauthn@13.3.3": {
+   "source": "npm",
+   "integrity": "sha512-LelX/lcy5cjc15A86i/aNxHhB5eU7dd20QsbP0VLAf9e38+SLlsnqCCyecx3xqfGofhmX05h1J9fKRYWxw+luA=="
+  },
+  "go-webauthn@v0.17.4": {
+   "source": "proxy.golang.org",
+   "go.sum": [
+    "github.com/go-webauthn/webauthn v0.17.4 h1:KFTSz3R2RYDiUn/0cDi3XTJgFenSG74eKTTHlqWhlxk="
+   ]
+  },
+  "webauthn4j@0.30.3.RELEASE": {
+   "source": "Maven Central",
+   "jar_sha256": "22630b3a6d8d73483461e7eb10cef306f01ae9b8f4360bf77652db4f3c543e99"
+  },
+  "fido2-net-lib@5.0.0-preview.7": {
+   "source": "NuGet",
+   "sha512": "3gx94BueNQtLLRwTcZ+rFIKmEiB70yFOS/IHv5rzVUWCMempfyAQ65EyT4yP0NyteeLwDUFKmfkGW1Tlp8sQSw=="
+  }
+ }
+}

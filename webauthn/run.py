@@ -40,14 +40,17 @@ from classifier.observability import Observation, classify  # noqa: E402
 # property the violated step enforces did not hold (webauthn/STATUS-SIGNALS.md). Raw values that a
 # caller would have to compare with something else (a new signature count against the stored one, a
 # BS flag against a BE flag) do not count.
-ALL_R = {"R-TYPE", "R-CHAL", "R-ORIG", "R-RPID", "R-UP", "R-UV", "R-BS", "R-ASIG"}
-ALL_A = {"A-TYPE", "A-CHAL", "A-ORIG", "A-RPID", "A-UP", "A-UV", "A-BS", "A-SIG", "A-CNT"}
+ALL_R = {"R-TYPE", "R-CHAL", "R-ORIG", "R-RPID", "R-UP", "R-UV", "R-BS", "R-ASIG",
+         "R-UPUV", "R-ORIGPORT", "R-XORIG", "R-NONESTMT", "R-ALG"}  # second line: held-out faults
+ALL_A = {"A-TYPE", "A-CHAL", "A-ORIG", "A-RPID", "A-UP", "A-UV", "A-BS", "A-SIG", "A-CNT",
+         "A-UPUV", "A-ORIGPORT", "A-XORIG", "A-UH", "A-CRED", "A-CNTEQ"}
+CNT = {"A-CNT", "A-CNTEQ"}  # 7.2 steps 22 and 23
 UV = {"R-UV", "A-UV"}
 STATUS_FIELDS: dict[str, list[tuple[str, object, set[str]]]] = {
     "py_webauthn": [("user_verified", False, UV)],
     "simplewebauthn": [("verified", False, ALL_R | ALL_A), ("userVerified", False, UV)],
-    "go-webauthn": [("user_verified", False, UV), ("clone_warning", True, {"A-CNT"})],
-    "java-webauthn-server": [("success", False, ALL_A), ("signature_counter_valid", False, {"A-CNT"}),
+    "go-webauthn": [("user_verified", False, UV), ("clone_warning", True, CNT)],
+    "java-webauthn-server": [("success", False, ALL_A), ("signature_counter_valid", False, CNT),
                              ("user_verified", False, UV)],
     "webauthn4j-nonstrict": [("user_verified", False, UV)],
     "webauthn4j-strict": [("user_verified", False, UV)],
@@ -68,7 +71,7 @@ def observe(lib: str, report: dict, rec: dict) -> dict:
     fired = bool(report["injected"]) and rec.get("passed_sha256") == report["response_sha256"]
     status = succeeded = False
     if not rec["returned_error"]:
-        for field, bad, faults in STATUS_FIELDS[lib]:
+        for field, bad, faults in STATUS_FIELDS[lib.split("@")[0]]:  # "lib@release" arms share the rule
             if fault in faults and field in rec["fields"]:
                 if rec["fields"][field] == bad:
                     status = True
