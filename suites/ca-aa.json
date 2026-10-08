@@ -1,6 +1,6 @@
 {
   "suite_id": "ca-aa",
-  "description": "Chip and Active Authentication rejected after BAC; gmrtd at both pins with and without guard; JMRTD AA integrator patterns.",
+  "description": "Chip and Active Authentication rejected after BAC; gmrtd at three pins with and without guard; JMRTD integrator patterns.",
   "seed": 1,
   "n": 1,
   "entries": [
@@ -95,6 +95,30 @@
       "icao_p4": "ISO7816_G_15a"
     },
     {
+      "scenario_id": "CA-mse-set-at-6300-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6300",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6300.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15a"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6300-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6300",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6300.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_G_15a"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6700-gmrtd-8fea245-default",
       "test_case": "CA-mse-set-at-6700",
       "library": "gmrtd",
@@ -180,6 +204,30 @@
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
       "guard": true,
+      "profile": "profiles/ca/CA-mse-set-at-6700.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15b"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6700-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6700",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6700.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15b"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6700-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6700",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
       "profile": "profiles/ca/CA-mse-set-at-6700.json",
       "expect_outcome": "surfaced",
       "icao_p4": "ISO7816_G_15b"
@@ -275,6 +323,30 @@
       "icao_p4": "ISO7816_G_15c"
     },
     {
+      "scenario_id": "CA-mse-set-at-6800-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6800",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6800.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15c"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6800-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6800",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6800.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_G_15c"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6900-gmrtd-8fea245-default",
       "test_case": "CA-mse-set-at-6900",
       "library": "gmrtd",
@@ -365,6 +437,30 @@
       "icao_p4": "ISO7816_G_15d"
     },
     {
+      "scenario_id": "CA-mse-set-at-6900-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6900",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6900.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15d"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6900-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6900",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6900.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_G_15d"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6982-gmrtd-8fea245-default",
       "test_case": "CA-mse-set-at-6982",
       "library": "gmrtd",
@@ -447,6 +543,28 @@
       "guard": true,
       "profile": "profiles/ca/CA-mse-set-at-6982.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6982-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6982",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6982.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6982-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6982",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6982.json",
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "CA-mse-set-at-6a00-gmrtd-8fea245-default",
@@ -539,6 +657,30 @@
       "icao_p4": "ISO7816_G_15e"
     },
     {
+      "scenario_id": "CA-mse-set-at-6a00-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6a00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6a00.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15e"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a00-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6a00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6a00.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_G_15e"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6a80-gmrtd-8fea245-default",
       "test_case": "CA-mse-set-at-6a80",
       "library": "gmrtd",
@@ -623,6 +765,28 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "CA-mse-set-at-6a80-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6a80",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6a80.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a80-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6a80",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6a80.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6a88-gmrtd-8fea245-default",
       "test_case": "CA-mse-set-at-6a88",
       "library": "gmrtd",
@@ -705,6 +869,28 @@
       "guard": true,
       "profile": "profiles/ca/CA-mse-set-at-6a88.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a88-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6a88",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6a88.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a88-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6a88",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6a88.json",
+      "expect_outcome": "silent"
     },
     {
       "scenario_id": "CA-mse-set-at-6b00-gmrtd-8fea245-default",
@@ -794,6 +980,30 @@
       "guard": true,
       "profile": "profiles/ca/CA-mse-set-at-6b00.json",
       "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15f"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6b00-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6b00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6b00.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15f"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6b00-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6b00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6b00.json",
+      "expect_outcome": "silent",
       "icao_p4": "ISO7816_G_15f"
     },
     {
@@ -887,6 +1097,30 @@
       "icao_p4": "ISO7816_G_15g"
     },
     {
+      "scenario_id": "CA-mse-set-at-6c00-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6c00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6c00.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15g"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6c00-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6c00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6c00.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_G_15g"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6e00-gmrtd-8fea245-default",
       "test_case": "CA-mse-set-at-6e00",
       "library": "gmrtd",
@@ -974,6 +1208,30 @@
       "guard": true,
       "profile": "profiles/ca/CA-mse-set-at-6e00.json",
       "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15h"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6e00-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6e00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6e00.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15h"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6e00-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6e00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6e00.json",
+      "expect_outcome": "silent",
       "icao_p4": "ISO7816_G_15h"
     },
     {
@@ -1067,6 +1325,30 @@
       "icao_p4": "ISO7816_G_15i"
     },
     {
+      "scenario_id": "CA-mse-set-at-6f00-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6f00",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6f00.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15i"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6f00-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6f00",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/ca/CA-mse-set-at-6f00.json",
+      "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_G_15i"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6fff-gmrtd-8fea245-default",
       "test_case": "CA-mse-set-at-6fff",
       "library": "gmrtd",
@@ -1147,6 +1429,28 @@
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
       "guard": true,
+      "profile": "profiles/ca/CA-mse-set-at-6fff.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6fff-jmrtd-propagate",
+      "test_case": "CA-mse-set-at-6fff",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/ca/CA-mse-set-at-6fff.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6fff-jmrtd-catch-continue",
+      "test_case": "CA-mse-set-at-6fff",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "CA",
+      "driver": "java",
+      "integrator": "catch-continue",
       "profile": "profiles/ca/CA-mse-set-at-6fff.json",
       "expect_outcome": "surfaced"
     },

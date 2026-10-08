@@ -22,6 +22,8 @@ public final class HarnessProfile {
     @SerializedName("dg15_hex_path")
     public String dg15HexPath;
     public Injection injection;
+    @SerializedName("ca_injection")
+    public CaInjection caInjection;
     @SerializedName("aa_injection")
     public AaInjection aaInjection;
 
@@ -54,6 +56,13 @@ public final class HarnessProfile {
         /** "mse" (first MSE:Set AT) or "ga1" to "ga4" (PACE General Authenticate steps). */
         @SerializedName("pace_step")
         public String paceStep;
+    }
+
+    public static final class CaInjection {
+        @SerializedName("ca_fail_on")
+        public String caFailOn;
+        @SerializedName("ca_sw")
+        public String caSw;
     }
 
     public static final class AaInjection {

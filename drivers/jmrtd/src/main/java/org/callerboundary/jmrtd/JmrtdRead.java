@@ -5,7 +5,11 @@ import net.sf.scuba.util.Hex;
 import org.jmrtd.BACKey;
 import org.jmrtd.PassportService;
 import org.jmrtd.lds.CardAccessFile;
+import org.jmrtd.lds.ChipAuthenticationInfo;
+import org.jmrtd.lds.ChipAuthenticationPublicKeyInfo;
 import org.jmrtd.lds.PACEInfo;
+import org.jmrtd.lds.SecurityInfo;
+import org.jmrtd.lds.icao.DG14File;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -19,14 +23,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * One oracle observation against JMRTD. JMRTD exposes protocol steps (doPACE, doBAC, doAA)
+ * One oracle observation against JMRTD. JMRTD exposes protocol steps (doPACE, doBAC, doEACCA, doAA)
  * and reports a failed step by throwing; whether that reaches the application is decided by
  * the read routine the integrator writes. The driver therefore runs a named integrator pattern:
  *
  * <ul>
  *   <li>{@code propagate}: the step exception leaves the read routine.</li>
  *   <li>{@code catch-continue}: the read routine catches the step exception, logs it and
- *       continues (BAC after a failed PACE, reading on after a failed AA). This is the
+ *       continues (BAC after a failed PACE, reading on after a failed CA or AA). This is the
  *       pattern found in public JMRTD integrations.</li>
  * </ul>
  *
@@ -76,7 +80,7 @@ public final class JmrtdRead {
         boolean fired;
         boolean vsc = "vsmartcard".equals(profile.peer);
         switch (mechanism) {
-            case "PACE", "AA" -> {
+            case "PACE", "CA", "AA" -> {
                 // Both chips speak the vpcd socket protocol and write a delivered-fault report.
                 VpcdCardService card = vsc
                         ? VpcdCardService.independent(root, a.profilePath.toString())
@@ -86,6 +90,8 @@ public final class JmrtdRead {
                     byte[] cardAccess = readCardAccess(service);
                     if (mechanism.equals("PACE")) {
                         readWithPace(service, cardAccess, bacKey, integrator, step, true);
+                    } else if (mechanism.equals("CA")) {
+                        readWithCa(service, cardAccess, bacKey, integrator, step);
                     } else {
                         readWithAa(service, cardAccess, bacKey, integrator, step);
                     }
@@ -193,11 +199,50 @@ public final class JmrtdRead {
     }
 
     /**
-     * A read routine: access control (PACE when CardAccess advertises it, otherwise BAC), then
-     * Active Authentication. Only the AA step is the target; access-control failures propagate.
+     * A read routine: access control, Chip Authentication with the key from DG14, then EF.COM over
+     * the secure channel (the new one after CA, the existing one when CA failed and the
+     * integrator continues). Only the CA step is the target; other failures propagate.
      */
-    static void readWithAa(PassportService service, byte[] cardAccessBytes, BACKey bacKey, Integrator integrator, Step step)
+    static void readWithCa(PassportService service, byte[] cardAccessBytes, BACKey bacKey, Integrator integrator, Step step)
             throws Exception {
+        accessControl(service, cardAccessBytes, bacKey, step);
+        DG14File dg14;
+        try (InputStream in = service.getInputStream(PassportService.EF_DG14, PassportService.DEFAULT_MAX_BLOCKSIZE)) {
+            dg14 = new DG14File(in);
+        } catch (Exception e) {
+            throw new ReadFailure("DG14", e);
+        }
+        ChipAuthenticationInfo caInfo = null;
+        ChipAuthenticationPublicKeyInfo keyInfo = null;
+        for (SecurityInfo si : dg14.getSecurityInfos()) {
+            if (si instanceof ChipAuthenticationInfo c && caInfo == null) {
+                caInfo = c;
+            } else if (si instanceof ChipAuthenticationPublicKeyInfo k && keyInfo == null) {
+                keyInfo = k;
+            }
+        }
+        if (caInfo == null || keyInfo == null) {
+            throw new ReadFailure("DG14", new IllegalStateException("no Chip Authentication info or key"));
+        }
+        try {
+            service.doEACCA(keyInfo.getKeyId(), caInfo.getObjectIdentifier(), keyInfo.getObjectIdentifier(),
+                    keyInfo.getSubjectPublicKey());
+            step.succeeded = true;
+        } catch (Exception e) {
+            step.fail(e);
+            if (integrator == Integrator.PROPAGATE) {
+                throw new ReadFailure("CA", e);
+            }
+        }
+        try (InputStream in = service.getInputStream(PassportService.EF_COM, PassportService.DEFAULT_MAX_BLOCKSIZE)) {
+            in.readAllBytes();
+        } catch (Exception e) {
+            throw new ReadFailure("EF.COM", e);
+        }
+    }
+
+    /** PACE when CardAccess advertises it, otherwise BAC; a failure here is not the target. */
+    static void accessControl(PassportService service, byte[] cardAccessBytes, BACKey bacKey, Step step) throws ReadFailure {
         try {
             if (cardAccessBytes != null) {
                 PACEInfo paceInfo = PassportServices.firstPaceInfo(new CardAccessFile(new ByteArrayInputStream(cardAccessBytes)));
@@ -211,6 +256,15 @@ public final class JmrtdRead {
         } catch (Exception e) {
             throw new ReadFailure("access control", e);
         }
+    }
+
+    /**
+     * A read routine: access control (PACE when CardAccess advertises it, otherwise BAC), then
+     * Active Authentication. Only the AA step is the target; access-control failures propagate.
+     */
+    static void readWithAa(PassportService service, byte[] cardAccessBytes, BACKey bacKey, Integrator integrator, Step step)
+            throws Exception {
+        accessControl(service, cardAccessBytes, bacKey, step);
         KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
         kpg.initialize(2048);
         RSAPublicKey pub = (RSAPublicKey) kpg.generateKeyPair().getPublic();
@@ -251,6 +305,7 @@ public final class JmrtdRead {
                     : profile.cardAccessHex == null || profile.cardAccessHex.isEmpty()
                         || profile.injection == null || profile.injection.paceFailOn == null
                         ? "" : "PACE/" + profile.injection.paceFailOn;
+            case "CA" -> profile.caInjection == null ? "" : "CA/" + profile.caInjection.caFailOn;
             case "AA" -> vsc
                     ? (profile.vsmartcard == null || profile.vsmartcard.aaSw == null || profile.vsmartcard.aaSw.isEmpty()
                         ? "" : "AA/internal_authenticate")

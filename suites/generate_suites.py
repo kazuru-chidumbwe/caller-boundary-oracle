@@ -43,7 +43,7 @@ EXPECT = {
     },
     "CA": {
         "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": None,
-        "8fea245-guard": SU, "64bd6ab-guard": SU, "propagate": None, "catch-continue": None,
+        "8fea245-guard": SU, "64bd6ab-guard": SU, "propagate": SU, "catch-continue": S,
         "emrtd-dotnet": None, "dmrtd": None,
     },
     "AA": {
@@ -60,6 +60,17 @@ EXPECT = {
 # in-process chip answered these errors in plain; there only (sw & 0x6700) == 0x6700 survived.)
 def _jmrtd_aa_swallowed(sw: str) -> bool:
     return True
+
+
+# JMRTD 0.8.9 EACCAAPDUSender.sendMSESetATIntAuth throws CardServiceException for any status
+# word other than 9000, so doEACCA throws: propagate is surfaced for every status word, and
+# catch-and-continue goes on to read EF.COM over the existing secure channel. That read succeeds
+# (silent) unless the error desynchronised the channel: SecureMessagingAPDUSender.transmit returns
+# a response whose status word matches (sw & 0x6700) == 0x6700 without unwrapping it, so the
+# reader's send sequence counter falls one behind the chip's, the chip rejects the MAC of the next
+# command, and the EF.COM read throws (surfaced, through the later read rather than the CA step).
+def _jmrtd_ca_desyncs(sw: str) -> bool:
+    return (int(sw, 16) & 0x6700) == 0x6700
 
 CONTROL_EXPECT = {
     "CTRL-bac-only": {arm: NA for arm in EXPECT["PACE"]},
@@ -92,6 +103,8 @@ def expect_for(prof: dict, mechanism: str) -> dict[str, str | None]:
     if mechanism == "AA" and _jmrtd_aa_swallowed(prof["aa_injection"]["aa_sw"]):
         expect["propagate"] = S
         expect["catch-continue"] = S
+    if mechanism == "CA" and _jmrtd_ca_desyncs(prof["ca_injection"]["ca_sw"]):
+        expect["catch-continue"] = SU
     return expect
 
 
@@ -247,7 +260,7 @@ def main() -> None:
 
     ca_aa = [e for rel, p in load_profiles("ca") for e in entries_for(rel, p, "CA", expect_for(p, "CA"))]
     ca_aa += [e for rel, p in load_profiles("aa") for e in entries_for(rel, p, "AA", expect_for(p, "AA"))]
-    write("ca-aa", "Chip and Active Authentication rejected after BAC; gmrtd at both pins with and without guard; JMRTD AA integrator patterns.", ca_aa)
+    write("ca-aa", "Chip and Active Authentication rejected after BAC; gmrtd at three pins with and without guard; JMRTD integrator patterns.", ca_aa)
 
     controls = [
         e
