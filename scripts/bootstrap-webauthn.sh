@@ -42,6 +42,6 @@ echo "==> java-webauthn-server and webauthn4j"
 echo "==> Fido2"
 # shellcheck disable=SC1091
 source "$VENDOR_DIR/dotnet.env"
-(cd "$ROOT/webauthn/drivers/dotnet" && dotnet build -c Release --locked-mode -o out --nologo -v q > /dev/null)
+(cd "$ROOT/webauthn/drivers/dotnet" && dotnet build -c Release -p:RestoreLockedMode=true -o out --nologo -v q > /dev/null)
 
 echo "webauthn ready: python, node $NODE_VERSION, go, java and .NET drivers built"
