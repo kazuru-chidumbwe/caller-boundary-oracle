@@ -1,0 +1,14 @@
+{
+  "harness_commit": "11d391651de67ab6cae205e24c4be94ec033b227",
+  "harness_dirty": false,
+  "oracle_sha256": "e29e03eca5bfd6b935453a5bac7af68a6449564ede074e284c6156e4014a1bb9",
+  "drivers": {
+    "py_webauthn": "/home/test/cbo/_vendor/webauthn-venv/bin/python /home/test/cbo/cbo-wa/webauthn/drivers/py_webauthn_driver.py",
+    "simplewebauthn": "/home/test/cbo/_vendor/node/bin/node /home/test/cbo/cbo-wa/webauthn/drivers/node/simplewebauthn_driver.js",
+    "go-webauthn": "/home/test/cbo/cbo-wa/bin/webauthn-go-driver",
+    "java-webauthn-server": "java -cp /home/test/cbo/cbo-wa/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:/home/test/cbo/cbo-wa/webauthn/drivers/java/target/lib/* org.callerboundary.webauthn.YubicoDriver",
+    "webauthn4j-nonstrict": "java -cp /home/test/cbo/cbo-wa/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:/home/test/cbo/cbo-wa/webauthn/drivers/java/target/lib/* org.callerboundary.webauthn.Webauthn4jDriver nonstrict",
+    "webauthn4j-strict": "java -cp /home/test/cbo/cbo-wa/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:/home/test/cbo/cbo-wa/webauthn/drivers/java/target/lib/* org.callerboundary.webauthn.Webauthn4jDriver strict",
+    "fido2-net-lib": "/home/test/cbo/_vendor/dotnet/dotnet /home/test/cbo/cbo-wa/webauthn/drivers/dotnet/out/Fido2Driver.dll"
+  }
+}
