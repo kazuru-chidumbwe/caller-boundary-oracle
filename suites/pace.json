@@ -139,6 +139,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6300-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6300",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-general-authenticate-6300.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6300-emrtd-dotnet-default",
       "test_case": "PACE-general-authenticate-6300",
       "library": "emrtd-dotnet",
@@ -291,6 +302,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-general-authenticate-6700.json",
       "expect_outcome": "silent"
     },
@@ -451,6 +473,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6800-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6800-emrtd-dotnet-default",
       "test_case": "PACE-general-authenticate-6800",
       "library": "emrtd-dotnet",
@@ -603,6 +636,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-general-authenticate-6900.json",
       "expect_outcome": "silent"
     },
@@ -763,6 +807,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6982-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6982",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-general-authenticate-6982.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6982-emrtd-dotnet-default",
       "test_case": "PACE-general-authenticate-6982",
       "library": "emrtd-dotnet",
@@ -915,6 +970,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
       "expect_outcome": "silent"
     },
@@ -1085,6 +1151,18 @@
       "icao_p4": "ISO7816_C_10a"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6a80-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6a80",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_10a"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6a80-emrtd-dotnet-default",
       "test_case": "PACE-general-authenticate-6a80",
       "library": "emrtd-dotnet",
@@ -1239,6 +1317,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6a88.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a88-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6a88",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-general-authenticate-6a88.json",
       "expect_outcome": "silent"
     },
@@ -1399,6 +1488,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6b00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6b00-emrtd-dotnet-default",
       "test_case": "PACE-general-authenticate-6b00",
       "library": "emrtd-dotnet",
@@ -1555,6 +1655,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6c00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6c00-emrtd-dotnet-default",
       "test_case": "PACE-general-authenticate-6c00",
       "library": "emrtd-dotnet",
@@ -1707,6 +1818,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
       "expect_outcome": "silent"
     },
@@ -1877,6 +1999,18 @@
       "icao_p4": "ISO7816_C_10b"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6f00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6f00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_10b"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6f00-emrtd-dotnet-default",
       "test_case": "PACE-general-authenticate-6f00",
       "library": "emrtd-dotnet",
@@ -2031,6 +2165,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-6fff.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6fff-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-6fff",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-general-authenticate-6fff.json",
       "expect_outcome": "silent"
     },
@@ -2191,6 +2336,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-general-authenticate-no-response-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-no-response",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-general-authenticate-no-response.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-no-response-emrtd-dotnet-default",
       "test_case": "PACE-general-authenticate-no-response",
       "library": "emrtd-dotnet",
@@ -2343,6 +2499,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-general-authenticate-timeout.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-timeout-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-timeout",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-general-authenticate-timeout.json",
       "expect_outcome": "silent"
     },
@@ -2503,6 +2670,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-general-authenticate-transport-abort-jmrtd-0.5.0-passport",
+      "test_case": "PACE-general-authenticate-transport-abort",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-general-authenticate-transport-abort.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-transport-abort-emrtd-dotnet-default",
       "test_case": "PACE-general-authenticate-transport-abort",
       "library": "emrtd-dotnet",
@@ -2655,6 +2833,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6300.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6300-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6300",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-mse-set-at-6300.json",
       "expect_outcome": "silent"
     },
@@ -2815,6 +3004,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6700-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6700-emrtd-dotnet-default",
       "test_case": "PACE-mse-set-at-6700",
       "library": "emrtd-dotnet",
@@ -2967,6 +3167,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-mse-set-at-6800.json",
       "expect_outcome": "silent"
     },
@@ -3127,6 +3338,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6900-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6900-emrtd-dotnet-default",
       "test_case": "PACE-mse-set-at-6900",
       "library": "emrtd-dotnet",
@@ -3283,6 +3505,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6982-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6982",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-mse-set-at-6982.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6982-emrtd-dotnet-default",
       "test_case": "PACE-mse-set-at-6982",
       "library": "emrtd-dotnet",
@@ -3435,6 +3668,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
       "expect_outcome": "silent"
     },
@@ -3600,6 +3844,18 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_08a"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a80-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6a80",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
       "expect_outcome": "silent",
       "icao_p4": "ISO7816_C_08a"
@@ -3773,6 +4029,18 @@
       "icao_p4": "ISO7816_C_08b"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6a88-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6a88",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_08b"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6a88-emrtd-dotnet-default",
       "test_case": "PACE-mse-set-at-6a88",
       "library": "emrtd-dotnet",
@@ -3927,6 +4195,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
       "expect_outcome": "silent"
     },
@@ -4087,6 +4366,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6c00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6c00-emrtd-dotnet-default",
       "test_case": "PACE-mse-set-at-6c00",
       "library": "emrtd-dotnet",
@@ -4239,6 +4529,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
       "expect_outcome": "silent"
     },
@@ -4409,6 +4710,18 @@
       "icao_p4": "ISO7816_C_08c"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6f00-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6f00",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
+      "expect_outcome": "silent",
+      "icao_p4": "ISO7816_C_08c"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6f00-emrtd-dotnet-default",
       "test_case": "PACE-mse-set-at-6f00",
       "library": "emrtd-dotnet",
@@ -4563,6 +4876,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6fff-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6fff",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
       "expect_outcome": "silent"
     },
@@ -4723,6 +5047,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-mse-set-at-no-response-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-no-response",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-mse-set-at-no-response.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-no-response-emrtd-dotnet-default",
       "test_case": "PACE-mse-set-at-no-response",
       "library": "emrtd-dotnet",
@@ -4879,6 +5214,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-mse-set-at-timeout-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-timeout",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-mse-set-at-timeout.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-timeout-emrtd-dotnet-default",
       "test_case": "PACE-mse-set-at-timeout",
       "library": "emrtd-dotnet",
@@ -5031,6 +5377,17 @@
       "cell": "PACE",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/pace/PACE-mse-set-at-transport-abort.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-transport-abort-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-transport-abort",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
       "profile": "profiles/pace/PACE-mse-set-at-transport-abort.json",
       "expect_outcome": "silent"
     },

@@ -39,6 +39,7 @@ ARM_ORDER = [
     ("gmrtd", "b861835-guard", "gmrtd 1.3.2 + guard"),
     ("jmrtd", "propagate", "JMRTD 0.8.9 propagate"),
     ("jmrtd", "catch-continue", "JMRTD 0.8.9 catch-and-continue"),
+    ("jmrtd", "0.5.0-passport", "JMRTD 0.5.0 Passport"),
     ("emrtd-dotnet", "default", "emrtd-dotnet"),
     ("dmrtd", "default", "dmrtd"),
     ("nfcpassportreader", "default", "NFCPassportReader"),

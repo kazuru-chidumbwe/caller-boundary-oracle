@@ -169,6 +169,20 @@
       }
     },
     {
+      "scenario_id": "CTRL-bac-only-jmrtd-0.5.0-passport",
+      "test_case": "CTRL-bac-only",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "CTRL-bac-only",
+      "driver": "java050",
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
       "scenario_id": "CTRL-bac-only-emrtd-dotnet-default",
       "test_case": "CTRL-bac-only",
       "library": "emrtd-dotnet",
@@ -354,6 +368,20 @@
       "cell": "CTRL-pace-proprietary-params",
       "driver": "java",
       "integrator": "catch-continue",
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-jmrtd-0.5.0-passport",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "java050",
       "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
       "expect_outcome": "not_applicable",
       "expect_observation": {

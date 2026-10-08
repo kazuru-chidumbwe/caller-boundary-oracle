@@ -139,6 +139,17 @@
       "expect_outcome": "silent"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6fff-jmrtd-0.5.0-passport",
+      "test_case": "PACE-mse-set-at-6fff",
+      "library": "jmrtd",
+      "variant": "0.5.0-passport",
+      "arm": "jmrtd-0.5.0",
+      "cell": "PACE",
+      "driver": "java050",
+      "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
+      "expect_outcome": "silent"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6fff-emrtd-dotnet-default",
       "test_case": "PACE-mse-set-at-6fff",
       "library": "emrtd-dotnet",
