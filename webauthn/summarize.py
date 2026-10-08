@@ -40,7 +40,7 @@ def main() -> None:
               "Any error: the call raised or returned an error. Output differential: whether the ceremony was accepted, "
               "read as an integrator who refuses on an error or on the library's top-level verdict (`verified`, `success`) "
               "and on nothing else would read it. "
-              "Scored over the 17 fault cases per library.", "",
+              f"Scored over the {len({r['case'] for r in rows if r['fault']})} fault cases per library.", "",
               "| Library (arm) | Caller-boundary oracle: not surfaced | Any error: missed | Output differential: accepted |",
               "| --- | ---: | ---: | ---: |"]
     for lib in libs:
