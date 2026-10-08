@@ -1,0 +1,21 @@
+[package]
+name = "passauf-read"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Caller-boundary oracle driver for passauf (eMRTD reader library, Rust)"
+
+[[bin]]
+name = "passauf_read"
+path = "src/main.rs"
+
+[dependencies]
+# passauf v0.2.0 at 48b7cc7d7398bbdfdcfef2c900a01972275c6c8a, checked out next to the harness as the other
+# vendored libraries are. Only the library and PACE: no PC/SC, Proxmark or CLI backend is compiled in; the
+# driver supplies the transport through passauf's CallbackSmartcard, as its Android app does.
+passauf = { path = "../../../_vendor/passauf", default-features = false, features = ["pace"] }
+simplelog = "0.12"
+serde_json = "1.0"
+
+[profile.release]
+debug = false

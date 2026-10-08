@@ -57,6 +57,9 @@ DOTNET_DLL = "drivers/dotnet/bin/out/EmrtdDotnetRead.dll"
 DART_EXE = "drivers/dart/build/dmrtd_read"
 
 
+RUST_EXE = "drivers/rust/target/release/passauf_read"
+
+
 def ensure_chip_serve(root: Path) -> Path:
     """The harness chip over the vpcd socket, for drivers in other languages."""
     chip = root / "bin" / ("chip-serve" + (".exe" if sys.platform == "win32" else ""))
@@ -81,6 +84,17 @@ def ensure_dart_driver(root: Path) -> Path:
     subprocess.check_call([dart, "compile", "exe", "bin/dmrtd_read.dart", "-o", "build/dmrtd_read"],
                           cwd=root / "drivers/dart", stdout=subprocess.DEVNULL)
     return root / DART_EXE
+
+
+def ensure_rust_driver(root: Path) -> Path:
+    """passauf driver; cargo from PATH or ~/.cargo/bin (rustup), toolchain as installed for the lab."""
+    cargo = shutil.which("cargo", path=os.pathsep.join([str(Path.home() / ".cargo/bin"), os.environ.get("PATH", "")])) or "cargo"
+    subprocess.check_call([cargo, "build", "--release", "--locked", "-q"], cwd=root / "drivers/rust")
+    return root / RUST_EXE
+
+
+def run_rust(exe: Path, chip: Path, log_dir: Path, flags: list[str]) -> None:
+    subprocess.check_call([str(exe), "-chip-serve", str(chip), "-log-dir", str(log_dir), *flags], cwd=ROOT)
 
 
 def run_dart(exe: Path, chip: Path, log_dir: Path, flags: list[str]) -> None:
@@ -148,9 +162,10 @@ def main() -> int:
     go_bins = build_go_bins(ROOT, go_builds) if go_builds else {}
     jmrtd_jar = ensure_jmrtd_jar(ROOT) if any(e["driver"] == "java" for e in manifest["entries"]) else None
     drivers = {e["driver"] for e in manifest["entries"]}
-    chip_serve = ensure_chip_serve(ROOT) if drivers & {"dotnet", "dart", "java"} else None
+    chip_serve = ensure_chip_serve(ROOT) if drivers & {"dotnet", "dart", "java", "rust"} else None
     dotnet_dll = ensure_dotnet_driver(ROOT) if "dotnet" in drivers else None
     dart_exe = ensure_dart_driver(ROOT) if "dart" in drivers else None
+    rust_exe = ensure_rust_driver(ROOT) if "rust" in drivers else None
 
     env_path = log_dir / "environment.json"
     env_path.write_text(json.dumps(tool_versions(ROOT), indent=2) + "\n", encoding="utf-8")
@@ -176,6 +191,9 @@ def main() -> int:
             elif driver == "dart":
                 assert dart_exe is not None and chip_serve is not None
                 run_dart(dart_exe, chip_serve, log_dir, flags)
+            elif driver == "rust":
+                assert rust_exe is not None and chip_serve is not None
+                run_rust(rust_exe, chip_serve, log_dir, flags)
             else:
                 raise SystemExit(f"unknown driver: {driver}")
 
