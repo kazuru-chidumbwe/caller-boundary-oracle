@@ -20,6 +20,7 @@ from pathlib import Path
 
 import webauthn
 from webauthn.helpers import parse_authentication_credential_json, parse_registration_credential_json
+from webauthn.helpers.cose import COSEAlgorithmIdentifier
 
 
 def b64d(s: str) -> bytes:
@@ -41,7 +42,8 @@ def main() -> None:
             res = webauthn.verify_registration_response(
                 credential=parse_registration_credential_json(body.decode()),
                 expected_challenge=b64d(opts["challenge"]), expected_origin=opts["origin"],
-                expected_rp_id=opts["rpId"], require_user_verification=opts["requireUserVerification"])
+                expected_rp_id=opts["rpId"], require_user_verification=opts["requireUserVerification"],
+                supported_pub_key_algs=[COSEAlgorithmIdentifier(a) for a in opts.get("pubKeyCredParams", [-7])])
             rec["fields"] = {"user_verified": res.user_verified, "credential_backed_up": res.credential_backed_up,
                              "credential_device_type": val(res.credential_device_type),
                              "fmt": val(res.fmt)}

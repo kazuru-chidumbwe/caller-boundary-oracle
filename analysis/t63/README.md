@@ -23,7 +23,7 @@ The test reaches the Chip Authentication call site. The two PACE call sites (`pa
 
 ## Result (8 Oct 2026, Testbed A)
 
-Run on Testbed A, from the gmrtd clone with tags up to v1.3.3. The Go toolchain is the one each release's `go.mod` requests, selected through `GOTOOLCHAIN=auto` from base go1.24.4 (go1.25.0 and go1.26.x). All outputs are in `out/` (`t63.tsv`, one log per release).
+Run on Testbed A, from the gmrtd clone with tags up to v1.3.3. The Go toolchain is the one each release's `go.mod` requests, selected through `GOTOOLCHAIN=auto` from base go1.24.4 (go1.25.0 and go1.26.x). `out/t63.tsv` holds the result line of every release; the per-release logs stay on Testbed A (`~/cbo/t63/out`), because the repository ignores `*.log`.
 
 | Releases | Verdict |
 | --- | --- |

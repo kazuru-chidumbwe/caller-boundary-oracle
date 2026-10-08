@@ -29,3 +29,17 @@ Rule, fixed now: for each library, the pinned release, plus the newest release o
 ## Driver change before the run
 
 Drivers read `pubKeyCredParams` from `options.json` instead of fixing ES256 (needed for R-ALG). This change is made and committed before expectations are written.
+
+## Amendment 1 (8 October 2026, before any held-out run, before any expectation is written)
+
+Two of the new cases need inputs that the drivers did not pass, so the driver change above is extended:
+
+- **A-CRED.** `options.json` carries `allowCredentials`, the credential IDs the relying party allowed in this ceremony. Each driver passes it wherever the library's verification API takes an allow list or a credential lookup:
+  - go-webauthn: session `AllowedCredentialIDs`;
+  - java-webauthn-server: `StartAssertionOptions` and `AssertionRequest`;
+  - webauthn4j: `AuthenticationParameters` `allowCredentials`;
+  - Fido2: `MakeAssertion` through the stored credential lookup.
+  A library whose API takes no allow list (py_webauthn, simplewebauthn) is called as before. In that case the check is left to the caller, and the expectation records that.
+- **A-UH.** `options.json` carries the stored user handle of the credential, as in development. Each driver passes it wherever the API compares the returned `userHandle` with the stored user. No driver changes how it reports results.
+
+In every development case, `allowCredentials` lists the stored credential and `pubKeyCredParams` lists ES256 only, so the development inputs are unchanged in effect. The driver changes are committed, and the development run is repeated on the pinned releases with the changed drivers, before expectations are written. If any development verdict changes, the drivers are fixed rather than the expectations.

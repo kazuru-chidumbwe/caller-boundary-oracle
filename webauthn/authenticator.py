@@ -35,6 +35,9 @@ ORIGIN = "https://rp.cbo.test"
 OTHER_RP_ID = "other.cbo.test"
 OTHER_ORIGIN = "https://other.cbo.test"
 USER_ID = b"cbo-user-0001"
+OTHER_USER_ID = b"cbo-user-0002"
+PORT_ORIGIN = "https://rp.cbo.test:8443"
+ES256, RS256 = -7, -257
 STORED_COUNT = 10
 AAGUID = bytes(16)
 
@@ -62,6 +65,18 @@ CASES = [
     ("A-BS", "authentication", "A-BS", None),
     ("A-SIG", "authentication", "A-SIG", None),
     ("A-CNT", "authentication", "A-CNT", None),
+    # held-out cases (HELD-OUT-DESIGN.md, 8 Oct 2026); never run during development
+    ("R-UPUV", "registration", "R-UPUV", "none"),
+    ("R-ORIGPORT", "registration", "R-ORIGPORT", "none"),
+    ("R-XORIG", "registration", "R-XORIG", "none"),
+    ("R-NONESTMT", "registration", "R-NONESTMT", "none"),
+    ("R-ALG", "registration", "R-ALG", "none"),
+    ("A-UPUV", "authentication", "A-UPUV", None),
+    ("A-ORIGPORT", "authentication", "A-ORIGPORT", None),
+    ("A-XORIG", "authentication", "A-XORIG", None),
+    ("A-UH", "authentication", "A-UH", None),
+    ("A-CRED", "authentication", "A-CRED", None),
+    ("A-CNTEQ", "authentication", "A-CNTEQ", None),
 ]
 
 
@@ -97,8 +112,13 @@ def client_data(ceremony: str, challenge: bytes, fault: str | None) -> bytes:
     if fault in ("R-CHAL", "A-CHAL"):
         challenge = seeded("wrong-challenge")
     origin = OTHER_ORIGIN if fault in ("R-ORIG", "A-ORIG") else ORIGIN
-    return json.dumps({"type": typ, "challenge": b64u(challenge), "origin": origin, "crossOrigin": False},
-                      separators=(",", ":")).encode()
+    if fault in ("R-ORIGPORT", "A-ORIGPORT"):
+        origin = PORT_ORIGIN
+    cd = {"type": typ, "challenge": b64u(challenge), "origin": origin, "crossOrigin": False}
+    if fault in ("R-XORIG", "A-XORIG"):  # embedded in a cross-origin iframe the RP did not expect
+        cd["crossOrigin"] = True
+        cd["topOrigin"] = OTHER_ORIGIN
+    return json.dumps(cd, separators=(",", ":")).encode()
 
 
 def auth_data(ceremony: str, fault: str | None) -> bytes:
@@ -110,11 +130,13 @@ def auth_data(ceremony: str, fault: str | None) -> bytes:
         flags &= ~UV
     if fault in ("R-BS", "A-BS"):
         flags |= BS
+    if fault in ("R-UPUV", "A-UPUV"):
+        flags = UV
     if ceremony == "registration":
         flags |= AT
         count = 0
     else:
-        count = STORED_COUNT - 5 if fault == "A-CNT" else STORED_COUNT + 1
+        count = STORED_COUNT - 5 if fault == "A-CNT" else STORED_COUNT if fault == "A-CNTEQ" else STORED_COUNT + 1
     out = hashlib.sha256(rp.encode()).digest() + bytes([flags]) + struct.pack(">I", count)
     if ceremony == "registration":
         out += AAGUID + struct.pack(">H", len(CRED_ID)) + CRED_ID + cose_key()
@@ -130,9 +152,12 @@ def build(case: str, ceremony: str, fault: str | None, fmt: str | None) -> tuple
         # a well-formed signature by the right key over different bytes
         signed = signed[:-1] + bytes([signed[-1] ^ 0x01])
     options = {"rpId": RP_ID, "rpName": "CBO test RP", "origin": ORIGIN, "challenge": b64u(challenge),
-               "userId": b64u(USER_ID), "userName": "cbo-user", "requireUserVerification": True}
+               "userId": b64u(USER_ID), "userName": "cbo-user", "requireUserVerification": True,
+               "pubKeyCredParams": [RS256] if fault == "R-ALG" else [ES256]}
     if ceremony == "registration":
         stmt = {} if fmt == "none" else {"alg": -7, "sig": sign(signed)}
+        if fault == "R-NONESTMT":  # fmt none with a non-empty statement
+            stmt = {"alg": -7, "sig": sign(signed)}
         att = cbor2.dumps({"fmt": fmt, "attStmt": stmt, "authData": adata}, canonical=True)
         options["attestation"] = "none" if fmt == "none" else "direct"
         response = {"id": b64u(CRED_ID), "rawId": b64u(CRED_ID), "type": "public-key",
@@ -143,9 +168,11 @@ def build(case: str, ceremony: str, fault: str | None, fmt: str | None) -> tuple
     else:
         options["credential"] = {"id": b64u(CRED_ID), "publicKeyCose": b64u(cose_key()), "publicKeySpki": b64u(spki()),
                                  "alg": -7, "signCount": STORED_COUNT, "userId": b64u(USER_ID)}
+        options["allowCredentials"] = [b64u(seeded("other-credential-id", 16)) if fault == "A-CRED" else b64u(CRED_ID)]
         response = {"id": b64u(CRED_ID), "rawId": b64u(CRED_ID), "type": "public-key",
                     "response": {"clientDataJSON": b64u(cdata), "authenticatorData": b64u(adata),
-                                 "signature": b64u(sign(signed)), "userHandle": b64u(USER_ID)},
+                                 "signature": b64u(sign(signed)),
+                                 "userHandle": b64u(OTHER_USER_ID if fault == "A-UH" else USER_ID)},
                     "clientExtensionResults": {}, "authenticatorAttachment": "cross-platform"}
     return options, response
 

@@ -36,6 +36,30 @@ import java.util.Set;
  * Usage: java -cp ... org.callerboundary.webauthn.Webauthn4jDriver nonstrict|strict <case-dir>
  */
 public final class Webauthn4jDriver {
+    /** The algorithms the relying party listed in options.json (ES256 when absent). */
+    static List<PublicKeyCredentialParameters> algs(Record r) {
+        var n = r.options.get("pubKeyCredParams");
+        var out = new java.util.ArrayList<PublicKeyCredentialParameters>();
+        if (n == null || n.isEmpty()) {
+            out.add(new PublicKeyCredentialParameters(PublicKeyCredentialType.PUBLIC_KEY, COSEAlgorithmIdentifier.ES256));
+        } else {
+            for (var a : n) out.add(new PublicKeyCredentialParameters(PublicKeyCredentialType.PUBLIC_KEY, COSEAlgorithmIdentifier.create(a.asLong())));
+        }
+        return out;
+    }
+
+    /** The credential IDs the relying party allowed in options.json (the stored one when absent). */
+    static List<byte[]> allow(Record r) {
+        var n = r.options.get("allowCredentials");
+        var out = new java.util.ArrayList<byte[]>();
+        if (n == null || n.isEmpty()) {
+            out.add(Record.b64d(r.options.get("credential").get("id").asText()));
+        } else {
+            for (var s : n) out.add(Record.b64d(s.asText()));
+        }
+        return out;
+    }
+
     public static void main(String[] args) throws Exception {
         String arm = args[0];
         // the jar carries no version metadata; the file name copied by Maven does
@@ -60,7 +84,7 @@ public final class Webauthn4jDriver {
             if (r.registration()) {
                 RegistrationData d = m.parseRegistrationResponseJSON(new String(r.body));
                 m.verify(d, new RegistrationParameters(server,
-                        List.of(new PublicKeyCredentialParameters(PublicKeyCredentialType.PUBLIC_KEY, COSEAlgorithmIdentifier.ES256)), uv, true));
+                        algs(r), uv, true));
                 var ad = d.getAttestationObject().getAuthenticatorData();
                 r.fields.put("user_verified", ad.isFlagUV());
                 r.fields.put("backup_eligible", ad.isFlagBE());
@@ -73,7 +97,7 @@ public final class Webauthn4jDriver {
                         c.get("signCount").asLong(), new AttestedCredentialData(AAGUID.ZERO, Record.b64d(c.get("id").asText()), key),
                         null, null, null, null);
                 AuthenticationData d = m.parseAuthenticationResponseJSON(new String(r.body));
-                m.verify(d, new AuthenticationParameters(server, rec, List.of(Record.b64d(c.get("id").asText())), uv, true));
+                m.verify(d, new AuthenticationParameters(server, rec, allow(r), uv, true));
                 var ad = d.getAuthenticatorData();
                 r.fields.put("user_verified", ad.isFlagUV());
                 r.fields.put("backup_state", ad.isFlagBS());

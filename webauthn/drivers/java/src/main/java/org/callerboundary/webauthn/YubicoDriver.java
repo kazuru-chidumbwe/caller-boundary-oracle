@@ -30,6 +30,30 @@ import java.util.Set;
  * library's README. Usage: java -cp ... org.callerboundary.webauthn.YubicoDriver <case-dir>
  */
 public final class YubicoDriver {
+    /** The algorithms the relying party listed in options.json (ES256 when absent). */
+    static List<PublicKeyCredentialParameters> algs(Record r) {
+        var n = r.options.get("pubKeyCredParams");
+        if (n == null || n.isEmpty()) return List.of(PublicKeyCredentialParameters.ES256);
+        var out = new java.util.ArrayList<PublicKeyCredentialParameters>();
+        for (var a : n) {
+            out.add(PublicKeyCredentialParameters.builder()
+                    .alg(com.yubico.webauthn.data.COSEAlgorithmIdentifier.fromId(a.asLong()).orElseThrow()).build());
+        }
+        return out;
+    }
+
+    /** The credential IDs the relying party allowed in options.json (the stored one when absent). */
+    static List<PublicKeyCredentialDescriptor> allow(Record r) {
+        var n = r.options.get("allowCredentials");
+        var out = new java.util.ArrayList<PublicKeyCredentialDescriptor>();
+        if (n == null || n.isEmpty()) {
+            out.add(PublicKeyCredentialDescriptor.builder().id(new ByteArray(Record.b64d(r.options.get("credential").get("id").asText()))).build());
+        } else {
+            for (var s : n) out.add(PublicKeyCredentialDescriptor.builder().id(new ByteArray(Record.b64d(s.asText()))).build());
+        }
+        return out;
+    }
+
     public static void main(String[] args) throws Exception {
         Record r = new Record("java-webauthn-server", RelyingParty.class.getPackage().getImplementationVersion(), Path.of(args[0]));
         RelyingPartyIdentity rpId = RelyingPartyIdentity.builder().id(r.opt("rpId")).name(r.opt("rpName")).build();
@@ -73,7 +97,7 @@ public final class YubicoDriver {
                         .rp(rpId)
                         .user(UserIdentity.builder().name(userName).displayName(userName).id(userHandle).build())
                         .challenge(challenge)
-                        .pubKeyCredParams(List.of(PublicKeyCredentialParameters.ES256))
+                        .pubKeyCredParams(algs(r))
                         .authenticatorSelection(AuthenticatorSelectionCriteria.builder().userVerification(uv).build())
                         .attestation("none".equals(r.opt("attestation")) ? AttestationConveyancePreference.NONE : AttestationConveyancePreference.DIRECT)
                         .build();
@@ -87,7 +111,7 @@ public final class YubicoDriver {
             } else {
                 AssertionRequest req = AssertionRequest.builder()
                         .publicKeyCredentialRequestOptions(PublicKeyCredentialRequestOptions.builder()
-                                .challenge(challenge).rpId(r.opt("rpId")).userVerification(uv).build())
+                                .challenge(challenge).rpId(r.opt("rpId")).userVerification(uv).allowCredentials(allow(r)).build())
                         .userHandle(userHandle)
                         .build();
                 AssertionResult res = rp.finishAssertion(FinishAssertionOptions.builder()

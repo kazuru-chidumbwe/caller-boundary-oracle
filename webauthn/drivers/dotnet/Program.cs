@@ -11,6 +11,14 @@ var dir = args[0];
 var opts = JsonNode.Parse(File.ReadAllText(Path.Combine(dir, "options.json")))!;
 var body = File.ReadAllBytes(Path.Combine(dir, "response.json"));
 static byte[] B64d(string s) => Convert.FromBase64String(s.Replace('-', '+').Replace('_', '/') + new string('=', (4 - s.Length % 4) % 4));
+// the algorithms the relying party listed in options.json (ES256 when absent)
+static List<PubKeyCredParam> Algs(JsonNode o) => o["pubKeyCredParams"] is JsonArray a && a.Count > 0
+    ? a.Select(x => new PubKeyCredParam((COSE.Algorithm)x!.GetValue<int>())).ToList()
+    : [PubKeyCredParam.ES256];
+// the credential IDs the relying party allowed in options.json (the stored one when absent)
+static List<PublicKeyCredentialDescriptor> Allow(JsonNode o, byte[] stored) => o["allowCredentials"] is JsonArray a && a.Count > 0
+    ? a.Select(x => new PublicKeyCredentialDescriptor(B64d(x!.GetValue<string>()))).ToList()
+    : [new PublicKeyCredentialDescriptor(stored)];
 var fields = new JsonObject();
 var rec = new JsonObject
 {
@@ -41,7 +49,7 @@ try
             ExcludeCredentials = [],
             AuthenticatorSelection = new AuthenticatorSelection { UserVerification = uv },
             AttestationPreference = opts["attestation"]!.GetValue<string>() == "none" ? AttestationConveyancePreference.None : AttestationConveyancePreference.Direct,
-            PubKeyCredParams = [PubKeyCredParam.ES256],
+            PubKeyCredParams = Algs(opts),
         });
         create.Challenge = challenge;
         var resp = JsonSerializer.Deserialize<AuthenticatorAttestationRawResponse>(body)!;
@@ -61,7 +69,7 @@ try
         var credId = B64d(c["id"]!.GetValue<string>());
         var get = fido2.GetAssertionOptions(new GetAssertionOptionsParams
         {
-            AllowedCredentials = [new PublicKeyCredentialDescriptor(credId)],
+            AllowedCredentials = Allow(opts, credId),
             UserVerification = uv,
         });
         get.Challenge = challenge;
@@ -72,7 +80,8 @@ try
             OriginalOptions = get,
             StoredPublicKey = B64d(c["publicKeyCose"]!.GetValue<string>()),
             StoredSignatureCounter = c["signCount"]!.GetValue<uint>(),
-            IsUserHandleOwnerOfCredentialIdCallback = (_, _) => Task.FromResult(true),
+            // as an integrator would: the handle must be the stored user's and the credential the stored one
+            IsUserHandleOwnerOfCredentialIdCallback = (a, _) => Task.FromResult(a.UserHandle.AsSpan().SequenceEqual(user.Id) && a.CredentialId.AsSpan().SequenceEqual(credId)),
         });
         fields["sign_count"] = res.SignCount;
         fields["backed_up"] = res.IsBackedUp;

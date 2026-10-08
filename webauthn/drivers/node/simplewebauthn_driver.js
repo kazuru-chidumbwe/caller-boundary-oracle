@@ -25,6 +25,7 @@ async function main() {
       const r = await swa.verifyRegistrationResponse({
         response, expectedChallenge: opts.challenge, expectedOrigin: opts.origin,
         expectedRPID: opts.rpId, requireUserVerification: opts.requireUserVerification,
+        supportedAlgorithmIDs: opts.pubKeyCredParams || [-7],
       });
       const i = r.registrationInfo || {};
       rec.fields = { verified: r.verified, userVerified: i.userVerified ?? null,

@@ -14,6 +14,7 @@ import (
 	"strings"
 
 	"github.com/go-webauthn/webauthn/protocol"
+	"github.com/go-webauthn/webauthn/protocol/webauthncose"
 	"github.com/go-webauthn/webauthn/webauthn"
 )
 
@@ -25,6 +26,8 @@ type options struct {
 	UserID     string `json:"userId"`
 	UserName   string `json:"userName"`
 	RequireUV  bool   `json:"requireUserVerification"`
+	Algs       []int64  `json:"pubKeyCredParams"`
+	Allow      []string `json:"allowCredentials"`
 	Credential *struct {
 		ID        string `json:"id"`
 		COSE      string `json:"publicKeyCose"`
@@ -62,6 +65,30 @@ func version() string {
 	return "unknown"
 }
 
+// credParams: the algorithms the relying party listed (ES256 when options.json has none)
+func credParams(algs []int64) []protocol.CredentialParameter {
+	if len(algs) == 0 {
+		algs = []int64{-7}
+	}
+	out := make([]protocol.CredentialParameter, 0, len(algs))
+	for _, a := range algs {
+		out = append(out, protocol.CredentialParameter{Type: protocol.PublicKeyCredentialType, Algorithm: webauthncose.COSEAlgorithmIdentifier(a)})
+	}
+	return out
+}
+
+// allowed: the credential IDs the relying party allowed (the stored one when options.json has none)
+func allowed(ids []string, stored []byte) [][]byte {
+	if len(ids) == 0 {
+		return [][]byte{stored}
+	}
+	out := make([][]byte, 0, len(ids))
+	for _, s := range ids {
+		out = append(out, b64d(s))
+	}
+	return out
+}
+
 func main() {
 	dir := os.Args[1]
 	raw, _ := os.ReadFile(filepath.Join(dir, "options.json"))
@@ -96,7 +123,7 @@ func main() {
 	}
 	if o.Credential == nil {
 		session := webauthn.SessionData{Challenge: o.Challenge, RelyingPartyID: o.RPID, UserID: u.id, UserVerification: uv,
-			CredParams: []protocol.CredentialParameter{{Type: protocol.PublicKeyCredentialType, Algorithm: -7}}}
+			CredParams: credParams(o.Algs)}
 		parsed, err := protocol.ParseCredentialCreationResponseBytes(body)
 		if err == nil {
 			var c *webauthn.Credential
@@ -114,7 +141,7 @@ func main() {
 			Flags:         webauthn.CredentialFlags{UserPresent: true, UserVerified: true},
 			Authenticator: webauthn.Authenticator{AAGUID: make([]byte, 16), SignCount: o.Credential.SignCount}}}
 		session := webauthn.SessionData{Challenge: o.Challenge, RelyingPartyID: o.RPID, UserID: u.id, UserVerification: uv,
-			AllowedCredentialIDs: [][]byte{id}}
+			AllowedCredentialIDs: allowed(o.Allow, id)}
 		parsed, err := protocol.ParseCredentialRequestResponseBytes(body)
 		if err == nil {
 			var c *webauthn.Credential
