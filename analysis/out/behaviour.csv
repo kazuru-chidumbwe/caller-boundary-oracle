@@ -91,6 +91,7 @@ gmrtd 1.3.2 + guard,PACE,independent,PACE/mse_set_at,3,surfaced 3
 gmrtd 1.3.2 + guard,PACE,independent,control,2,not_applicable 2
 JMRTD 0.8.9 propagate,AA,harness,AA/internal_authenticate,13,silent 13
 JMRTD 0.8.9 propagate,AA,independent,AA/internal_authenticate,13,silent 13
+JMRTD 0.8.9 propagate,CA,harness,CA/mse_set_at,13,surfaced 13
 JMRTD 0.8.9 propagate,PACE,harness,PACE/general_authenticate,16,surfaced 16
 JMRTD 0.8.9 propagate,PACE,harness,PACE/mse_set_at,16,surfaced 16
 JMRTD 0.8.9 propagate,PACE,harness,control,2,not_applicable 2
@@ -102,6 +103,7 @@ JMRTD 0.8.9 propagate,PACE,independent,PACE/mse_set_at,3,surfaced 3
 JMRTD 0.8.9 propagate,PACE,independent,control,2,not_applicable 2
 JMRTD 0.8.9 catch-and-continue,AA,harness,AA/internal_authenticate,13,silent 13
 JMRTD 0.8.9 catch-and-continue,AA,independent,AA/internal_authenticate,13,silent 13
+JMRTD 0.8.9 catch-and-continue,CA,harness,CA/mse_set_at,13,"silent 10, surfaced 3"
 JMRTD 0.8.9 catch-and-continue,PACE,harness,PACE/general_authenticate,16,silent 16
 JMRTD 0.8.9 catch-and-continue,PACE,harness,PACE/mse_set_at,16,silent 16
 JMRTD 0.8.9 catch-and-continue,PACE,harness,control,2,not_applicable 2
@@ -121,14 +123,14 @@ emrtd-dotnet,PACE,independent,PACE/general_authenticate_step4,3,status_only 3
 emrtd-dotnet,PACE,independent,PACE/mse_set_at,3,status_only 3
 emrtd-dotnet,PACE,independent,control,2,not_applicable 2
 dmrtd,AA,harness,AA/internal_authenticate,13,surfaced 13
-dmrtd,AA,independent,AA/internal_authenticate,13,"surfaced 12, not_applicable 1"
+dmrtd,AA,independent,AA/internal_authenticate,13,surfaced 13
 dmrtd,PACE,harness,PACE/general_authenticate,16,surfaced 16
 dmrtd,PACE,harness,PACE/mse_set_at,16,surfaced 16
 dmrtd,PACE,harness,control,2,not_applicable 2
 dmrtd,PACE,independent,PACE/general_authenticate_step1,2,surfaced 2
 dmrtd,PACE,independent,PACE/general_authenticate_step2,2,surfaced 2
 dmrtd,PACE,independent,PACE/general_authenticate_step3,2,surfaced 2
-dmrtd,PACE,independent,PACE/general_authenticate_step4,3,"surfaced 2, not_applicable 1"
+dmrtd,PACE,independent,PACE/general_authenticate_step4,3,surfaced 3
 dmrtd,PACE,independent,PACE/mse_set_at,3,surfaced 3
 dmrtd,PACE,independent,control,2,not_applicable 2
 NFCPassportReader,AA,harness,AA/internal_authenticate,13,"status_only 9, surfaced 4"

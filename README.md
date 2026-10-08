@@ -66,7 +66,7 @@ Every suite entry states its expected outcome before it runs (`suites/generate_s
 | Suite | Runs | Contents |
 | --- | --- | --- |
 | `pace` | 384 | PACE failures on the harness chip, every arm |
-| `ca-aa` | 195 | CA and AA rejections |
+| `ca-aa` | 221 | CA and AA rejections |
 | `controls` | 24 | No-injection and interoperability controls |
 | `independent` | 285 | Independent chip: PACE positive controls, PACE failures at every step, AA under secure messaging |
 | `independent-repeat` | 600 | PACE positive control, 100 runs per library |

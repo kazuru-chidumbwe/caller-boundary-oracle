@@ -6,10 +6,10 @@ gmrtd 0.45.0 default,gmrtd 1.1.3 + guard,83,0,0.00,0.00
 gmrtd 0.45.0 default,gmrtd 1.3.2 default,83,39,0.47,0.00
 gmrtd 0.45.0 default,gmrtd 1.3.2 opt-in fallback,44,44,1.00,n/a
 gmrtd 0.45.0 default,gmrtd 1.3.2 + guard,83,0,0.00,0.00
-gmrtd 0.45.0 default,JMRTD 0.8.9 propagate,70,0,0.00,0.00
-gmrtd 0.45.0 default,JMRTD 0.8.9 catch-and-continue,70,0,0.00,0.00
+gmrtd 0.45.0 default,JMRTD 0.8.9 propagate,83,0,0.00,0.00
+gmrtd 0.45.0 default,JMRTD 0.8.9 catch-and-continue,83,0,0.00,0.00
 gmrtd 0.45.0 default,emrtd-dotnet,44,44,1.00,n/a
-gmrtd 0.45.0 default,dmrtd,68,0,0.00,0.00
+gmrtd 0.45.0 default,dmrtd,70,0,0.00,0.00
 gmrtd 0.45.0 default,NFCPassportReader,83,75,0.90,0.00
 gmrtd 0.45.0 + guard,gmrtd 1.1.3 default,83,44,0.53,0.00
 gmrtd 0.45.0 + guard,gmrtd 1.1.3 opt-in fallback,44,0,0.00,0.00
@@ -17,20 +17,20 @@ gmrtd 0.45.0 + guard,gmrtd 1.1.3 + guard,83,83,1.00,n/a
 gmrtd 0.45.0 + guard,gmrtd 1.3.2 default,83,44,0.53,0.00
 gmrtd 0.45.0 + guard,gmrtd 1.3.2 opt-in fallback,44,0,0.00,0.00
 gmrtd 0.45.0 + guard,gmrtd 1.3.2 + guard,83,83,1.00,n/a
-gmrtd 0.45.0 + guard,JMRTD 0.8.9 propagate,70,44,0.63,0.00
-gmrtd 0.45.0 + guard,JMRTD 0.8.9 catch-and-continue,70,0,0.00,0.00
+gmrtd 0.45.0 + guard,JMRTD 0.8.9 propagate,83,57,0.69,0.00
+gmrtd 0.45.0 + guard,JMRTD 0.8.9 catch-and-continue,83,3,0.04,0.00
 gmrtd 0.45.0 + guard,emrtd-dotnet,44,0,0.00,0.00
-gmrtd 0.45.0 + guard,dmrtd,68,68,1.00,n/a
+gmrtd 0.45.0 + guard,dmrtd,70,70,1.00,n/a
 gmrtd 0.45.0 + guard,NFCPassportReader,83,8,0.10,0.00
 gmrtd 1.1.3 default,gmrtd 1.1.3 opt-in fallback,44,0,0.00,0.00
 gmrtd 1.1.3 default,gmrtd 1.1.3 + guard,83,44,0.53,0.00
 gmrtd 1.1.3 default,gmrtd 1.3.2 default,83,83,1.00,1.00
 gmrtd 1.1.3 default,gmrtd 1.3.2 opt-in fallback,44,0,0.00,0.00
 gmrtd 1.1.3 default,gmrtd 1.3.2 + guard,83,44,0.53,0.00
-gmrtd 1.1.3 default,JMRTD 0.8.9 propagate,70,44,0.63,0.39
-gmrtd 1.1.3 default,JMRTD 0.8.9 catch-and-continue,70,0,0.00,0.00
+gmrtd 1.1.3 default,JMRTD 0.8.9 propagate,83,44,0.53,0.26
+gmrtd 1.1.3 default,JMRTD 0.8.9 catch-and-continue,83,0,0.00,-0.02
 gmrtd 1.1.3 default,emrtd-dotnet,44,0,0.00,0.00
-gmrtd 1.1.3 default,dmrtd,68,43,0.63,0.00
+gmrtd 1.1.3 default,dmrtd,70,44,0.63,0.00
 gmrtd 1.1.3 default,NFCPassportReader,83,31,0.37,-0.19
 gmrtd 1.1.3 opt-in fallback,gmrtd 1.1.3 + guard,44,0,0.00,0.00
 gmrtd 1.1.3 opt-in fallback,gmrtd 1.3.2 default,44,0,0.00,0.00
@@ -39,41 +39,41 @@ gmrtd 1.1.3 opt-in fallback,gmrtd 1.3.2 + guard,44,0,0.00,0.00
 gmrtd 1.1.3 opt-in fallback,JMRTD 0.8.9 propagate,44,0,0.00,0.00
 gmrtd 1.1.3 opt-in fallback,JMRTD 0.8.9 catch-and-continue,44,0,0.00,0.00
 gmrtd 1.1.3 opt-in fallback,emrtd-dotnet,44,44,1.00,n/a
-gmrtd 1.1.3 opt-in fallback,dmrtd,43,0,0.00,0.00
+gmrtd 1.1.3 opt-in fallback,dmrtd,44,0,0.00,0.00
 gmrtd 1.1.3 opt-in fallback,NFCPassportReader,44,44,1.00,n/a
 gmrtd 1.1.3 + guard,gmrtd 1.3.2 default,83,44,0.53,0.00
 gmrtd 1.1.3 + guard,gmrtd 1.3.2 opt-in fallback,44,0,0.00,0.00
 gmrtd 1.1.3 + guard,gmrtd 1.3.2 + guard,83,83,1.00,n/a
-gmrtd 1.1.3 + guard,JMRTD 0.8.9 propagate,70,44,0.63,0.00
-gmrtd 1.1.3 + guard,JMRTD 0.8.9 catch-and-continue,70,0,0.00,0.00
+gmrtd 1.1.3 + guard,JMRTD 0.8.9 propagate,83,57,0.69,0.00
+gmrtd 1.1.3 + guard,JMRTD 0.8.9 catch-and-continue,83,3,0.04,0.00
 gmrtd 1.1.3 + guard,emrtd-dotnet,44,0,0.00,0.00
-gmrtd 1.1.3 + guard,dmrtd,68,68,1.00,n/a
+gmrtd 1.1.3 + guard,dmrtd,70,70,1.00,n/a
 gmrtd 1.1.3 + guard,NFCPassportReader,83,8,0.10,0.00
 gmrtd 1.3.2 default,gmrtd 1.3.2 opt-in fallback,44,0,0.00,0.00
 gmrtd 1.3.2 default,gmrtd 1.3.2 + guard,83,44,0.53,0.00
-gmrtd 1.3.2 default,JMRTD 0.8.9 propagate,70,44,0.63,0.39
-gmrtd 1.3.2 default,JMRTD 0.8.9 catch-and-continue,70,0,0.00,0.00
+gmrtd 1.3.2 default,JMRTD 0.8.9 propagate,83,44,0.53,0.26
+gmrtd 1.3.2 default,JMRTD 0.8.9 catch-and-continue,83,0,0.00,-0.02
 gmrtd 1.3.2 default,emrtd-dotnet,44,0,0.00,0.00
-gmrtd 1.3.2 default,dmrtd,68,43,0.63,0.00
+gmrtd 1.3.2 default,dmrtd,70,44,0.63,0.00
 gmrtd 1.3.2 default,NFCPassportReader,83,31,0.37,-0.19
 gmrtd 1.3.2 opt-in fallback,gmrtd 1.3.2 + guard,44,0,0.00,0.00
 gmrtd 1.3.2 opt-in fallback,JMRTD 0.8.9 propagate,44,0,0.00,0.00
 gmrtd 1.3.2 opt-in fallback,JMRTD 0.8.9 catch-and-continue,44,0,0.00,0.00
 gmrtd 1.3.2 opt-in fallback,emrtd-dotnet,44,44,1.00,n/a
-gmrtd 1.3.2 opt-in fallback,dmrtd,43,0,0.00,0.00
+gmrtd 1.3.2 opt-in fallback,dmrtd,44,0,0.00,0.00
 gmrtd 1.3.2 opt-in fallback,NFCPassportReader,44,44,1.00,n/a
-gmrtd 1.3.2 + guard,JMRTD 0.8.9 propagate,70,44,0.63,0.00
-gmrtd 1.3.2 + guard,JMRTD 0.8.9 catch-and-continue,70,0,0.00,0.00
+gmrtd 1.3.2 + guard,JMRTD 0.8.9 propagate,83,57,0.69,0.00
+gmrtd 1.3.2 + guard,JMRTD 0.8.9 catch-and-continue,83,3,0.04,0.00
 gmrtd 1.3.2 + guard,emrtd-dotnet,44,0,0.00,0.00
-gmrtd 1.3.2 + guard,dmrtd,68,68,1.00,n/a
+gmrtd 1.3.2 + guard,dmrtd,70,70,1.00,n/a
 gmrtd 1.3.2 + guard,NFCPassportReader,83,8,0.10,0.00
-JMRTD 0.8.9 propagate,JMRTD 0.8.9 catch-and-continue,70,26,0.37,0.00
+JMRTD 0.8.9 propagate,JMRTD 0.8.9 catch-and-continue,83,29,0.35,0.03
 JMRTD 0.8.9 propagate,emrtd-dotnet,44,0,0.00,0.00
-JMRTD 0.8.9 propagate,dmrtd,68,43,0.63,0.00
-JMRTD 0.8.9 propagate,NFCPassportReader,70,0,0.00,-0.08
+JMRTD 0.8.9 propagate,dmrtd,70,44,0.63,0.00
+JMRTD 0.8.9 propagate,NFCPassportReader,83,0,0.00,-0.07
 JMRTD 0.8.9 catch-and-continue,emrtd-dotnet,44,0,0.00,0.00
-JMRTD 0.8.9 catch-and-continue,dmrtd,68,0,0.00,0.00
-JMRTD 0.8.9 catch-and-continue,NFCPassportReader,70,0,0.00,0.00
-emrtd-dotnet,dmrtd,43,0,0.00,0.00
+JMRTD 0.8.9 catch-and-continue,dmrtd,70,0,0.00,0.00
+JMRTD 0.8.9 catch-and-continue,NFCPassportReader,83,0,0.00,-0.00
+emrtd-dotnet,dmrtd,44,0,0.00,0.00
 emrtd-dotnet,NFCPassportReader,44,44,1.00,n/a
-dmrtd,NFCPassportReader,68,8,0.12,0.00
+dmrtd,NFCPassportReader,70,8,0.11,0.00

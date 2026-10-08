@@ -171,7 +171,7 @@ emrtd-dotnet,PACE,PACE/mse_set_at,6F00,status_only,status_only,yes
 emrtd-dotnet,PACE,control,none,not_applicable,not_applicable,yes
 dmrtd,AA,AA/internal_authenticate,6300,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6700,surfaced,surfaced,yes
-dmrtd,AA,AA/internal_authenticate,6800,surfaced,not_applicable,NO
+dmrtd,AA,AA/internal_authenticate,6800,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6900,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6982,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6A00,surfaced,surfaced,yes
