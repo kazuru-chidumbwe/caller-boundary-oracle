@@ -96,6 +96,10 @@ def main() -> None:
                for k, v in json.loads(Path(a.drivers).read_text(encoding="utf-8")).items()}
     only = set(a.only.split(",")) if a.only else None
     oracle_sha = hashlib.sha256((ROOT / "classifier" / "observability.py").read_bytes()).hexdigest()
+    git = lambda *c: subprocess.run(["git", "-C", str(ROOT), *c], capture_output=True, text=True).stdout.strip()
+    (out / "RUN.json").write_text(json.dumps({
+        "harness_commit": git("rev-parse", "HEAD"), "harness_dirty": bool(git("status", "--porcelain")),
+        "oracle_sha256": oracle_sha, "drivers": drivers}, indent=2) + "\n", encoding="utf-8")
     rows = []
     for lib, cmd in drivers.items():
         if only and lib not in only:
