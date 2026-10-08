@@ -38,6 +38,8 @@ SCOPE = {
     "emrtd-dotnet@0433b3a": (["emrtd-dotnet"], r"^src/Emrtd/(Apdu|Bac|DocumentReader|EmrtdSession|Pace|SecureMessaging|Transport|PassiveAuthentication)\.cs$", "cs"),
     "dmrtd@3b6c091": (["dmrtd"], r"^lib/src/(passport|proto/[^/]+|proto/iso7816/[^/]+|com/[^/]+)\.dart$", "dart"),
     "nfcpassportreader@6e37f1a": (["NFCPassportReader-m1"], r"^Sources/NFCPassportReader/[^/]+\.swift$", "swift"),
+    # Added 8 Oct 2026 before any item was coded (PROTOCOL.md, change 2): passauf v0.2.0, the sixth library.
+    "passauf@48b7cc7": (["passauf"], r"^src/(session|iso7816|icao9303|secure_messaging|smartcard_abstractions|pace/[^/]+)\.rs$", "rust"),
 }
 
 PATTERNS = {
@@ -69,6 +71,14 @@ PATTERNS = {
         ("log", r"\b_log\.\w+\(|\blog\.\w+\("),
         ("check", r"\bif\s*\(.*\b(sw|status)\w*"),
     ],
+    # Rust has no exceptions: a failure is decided by matching on Err or None, by propagating it with `?` or
+    # `return Err(..)`, or by aborting with panic!, expect or unwrap. Each of these is a decision point.
+    "rust": [
+        ("check", r"\b(Err|None)\s*(\([^)]*\))?\s*=>|\bif\s+let\s+(Err|None)\b|\.is_(err|none)\(\)"),
+        ("raise", r"\bpanic!\(|\.expect\(|\.unwrap\(\)|\breturn\s+Err\(|\?\s*[;,)]|\?$"),
+        ("status_write", r"\b\w*(warnings|status|error|failed|Failed)\w*\s*(=[^=>]|\.push\()"),
+        ("log", r"\b(warn|error|info|debug)!\("),
+    ],
     "swift": [
         ("catch", r"\bcatch\b"),
         ("raise", r"\bthrow\b"),
@@ -84,6 +94,7 @@ FUNC = {
     "cs": r"^\s*(?:public|private|protected|internal|static|async|override|virtual|\s)+[\w<>\[\],?\s]+\s+(\w+)\s*\(",
     "dart": r"^\s*(?:static\s+|Future<[^>]*>\s+|void\s+|[\w<>?]+\s+)(\w+)\s*\([^;]*\)\s*(?:async\s*)?\{",
     "swift": r"^\s*(?:@\w+\s+)*(?:public\s+|private\s+|internal\s+|fileprivate\s+|static\s+|override\s+)*func\s+(\w+)",
+    "rust": r"^\s*(?:pub(?:\([^)]*\))?\s+)?(?:async\s+)?fn\s+(\w+)",
 }
 STEP_HINTS = [
     ("PACE", r"pace|PACE|Pace|mapNonce|GeneralAuthenticate|general_authenticate"),
@@ -106,6 +117,8 @@ SUCCESS_VALUE = re.compile(r"=\s*(true|\.success)\b")
 def is_decision(kinds: list[str], line: str) -> bool:
     if {"check", "catch", "raise"} & set(kinds):
         return True
+    if "status_write" in kinds and re.search(r"warnings\.push\(", line):
+        return True  # passauf: a message pushed onto DocumentRead.warnings, the status field the caller gets
     return "status_write" in kinds and bool(FAILURE_VALUE.search(line)) and not SUCCESS_VALUE.search(line)
 
 
@@ -162,6 +175,9 @@ def scan(vendor: Path) -> list[dict]:
                 func, seen = "", {}
                 lines = f.read_text(encoding="utf-8", errors="replace").splitlines()
                 for no, line in enumerate(lines, 1):
+                    # Rust keeps unit tests in an inline module; other languages' tests are excluded by path.
+                    if lang == "rust" and re.match(r"\s*#\[cfg\(test\)\]", line):
+                        break
                     m = re.search(FUNC[lang], line)
                     if m and m.group(1) not in NOT_FUNCS:
                         func, seen = m.group(1), {}
