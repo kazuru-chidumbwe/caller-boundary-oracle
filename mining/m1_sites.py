@@ -87,7 +87,7 @@ FUNC = {
 }
 STEP_HINTS = [
     ("PACE", r"pace|PACE|Pace|mapNonce|GeneralAuthenticate|general_authenticate"),
-    ("CA", r"chipauth|ChipAuth|chipAuth|ChipAuthentication|CAProtocol|doCA|\bCA\b"),
+    ("CA", r"chipauth|ChipAuth|chipAuth|ChipAuthentication|CAProtocol|doCA|\bCA\b|EACCA|eacCA|SetATIntAuth"),
     ("AA", r"activeauth|ActiveAuth|activeAuth|InternalAuthenticate|internalAuthenticate|AAProtocol|doAA"),
     ("BAC", r"\bbac\b|BAC|Bac|ExternalAuthenticate|MutualAuth|mutualAuth"),
     ("SM", r"secure.?messag|SecureMessag|\bsm\b|unprotect|unwrap|SMWrapper|SecureMessagingWrapper"),
@@ -123,12 +123,28 @@ def ensure_nfcpr(vendor: Path) -> None:
     subprocess.run(["git", "-C", str(root), "checkout", "-q", "--detach", NFCPR_COMMIT], check=True)
 
 
-def step_of(path: str, func: str, line: str) -> str:
-    for text in (line, func, path):
+# Words the function patterns can capture although they are not function names.
+NOT_FUNCS = {"if", "for", "foreach", "while", "switch", "catch", "when", "using", "lock", "return", "new",
+             "else", "do", "try", "throw", "await", "sizeof", "typeof", "nameof", "base", "this", "on"}
+
+
+def first_step(texts: tuple[str, ...]) -> str:
+    for text in texts:
         for step, rx in STEP_HINTS:
             if re.search(rx, text):
                 return step
     return "OTHER"
+
+
+def step_of(path: str, func: str, line: str, window: str = "") -> str:
+    """Step hint from the line, the function and the path. Only when that gives no step in scope
+    are the lines around the site read as well (a handler often names the step only in its body,
+    e.g. "PACE failed ... falling back to BAC"), so sites listed before keep their step."""
+    step = first_step((line, func, path))
+    if step in IN_SCOPE_STEPS or not window:
+        return step
+    near = first_step((window,))
+    return near if near in IN_SCOPE_STEPS else step
 
 
 def scan(vendor: Path) -> list[dict]:
@@ -145,7 +161,7 @@ def scan(vendor: Path) -> list[dict]:
                 lines = f.read_text(encoding="utf-8", errors="replace").splitlines()
                 for no, line in enumerate(lines, 1):
                     m = re.search(FUNC[lang], line)
-                    if m:
+                    if m and m.group(1) not in NOT_FUNCS:
                         func, seen = m.group(1), {}
                     s = line.strip()
                     if not s or s.startswith(("//", "*", "/*", "///", "#")):
@@ -153,7 +169,8 @@ def scan(vendor: Path) -> list[dict]:
                     kinds = [k for k, rx in PATTERNS[lang] if re.search(rx, line)]
                     if not kinds or not is_decision(kinds, s):
                         continue
-                    step = step_of(rel, func, s)
+                    window = " ".join(x.strip() for x in lines[max(0, no - 4):no + 5])
+                    step = step_of(rel, func, s, window)
                     if step not in IN_SCOPE_STEPS:
                         continue
                     norm = re.sub(r"\s+", " ", s)
@@ -168,10 +185,31 @@ def scan(vendor: Path) -> list[dict]:
                         "context": " | ".join(x.strip() for x in lines[no - 1:no + 5] if x.strip())[:400],
                     }
     out = list(items.values())
-    for i, it in enumerate(out, 1):
-        it["site_id"] = f"M1-{i:04d}"
+    for it in out:
         it["versions"] = ",".join(it["versions"])
     return out
+
+
+def assign_ids(rows: list[dict], previous: Path) -> tuple[int, list[str]]:
+    """Keep the ID of every site already in the published list (matched on library, file, line
+    and code); number new sites after the highest existing ID. Returns (new count, dropped IDs)."""
+    old: dict[tuple, str] = {}
+    if previous.exists():
+        with previous.open(encoding="utf-8", newline="") as f:
+            for r in csv.DictReader(f):
+                old[(r["library"], r["file"], r["line"], r["code"])] = r["site_id"]
+    nxt = max((int(v.split("-")[1]) for v in old.values()), default=0)
+    used, new = set(), 0
+    for r in rows:
+        sid = old.get((r["library"], r["file"], str(r["line"]), r["code"]))
+        if sid is None:
+            nxt += 1
+            new += 1
+            sid = f"M1-{nxt:04d}"
+        r["site_id"] = sid
+        used.add(sid)
+    rows.sort(key=lambda r: r["site_id"])
+    return new, sorted(set(old.values()) - used)
 
 
 def main() -> None:
@@ -182,6 +220,8 @@ def main() -> None:
     ensure_jmrtd_sources(args.vendor)
     ensure_nfcpr(args.vendor)
     rows = scan(args.vendor)
+    new, dropped = assign_ids(rows, args.out)
+    print(f"kept IDs: {len(rows) - new}, new sites: {new}, dropped IDs: {dropped}")
     fields = ["site_id", "library", "versions", "file", "line", "function", "kinds", "step_hint", "code", "context"]
     with args.out.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
