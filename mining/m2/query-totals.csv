@@ -1,0 +1,11 @@
+library,query,total_count
+jmrtd,doPACE language:java,134
+jmrtd,doPACE language:kotlin,108
+jmrtd,PACEException language:kotlin,618
+jmrtd,org.jmrtd language:kotlin,623
+nfcpassportreader,import NFCPassportReader language:swift,918
+nfcpassportreader,PACEStatus NFCPassportReader,310
+dmrtd,package:dmrtd language:dart,496
+dmrtd,startSessionPACE language:dart,43
+gmrtd,github.com/gmrtd/gmrtd language:go,192
+emrtd-dotnet,Emrtd DocumentReader language:csharp,1
