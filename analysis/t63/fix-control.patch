@@ -1,0 +1,122 @@
+From 401c8ede82b909953f705165a7b1eea84ea38c93 Mon Sep 17 00:00:00 2001
+From: Seke Kazuru <kazuruuni@gmail.com>
+Date: Sat, 3 Oct 2026 20:47:20 +0200
+Subject: [PATCH] fix(cryptoutils): encode ECDH shared secrets at field size
+
+PACE (key agreement and evidence verification) and Chip Authentication take
+the ECDH shared secret as x.Bytes(). big.Int.Bytes drops leading zero bytes,
+so whenever the x-coordinate starts with a zero byte (about 1 in 256 key
+agreements) the KDF input is one byte short, the session keys are wrong and
+the chip rejects the authentication token (seen as GENERAL AUTHENTICATE 6300
+in PACE step 4).
+
+ICAO 9303-11 (section 9.6) and BSI TR-03111 define the shared secret as the
+x-coordinate converted with FE2OS, i.e. at the field size. Add
+cryptoutils.EcDhSharedSecret, which does that, and use it at the three call
+sites. Points were already encoded at field size (elliptic.Marshal).
+---
+ chipauth/chip_auth.go            |  3 +--
+ cryptoutils/crypto_utils.go      |  9 +++++++++
+ cryptoutils/crypto_utils_test.go | 24 ++++++++++++++++++++++++
+ pace/pace.go                     |  9 +++------
+ 4 files changed, 37 insertions(+), 8 deletions(-)
+
+diff --git a/chipauth/chip_auth.go b/chipauth/chip_auth.go
+index f038040..4fe8edb 100644
+--- a/chipauth/chip_auth.go
++++ b/chipauth/chip_auth.go
+@@ -395,8 +395,7 @@ func (chipAuth *ChipAuth) doGeneralAuthenticate(curve *elliptic.Curve, termKeypa
+ }
+ 
+ func deriveSessionKeys(curve *elliptic.Curve, termKeypair cryptoutils.EcKeypair, chipPubKey *cryptoutils.EcPoint, caAlgInfo *CaAlgorithmInfo) (ksEnc []byte, ksMac []byte) {
+-	k := cryptoutils.DoEcDh(termKeypair.Pri, chipPubKey, *curve)
+-	sharedSecret := k.X.Bytes()
++	sharedSecret := cryptoutils.EcDhSharedSecret(termKeypair.Pri, chipPubKey, *curve)
+ 	ksEnc = cryptoutils.KDF(sharedSecret, cryptoutils.KDF_COUNTER_KSENC, caAlgInfo.cipherAlg, caAlgInfo.keySizeBits)
+ 	ksMac = cryptoutils.KDF(sharedSecret, cryptoutils.KDF_COUNTER_KSMAC, caAlgInfo.cipherAlg, caAlgInfo.keySizeBits)
+ 	slog.Debug("deriveSessionKeys", "sharedSecret", utils.BytesToHex(sharedSecret), "ksEnc", utils.BytesToHex(ksEnc), "ksMac", utils.BytesToHex(ksMac))
+diff --git a/cryptoutils/crypto_utils.go b/cryptoutils/crypto_utils.go
+index fe74deb..91da663 100644
+--- a/cryptoutils/crypto_utils.go
++++ b/cryptoutils/crypto_utils.go
+@@ -304,6 +304,15 @@ func DecodeX962EcPoint(ec elliptic.Curve, data []byte) (*EcPoint, error) {
+ 	return NewEcPoint(x.Bytes(), y.Bytes()), nil
+ }
+ 
++// EcDhSharedSecret returns the ECDH shared secret: the x-coordinate of the shared point as a
++// field-size octet string (FE2OS, BSI TR-03111 / ICAO 9303-11 §9.6). big.Int.Bytes drops
++// leading zero bytes, which would give a short secret, and so wrong session keys, whenever
++// the x-coordinate starts with a zero byte (about 1 in 256 key agreements).
++func EcDhSharedSecret(localPrivate []byte, remotePublic *EcPoint, ec elliptic.Curve) []byte {
++	shared := DoEcDh(localPrivate, remotePublic, ec)
++	return shared.X.FillBytes(make([]byte, (ec.Params().BitSize+7)/8))
++}
++
+ func DoEcDh(localPrivate []byte, remotePublic *EcPoint, ec elliptic.Curve) *EcPoint {
+ 	var point EcPoint
+ 	point.X, point.Y = ec.ScalarMult(remotePublic.X, remotePublic.Y, localPrivate)
+diff --git a/cryptoutils/crypto_utils_test.go b/cryptoutils/crypto_utils_test.go
+index 9ce090b..3295e85 100644
+--- a/cryptoutils/crypto_utils_test.go
++++ b/cryptoutils/crypto_utils_test.go
+@@ -16,6 +16,30 @@ import (
+ 	"github.com/osanderson/brainpool"
+ )
+ 
++func TestEcDhSharedSecretKeepsLeadingZeroBytes(t *testing.T) {
++	ec := elliptic.P256()
++	size := (ec.Params().BitSize + 7) / 8
++	remote := &EcPoint{X: ec.Params().Gx, Y: ec.Params().Gy}
++
++	// Find a scalar whose shared x-coordinate starts with a zero byte (about 1 in 256).
++	for d := int64(1); d < 100000; d++ {
++		pri := big.NewInt(d).Bytes()
++		x := DoEcDh(pri, remote, ec).X
++		if len(x.Bytes()) == size {
++			continue
++		}
++		secret := EcDhSharedSecret(pri, remote, ec)
++		if len(secret) != size {
++			t.Fatalf("shared secret length %d, want %d", len(secret), size)
++		}
++		if secret[0] != 0 || new(big.Int).SetBytes(secret).Cmp(x) != 0 {
++			t.Fatalf("shared secret %x does not encode x %x", secret, x)
++		}
++		return
++	}
++	t.Fatal("no scalar with a short x-coordinate found")
++}
++
+ func TestEcPointEqual(t *testing.T) {
+ 	testCases := []struct {
+ 		ecPoint1 EcPoint
+diff --git a/pace/pace.go b/pace/pace.go
+index 8a7e381..5d79ea5 100644
+--- a/pace/pace.go
++++ b/pace/pace.go
+@@ -410,10 +410,8 @@ func (pace *Pace) keyAgreementGmEcDh(domainParams *DomainParams, G *cryptoutils.
+ 	}
+ 
+ 	{
+-		var termShared *cryptoutils.EcPoint = cryptoutils.DoEcDh(termKeypair.Pri, chipPub, domainParams.ec)
+-
+-		// NB secret is just based on 'x'
+-		sharedSecret = termShared.X.Bytes()
++		// NB secret is just based on 'x', encoded at field size
++		sharedSecret = cryptoutils.EcDhSharedSecret(termKeypair.Pri, chipPub, domainParams.ec)
+ 
+ 		slog.Debug("keyAgreementGmEcDh", "shared-secret", utils.BytesToHex(sharedSecret))
+ 	}
+@@ -932,8 +930,7 @@ func VerifyEvidence(doc *document.Document, evidence *document.PaceCamEvidence)
+ 	}
+ 
+ 	// re-derive key-agreement shared secret and session keys
+-	kaShared := cryptoutils.DoEcDh(evidence.TermKaPri, chipKaPub, domainParams.ec)
+-	sharedSecret := kaShared.X.Bytes()
++	sharedSecret := cryptoutils.EcDhSharedSecret(evidence.TermKaPri, chipKaPub, domainParams.ec)
+ 	ksEnc := cryptoutils.KDF(sharedSecret, cryptoutils.KDF_COUNTER_KSENC, paceConfig.cipher, paceConfig.keyLengthBits)
+ 
+ 	// decrypt EcadIC to recover caIC
+-- 
+2.51.0.windows.1
+
