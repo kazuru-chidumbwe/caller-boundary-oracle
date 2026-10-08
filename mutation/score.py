@@ -71,7 +71,8 @@ def main() -> None:
 
     refs: dict[str, dict[str, dict]] = {}
     for d in a.runs.glob("REF-*"):
-        refs[d.name[4:]] = {r["scenario_id"]: r for r in json.loads((d / "done.json").read_text(encoding="utf-8"))["runs"]}
+        if (d / "done.json").exists():
+            refs[d.name[4:]] = {r["scenario_id"]: r for r in json.loads((d / "done.json").read_text(encoding="utf-8"))["runs"]}
 
     rows, transitions, only_cbo = [], Counter(), []
     for d in sorted(a.runs.glob("M1-*")):
@@ -80,6 +81,8 @@ def main() -> None:
             continue
         res = json.loads(f.read_text(encoding="utf-8"))
         m = res["mutant"]
+        if f"{m['library']}-{m['version']}" not in refs:
+            continue
         row = {k: m[k] for k in ("mutant_id", "site_id", "library", "version", "step", "operator")}
         row |= {"build": res["build"], "crash": False, **{o: False for o in ORACLES}}
         if res["build"] != "ok":
