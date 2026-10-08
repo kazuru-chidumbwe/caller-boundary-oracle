@@ -26,8 +26,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ORACLES = ("cbo", "any_error", "output", "p4")
-OPS = ("O1", "O2", "O3", "O5")
-OP_NAME = {"O1": "drop raise", "O2": "error to success", "O3": "swallow in catch", "O5": "invert check"}
+OPS = ("O1", "O2", "O3", "O4", "O5")
+OP_NAME = {"O1": "drop raise", "O2": "error to success", "O3": "swallow in catch", "O4": "skip status write", "O5": "invert check"}
 
 
 def access(run: dict) -> str:
