@@ -75,4 +75,10 @@ gmrtd: about 90 sites × 3 pins, Go build about 5 s, about 20 runs about 10 s: u
 
 ## Changes after freezing
 
-None yet.
+All recorded on 8 October 2026, before any mutant was generated or run.
+
+1. **Site list.** The M1 list was corrected before mutants were generated (commit 9ad4950): sites whose step is named only in the lines around them, and sites in Chip Authentication sender classes, had been left out, and identical lines in different functions had been merged. The list grew from 484 to 526 sites; all earlier IDs are unchanged. Mutants are drawn from the corrected list.
+2. **O2 as implemented.** Returning a typed success value cannot be written generically across five languages. O2 therefore makes the failure check never fire: an error test `c` becomes `false && (c)`, a success test `c` (comparison with a success status, `nil` error or 9000) becomes `true || (c)`. Execution then takes the path it would take had the step succeeded, which is the effect the operator is meant to model.
+3. **Output for the output-differential oracle.** Every accepted read in this harness returns the same chip contents, so comparing data bytes adds nothing. The output is: rejected (error returned), or accepted together with the access control actually established (PACE or BAC).
+4. **Runs that are not deterministic.** Runs against the independent chip use fresh keys and can fail for reasons unrelated to the mutant. A difference from the reference on such a run counts only if it repeats when that run is executed once more.
+5. **Builds and runs that fail.** Mutants that do not compile are counted and reported, not scored. A run that crashes or exceeds 60 seconds is reported as a crash or timeout; mutants with such runs are reported separately and not counted as kills for any oracle.
