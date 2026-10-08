@@ -1,6 +1,6 @@
 # Code-study protocol (M1 and M2), frozen 8 October 2026
 
-Frozen before any study item was coded. Codebook: `mining/CODEBOOK.md` (version 1.0, same date). Later changes are recorded at the end with their date and reason.
+Frozen before any study item was coded. Codebook: `mining/CODEBOOK.md` (version 1.0, same date; version 1.1 from 8 October, see below). Later changes are recorded at the end with their date and reason.
 
 ## M1: failure-handling sites inside the libraries
 
@@ -50,4 +50,4 @@ Public code only. Applications whose handling would let a document be accepted a
 
 ## Changes after freezing
 
-None.
+1. **8 October 2026, codebook v1.1, before any study item was coded.** Reason: coder B's review of v1.0. Wording shortened and process text moved here; decision rules added for channel (immediate-caller definition with a fixed order for genuine ties), CONVERT, LOG versus SWALLOW, continues, fallback, reaches_api (LOG is INDIRECT only when the caller can attach the logger through the public API), PROPAGATE versus IGNORE (an uncaught exception is PROPAGATE), NA (established from library source), user_visible_accept (control flow, bounded trace, UNCLEAR otherwise) and lineage (evidence required). Added: the value NOT_A_SITE for M1 rows that are not decision points; a closed misuse_class list from MUC (Amann et al. 2019); required evidence_note; M2 examples; passauf in the library list (sixth library, added the same day). No category was removed. Both coders recode the 10 calibration items with v1.1 before study coding.
