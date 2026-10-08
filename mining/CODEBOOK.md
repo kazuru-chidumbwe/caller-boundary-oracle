@@ -1,6 +1,6 @@
 # Codebook v1.1: failure reporting in eMRTD libraries (M1) and their applications (M2)
 
-Process, sampling and agreement rules are in `mining/PROTOCOL.md`. This page is what a coder keeps open while coding.
+Process, sampling and agreement rules are in the code-study protocol (`PROTOCOL.md`, shipped with this codebook). This page is what a coder keeps open while coding.
 
 **Three rules.** Code what the code does at the pinned commit, not what its documentation says. When unsure, pick the closest value, tick `uncertain` and write one line why. Do not run the code or look at the dynamic results.
 
