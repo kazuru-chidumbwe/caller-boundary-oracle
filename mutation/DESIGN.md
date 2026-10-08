@@ -82,3 +82,9 @@ All recorded on 8 October 2026, before any mutant was generated or run.
 3. **Output for the output-differential oracle.** Every accepted read in this harness returns the same chip contents, so comparing data bytes adds nothing. The output is: rejected (error returned), or accepted together with the access control actually established (PACE or BAC).
 4. **Runs that are not deterministic.** Runs against the independent chip use fresh keys and can fail for reasons unrelated to the mutant. A difference from the reference on such a run counts only if it repeats when that run is executed once more.
 5. **Builds and runs that fail.** Mutants that do not compile are counted and reported, not scored. A run that crashes or exceeds 60 seconds is reported as a crash or timeout; mutants with such runs are reported separately and not counted as kills for any oracle.
+
+Recorded on 8 October 2026 **after** the first scoring (`mutation/out/RESULTS.md`, harness `0c693a4`). Results under the frozen rules above are reported unchanged; the items below add analysis and are reported as exploratory, side by side with them.
+
+6. **Reachability.** In the first scoring 524 of 684 compiled mutants were killed by no oracle, most of them at sites that no run executes. A probe per site (a statement that records that the line ran, built and run once per site with the reduced suite) separates "not reached" from "reached but not killed". Scores are then also given over reached mutants.
+7. **Kills by run type.** The frozen rule counts a kill on any run. Three kinds of run behave differently: runs where the injected failure was delivered in both the reference and the mutant (failure reporting can change), runs where delivery itself changed, and control runs with nothing injected (where a mutant can break an ordinary read). `mutation/breakdown.py` reports kills per kind and, on delivered runs, each change of outcome with the oracles that saw it.
+

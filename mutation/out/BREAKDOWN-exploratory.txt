@@ -1,0 +1,12 @@
+Mutants with a change, by run type and oracle (a mutant can appear in several types):
+  delivered {'any': 43, 'output': 43, 'any_error': 43, 'cbo': 43, 'p4': 22}
+  delivery  {'any': 85, 'cbo': 85, 'output': 3, 'any_error': 3}
+  control   {'any': 113, 'output': 112, 'any_error': 111, 'p4': 104, 'cbo': 1}
+
+Delivered runs whose CBO outcome changed (reference -> mutant): runs, and how many each baseline also saw
+     surfaced -> silent        60   seen by any_error 60, output 60, p4 60
+  status_only -> silent        48   seen by any_error 0, output 0, p4 48
+  status_only -> surfaced      30   seen by any_error 30, output 30, p4 0
+       silent -> surfaced      12   seen by any_error 12, output 12, p4 12
+
+Mutants with a delivered-run outcome change, by library: {'gmrtd': 33, 'jmrtd': 6, 'dmrtd': 4}
