@@ -35,6 +35,21 @@
 | jmrtd | O3 | 1 | 1 | 1 | 1 | 1 |
 | jmrtd | O5 | 2 | 2 | 2 | 2 | 2 |
 
+## Reachability (probe, change 6)
+
+- (mutant, arm) pairs whose site ran on that arm: 736 of 1683.
+- Pairs with any change at a site the probe never saw run: 0 (must be 0; a non-zero count means the probe missed a site).
+- Failure-reporting pairs among reached pairs: 79 of 736.
+
+## Failure-reporting changes after deduplication (site, operator, caller role)
+
+| oracle | detected | of | missed |
+| --- | ---: | ---: | ---: |
+| caller-boundary | 40 | 40 | 0 |
+| any error | 33 | 40 | 7 |
+| output differential | 33 | 40 | 7 |
+| ICAO P4 verdict | 25 | 40 | 15 |
+
 ## Not failure reporting
 
 - Ordinary breakage (a change on a control run, nothing injected): 288 pairs; seen by caller-boundary 1, any error 198, output differential 278, ICAO P4 verdict 276.

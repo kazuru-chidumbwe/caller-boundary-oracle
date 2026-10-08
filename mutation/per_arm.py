@@ -130,6 +130,39 @@ def main() -> None:
     for (lib, op), ps in sorted(group.items()):
         lines.append(f"| {lib} | {op} | {len(ps)} | " + " | ".join(str(sum(o in p['delivered'] for p in ps)) for o in ORACLES) + " |")
 
+    # Reachability (change 6): a pair is reached when the probe saw its site on any run of the arm.
+    reach_file = a.out / "reach.json"
+    if reach_file.exists():
+        reach = json.loads(reach_file.read_text())
+        for (mid, arm), p in pairs.items():
+            lib_ver = f"{p['library']}-{mid.split('-')[2]}"
+            runs = reach.get(lib_ver, {}).get("reached", {})
+            p["reached"] = any(p["site"] in sites for sid, sites in runs.items() if arm_of({"scenario_id": sid}, p["library"]) == arm)
+        reached = [p for p in pairs.values() if p["reached"]]
+        changed_unreached = [k for k, p in pairs.items() if not p["reached"] and (p["delivered"] or p["delivery"] or p["control"])]
+        rep_reached = [p for p in reporting.values() if p["reached"]]
+        lines += ["", "## Reachability (probe, change 6)", "",
+                  f"- (mutant, arm) pairs whose site ran on that arm: {len(reached)} of {len(pairs)}.",
+                  f"- Pairs with any change at a site the probe never saw run: {len(changed_unreached)} (must be 0; a non-zero count means the probe missed a site)."
+                  + (f" Examples: {changed_unreached[:5]}" if changed_unreached else ""),
+                  f"- Failure-reporting pairs among reached pairs: {len(rep_reached)} of {len(reached)}."]
+
+    # Deduplication: the same site, operator and caller role at different gmrtd releases count once.
+    def role(arm: str) -> str:
+        """Arm without the gmrtd release: gmrtd-64bd6ab-default -> gmrtd-default."""
+        for pin in ("8fea245", "64bd6ab", "b861835"):
+            arm = arm.replace(f"-{pin}-", "-")
+        return arm
+    dedup: dict[tuple, set] = {}
+    for (mid, arm), p in reporting.items():
+        k = (p["site"], p["operator"], role(arm))
+        dedup.setdefault(k, set()).update(p["delivered"])
+    lines += ["", "## Failure-reporting changes after deduplication (site, operator, caller role)", "",
+              "| oracle | detected | of | missed |", "| --- | ---: | ---: | ---: |"]
+    for o in ORACLES:
+        det = sum(o in s for s in dedup.values())
+        lines.append(f"| {NAMES[o]} | {det} | {len(dedup)} | {len(dedup) - det} |")
+
     breakage = [p for p in pairs.values() if p["control"]]
     delivery = [p for p in pairs.values() if "cbo" in p["delivery"] and "cbo" not in p["delivered"]]
     lines += ["", "## Not failure reporting", "",
