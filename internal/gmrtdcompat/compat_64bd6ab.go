@@ -1,4 +1,4 @@
-//go:build !gmrtd_8fea245 && !gmrtd_b861835
+//go:build !gmrtd_8fea245 && !gmrtd_b861835 && !gmrtd_sweep_string && !gmrtd_sweep_typed && !gmrtd_sweep_optin
 
 package gmrtdcompat
 
