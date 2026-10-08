@@ -1,0 +1,2043 @@
+{
+ "py_webauthn": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "development: verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)",
+   "held_out": false
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: UP clear raises before the UV check (line 176); UV set does not matter",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: exact string comparison; 'https://rp.cbo.test:8443' != 'https://rp.cbo.test' raises (lines 139 to 143)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "silent",
+   "reason": "webauthn/helpers/parse_client_data_json.py lines 40 to 42 parse crossOrigin into client_data.cross_origin; no verification step reads it and VerifiedRegistration does not return it",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: fmt none with any attestation statement field set raises 'None attestation had unexpected attestation statement' (lines 220 to 229)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: credential key alg -7 not in supported_pub_key_algs [-257] (passed by the driver) raises (line 204)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: UP clear always raises (line 150)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: exact string comparison raises (lines 115 to 119)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "silent",
+   "reason": "crossOrigin is parsed (parse_client_data_json.py lines 40 to 42) and never checked; VerifiedAuthentication does not return it",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "webauthn/authentication/verify_authentication_response.py: the function takes no user or user handle (lines 47 to 56) and never reads response.user_handle; the caller must compare it",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "silent",
+   "reason": "webauthn/authentication/verify_authentication_response.py: the function takes no allow list (lines 47 to 56); the caller passes the stored key for the presented ID and the signature verifies",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: sign_count 10 <= stored 10 with a nonzero count raises (lines 158 to 166)",
+   "held_out": true
+  }
+ },
+ "py_webauthn@2.8.0": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: client_data.type != webauthn.create raises (3.0.1 line 131)",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: challenge mismatch raises (line 136)",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: exact string comparison of origin raises (lines 139 to 143)",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: rp_id_hash mismatch raises (line 173)",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: require_user_presence defaults to True; UP clear raises (line 176)",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: require_user_verification=True from the driver; UV clear raises (line 181)",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "webauthn/helpers/parse_backup_flags.py: BS without BE raises InvalidBackupFlags (lines 26 to 27), called at the end of verification",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/formats/packed.py: without x5c (self attestation) the signature is verified with the credential key and InvalidSignature raises (lines 92 to 101)",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: type != webauthn.get raises (line 107)",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: challenge mismatch raises (line 112)",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: exact string comparison of origin raises (lines 115 to 119)",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: rp_id_hash mismatch raises (line 147)",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: UP clear always raises (line 150)",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: require_user_verification=True; UV clear raises (line 153)",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "webauthn/helpers/parse_backup_flags.py: BS without BE raises (lines 26 to 27), called at line 187",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: InvalidSignature from verify_signature raises (lines 174 to 185)",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: a count not greater than the stored nonzero count raises (lines 158 to 166)",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: UP clear raises before the UV check (line 176); UV set does not matter",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: exact string comparison; 'https://rp.cbo.test:8443' != 'https://rp.cbo.test' raises (lines 139 to 143)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "silent",
+   "reason": "webauthn/helpers/parse_client_data_json.py lines 40 to 42 parse crossOrigin into client_data.cross_origin; no verification step reads it and VerifiedRegistration does not return it",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: fmt none with any attestation statement field set raises 'None attestation had unexpected attestation statement' (lines 220 to 229)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration/verify_registration_response.py: credential key alg -7 not in supported_pub_key_algs [-257] (passed by the driver) raises (line 204)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: UP clear always raises (line 150)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: exact string comparison raises (lines 115 to 119)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "silent",
+   "reason": "crossOrigin is parsed (parse_client_data_json.py lines 40 to 42) and never checked; VerifiedAuthentication does not return it",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "webauthn/authentication/verify_authentication_response.py: the function takes no user or user handle (lines 47 to 56) and never reads response.user_handle; the caller must compare it",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "silent",
+   "reason": "webauthn/authentication/verify_authentication_response.py: the function takes no allow list (lines 47 to 56); the caller passes the stored key for the presented ID and the signature verifies",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "webauthn/authentication/verify_authentication_response.py: sign_count 10 <= stored 10 with a nonzero count raises (lines 158 to 166)",
+   "held_out": true
+  }
+ },
+ "simplewebauthn": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "R-ASIG": {
+   "outcome": "status_only",
+   "reason": "development: verifyRegistrationResponse returns verified: false when the attestation statement verifier fails (registration/verifyRegistrationResponse.js lines 173 to 202) instead of throwing",
+   "held_out": false
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "A-SIG": {
+   "outcome": "status_only",
+   "reason": "development: verifyAuthenticationResponse returns verified: the result of verifySignature (authentication/verifyAuthenticationResponse.js line 207); a bad signature is a false field, not an exception",
+   "held_out": false
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": false
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: UP clear throws (line 115) before the UV check",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: exact comparison origin !== expectedOrigin throws (line 83)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "silent",
+   "reason": "esm/registration/verifyRegistrationResponse.js: destructures type, origin, challenge, tokenBinding only (line 51); crossOrigin and topOrigin are not read in registration, and the result is verified: true",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: fmt none with attStmt.size > 0 throws (lines 189 to 192)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: pubKeyAlg -7 not in supportedAlgorithmIDs [-257] (passed by the driver) throws (lines 137 to 140)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: UP clear throws (line 175)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: exact comparison throws (line 120)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: crossOrigin true with topOrigin set and no expectedTopOrigin (the driver passes none) throws 'Detected cross-origin authentication response' (lines 75 to 88)",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: userHandle is only type-checked (lines 130 to 133) and never compared with a stored user; the result is verified: true",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "silent",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: the options take one credential and no allow list (line 28); response.id is not compared with credential.id, and the signature verifies under the stored key",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: counter 10 <= stored 10 with a nonzero counter throws (lines 186 to 192)",
+   "held_out": true
+  }
+ },
+ "simplewebauthn@13.3.3": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: type != webauthn.create throws (line 64)",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: challenge mismatch throws (line 73)",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: origin !== expectedOrigin throws (line 83)",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: matchExpectedRPID throws on a hash that matches no expected RP ID (line 112)",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: requireUserPresence defaults to true; UP clear throws (line 115)",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: requireUserVerification true; UV clear throws (line 119)",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "esm/helpers/parseBackupFlags.js: BS without BE throws InvalidBackupFlags (lines 12 to 16), called at line 202",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "status_only",
+   "reason": "esm/registration/verifications/verifyAttestationPacked.js: without x5c the self-attestation signature goes to verifySignature, which returns false; verifyRegistrationResponse returns {verified: false} (lines 199 to 200)",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: type != webauthn.get throws (line 62)",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: challenge mismatch throws (line 71)",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: origin !== expectedOrigin throws (line 120)",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: matchExpectedRPID throws (line 153)",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: without advancedFIDOConfig, UP clear throws (line 175)",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: requireUserVerification true; UV clear throws (line 179)",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "esm/helpers/parseBackupFlags.js: BS without BE throws (lines 12 to 16), called at line 202",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "status_only",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: verified is the boolean returned by verifySignature (lines 203 to 208); a signature over other bytes gives verified: false without an exception",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: counter <= stored nonzero counter throws (lines 186 to 192)",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: UP clear throws (line 115) before the UV check",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: exact comparison origin !== expectedOrigin throws (line 83)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "silent",
+   "reason": "esm/registration/verifyRegistrationResponse.js: destructures type, origin, challenge, tokenBinding only (line 51); crossOrigin and topOrigin are not read in registration, and the result is verified: true",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: fmt none with attStmt.size > 0 throws (lines 189 to 192)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "esm/registration/verifyRegistrationResponse.js: pubKeyAlg -7 not in supportedAlgorithmIDs [-257] (passed by the driver) throws (lines 137 to 140)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: UP clear throws (line 175)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: exact comparison throws (line 120)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "silent",
+   "reason": "13.3.3 esm/authentication/verifyAuthenticationResponse.js destructures type, origin, challenge, tokenBinding only (line 45); crossOrigin and topOrigin are never read and the result is verified: true",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: userHandle is only type-checked (lines 130 to 133) and never compared with a stored user; the result is verified: true",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "silent",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: the options take one credential and no allow list (line 28); response.id is not compared with credential.id, and the signature verifies under the stored key",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "esm/authentication/verifyAuthenticationResponse.js: counter 10 <= stored 10 with a nonzero counter throws (lines 186 to 192)",
+   "held_out": true
+  }
+ },
+ "go-webauthn": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "development: CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)",
+   "held_out": false
+  },
+  "A-CNT": {
+   "outcome": "status_only",
+   "reason": "development: Authenticator.UpdateCounter sets CloneWarning and returns without error when the count does not increase (webauthn/authenticator.go lines 59 to 64); validateLogin returns the credential",
+   "held_out": false
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "AuthenticatorData.Verify: UP required and clear returns an error (line 441) before the UV check",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: 'rp.cbo.test:8443' and 'rp.cbo.test' differ in Host, so the origin is not in RPOrigins (lines 167 to 179, 333 to 343)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: crossOrigin true with RPAllowCrossOrigin false (default) returns 'Error validating cross origin flag' (lines 181 to 185)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "protocol/attestation.go VerifyAttestation: format none with a non-empty statement returns ErrAttestationFormat (lines 258 to 261)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "protocol/attestation.go AttestationObject.Verify: key alg -7 not in session CredParams [-257] (from the driver) returns 'Credential public key algorithm not supported' (lines 226 to 234)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "login.go line 382 requires UP; AuthenticatorData.Verify returns an error when UP is clear (line 441)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: Host differs by port, origin not in RPOrigins (lines 167 to 179)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: crossOrigin true with RPAllowCrossOrigin false returns an error (lines 181 to 185)",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "surfaced",
+   "reason": "webauthn/login.go validateLogin: a present userHandle not equal to user.WebAuthnID() returns 'User handle and User ID do not match' (step 2)",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "webauthn/login.go validateLogin: with AllowedCredentialIDs set, an allow list the user does not own returns 'User does not own all credentials from the allowed credential list', and a credential ID outside the list returns ErrBadRequest (step 1)",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "status_only",
+   "reason": "webauthn/authenticator.go UpdateCounter: 10 <= stored 10 with a nonzero count sets CloneWarning and returns without error (lines 59 to 64)",
+   "held_out": true
+  }
+ },
+ "go-webauthn@v0.17.4": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: type mismatch returns ErrVerification (line 146)",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: challenge mismatch returns ErrVerification (line 158)",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: origin not in RPOrigins returns ErrVerification (lines 167 to 179)",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "protocol/authenticator.go AuthenticatorData.Verify: RP hash mismatch returns ErrVerification (line 435)",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "webauthn/registration.go: shouldVerifyUserPresence is true outside conditional mediation (line 204); AuthenticatorData.Verify returns an error when UP is clear (line 441)",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "UserVerification required in the session; AuthenticatorData.Verify returns an error when UV is clear (line 448)",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "silent",
+   "reason": "v0.17.4 webauthn/registration.go CreateCredential (lines 141 to 166) has no backup-flag check (added in the later line at v0.18.2 lines 213 to 215); the credential is returned and the driver reports BS and BE as raw flags only",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "protocol/attestation_packed.go handleSelfAttestation: a signature that does not verify returns ErrInvalidAttestation",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: type mismatch returns ErrVerification (line 146)",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: challenge mismatch (line 158)",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: origin not in RPOrigins (lines 167 to 179)",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "AuthenticatorData.Verify: RP hash mismatch (line 435)",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "webauthn/login.go: shouldVerifyUserPresence := true (line 382); UP clear returns an error (authenticator.go line 441)",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "UV required; UV clear returns an error (authenticator.go line 448)",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "webauthn/login.go validateLogin: BS without BE returns ErrBadRequest (line 409)",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "protocol/assertion.go ParsedCredentialAssertionData.Verify: a signature that does not verify returns an error",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "status_only",
+   "reason": "webauthn/authenticator.go UpdateCounter: a count not greater than the stored nonzero count sets CloneWarning and returns (lines 59 to 64); validateLogin returns the credential without error",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "AuthenticatorData.Verify: UP required and clear returns an error (line 441) before the UV check",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: 'rp.cbo.test:8443' and 'rp.cbo.test' differ in Host, so the origin is not in RPOrigins (lines 167 to 179, 333 to 343)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: crossOrigin true with RPAllowCrossOrigin false (default) returns 'Error validating cross origin flag' (lines 181 to 185)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "protocol/attestation.go VerifyAttestation: format none with a non-empty statement returns ErrAttestationFormat (lines 258 to 261)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "protocol/attestation.go AttestationObject.Verify: key alg -7 not in session CredParams [-257] (from the driver) returns 'Credential public key algorithm not supported' (lines 226 to 234)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "login.go line 382 requires UP; AuthenticatorData.Verify returns an error when UP is clear (line 441)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: Host differs by port, origin not in RPOrigins (lines 167 to 179)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "protocol/client.go CollectedClientData.Verify: crossOrigin true with RPAllowCrossOrigin false returns an error (lines 181 to 185)",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "surfaced",
+   "reason": "webauthn/login.go validateLogin: a present userHandle not equal to user.WebAuthnID() returns 'User handle and User ID do not match' (step 2)",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "webauthn/login.go validateLogin: with AllowedCredentialIDs set, an allow list the user does not own returns 'User does not own all credentials from the allowed credential list', and a credential ID outside the list returns ErrBadRequest (step 1)",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "status_only",
+   "reason": "webauthn/authenticator.go UpdateCounter: 10 <= stored 10 with a nonzero count sets CloneWarning and returns without error (lines 59 to 64)",
+   "held_out": true
+  }
+ },
+ "java-webauthn-server": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": false
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/yubico/webauthn/FinishRegistrationSteps.java: Step14 asserts the UP flag unless the create is conditional (line 309); IllegalArgumentException",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/yubico/webauthn/FinishRegistrationSteps.java: Step9 OriginMatcher.isAllowed (line 220) accepts only an exact match when allowOriginPort and allowOriginSubdomain are false (OriginMatcher.java)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "silent",
+   "reason": "no source file of webauthn-server-core 2.10.0 reads crossOrigin or topOrigin; finishRegistration succeeds and RegistrationResult has no cross-origin field",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "silent",
+   "reason": "com/yubico/webauthn/FinishRegistrationSteps.java: Step18 maps fmt none to NoneAttestationStatementVerifier (line 418), whose verifyAttestationSignature returns true without reading the statement; allowUntrustedAttestation defaults to true, so registration succeeds",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "com/yubico/webauthn/FinishRegistrationSteps.java: Step16 asserts that the key alg is in pubKeyCredParams (line 362); the request lists RS256 only",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/yubico/webauthn/FinishAssertionSteps.java: Step16 asserts the UP flag (line 486)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/yubico/webauthn/FinishAssertionSteps.java: Step13 OriginMatcher.isAllowed (line 418), exact match only under the defaults",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "silent",
+   "reason": "crossOrigin is not read anywhere in 2.10.0; finishAssertion succeeds with isSuccess true",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "surfaced",
+   "reason": "com/yubico/webauthn/FinishAssertionSteps.java: Step6 asserts that the request user handle equals the response user handle (line 271)",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "com/yubico/webauthn/FinishAssertionSteps.java: Step5 asserts that the response credential ID is in allowCredentials ('Unrequested credential ID', line 173)",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "com/yubico/webauthn/FinishAssertionSteps.java: Step21 throws InvalidSignatureCountException when validateSignatureCounter is true and the count is not greater than the stored nonzero count (lines 641 and 646 to 648)",
+   "held_out": true
+  }
+ },
+ "webauthn4j-nonstrict": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "R-ASIG": {
+   "outcome": "silent",
+   "reason": "development: createNonStrictWebAuthnManager installs NullPackedAttestationStatementVerifier (WebAuthnManager bytecode), which does not verify the packed attestation signature, and RegistrationData has no field for it",
+   "held_out": false
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": false
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier.verify with userPresenceRequired throws UserNotPresentException (line 209 (188))",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: OriginVerifierImpl throws BadOriginException; SimpleOriginPredicate uses Origin.equals, which compares scheme, host and port (443 against 8443) (line 171 (158))",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: TopOriginVerifier throws BadTopOriginException when crossOrigin is true and no top-origin predicate is configured (line 187 (171); verifier/internal/TopOriginVerifier.java)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: BeanAssertUtil.validate (line 125 (112)) calls NoneAttestationStatement.validate, which throws BadAttestationStatementException when any property was set (data/attestation/statement/NoneAttestationStatement.java line 32); this runs before the statement verifiers, so in both arms",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: COSEAlgorithmIdentifierVerifier.verify(alg, pubKeyCredParams) throws for ES256 against [RS256] (line 231 (207))",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier.verify throws UserNotPresentException (line 204 (182))",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line 174 (156))",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: TopOriginVerifier throws BadTopOriginException (line 183 (163))",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: step 6 (user handle) is marked 'out of WebAuthn4J scope. It's caller's responsibility' (lines 120 to 128 (96 to 103)); AuthenticationParameters carries no user handle and verification succeeds",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: CredentialIdVerifier.verify throws NotAllowedCredentialIdException for an ID not in allowCredentials (line 117 (92))",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: presentedSignCount 10 is not greater than stored 10, so DefaultCoreMaliciousCounterValueHandler throws MaliciousCounterValueException (lines 228 to 247 (217 to 234))",
+   "held_out": true
+  }
+ },
+ "webauthn4j-strict": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": false
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier.verify with userPresenceRequired throws UserNotPresentException (line 209 (188))",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: OriginVerifierImpl throws BadOriginException; SimpleOriginPredicate uses Origin.equals, which compares scheme, host and port (443 against 8443) (line 171 (158))",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: TopOriginVerifier throws BadTopOriginException when crossOrigin is true and no top-origin predicate is configured (line 187 (171); verifier/internal/TopOriginVerifier.java)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: BeanAssertUtil.validate (line 125 (112)) calls NoneAttestationStatement.validate, which throws BadAttestationStatementException when any property was set (data/attestation/statement/NoneAttestationStatement.java line 32); this runs before the statement verifiers, so in both arms",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: COSEAlgorithmIdentifierVerifier.verify(alg, pubKeyCredParams) throws for ES256 against [RS256] (line 231 (207))",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier.verify throws UserNotPresentException (line 204 (182))",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line 174 (156))",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: TopOriginVerifier throws BadTopOriginException (line 183 (163))",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: step 6 (user handle) is marked 'out of WebAuthn4J scope. It's caller's responsibility' (lines 120 to 128 (96 to 103)); AuthenticationParameters carries no user handle and verification succeeds",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: CredentialIdVerifier.verify throws NotAllowedCredentialIdException for an ID not in allowCredentials (line 117 (92))",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: presentedSignCount 10 is not greater than stored 10, so DefaultCoreMaliciousCounterValueHandler throws MaliciousCounterValueException (lines 228 to 247 (217 to 234))",
+   "held_out": true
+  }
+ },
+ "webauthn4j-nonstrict@0.30.3.RELEASE": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: InconsistentClientDataTypeException when type is not webauthn.create",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: ChallengeVerifier throws BadChallengeException",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line (158))",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: RpIdHashVerifier throws BadRpIdException",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier throws UserNotPresentException (line (188))",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier throws UserNotVerifiedException (line (188))",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: BEBSFlagsVerifier throws IllegalBackupStateException (line (192))",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "silent",
+   "reason": "non-strict arm: createNonStrictWebAuthnManager uses NullPackedAttestationStatementVerifier and NullSelfAttestationTrustworthinessVerifier (WebAuthnManager lines 180 to 194), so the packed signature is not verified and registration succeeds",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: InconsistentClientDataTypeException when type is not webauthn.get",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: ChallengeVerifier throws BadChallengeException",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line (156))",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: RpIdHashVerifier throws BadRpIdException",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier throws UserNotPresentException (line (182))",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier throws UserNotVerifiedException (line (182))",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: BEBSFlagsVerifier throws IllegalBackupStateException (line (186))",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/internal/AssertionSignatureVerifier throws BadSignatureException; shared by both arms",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: count 5 below stored 10 goes to DefaultCoreMaliciousCounterValueHandler, which throws MaliciousCounterValueException (lines (217 to 234))",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier.verify with userPresenceRequired throws UserNotPresentException (line 209 (188))",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: OriginVerifierImpl throws BadOriginException; SimpleOriginPredicate uses Origin.equals, which compares scheme, host and port (443 against 8443) (line 171 (158))",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: TopOriginVerifier throws BadTopOriginException when crossOrigin is true and no top-origin predicate is configured (line 187 (171); verifier/internal/TopOriginVerifier.java)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: BeanAssertUtil.validate (line 125 (112)) calls NoneAttestationStatement.validate, which throws BadAttestationStatementException when any property was set (data/attestation/statement/NoneAttestationStatement.java line 32); this runs before the statement verifiers, so in both arms",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: COSEAlgorithmIdentifierVerifier.verify(alg, pubKeyCredParams) throws for ES256 against [RS256] (line 231 (207))",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier.verify throws UserNotPresentException (line 204 (182))",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line 174 (156))",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: TopOriginVerifier throws BadTopOriginException (line 183 (163))",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: step 6 (user handle) is marked 'out of WebAuthn4J scope. It's caller's responsibility' (lines 120 to 128 (96 to 103)); AuthenticationParameters carries no user handle and verification succeeds",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: CredentialIdVerifier.verify throws NotAllowedCredentialIdException for an ID not in allowCredentials (line 117 (92))",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: presentedSignCount 10 is not greater than stored 10, so DefaultCoreMaliciousCounterValueHandler throws MaliciousCounterValueException (lines 228 to 247 (217 to 234))",
+   "held_out": true
+  }
+ },
+ "webauthn4j-strict@0.30.3.RELEASE": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: InconsistentClientDataTypeException when type is not webauthn.create",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: ChallengeVerifier throws BadChallengeException",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line (158))",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: RpIdHashVerifier throws BadRpIdException",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier throws UserNotPresentException (line (188))",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier throws UserNotVerifiedException (line (188))",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: BEBSFlagsVerifier throws IllegalBackupStateException (line (192))",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "strict arm: PackedAttestationStatementVerifier verifies the self-attestation signature with the credential key and throws BadSignatureException",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: InconsistentClientDataTypeException when type is not webauthn.get",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: ChallengeVerifier throws BadChallengeException",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line (156))",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: RpIdHashVerifier throws BadRpIdException",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier throws UserNotPresentException (line (182))",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier throws UserNotVerifiedException (line (182))",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: BEBSFlagsVerifier throws IllegalBackupStateException (line (186))",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/internal/AssertionSignatureVerifier throws BadSignatureException; shared by both arms",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: count 5 below stored 10 goes to DefaultCoreMaliciousCounterValueHandler, which throws MaliciousCounterValueException (lines (217 to 234))",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier.verify with userPresenceRequired throws UserNotPresentException (line 209 (188))",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: OriginVerifierImpl throws BadOriginException; SimpleOriginPredicate uses Origin.equals, which compares scheme, host and port (443 against 8443) (line 171 (158))",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: TopOriginVerifier throws BadTopOriginException when crossOrigin is true and no top-origin predicate is configured (line 187 (171); verifier/internal/TopOriginVerifier.java)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: BeanAssertUtil.validate (line 125 (112)) calls NoneAttestationStatement.validate, which throws BadAttestationStatementException when any property was set (data/attestation/statement/NoneAttestationStatement.java line 32); this runs before the statement verifiers, so in both arms",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/RegistrationDataVerifier.java: COSEAlgorithmIdentifierVerifier.verify(alg, pubKeyCredParams) throws for ES256 against [RS256] (line 231 (207))",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier.verify throws UserNotPresentException (line 204 (182))",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line 174 (156))",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: TopOriginVerifier throws BadTopOriginException (line 183 (163))",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: step 6 (user handle) is marked 'out of WebAuthn4J scope. It's caller's responsibility' (lines 120 to 128 (96 to 103)); AuthenticationParameters carries no user handle and verification succeeds",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: CredentialIdVerifier.verify throws NotAllowedCredentialIdException for an ID not in allowCredentials (line 117 (92))",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "com/webauthn4j/verifier/AuthenticationDataVerifier.java: presentedSignCount 10 is not greater than stored 10, so DefaultCoreMaliciousCounterValueHandler throws MaliciousCounterValueException (lines 228 to 247 (217 to 234))",
+   "held_out": true
+  }
+ },
+ "fido2-net-lib": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "R-BS": {
+   "outcome": "silent",
+   "reason": "development: AuthenticatorAttestationResponse.VerifyAsync applies only the configured backup policies (Src/Fido2/AuthenticatorAttestationResponse.cs lines 146 to 155 at 9218d55); BS=1 with BE=0 passes under the default Allowed policies, and the result carries the raw flags only",
+   "held_out": false
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": false
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "A-BS": {
+   "outcome": "silent",
+   "reason": "development: AuthenticatorAssertionResponse.VerifyAsync, same policy-only check (Src/Fido2/AuthenticatorAssertionResponse.cs lines 171 to 179 at 9218d55)",
+   "held_out": false
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "development: every other mandatory check throws Fido2VerificationException, including a count that does not increase",
+   "held_out": false
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: UP clear throws UserPresentFlagNotSet (139 / 147, the latter outside conditional mediation)",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: 'https://rp.cbo.test:8443' is not in the fully qualified expected origins (103 / 125)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "silent",
+   "reason": "4.2.0 AuthenticatorResponse has no crossOrigin or topOrigin member (Src/Fido2/AuthenticatorResponse.cs lines 55 to 68), so the flag is never read; registration succeeds and the result has no cross-origin field",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AttestationFormat/None.cs: AttStmt.Count != 0 throws 'Attestation format none should have no attestation statement' (line 12, both)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: no PubKeyCredParams entry ([RS256] from the driver) matches the key alg; throws CredentialAlgorithmRequirementNotMet (161 / 175)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: UP clear throws UserPresentFlagNotSet outside conformance testing (164 / 181)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin with port 8443 not in the expected origins (103 / 125)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "silent",
+   "reason": "4.2.0 never reads crossOrigin (no member in AuthenticatorResponse); MakeAssertionAsync succeeds",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: the driver's IsUserHandleOwnerOfCredentialId callback returns false for another user's handle, and the library throws UserHandleNotOwnerOfPublicKey (124 to 126 / 141 to 143)",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: AllowCredentials not containing the raw ID throws CredentialIdNotInAllowedCredentials (111 to 115 / 118 to 122)",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: (SignCount != 0 or stored != 0) and SignCount <= stored throws InvalidSignCount (211 / 247)",
+   "held_out": true
+  }
+ },
+ "fido2-net-lib@5.0.0-preview.7": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: type other than webauthn.create throws (line 93)",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: challenge mismatch throws InvalidAuthenticatorResponseChallenge",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin not in the expected origins throws (line 125)",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: RP ID hash mismatch throws InvalidRpidHash (line 142)",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: UP clear throws UserPresentFlagNotSet (line 147)",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: UV required and clear throws UserVerificationRequirementNotMet (line 151)",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: BS without BE throws InvalidBackupFlags (lines 157 to 158), the Level 3 check absent from 4.2.0",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AttestationFormat/Packed.cs: self attestation verifies the signature with the credential key and throws when it fails (line 165)",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: type other than webauthn.get throws (line 157)",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: challenge mismatch throws",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin not in the expected origins throws (line 125)",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: RP ID hash mismatch throws InvalidRpidHash (line 175)",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: UP clear throws (line 181)",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: UV required and clear throws (line 186)",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: BS without BE throws InvalidBackupFlags (lines 191 to 192)",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: a signature that does not verify throws InvalidSignature (line 241)",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: count 5 not greater than stored 10 throws InvalidSignCount (lines 247 to 248)",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: UP clear throws UserPresentFlagNotSet (139 / 147, the latter outside conditional mediation)",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: 'https://rp.cbo.test:8443' is not in the fully qualified expected origins (103 / 125)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: crossOrigin true with AllowCrossOriginRequests false (default) throws CrossOriginRequestNotAllowed (5.0.0-preview.7 lines 135 to 136)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AttestationFormat/None.cs: AttStmt.Count != 0 throws 'Attestation format none should have no attestation statement' (line 12, both)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: no PubKeyCredParams entry ([RS256] from the driver) matches the key alg; throws CredentialAlgorithmRequirementNotMet (161 / 175)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: UP clear throws UserPresentFlagNotSet outside conformance testing (164 / 181)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin with port 8443 not in the expected origins (103 / 125)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: crossOrigin true with AllowCrossOriginRequests false throws CrossOriginRequestNotAllowed",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: the driver's IsUserHandleOwnerOfCredentialId callback returns false for another user's handle, and the library throws UserHandleNotOwnerOfPublicKey (124 to 126 / 141 to 143)",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: AllowCredentials not containing the raw ID throws CredentialIdNotInAllowedCredentials (111 to 115 / 118 to 122)",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: (SignCount != 0 or stored != 0) and SignCount <= stored throws InvalidSignCount (211 / 247)",
+   "held_out": true
+  }
+ }
+}
