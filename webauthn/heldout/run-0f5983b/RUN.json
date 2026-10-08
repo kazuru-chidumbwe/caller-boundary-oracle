@@ -1,0 +1,20 @@
+{
+  "harness_commit": "0f5983b91920788dc383858a3fff6ec1e6fa7ff7",
+  "harness_dirty": false,
+  "oracle_sha256": "e29e03eca5bfd6b935453a5bac7af68a6449564ede074e284c6156e4014a1bb9",
+  "drivers": {
+    "py_webauthn": "/home/test/cbo/_vendor/webauthn-venv/bin/python /home/test/cbo/cbo-wa/webauthn/drivers/py_webauthn_driver.py",
+    "simplewebauthn": "/home/test/cbo/_vendor/node/bin/node /home/test/cbo/cbo-wa/webauthn/drivers/node/simplewebauthn_driver.js",
+    "go-webauthn": "/home/test/cbo/cbo-wa/bin/webauthn-go-driver",
+    "java-webauthn-server": "java -cp /home/test/cbo/cbo-wa/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:/home/test/cbo/cbo-wa/webauthn/drivers/java/target/lib/* org.callerboundary.webauthn.YubicoDriver",
+    "webauthn4j-nonstrict": "java -cp /home/test/cbo/cbo-wa/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:/home/test/cbo/cbo-wa/webauthn/drivers/java/target/lib/* org.callerboundary.webauthn.Webauthn4jDriver nonstrict",
+    "webauthn4j-strict": "java -cp /home/test/cbo/cbo-wa/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:/home/test/cbo/cbo-wa/webauthn/drivers/java/target/lib/* org.callerboundary.webauthn.Webauthn4jDriver strict",
+    "fido2-net-lib": "/home/test/cbo/_vendor/dotnet/dotnet /home/test/cbo/cbo-wa/webauthn/drivers/dotnet/out/Fido2Driver.dll",
+    "go-webauthn@v0.17.4": "/home/test/cbo/cbo-wa/webauthn/heldout/build/go-webauthn-v0.17.4/driver",
+    "webauthn4j-strict@0.30.3.RELEASE": "java -cp /home/test/cbo/cbo-wa/webauthn/heldout/build/java-webauthn4j-0.30.3.RELEASE/target/webauthn-drivers-1.0.0.jar:/home/test/cbo/cbo-wa/webauthn/heldout/build/java-webauthn4j-0.30.3.RELEASE/target/lib/* org.callerboundary.webauthn.Webauthn4jDriver strict",
+    "webauthn4j-nonstrict@0.30.3.RELEASE": "java -cp /home/test/cbo/cbo-wa/webauthn/heldout/build/java-webauthn4j-0.30.3.RELEASE/target/webauthn-drivers-1.0.0.jar:/home/test/cbo/cbo-wa/webauthn/heldout/build/java-webauthn4j-0.30.3.RELEASE/target/lib/* org.callerboundary.webauthn.Webauthn4jDriver nonstrict",
+    "fido2-net-lib@5.0.0-preview.7": "/home/test/cbo/_vendor/dotnet/dotnet /home/test/cbo/cbo-wa/webauthn/heldout/build/fido2-5.0.0-preview.7/out/Fido2Driver.dll",
+    "simplewebauthn@13.3.3": "/home/test/cbo/_vendor/node/bin/node /home/test/cbo/cbo-wa/webauthn/heldout/build/simplewebauthn-13.3.3/simplewebauthn_driver.js",
+    "py_webauthn@2.8.0": "/home/test/cbo/cbo-wa/webauthn/heldout/build/py_webauthn-2.8.0/venv/bin/python /home/test/cbo/cbo-wa/webauthn/drivers/py_webauthn_driver.py"
+  }
+}
