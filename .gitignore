@@ -45,3 +45,10 @@ drivers/dart/pubspec.lock
 drivers/dart/build/
 
 analysis/data/
+
+# WebAuthn arm build outputs
+webauthn/drivers/java/target/
+webauthn/drivers/node/node_modules/
+webauthn/drivers/dotnet/bin/
+webauthn/drivers/dotnet/obj/
+webauthn/drivers/dotnet/out/

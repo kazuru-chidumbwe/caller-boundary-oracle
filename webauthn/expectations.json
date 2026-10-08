@@ -1,0 +1,576 @@
+{
+  "py_webauthn": {
+    "R-TYPE": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "R-CHAL": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "R-ORIG": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "R-RPID": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "R-UP": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "R-UV": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "R-BS": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "R-ASIG": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "A-TYPE": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "A-CHAL": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "A-ORIG": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "A-RPID": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "A-UP": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "A-UV": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "A-BS": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "A-SIG": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "A-CNT": {
+      "outcome": "surfaced",
+      "reason": "verify_registration_response and verify_authentication_response raise on every mandatory step and on a counter that does not increase (webauthn/helpers and authentication/verify_authentication_response.py)"
+    },
+    "R-OK-NONE": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "R-OK-PACKED": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "A-OK": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    }
+  },
+  "simplewebauthn": {
+    "R-TYPE": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "R-CHAL": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "R-ORIG": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "R-RPID": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "R-UP": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "R-UV": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "R-BS": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "R-ASIG": {
+      "outcome": "status_only",
+      "reason": "verifyRegistrationResponse returns verified: false when the attestation statement verifier fails (registration/verifyRegistrationResponse.js lines 173 to 202) instead of throwing"
+    },
+    "A-TYPE": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "A-CHAL": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "A-ORIG": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "A-RPID": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "A-UP": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "A-UV": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "A-BS": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "A-SIG": {
+      "outcome": "status_only",
+      "reason": "verifyAuthenticationResponse returns verified: the result of verifySignature (authentication/verifyAuthenticationResponse.js line 207); a bad signature is a false field, not an exception"
+    },
+    "A-CNT": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)"
+    },
+    "R-OK-NONE": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "R-OK-PACKED": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "A-OK": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    }
+  },
+  "go-webauthn": {
+    "R-TYPE": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "R-CHAL": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "R-ORIG": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "R-RPID": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "R-UP": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "R-UV": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "R-BS": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "R-ASIG": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "A-TYPE": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "A-CHAL": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "A-ORIG": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "A-RPID": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "A-UP": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "A-UV": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "A-BS": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "A-SIG": {
+      "outcome": "surfaced",
+      "reason": "CreateCredential and ValidateLogin return an error for every mandatory step, including BE=0 with BS=1 (webauthn/login.go)"
+    },
+    "A-CNT": {
+      "outcome": "status_only",
+      "reason": "Authenticator.UpdateCounter sets CloneWarning and returns without error when the count does not increase (webauthn/authenticator.go lines 59 to 64); validateLogin returns the credential"
+    },
+    "R-OK-NONE": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "R-OK-PACKED": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "A-OK": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    }
+  },
+  "java-webauthn-server": {
+    "R-TYPE": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "R-CHAL": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "R-ORIG": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "R-RPID": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "R-UP": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "R-UV": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "R-BS": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "R-ASIG": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "A-TYPE": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "A-CHAL": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "A-ORIG": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "A-RPID": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "A-UP": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "A-UV": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "A-BS": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "A-SIG": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "A-CNT": {
+      "outcome": "surfaced",
+      "reason": "finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed"
+    },
+    "R-OK-NONE": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "R-OK-PACKED": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "A-OK": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    }
+  },
+  "webauthn4j-nonstrict": {
+    "R-TYPE": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "R-CHAL": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "R-ORIG": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "R-RPID": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "R-UP": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "R-UV": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "R-BS": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "R-ASIG": {
+      "outcome": "silent",
+      "reason": "createNonStrictWebAuthnManager installs NullPackedAttestationStatementVerifier (WebAuthnManager bytecode), which does not verify the packed attestation signature, and RegistrationData has no field for it"
+    },
+    "A-TYPE": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "A-CHAL": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "A-ORIG": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "A-RPID": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "A-UP": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "A-UV": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "A-BS": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "A-SIG": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "A-CNT": {
+      "outcome": "surfaced",
+      "reason": "the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler"
+    },
+    "R-OK-NONE": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "R-OK-PACKED": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "A-OK": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    }
+  },
+  "webauthn4j-strict": {
+    "R-TYPE": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "R-CHAL": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "R-ORIG": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "R-RPID": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "R-UP": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "R-UV": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "R-BS": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "R-ASIG": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "A-TYPE": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "A-CHAL": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "A-ORIG": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "A-RPID": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "A-UP": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "A-UV": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "A-BS": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "A-SIG": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "A-CNT": {
+      "outcome": "surfaced",
+      "reason": "PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm"
+    },
+    "R-OK-NONE": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "R-OK-PACKED": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "A-OK": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    }
+  },
+  "fido2-net-lib": {
+    "R-TYPE": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "R-CHAL": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "R-ORIG": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "R-RPID": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "R-UP": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "R-UV": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "R-BS": {
+      "outcome": "silent",
+      "reason": "AuthenticatorAttestationResponse.VerifyAsync applies only the configured backup policies (Src/Fido2/AuthenticatorAttestationResponse.cs lines 146 to 155 at 9218d55); BS=1 with BE=0 passes under the default Allowed policies, and the result carries the raw flags only"
+    },
+    "R-ASIG": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "A-TYPE": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "A-CHAL": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "A-ORIG": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "A-RPID": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "A-UP": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "A-UV": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "A-BS": {
+      "outcome": "silent",
+      "reason": "AuthenticatorAssertionResponse.VerifyAsync, same policy-only check (Src/Fido2/AuthenticatorAssertionResponse.cs lines 171 to 179 at 9218d55)"
+    },
+    "A-SIG": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "A-CNT": {
+      "outcome": "surfaced",
+      "reason": "every other mandatory check throws Fido2VerificationException, including a count that does not increase"
+    },
+    "R-OK-NONE": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "R-OK-PACKED": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    },
+    "A-OK": {
+      "outcome": "not_applicable",
+      "reason": "positive control: nothing injected; the ceremony must be accepted"
+    }
+  }
+}

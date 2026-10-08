@@ -1,0 +1,9 @@
+{
+  "py_webauthn": "{VENDOR}/webauthn-venv/bin/python {ROOT}/webauthn/drivers/py_webauthn_driver.py",
+  "simplewebauthn": "{VENDOR}/node/bin/node {ROOT}/webauthn/drivers/node/simplewebauthn_driver.js",
+  "go-webauthn": "{ROOT}/bin/webauthn-go-driver",
+  "java-webauthn-server": "java -cp {ROOT}/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:{ROOT}/webauthn/drivers/java/target/lib/* org.callerboundary.webauthn.YubicoDriver",
+  "webauthn4j-nonstrict": "java -cp {ROOT}/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:{ROOT}/webauthn/drivers/java/target/lib/* org.callerboundary.webauthn.Webauthn4jDriver nonstrict",
+  "webauthn4j-strict": "java -cp {ROOT}/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:{ROOT}/webauthn/drivers/java/target/lib/* org.callerboundary.webauthn.Webauthn4jDriver strict",
+  "fido2-net-lib": "{VENDOR}/dotnet/dotnet {ROOT}/webauthn/drivers/dotnet/out/Fido2Driver.dll"
+}
