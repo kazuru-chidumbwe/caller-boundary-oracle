@@ -241,7 +241,10 @@ public final class JmrtdRead {
         }
     }
 
-    /** PACE when CardAccess advertises it, otherwise BAC; a failure here is not the target. */
+    /**
+     * PACE when CardAccess advertises it, otherwise selection of the eMRTD application and BAC (so
+     * that later file reads go over secure messaging); a failure here is not the target.
+     */
     static void accessControl(PassportService service, byte[] cardAccessBytes, BACKey bacKey, Step step) throws ReadFailure {
         try {
             if (cardAccessBytes != null) {
@@ -250,6 +253,7 @@ public final class JmrtdRead {
                         PACEInfo.toParameterSpec(paceInfo.getParameterId()), paceInfo.getParameterId());
                 service.sendSelectApplet(true);
             } else {
+                service.sendSelectApplet(false);
                 service.doBAC(bacKey);
             }
             step.bacSuccess = true;
