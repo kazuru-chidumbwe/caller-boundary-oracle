@@ -33,7 +33,7 @@ ARMS = [
     "gmrtd 0.45.0 default", "gmrtd 0.45.0 + guard",
     "gmrtd 1.1.3 default", "gmrtd 1.1.3 opt-in fallback", "gmrtd 1.1.3 + guard",
     "gmrtd 1.3.2 default", "gmrtd 1.3.2 opt-in fallback", "gmrtd 1.3.2 + guard",
-    "JMRTD 0.8.9 propagate", "JMRTD 0.8.9 catch-and-continue", "JMRTD 0.5.0 Passport",
+    "JMRTD 0.8.9 propagate", "JMRTD 0.8.9 catch-and-continue",
     "emrtd-dotnet", "dmrtd", "NFCPassportReader",
 ]
 COLUMNS = [

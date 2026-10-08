@@ -36,19 +36,6 @@ def ensure_jmrtd_jar(root: Path) -> Path:
     return jar
 
 
-JMRTD050_JAR = "drivers/jmrtd050/target/jmrtd050-driver-0.1.0.jar"
-
-
-def ensure_jmrtd050_jar(root: Path) -> Path:
-    """JMRTD 0.5.0 history point: its own module (scuba 0.0.4, bcprov-jdk15on 1.51)."""
-    mvn = shutil.which("mvn") or "mvn"
-    subprocess.check_call([mvn, "-q", "-DskipTests", "package"], cwd=root / "drivers/jmrtd050")
-    jar = root / JMRTD050_JAR
-    if not jar.is_file():
-        raise SystemExit(f"JMRTD 0.5.0 driver jar not built: {jar}")
-    return jar
-
-
 def build_go_bins(root: Path, builds: set[tuple[str, str]]) -> dict[tuple[str, str], Path]:
     """Build each (command, gmrtd pin) once. Non-default pins use their own module file and tag."""
     bindir = root / "bin"
@@ -160,9 +147,8 @@ def main() -> int:
     }
     go_bins = build_go_bins(ROOT, go_builds) if go_builds else {}
     jmrtd_jar = ensure_jmrtd_jar(ROOT) if any(e["driver"] == "java" for e in manifest["entries"]) else None
-    jmrtd050_jar = ensure_jmrtd050_jar(ROOT) if any(e["driver"] == "java050" for e in manifest["entries"]) else None
     drivers = {e["driver"] for e in manifest["entries"]}
-    chip_serve = ensure_chip_serve(ROOT) if drivers & {"dotnet", "dart", "java", "java050"} else None
+    chip_serve = ensure_chip_serve(ROOT) if drivers & {"dotnet", "dart", "java"} else None
     dotnet_dll = ensure_dotnet_driver(ROOT) if "dotnet" in drivers else None
     dart_exe = ensure_dart_driver(ROOT) if "dart" in drivers else None
 
@@ -184,9 +170,6 @@ def main() -> int:
             elif driver == "java":
                 assert jmrtd_jar is not None and chip_serve is not None
                 run_java(jmrtd_jar, log_dir, flags + ["-integrator", entry["integrator"], "-chip-serve", str(chip_serve)])
-            elif driver == "java050":
-                assert jmrtd050_jar is not None and chip_serve is not None
-                run_java(jmrtd050_jar, log_dir, flags + ["-chip-serve", str(chip_serve)])
             elif driver == "dotnet":
                 assert dotnet_dll is not None and chip_serve is not None
                 run_dotnet(dotnet_dll, chip_serve, log_dir, flags)

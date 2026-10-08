@@ -28,12 +28,6 @@ GMRTD_ARMS = {
     "b861835-guard": ("b861835", False, True),
 }
 JMRTD_ARMS = ("propagate", "catch-continue")
-# JMRTD 0.5.0 history point (added 8 Oct 2026, expectations stated before the first run): the
-# entry point of that release, Passport(service, trustStore, bacKey), catches any PACE exception,
-# logs "PACE failed, falling back to BAC" and reads over BAC; it never sets the PACE (SAC)
-# verdict to FAILED (Passport.java lines 238 to 277 of the 0.5.0 sources). A PACE failure is
-# therefore expected to be silent. PACE only: this arm is about how a PACE failure reaches the caller.
-JMRTD050 = "jmrtd-0.5.0"
 # Libraries with a single caller path, driven through cmd/chip-serve: arm name -> (library, driver)
 SINGLE_ARMS = {"emrtd-dotnet": ("emrtd-dotnet", "dotnet"), "dmrtd": ("dmrtd", "dart")}
 
@@ -42,7 +36,6 @@ EXPECT = {
     "PACE": {
         "8fea245-default": ST, "64bd6ab-default": SU, "64bd6ab-allow-fallback": ST,
         "8fea245-guard": SU, "64bd6ab-guard": SU, "propagate": SU, "catch-continue": S,
-        JMRTD050: S,
         # falls back to BAC; the returned document names the access control actually used
         "emrtd-dotnet": ST,
         # the caller chooses PACE or BAC up front; a PACE failure throws
@@ -90,8 +83,6 @@ CONTROL_RETURNED_ERROR = {
         "8fea245-default": False, "64bd6ab-default": True, "64bd6ab-allow-fallback": False,
         "8fea245-guard": True, "64bd6ab-guard": True, "propagate": True, "catch-continue": False,
         "emrtd-dotnet": False, "dmrtd": True,
-        # 0.5.0 cannot use parameter ID 32 either; the exception is caught and BAC follows
-        JMRTD050: False,
     },
 }
 
@@ -186,18 +177,6 @@ def entries_for(
             "integrator": arm,
             "profile": rel,
             "expect_outcome": expect[arm],
-        })
-    if expect.get(JMRTD050) is not None:
-        out.append({
-            "scenario_id": f"{prof['id']}-jmrtd-0.5.0-passport",
-            "test_case": prof["id"],
-            "library": "jmrtd",
-            "variant": "0.5.0-passport",
-            "arm": JMRTD050,
-            "cell": cell,
-            "driver": "java050",
-            "profile": rel,
-            "expect_outcome": expect[JMRTD050],
         })
     for arm, (library, driver) in SINGLE_ARMS.items():
         if expect.get(arm) is None:
@@ -297,9 +276,7 @@ def main() -> None:
             # that fall back after the failure cannot finish the read; see INDEPENDENT_PACE_FAULT.
             entries = entries_for(rel, p, "VSC-PACE", INDEPENDENT_PACE_FAULT)
             for e in entries:
-                if e["library"] in INDEPENDENT_PACE_FLAKY or e.get("arm") == JMRTD050:
-                    # JMRTD 0.5.0: whether its PACE gets far enough with OpenPACE to receive the
-                    # injected failure is not known before the run
+                if e["library"] in INDEPENDENT_PACE_FLAKY:
                     e["expect_outcome"] = [e["expect_outcome"], NA]
             independent += entries
         elif p["mechanism"] == "PACE":
@@ -313,8 +290,6 @@ def main() -> None:
                     # dmrtd reads only the first SecurityInfo, misses PACE and reads over BAC
                     # without telling the caller that the chip offered PACE (a silent downgrade)
                     e["expect_observation"] = {"succeeded": False, "returned_error": False}
-                elif e.get("arm") == JMRTD050:
-                    pass  # 0.5.0 never records PACE success (SAC verdict), so only the outcome is stated
                 elif e["library"] not in INDEPENDENT_PACE_FLAKY:
                     e["expect_observation"] = {"succeeded": True, "returned_error": False}
             independent += entries
@@ -338,10 +313,6 @@ def main() -> None:
                 e["n"] = REPEAT_N
                 repeat.append(e)
     write("independent-repeat", f"PACE positive control on the independent chip, {REPEAT_N} runs per library.", repeat)
-
-    # JMRTD 0.5.0 history point on its own, for a separate run (same entries as in the suites above).
-    j050 = [e for suite in (pace, controls, independent) for e in suite if e.get("arm") == JMRTD050]
-    write("jmrtd050", "JMRTD 0.5.0 history point: PACE failures and controls through Passport(...), harness and independent chip.", j050)
 
     write("ios", "NFCPassportReader in the iOS Simulator: every harness and independent-chip profile (.github/workflows/ios.yml).",
           ios_entries())
