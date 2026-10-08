@@ -8,6 +8,7 @@ dmrtd. Operators by site kind:
   check   O2  the failure check never fires: error test c -> false && (c), success test c -> true || (c)
           O5  the condition is negated
   catch   O3  the catch body is emptied
+  status  O4  the failure is not recorded (Go: the error field of the assignment becomes `_`)
 
 Each mutant is one replacement of a line span in one file. Nothing is compiled here; the runner
 builds each mutant and records build failures.
@@ -31,7 +32,7 @@ import m1_sites  # noqa: E402
 STEPS = {"PACE", "CA", "AA"}
 LIBS = {"gmrtd": "go", "jmrtd": "java", "emrtd-dotnet": "cs", "dmrtd": "dart"}
 SUCCESS_TEST = re.compile(
-    r"==\s*(ISO7816\.)?SW_NO_ERROR|==\s*StatusWord\.success|==\s*0x9000\b|\berr\s*==\s*nil|"
+    r"==\s*(ISO7816\.)?SW_NO_ERROR|==\s*StatusWord\.success|==\s*0x9000\b|(\berr|Err)\s*==\s*nil|"
     r"SW_NO_ERROR\s*==|StatusWord\.success\s*=="
 )
 
@@ -219,6 +220,24 @@ def op_catch(text: str, lo: int, hi: int):
     return (i + 1, end - 1, ""), None
 
 
+def op_status_write(text: str, lo: int, hi: int, lang: str):
+    """O4: the failure is no longer recorded. Go only: the field that receives the error, in a
+    single or multiple assignment, is replaced by the blank identifier."""
+    if lang != "go":
+        return None, "status write not mutated outside Go"
+    line = text[lo:hi]
+    eq = re.search(r"(?<![=!<>:])=(?!=)", line)
+    if eq is None:
+        return None, "assignment not found"
+    targets = line[:eq.start()]
+    m = None
+    for m in re.finditer(r"[\w.\[\]()*]+Err\b", targets):
+        pass
+    if m is None:
+        return None, "no error field among the assignment targets"
+    return (lo + m.start(), lo + m.end(), "_"), None
+
+
 def mutants_for(site: dict, version: str, line: int, path: Path) -> list[dict]:
     lang = LIBS[site["library"]]
     text = path.read_text(encoding="utf-8", errors="replace")
@@ -232,12 +251,16 @@ def mutants_for(site: dict, version: str, line: int, path: Path) -> list[dict]:
         ops += ["O2", "O5"]
     if "catch" in kinds:
         ops.append("O3")
+    if "status_write" in kinds:
+        ops.append("O4")
     out = []
     for op in ops:
         if op == "O1":
             edit, why = op_raise(text, lo, hi)
         elif op == "O3":
             edit, why = op_catch(text, lo, hi)
+        elif op == "O4":
+            edit, why = op_status_write(text, lo, hi, lang)
         else:
             edit, why = op_check(text, lo, hi, lang, op)
         mid = f"{site['site_id']}-{version}-{op}"

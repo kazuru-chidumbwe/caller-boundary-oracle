@@ -42,7 +42,7 @@ SCOPE = {
 
 PATTERNS = {
     "go": [
-        ("check", r"\bif\s+.*err\s*!=\s*nil"),
+        ("check", r"\bif\s+.*(err|Err)\s*[!=]=\s*nil"),
         ("raise", r"\bpanic\("),
         ("return_error", r"\breturn\b.*\b(fmt\.Errorf|errors\.New|err)\b"),
         ("status_write", r"\.\w*(Err|Error|Status|Success)\w*\s*=[^=]"),
@@ -97,7 +97,9 @@ STEP_HINTS = [
 
 
 IN_SCOPE_STEPS = {"PACE", "BAC", "CA", "AA", "SM"}
-FAILURE_VALUE = re.compile(r"fail|\bfalse\b|\.failed\b|\berr|\bnil\b|\bnull\b", re.I)
+# A status write is a decision site when it records a failure value, or assigns to a field that
+# holds an error (Go: `Session.PaceErr = ...`, also inside a multiple assignment).
+FAILURE_VALUE = re.compile(r"fail|\bfalse\b|\.failed\b|\berr|\bnil\b|\bnull\b|Err\s*(=[^=]|,)", re.I)
 SUCCESS_VALUE = re.compile(r"=\s*(true|\.success)\b")
 
 
