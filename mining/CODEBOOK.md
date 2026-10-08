@@ -26,15 +26,15 @@ Process, sampling and agreement rules are in the code-study protocol (`PROTOCOL.
 5. A THROW site is `continues` NO unless the same site catches it.
 6. Ordinary continuation to the next step is not a fallback.
 
-**Examples** (pinned code; not study items).
+**Examples** (constructed; not taken from any library in the study).
 
 | Site | step | channel | continues | fallback | reaches_api |
 | --- | --- | --- | --- | --- | --- |
-| gmrtd 0.45.0 `performPace`: records the error in the session, returns no error | PACE | STATUS | YES | BAC | INDIRECT |
-| JMRTD `PassportService.doPACE`: throws `PACEException` | PACE | THROW | NO | NONE | DIRECT |
-| NFCPassportReader `PassportReader` catch: sets `PACEStatus = .failed`, logs "falling back to BAC" | PACE | STATUS | YES | BAC | INDIRECT |
-| NFCPassportReader `TagReader.send`: `if sw1 != 0x90 && sw2 != 0x00` (6F00 passes) | SM | CONVERT | YES | NONE | NO |
-| JMRTD `AAAPDUSender.sendInternalAuthenticate`: returns the response data for any status word | AA | CONVERT | YES | NONE | NO |
+| `if err != nil { s.lastErr = err; return s.readWithBAC() }`, and the read function returns no error | PACE | STATUS | YES | BAC | INDIRECT |
+| `if !ok { throw AuthException("PACE failed") }` inside the public `authenticate()` | PACE | THROW | NO | NONE | DIRECT |
+| `catch (e) { logger.warn(e); continue }` with the logger set by the caller through the public API | CA | LOG | YES | NONE | INDIRECT |
+| `if (sw != 0x9000) return new byte[0];` where the caller treats the bytes as the signature | AA | CONVERT | YES | NONE | NO |
+| `catch (e) { }` and the next step runs | SM | SWALLOW | YES | NONE | NO |
 
 ## M2: application call sites
 
@@ -70,11 +70,11 @@ Process, sampling and agreement rules are in the code-study protocol (`PROTOCOL.
 | REDUNDANT_EXCEPTION_HANDLING | The application intercepts an exception it should not catch or suppress |
 | NONE | No category applies |
 
-**Examples.** The first is a study-population repository (`tananaev/passport-reader`, `MainActivity.kt` at `b8d0a6b`, lines 248 to 271); the other three are illustrative patterns.
+**Examples** (constructed; not taken from any repository in the study).
 
 | Call site | handling | user_visible_accept | misuse_class |
 | --- | --- | --- | --- |
-| `doPACE` inside `try`; `catch (e: Exception) { Log.w(TAG, e) }`; then BAC and the document read | LOG_CONTINUE | YES | REDUNDANT_EXCEPTION_HANDLING |
-| JMRTD `doPACE` with no catch in the read function; the caller shows an error dialog | PROPAGATE | NO | NONE |
-| NFCPassportReader result: `if passport.PACEStatus == .failed { reject }` | CHECK | NO | NONE |
-| NFCPassportReader result shown without reading `PACEStatus` or `activeAuthenticationPassed` | IGNORE | YES | MISSING_VALUE_OR_STATE |
+| `try { doPace() } catch (e: Exception) { log(e) }`, then BAC and the document is shown | LOG_CONTINUE | YES | REDUNDANT_EXCEPTION_HANDLING |
+| `readPassport()` with no catch; the screen's error handler shows "read failed" | PROPAGATE | NO | NONE |
+| `if (result.paceStatus == FAILED) reject()` before the document is shown | CHECK | NO | NONE |
+| The document is shown and `result.paceStatus` is never read | IGNORE | YES | MISSING_VALUE_OR_STATE |
