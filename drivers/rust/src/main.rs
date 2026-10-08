@@ -60,6 +60,11 @@ fn meaning(outcome: &str) -> &'static str {
     }
 }
 
+/// Wall-clock limit on one read_document call; a call still running then is recorded as a hang.
+const CALL_LIMIT: Duration = Duration::from_secs(120);
+/// The trace keeps the first TRACE_CAP exchanges; a retry loop can otherwise grow it without bound.
+const TRACE_CAP: usize = 500;
+
 // ---------------------------------------------------------------- transport
 
 /// Acts as the reader for a chip process speaking the vpcd socket protocol. Mirrors
@@ -68,6 +73,7 @@ struct Vpcd {
     sock: TcpStream,
     chip: Child,
     trace: Arc<Mutex<Vec<Value>>>,
+    dropped: Arc<std::sync::atomic::AtomicUsize>,
 }
 
 impl Vpcd {
@@ -88,7 +94,7 @@ impl Vpcd {
         };
         sock.set_nonblocking(false)?;
         sock.set_read_timeout(Some(Duration::from_secs(30)))?;
-        let mut v = Vpcd { sock, chip, trace: Arc::new(Mutex::new(vec![])) };
+        let mut v = Vpcd { sock, chip, trace: Arc::new(Mutex::new(vec![])), dropped: Arc::new(std::sync::atomic::AtomicUsize::new(0)) };
         v.send(&[0x01])?; // power on
         v.send(&[0x04])?; // get ATR
         v.receive()?;
@@ -114,9 +120,12 @@ impl Vpcd {
         let rsp = self.receive().ok()?;
         let ok = rsp.len() >= 2 && rsp[rsp.len() - 2] == 0x90 && rsp[rsp.len() - 1] == 0x00;
         let ins = capdu.get(1).copied().unwrap_or(0);
-        self.trace.lock().unwrap().push(json!({
-            "label": format!("INS {:02X}", ins), "capdu": hex(capdu), "rapdu": hex(&rsp), "success": ok
-        }));
+        let mut t = self.trace.lock().unwrap_or_else(|e| e.into_inner());
+        if t.len() < TRACE_CAP {
+            t.push(json!({ "label": format!("INS {:02X}", ins), "capdu": hex(capdu), "rapdu": hex(&rsp), "success": ok }));
+        } else {
+            self.dropped.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        }
         Some(rsp)
     }
 
@@ -187,7 +196,7 @@ fn run() -> i32 {
     let report = format!("{}/chip-report-{}-{}.json", std::env::temp_dir().display(), nanos, std::process::id());
 
     let logbuf = LogBuf(Arc::new(Mutex::new(vec![])));
-    let _ = simplelog::WriteLogger::init(simplelog::LevelFilter::Trace, simplelog::Config::default(), logbuf.clone());
+    let _ = simplelog::WriteLogger::init(simplelog::LevelFilter::Info, simplelog::Config::default(), logbuf.clone());
 
     let (exe, args_for_port): (String, Box<dyn Fn(u16) -> Vec<String>>) = if vsc {
         let (pp, rp, root2) = (profile_path.clone(), report.clone(), root.clone());
@@ -202,26 +211,35 @@ fn run() -> i32 {
     let mut authentication: Option<Authentication> = None;
     let mut read_err = String::new();
     let mut trace = vec![];
+    let mut hang = false;
+    let mut trace_dropped = 0usize;
     match Vpcd::start(&exe, &*args_for_port) {
         Err(e) => read_err = format!("transport: {}", e),
         Ok(vpcd) => {
             let tr = vpcd.trace.clone();
+            let dropped = vpcd.dropped.clone();
+            let chip_pid = vpcd.chip.id();
             let cell = Arc::new(Mutex::new(Some(vpcd)));
             let c2 = cell.clone();
-            {
-                let card = CallbackSmartcard::new(move |capdu: &[u8]| c2.lock().unwrap_or_else(|e| e.into_inner()).as_mut()?.transceive(capdu));
+            let options = ReadOptions {
+                access_key: AccessKey::Mrz {
+                    document_number: mrz["document_number"].as_str().unwrap_or("").into(),
+                    date_of_birth: mrz["date_of_birth"].as_str().unwrap_or("").into(),
+                    date_of_expiry: mrz["date_of_expiry"].as_str().unwrap_or("").into(),
+                },
+                read_binary_files: false,
+                dump_path: None,
+                file_prefix: "document".into(),
+                print: false,
+            };
+            // The library call runs on its own thread so that a call that never returns can be recorded:
+            // the driver waits CALL_LIMIT, then records a hang (no error and no status reached the caller).
+            let (tx, rx) = std::sync::mpsc::channel();
+            std::thread::spawn(move || {
+                let card = CallbackSmartcard::new(move |capdu: &[u8]| {
+                    c2.lock().unwrap_or_else(|e| e.into_inner()).as_mut()?.transceive(capdu)
+                });
                 let mut boxed: Box<dyn Smartcard> = Box::new(card);
-                let options = ReadOptions {
-                    access_key: AccessKey::Mrz {
-                        document_number: mrz["document_number"].as_str().unwrap_or("").into(),
-                        date_of_birth: mrz["date_of_birth"].as_str().unwrap_or("").into(),
-                        date_of_expiry: mrz["date_of_expiry"].as_str().unwrap_or("").into(),
-                    },
-                    read_binary_files: false,
-                    dump_path: None,
-                    file_prefix: "document".into(),
-                    print: false,
-                };
                 // passauf panics when a response is missing or too short (iso7816.rs, exchange: "The card
                 // stopped responding mid-exchange"). Its own app integration (src/ffi/mod.rs) wraps
                 // read_document in catch_unwind and hands the panic to the app as an error; the driver
@@ -229,21 +247,31 @@ fn run() -> i32 {
                 let outcome = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
                     read_document(&mut boxed, &options, &mut |_| {})
                 }));
-                match outcome {
-                    Ok(Ok(doc)) => authentication = doc.authentication,
-                    Ok(Err(e)) => read_err = format!("SessionError::{}: {}", e.kind(), e),
-                    Err(payload) => {
-                        let msg = payload.downcast_ref::<&str>().map(|s| s.to_string())
-                            .or_else(|| payload.downcast_ref::<String>().cloned())
-                            .unwrap_or_else(|| "non-string panic payload".into());
-                        read_err = format!("panic: {}", msg);
-                    }
-                }
+                let msg = match outcome {
+                    Ok(Ok(doc)) => Ok(doc.authentication),
+                    Ok(Err(e)) => Err(format!("SessionError::{}: {}", e.kind(), e)),
+                    Err(payload) => Err(format!("panic: {}", payload.downcast_ref::<&str>().map(|s| s.to_string())
+                        .or_else(|| payload.downcast_ref::<String>().cloned())
+                        .unwrap_or_else(|| "non-string panic payload".into()))),
+                };
+                let _ = tx.send(msg);
+            });
+            match rx.recv_timeout(CALL_LIMIT) {
+                Ok(Ok(auth)) => authentication = auth,
+                Ok(Err(e)) => read_err = e,
+                Err(_) => hang = true,
             }
-            if let Some(v) = cell.lock().unwrap_or_else(|e| e.into_inner()).take() {
+            // Power the card off and close the link as on a normal end, so the chip writes its fault report.
+            // After a hang the library thread finds the link gone on its next exchange; the process ends below.
+            let link = cell.lock().unwrap_or_else(|e| e.into_inner()).take();
+            if let Some(v) = link {
                 v.close();
             }
+            if hang {
+                let _ = Command::new("kill").arg("-9").arg(chip_pid.to_string()).status(); // if close did not end it
+            }
             trace = tr.lock().unwrap_or_else(|e| e.into_inner()).clone();
+            trace_dropped = dropped.load(std::sync::atomic::Ordering::Relaxed);
         }
     }
 
@@ -256,7 +284,9 @@ fn run() -> i32 {
     }
 
     let log_text = String::from_utf8_lossy(&logbuf.0.lock().unwrap()).to_string();
-    let library_log: Vec<String> = log_text.lines().map(|l| l.to_string()).collect();
+    let all_lines: Vec<&str> = log_text.lines().collect();
+    let log_dropped = all_lines.len().saturating_sub(2000);
+    let library_log: Vec<String> = all_lines.iter().take(2000).map(|l| l.to_string()).collect();
     let used_pace = matches!(authentication, Some(Authentication::Pace { .. }));
     // passauf records a failed PACE attempt only in its log (warn! of the error, then "Falling back to BAC.")
     // and in DocumentRead.authentication, which names BAC: the status field a caller can check.
@@ -290,13 +320,21 @@ fn run() -> i32 {
         "fault_point": fault_point(&profile, &mechanism, vsc),
         "access_control": authentication.as_ref().map(|x| x.to_string()).unwrap_or_default(),
         "read_err": read_err,
+        "hang": hang,
+        "call_limit_s": CALL_LIMIT.as_secs(),
+        "trace_dropped": trace_dropped,
         "library_log": library_log,
+        "library_log_dropped": log_dropped,
         "trace": trace,
     });
     let log_dir = a.get("-log-dir").cloned().unwrap_or_else(|| "logs".into());
     fs::create_dir_all(&log_dir).unwrap();
     fs::write(format!("{}/{}.json", log_dir, run_id), serde_json::to_string_pretty(&result).unwrap() + "\n").unwrap();
-    println!("{} {} passauf: {}", id, variant, outcome);
+    println!("{} {} passauf: {}{}", id, variant, outcome, if hang { " (hang)" } else { "" });
+    if hang {
+        // the library call is still running on its thread; end the process rather than wait for it
+        std::process::exit(0);
+    }
     0
 }
 
