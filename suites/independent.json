@@ -1994,6 +1994,18 @@
       "icao_p4": "ISO7816_C_10a"
     },
     {
+      "scenario_id": "VSC-pace-ga1-6a80-passauf-default",
+      "test_case": "VSC-pace-ga1-6a80",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-ga1-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10a"
+    },
+    {
       "scenario_id": "VSC-pace-ga1-6f00-gmrtd-8fea245-default",
       "test_case": "VSC-pace-ga1-6f00",
       "library": "gmrtd",
@@ -2186,6 +2198,18 @@
         "surfaced",
         "not_applicable"
       ],
+      "icao_p4": "ISO7816_C_10b"
+    },
+    {
+      "scenario_id": "VSC-pace-ga1-6f00-passauf-default",
+      "test_case": "VSC-pace-ga1-6f00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-ga1-6f00.json",
+      "expect_outcome": "status_only",
       "icao_p4": "ISO7816_C_10b"
     },
     {
@@ -2384,6 +2408,18 @@
       "icao_p4": "ISO7816_C_12a"
     },
     {
+      "scenario_id": "VSC-pace-ga2-6a80-passauf-default",
+      "test_case": "VSC-pace-ga2-6a80",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-ga2-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_12a"
+    },
+    {
       "scenario_id": "VSC-pace-ga2-6f00-gmrtd-8fea245-default",
       "test_case": "VSC-pace-ga2-6f00",
       "library": "gmrtd",
@@ -2576,6 +2612,18 @@
         "surfaced",
         "not_applicable"
       ],
+      "icao_p4": "ISO7816_C_12b"
+    },
+    {
+      "scenario_id": "VSC-pace-ga2-6f00-passauf-default",
+      "test_case": "VSC-pace-ga2-6f00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-ga2-6f00.json",
+      "expect_outcome": "status_only",
       "icao_p4": "ISO7816_C_12b"
     },
     {
@@ -2774,6 +2822,18 @@
       "icao_p4": "ISO7816_C_18a"
     },
     {
+      "scenario_id": "VSC-pace-ga3-6a80-passauf-default",
+      "test_case": "VSC-pace-ga3-6a80",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-ga3-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_18a"
+    },
+    {
       "scenario_id": "VSC-pace-ga3-6f00-gmrtd-8fea245-default",
       "test_case": "VSC-pace-ga3-6f00",
       "library": "gmrtd",
@@ -2966,6 +3026,18 @@
         "surfaced",
         "not_applicable"
       ],
+      "icao_p4": "ISO7816_C_18b"
+    },
+    {
+      "scenario_id": "VSC-pace-ga3-6f00-passauf-default",
+      "test_case": "VSC-pace-ga3-6f00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-ga3-6f00.json",
+      "expect_outcome": "status_only",
       "icao_p4": "ISO7816_C_18b"
     },
     {
@@ -3164,6 +3236,18 @@
       "icao_p4": "ISO7816_C_24a"
     },
     {
+      "scenario_id": "VSC-pace-ga4-6300-passauf-default",
+      "test_case": "VSC-pace-ga4-6300",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-ga4-6300.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_24a"
+    },
+    {
       "scenario_id": "VSC-pace-ga4-6a80-gmrtd-8fea245-default",
       "test_case": "VSC-pace-ga4-6a80",
       "library": "gmrtd",
@@ -3356,6 +3440,18 @@
         "surfaced",
         "not_applicable"
       ],
+      "icao_p4": "ISO7816_C_24b"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4-6a80-passauf-default",
+      "test_case": "VSC-pace-ga4-6a80",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-ga4-6a80.json",
+      "expect_outcome": "status_only",
       "icao_p4": "ISO7816_C_24b"
     },
     {
@@ -3554,6 +3650,18 @@
       "icao_p4": "ISO7816_C_24c"
     },
     {
+      "scenario_id": "VSC-pace-ga4-6f00-passauf-default",
+      "test_case": "VSC-pace-ga4-6f00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-ga4-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_24c"
+    },
+    {
       "scenario_id": "VSC-pace-mse-6a80-gmrtd-8fea245-default",
       "test_case": "VSC-pace-mse-6a80",
       "library": "gmrtd",
@@ -3746,6 +3854,18 @@
         "surfaced",
         "not_applicable"
       ],
+      "icao_p4": "ISO7816_C_08a"
+    },
+    {
+      "scenario_id": "VSC-pace-mse-6a80-passauf-default",
+      "test_case": "VSC-pace-mse-6a80",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-mse-6a80.json",
+      "expect_outcome": "status_only",
       "icao_p4": "ISO7816_C_08a"
     },
     {
@@ -3944,6 +4064,18 @@
       "icao_p4": "ISO7816_C_08b"
     },
     {
+      "scenario_id": "VSC-pace-mse-6a88-passauf-default",
+      "test_case": "VSC-pace-mse-6a88",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-mse-6a88.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08b"
+    },
+    {
       "scenario_id": "VSC-pace-mse-6f00-gmrtd-8fea245-default",
       "test_case": "VSC-pace-mse-6f00",
       "library": "gmrtd",
@@ -4139,6 +4271,18 @@
       "icao_p4": "ISO7816_C_08c"
     },
     {
+      "scenario_id": "VSC-pace-mse-6f00-passauf-default",
+      "test_case": "VSC-pace-mse-6f00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-mse-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08c"
+    },
+    {
       "scenario_id": "VSC-pace-success-multi-info-gmrtd-8fea245-default",
       "test_case": "VSC-pace-success-multi-info",
       "library": "gmrtd",
@@ -4311,6 +4455,21 @@
       }
     },
     {
+      "scenario_id": "VSC-pace-success-multi-info-passauf-default",
+      "test_case": "VSC-pace-success-multi-info",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-pace-success-multi-info",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-success-multi-info.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    },
+    {
       "scenario_id": "VSC-pace-success-gmrtd-8fea245-default",
       "test_case": "VSC-pace-success",
       "library": "gmrtd",
@@ -4477,6 +4636,21 @@
       "driver": "dart",
       "profile": "profiles/independent/VSC-pace-success.json",
       "expect_outcome": "not_applicable"
+    },
+    {
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "test_case": "VSC-pace-success",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-pace-success",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
     }
   ]
 }

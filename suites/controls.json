@@ -197,6 +197,20 @@
       }
     },
     {
+      "scenario_id": "CTRL-bac-only-passauf-default",
+      "test_case": "CTRL-bac-only",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "CTRL-bac-only",
+      "driver": "rust",
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
+      }
+    },
+    {
       "scenario_id": "CTRL-pace-proprietary-params-gmrtd-8fea245-default",
       "test_case": "CTRL-pace-proprietary-params",
       "library": "gmrtd",
@@ -386,6 +400,20 @@
       "expect_outcome": "not_applicable",
       "expect_observation": {
         "returned_error": true
+      }
+    },
+    {
+      "scenario_id": "CTRL-pace-proprietary-params-passauf-default",
+      "test_case": "CTRL-pace-proprietary-params",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "CTRL-pace-proprietary-params",
+      "driver": "rust",
+      "profile": "profiles/controls/CTRL-pace-proprietary-params.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "returned_error": false
       }
     }
   ]

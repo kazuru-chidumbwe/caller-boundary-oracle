@@ -159,6 +159,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6fff-passauf-default",
+      "test_case": "PACE-mse-set-at-6fff",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
+      "expect_outcome": "status_only"
     }
   ]
 }

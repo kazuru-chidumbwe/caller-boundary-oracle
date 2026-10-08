@@ -84,6 +84,18 @@
       "profile": "profiles/independent/VSC-pace-success.json",
       "expect_outcome": "not_applicable",
       "n": 100
+    },
+    {
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "test_case": "VSC-pace-success",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "VSC-PACE-REPEAT",
+      "driver": "rust",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "n": 100
     }
   ]
 }

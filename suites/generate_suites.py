@@ -29,7 +29,7 @@ GMRTD_ARMS = {
 }
 JMRTD_ARMS = ("propagate", "catch-continue")
 # Libraries with a single caller path, driven through cmd/chip-serve: arm name -> (library, driver)
-SINGLE_ARMS = {"emrtd-dotnet": ("emrtd-dotnet", "dotnet"), "dmrtd": ("dmrtd", "dart")}
+SINGLE_ARMS = {"emrtd-dotnet": ("emrtd-dotnet", "dotnet"), "dmrtd": ("dmrtd", "dart"), "passauf": ("passauf", "rust")}
 
 # Expected outcome per mechanism and arm. None means the arm does not apply to the mechanism.
 EXPECT = {
@@ -40,16 +40,25 @@ EXPECT = {
         "emrtd-dotnet": ST,
         # the caller chooses PACE or BAC up front; a PACE failure throws
         "dmrtd": SU,
+        # passauf v0.2.0 (48b7cc7), held out (expectations written from source before its first run):
+        # session.rs read_document logs warn!(error) and falls back to BAC on any PACE error
+        # (select_pace_info or do_pace_authentication, lines 426 to 445, 503 to 535); the returned
+        # DocumentRead names the authentication used (Authentication::Bac), the only record of it
+        "passauf": ST,
     },
     "CA": {
         "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": None,
         "8fea245-guard": SU, "64bd6ab-guard": SU, "propagate": SU, "catch-continue": S,
         "emrtd-dotnet": None, "dmrtd": None,
+        # passauf has Chip Authentication only as PACE-CAM, no MSE:Set KAT/AT CA after BAC
+        "passauf": None,
     },
     "AA": {
         "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": None,
         "8fea245-guard": SU, "64bd6ab-guard": SU, "propagate": SU, "catch-continue": S,
         "emrtd-dotnet": None, "dmrtd": SU,
+        # passauf implements no Active Authentication (no INTERNAL AUTHENTICATE in the sources)
+        "passauf": None,
     },
 }
 # JMRTD 0.8.9 AAAPDUSender.sendInternalAuthenticate returns the response data for any status
@@ -83,6 +92,9 @@ CONTROL_RETURNED_ERROR = {
         "8fea245-default": False, "64bd6ab-default": True, "64bd6ab-allow-fallback": False,
         "8fea245-guard": True, "64bd6ab-guard": True, "propagate": True, "catch-continue": False,
         "emrtd-dotnet": False, "dmrtd": True,
+        # passauf: a proprietary parameter ID is rejected by pace::select_pace_info ("reserved for
+        # future use", mod.rs lines 308 to 316), so read_document falls back to BAC without an error
+        "passauf": False,
     },
 }
 
@@ -120,7 +132,7 @@ INDEPENDENT_EXPECT = {
     "AA": {
         "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": None,
         "8fea245-guard": SU, "64bd6ab-guard": SU, "propagate": S, "catch-continue": S,
-        "emrtd-dotnet": None, "dmrtd": SU,
+        "emrtd-dotnet": None, "dmrtd": SU, "passauf": None,
     },
 }
 # On the independent chip (random ephemeral keys) gmrtd and dmrtd occasionally fail PACE
@@ -303,7 +315,7 @@ def main() -> None:
 
     # PACE positive control repeated per library: the behaviour classes count how often each
     # library fails PACE against the independent chip.
-    repeat_arms = {"8fea245-default", "64bd6ab-default", "b861835-default", "propagate", "emrtd-dotnet", "dmrtd"}
+    repeat_arms = {"8fea245-default", "64bd6ab-default", "b861835-default", "propagate", "emrtd-dotnet", "dmrtd", "passauf"}
     repeat = []
     for rel, p in load_profiles("independent"):
         if p["id"] != "VSC-pace-success":

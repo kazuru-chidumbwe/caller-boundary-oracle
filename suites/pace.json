@@ -161,6 +161,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6300-passauf-default",
+      "test_case": "PACE-general-authenticate-6300",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6300.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6700-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6700",
       "library": "gmrtd",
@@ -315,6 +326,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-general-authenticate-6700.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6700-passauf-default",
+      "test_case": "PACE-general-authenticate-6700",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6700.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-general-authenticate-6800-gmrtd-8fea245-default",
@@ -473,6 +495,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6800-passauf-default",
+      "test_case": "PACE-general-authenticate-6800",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6900-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6900",
       "library": "gmrtd",
@@ -627,6 +660,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-general-authenticate-6900.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6900-passauf-default",
+      "test_case": "PACE-general-authenticate-6900",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6900.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-general-authenticate-6982-gmrtd-8fea245-default",
@@ -785,6 +829,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6982-passauf-default",
+      "test_case": "PACE-general-authenticate-6982",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6982.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6a00-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6a00",
       "library": "gmrtd",
@@ -939,6 +994,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a00-passauf-default",
+      "test_case": "PACE-general-authenticate-6a00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-8fea245-default",
@@ -1109,6 +1175,18 @@
       "icao_p4": "ISO7816_C_10a"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6a80-passauf-default",
+      "test_case": "PACE-general-authenticate-6a80",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10a"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6a88-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6a88",
       "library": "gmrtd",
@@ -1263,6 +1341,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-general-authenticate-6a88.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6a88-passauf-default",
+      "test_case": "PACE-general-authenticate-6a88",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6a88.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-general-authenticate-6b00-gmrtd-8fea245-default",
@@ -1421,6 +1510,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6b00-passauf-default",
+      "test_case": "PACE-general-authenticate-6b00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6c00-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6c00",
       "library": "gmrtd",
@@ -1577,6 +1677,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6c00-passauf-default",
+      "test_case": "PACE-general-authenticate-6c00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6e00-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6e00",
       "library": "gmrtd",
@@ -1731,6 +1842,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6e00-passauf-default",
+      "test_case": "PACE-general-authenticate-6e00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-8fea245-default",
@@ -1901,6 +2023,18 @@
       "icao_p4": "ISO7816_C_10b"
     },
     {
+      "scenario_id": "PACE-general-authenticate-6f00-passauf-default",
+      "test_case": "PACE-general-authenticate-6f00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_10b"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-6fff-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-6fff",
       "library": "gmrtd",
@@ -2055,6 +2189,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-general-authenticate-6fff.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-6fff-passauf-default",
+      "test_case": "PACE-general-authenticate-6fff",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-6fff.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-general-authenticate-no-response-gmrtd-8fea245-default",
@@ -2213,6 +2358,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-no-response-passauf-default",
+      "test_case": "PACE-general-authenticate-no-response",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-no-response.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-general-authenticate-timeout-gmrtd-8fea245-default",
       "test_case": "PACE-general-authenticate-timeout",
       "library": "gmrtd",
@@ -2367,6 +2523,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-general-authenticate-timeout.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-general-authenticate-timeout-passauf-default",
+      "test_case": "PACE-general-authenticate-timeout",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-timeout.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-general-authenticate-transport-abort-gmrtd-8fea245-default",
@@ -2525,6 +2692,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-general-authenticate-transport-abort-passauf-default",
+      "test_case": "PACE-general-authenticate-transport-abort",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-general-authenticate-transport-abort.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6300-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-6300",
       "library": "gmrtd",
@@ -2679,6 +2857,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6300.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6300-passauf-default",
+      "test_case": "PACE-mse-set-at-6300",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6300.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-mse-set-at-6700-gmrtd-8fea245-default",
@@ -2837,6 +3026,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6700-passauf-default",
+      "test_case": "PACE-mse-set-at-6700",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6800-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-6800",
       "library": "gmrtd",
@@ -2991,6 +3191,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6800.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6800-passauf-default",
+      "test_case": "PACE-mse-set-at-6800",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6800.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-mse-set-at-6900-gmrtd-8fea245-default",
@@ -3149,6 +3360,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6900-passauf-default",
+      "test_case": "PACE-mse-set-at-6900",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6982-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-6982",
       "library": "gmrtd",
@@ -3305,6 +3527,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6982-passauf-default",
+      "test_case": "PACE-mse-set-at-6982",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6982.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6a00-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-6a00",
       "library": "gmrtd",
@@ -3459,6 +3692,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a00-passauf-default",
+      "test_case": "PACE-mse-set-at-6a00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-8fea245-default",
@@ -3626,6 +3870,18 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
       "expect_outcome": "surfaced",
+      "icao_p4": "ISO7816_C_08a"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6a80-passauf-default",
+      "test_case": "PACE-mse-set-at-6a80",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
+      "expect_outcome": "status_only",
       "icao_p4": "ISO7816_C_08a"
     },
     {
@@ -3797,6 +4053,18 @@
       "icao_p4": "ISO7816_C_08b"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6a88-passauf-default",
+      "test_case": "PACE-mse-set-at-6a88",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08b"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6b00-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-6b00",
       "library": "gmrtd",
@@ -3951,6 +4219,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6b00-passauf-default",
+      "test_case": "PACE-mse-set-at-6b00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-mse-set-at-6c00-gmrtd-8fea245-default",
@@ -4109,6 +4388,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6c00-passauf-default",
+      "test_case": "PACE-mse-set-at-6c00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6e00-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-6e00",
       "library": "gmrtd",
@@ -4263,6 +4553,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6e00-passauf-default",
+      "test_case": "PACE-mse-set-at-6e00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-gmrtd-8fea245-default",
@@ -4433,6 +4734,18 @@
       "icao_p4": "ISO7816_C_08c"
     },
     {
+      "scenario_id": "PACE-mse-set-at-6f00-passauf-default",
+      "test_case": "PACE-mse-set-at-6f00",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_C_08c"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-6fff-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-6fff",
       "library": "gmrtd",
@@ -4587,6 +4900,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-6fff-passauf-default",
+      "test_case": "PACE-mse-set-at-6fff",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
+      "expect_outcome": "status_only"
     },
     {
       "scenario_id": "PACE-mse-set-at-no-response-gmrtd-8fea245-default",
@@ -4745,6 +5069,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-mse-set-at-no-response-passauf-default",
+      "test_case": "PACE-mse-set-at-no-response",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-no-response.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-timeout-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-timeout",
       "library": "gmrtd",
@@ -4901,6 +5236,17 @@
       "expect_outcome": "surfaced"
     },
     {
+      "scenario_id": "PACE-mse-set-at-timeout-passauf-default",
+      "test_case": "PACE-mse-set-at-timeout",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-timeout.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "PACE-mse-set-at-transport-abort-gmrtd-8fea245-default",
       "test_case": "PACE-mse-set-at-transport-abort",
       "library": "gmrtd",
@@ -5055,6 +5401,17 @@
       "driver": "dart",
       "profile": "profiles/pace/PACE-mse-set-at-transport-abort.json",
       "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "PACE-mse-set-at-transport-abort-passauf-default",
+      "test_case": "PACE-mse-set-at-transport-abort",
+      "library": "passauf",
+      "variant": "default",
+      "arm": "passauf",
+      "cell": "PACE",
+      "driver": "rust",
+      "profile": "profiles/pace/PACE-mse-set-at-transport-abort.json",
+      "expect_outcome": "status_only"
     }
   ]
 }
