@@ -1,0 +1,147 @@
+{
+ "summary": {
+  "runs": 148,
+  "unmatched_runs": 0,
+  "cells": 48,
+  "cells_all_held": 41,
+  "runs_held": 141,
+  "runs_not_held": 7,
+  "outcomes": {
+   "not_applicable": 104,
+   "status_only": 37,
+   "surfaced": 6,
+   "silent": 1
+  },
+  "hangs": 1,
+  "not_held_cells": [
+   "PACE-general-authenticate-no-response",
+   "PACE-general-authenticate-timeout",
+   "PACE-general-authenticate-transport-abort",
+   "PACE-mse-set-at-6c00",
+   "PACE-mse-set-at-no-response",
+   "PACE-mse-set-at-timeout",
+   "PACE-mse-set-at-transport-abort"
+  ]
+ },
+ "misses": [
+  {
+   "test_case": "PACE-general-authenticate-no-response",
+   "expected": "status_only",
+   "expect_observation": null,
+   "outcome": "surfaced",
+   "observation": {
+    "failed": false,
+    "fired": true,
+    "returned_error": true,
+    "status_signal": false,
+    "succeeded": false
+   },
+   "fault_point": "PACE/general_authenticate",
+   "access_control": "",
+   "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
+   "hang": false
+  },
+  {
+   "test_case": "PACE-general-authenticate-timeout",
+   "expected": "status_only",
+   "expect_observation": null,
+   "outcome": "surfaced",
+   "observation": {
+    "failed": false,
+    "fired": true,
+    "returned_error": true,
+    "status_signal": false,
+    "succeeded": false
+   },
+   "fault_point": "PACE/general_authenticate",
+   "access_control": "",
+   "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
+   "hang": false
+  },
+  {
+   "test_case": "PACE-general-authenticate-transport-abort",
+   "expected": "status_only",
+   "expect_observation": null,
+   "outcome": "surfaced",
+   "observation": {
+    "failed": false,
+    "fired": true,
+    "returned_error": true,
+    "status_signal": false,
+    "succeeded": false
+   },
+   "fault_point": "PACE/general_authenticate",
+   "access_control": "",
+   "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
+   "hang": false
+  },
+  {
+   "test_case": "PACE-mse-set-at-6c00",
+   "expected": "status_only",
+   "expect_observation": null,
+   "outcome": "silent",
+   "observation": {
+    "failed": false,
+    "fired": true,
+    "returned_error": false,
+    "status_signal": false,
+    "succeeded": false
+   },
+   "fault_point": "PACE/mse_set_at",
+   "access_control": "",
+   "read_err": "",
+   "hang": true
+  },
+  {
+   "test_case": "PACE-mse-set-at-no-response",
+   "expected": "status_only",
+   "expect_observation": null,
+   "outcome": "surfaced",
+   "observation": {
+    "failed": false,
+    "fired": true,
+    "returned_error": true,
+    "status_signal": false,
+    "succeeded": false
+   },
+   "fault_point": "PACE/mse_set_at",
+   "access_control": "",
+   "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
+   "hang": false
+  },
+  {
+   "test_case": "PACE-mse-set-at-timeout",
+   "expected": "status_only",
+   "expect_observation": null,
+   "outcome": "surfaced",
+   "observation": {
+    "failed": false,
+    "fired": true,
+    "returned_error": true,
+    "status_signal": false,
+    "succeeded": false
+   },
+   "fault_point": "PACE/mse_set_at",
+   "access_control": "",
+   "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
+   "hang": false
+  },
+  {
+   "test_case": "PACE-mse-set-at-transport-abort",
+   "expected": "status_only",
+   "expect_observation": null,
+   "outcome": "surfaced",
+   "observation": {
+    "failed": false,
+    "fired": true,
+    "returned_error": true,
+    "status_signal": false,
+    "succeeded": false
+   },
+   "fault_point": "PACE/mse_set_at",
+   "access_control": "",
+   "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
+   "hang": false
+  }
+ ]
+}

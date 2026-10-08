@@ -1,0 +1,2105 @@
+{
+  "artifact_version": 1,
+  "provenance_version": 1,
+  "run_schema_version": 1,
+  "suite": "heldout-passauf",
+  "commit": "f1553f28193a47ac5cef9cfe15869f8ed7368eb8",
+  "harness_dirty": false,
+  "suite_seed": 1,
+  "generated_at": "2026-10-08T21:31:23Z",
+  "methodology_note": "In-process simulators are deterministic (no RNG, no concurrency). Each profile is therefore run at N=1; multi-profile cells (e.g. the 50-profile AC-01 sweep) establish consistency across profiles, not repeated identical trials. The \u226595% finding threshold applies only to multi-profile cells (n \u2265 2); single-profile cells are reported with the threshold marked not applicable.",
+  "pipeline": {},
+  "per_run": [
+    {
+      "run_id": "CTRL-bac-only-passauf-default-1791494151260689-000001",
+      "path": "CTRL-bac-only-passauf-default-1791494151260689-000001.json",
+      "sha256": "6296b881bf5d155c10797f6327cbc84f8e86cfcecc3c65d3e21a6341b255a689",
+      "figure_id": "CELL-CTRL-bac-only-passauf-default",
+      "scenario_id": "CTRL-bac-only-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "CTRL-pace-proprietary-params-passauf-default-1791494152572771-000001",
+      "path": "CTRL-pace-proprietary-params-passauf-default-1791494152572771-000001.json",
+      "sha256": "d8262b93c0e0988f1d1c01cea016e10769fee71485887fbe4bf2ab81fe7e0829",
+      "figure_id": "CELL-CTRL-pace-proprietary-params-passauf-default",
+      "scenario_id": "CTRL-pace-proprietary-params-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "PACE-general-authenticate-6300-passauf-default-1791493824808546-000001",
+      "path": "PACE-general-authenticate-6300-passauf-default-1791493824808546-000001.json",
+      "sha256": "fc188d02d8503dfc9d2c954f5c3b2112c2b8e9e596e98e709b8e2ff2bd2ea24d",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6300-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6700-passauf-default-1791493826196658-000001",
+      "path": "PACE-general-authenticate-6700-passauf-default-1791493826196658-000001.json",
+      "sha256": "3d0193a2902cac3e3c38835730a021b999b6352a036398ceaaaff54dcf30e834",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6700-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6800-passauf-default-1791493827576731-000001",
+      "path": "PACE-general-authenticate-6800-passauf-default-1791493827576731-000001.json",
+      "sha256": "040e3b806ce4a954be7be154a40467def1a0ad5071c21597d2b67e65d8e9b45b",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6800-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6900-passauf-default-1791493828940673-000001",
+      "path": "PACE-general-authenticate-6900-passauf-default-1791493828940673-000001.json",
+      "sha256": "288020de27dc87c029879129b8f1634af794461c655929526060e685549eb444",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6900-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6982-passauf-default-1791493830320787-000001",
+      "path": "PACE-general-authenticate-6982-passauf-default-1791493830320787-000001.json",
+      "sha256": "7d265e238597741c03588e8485934a72201e162f2a2ca20f92d7f7e490ac557b",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6982-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6a00-passauf-default-1791493831700687-000001",
+      "path": "PACE-general-authenticate-6a00-passauf-default-1791493831700687-000001.json",
+      "sha256": "d0d1e32ef2f08332c838a8d957ce1d403166208e4268cbd46cfbc89c38123fa6",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6a00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6a80-passauf-default-1791493833068747-000001",
+      "path": "PACE-general-authenticate-6a80-passauf-default-1791493833068747-000001.json",
+      "sha256": "d9261a205c39f802a1a015d82da32fb7d250fa9f424e8330f22d113aad2ef6a6",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6a80-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6a88-passauf-default-1791493834448721-000001",
+      "path": "PACE-general-authenticate-6a88-passauf-default-1791493834448721-000001.json",
+      "sha256": "d8bbb52df31eef1544d517513c09f7f46c03fd473a215d061b8ec3c675159be7",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6a88-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6b00-passauf-default-1791493835829135-000001",
+      "path": "PACE-general-authenticate-6b00-passauf-default-1791493835829135-000001.json",
+      "sha256": "eea262a36ec44d32349b3fbbad6b03ec8ad719d53f009231d6e0ad1b21053e0d",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6b00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6c00-passauf-default-1791493837248719-000001",
+      "path": "PACE-general-authenticate-6c00-passauf-default-1791493837248719-000001.json",
+      "sha256": "c26fc4700041ad658bbe6aea4f7a9b46b863a33d1ef570791ac21846a7ba7f97",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6c00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6e00-passauf-default-1791493838624640-000001",
+      "path": "PACE-general-authenticate-6e00-passauf-default-1791493838624640-000001.json",
+      "sha256": "d595f4452b53db66d842c99c8cab883b85e7787bcdd467607a4eb704701f2447",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6e00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6f00-passauf-default-1791493840004730-000001",
+      "path": "PACE-general-authenticate-6f00-passauf-default-1791493840004730-000001.json",
+      "sha256": "3b482f61533e909ce0596bdc62e3b27707f7c2cb9d2aa06d0bd559b96d121273",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6f00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-6fff-passauf-default-1791493841384781-000001",
+      "path": "PACE-general-authenticate-6fff-passauf-default-1791493841384781-000001.json",
+      "sha256": "9e467e73368983c789b69f711a0ce85ce5399bf21788945357e20ee7981bfed2",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-6fff-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-general-authenticate-no-response-passauf-default-1791493842004559-000001",
+      "path": "PACE-general-authenticate-no-response-passauf-default-1791493842004559-000001.json",
+      "sha256": "1c360fc70256b60281b5f7db9b58d48a2a311773177cbc868e219fb86564b2a5",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-no-response-passauf-default",
+      "outcome": "surfaced",
+      "observability_score": 2
+    },
+    {
+      "run_id": "PACE-general-authenticate-timeout-passauf-default-1791493842678682-000001",
+      "path": "PACE-general-authenticate-timeout-passauf-default-1791493842678682-000001.json",
+      "sha256": "633a29325504eca5def5378ca07e594f48d93b9a4059ff3d6dbcaef14fccd529",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-timeout-passauf-default",
+      "outcome": "surfaced",
+      "observability_score": 2
+    },
+    {
+      "run_id": "PACE-general-authenticate-transport-abort-passauf-default-1791493843296502-000001",
+      "path": "PACE-general-authenticate-transport-abort-passauf-default-1791493843296502-000001.json",
+      "sha256": "82fd99dddceb732f013ca99bb254e2dd7bd847a5eb17aecbfe39e9e82627f0ef",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-general-authenticate-transport-abort-passauf-default",
+      "outcome": "surfaced",
+      "observability_score": 2
+    },
+    {
+      "run_id": "PACE-mse-set-at-6300-passauf-default-1791493844620607-000001",
+      "path": "PACE-mse-set-at-6300-passauf-default-1791493844620607-000001.json",
+      "sha256": "475920a51c3f821195f57b40cc218af5639a7fa706b8a9c2aaa34ed7cd297b82",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6300-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6700-passauf-default-1791493845952696-000001",
+      "path": "PACE-mse-set-at-6700-passauf-default-1791493845952696-000001.json",
+      "sha256": "5c2aef8960010b4ab7b41e08b1bc8299107701363e93ac9da22eb50102fe7c1f",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6700-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6800-passauf-default-1791493847292764-000001",
+      "path": "PACE-mse-set-at-6800-passauf-default-1791493847292764-000001.json",
+      "sha256": "7abf077bd604254b2e648aed1d6768d8b06cf5ef70b5b9ec3f445bb2f33b899d",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6800-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6900-passauf-default-1791493848620707-000001",
+      "path": "PACE-mse-set-at-6900-passauf-default-1791493848620707-000001.json",
+      "sha256": "670c2837147c5f3af11dd35bf4909e9e7480cc04491696471dec1266970ecf6b",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6900-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6982-passauf-default-1791493849952727-000001",
+      "path": "PACE-mse-set-at-6982-passauf-default-1791493849952727-000001.json",
+      "sha256": "889bee18542e1ef6eb91c6666bb320cb5f397c1176365db0c743c1be7e5e913c",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6982-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6a00-passauf-default-1791493851288705-000001",
+      "path": "PACE-mse-set-at-6a00-passauf-default-1791493851288705-000001.json",
+      "sha256": "3e6a7edb3c93f91b7a8fcbfb7f859de86763555c1c6c2d2ee63a0f6cb56fb6f0",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6a00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6a80-passauf-default-1791493852620705-000001",
+      "path": "PACE-mse-set-at-6a80-passauf-default-1791493852620705-000001.json",
+      "sha256": "130178b8840bdf1dff177f25de332506e88b75e76ecdba754b0dd551ec03c4d8",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6a80-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6a88-passauf-default-1791493853948652-000001",
+      "path": "PACE-mse-set-at-6a88-passauf-default-1791493853948652-000001.json",
+      "sha256": "430d1c55804c0867022436b4cee932910c8c7278ce4f3d3c4eb5cf05539b8652",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6a88-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6b00-passauf-default-1791493855284676-000001",
+      "path": "PACE-mse-set-at-6b00-passauf-default-1791493855284676-000001.json",
+      "sha256": "373840129143066b4655a3e6befdc159b41b7a2fd629d5bfe48a6f40400e245b",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6b00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6c00-passauf-default-1791493979943205-000001",
+      "path": "PACE-mse-set-at-6c00-passauf-default-1791493979943205-000001.json",
+      "sha256": "babef1b7b805d09f24a8a14a9156db9c2abebe2a5797d6ea9650d515d75513b0",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6c00-passauf-default",
+      "outcome": "silent",
+      "observability_score": 0
+    },
+    {
+      "run_id": "PACE-mse-set-at-6e00-passauf-default-1791493981300597-000001",
+      "path": "PACE-mse-set-at-6e00-passauf-default-1791493981300597-000001.json",
+      "sha256": "a96c0ac29370ccc6a55f238bfcdb4beb35f81efe79b860862985608f02553869",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6e00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6f00-passauf-default-1791493982644739-000001",
+      "path": "PACE-mse-set-at-6f00-passauf-default-1791493982644739-000001.json",
+      "sha256": "1e5d95fc01dcd6b91fb42aee3dea3fd92bc5c123b15a670e64b3162ab75454ad",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6f00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-6fff-passauf-default-1791493983984761-000001",
+      "path": "PACE-mse-set-at-6fff-passauf-default-1791493983984761-000001.json",
+      "sha256": "514e60260c808906585d8f19ef533197322717aa3b1d2f14ba3dc4beaccd2158",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-6fff-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "PACE-mse-set-at-no-response-passauf-default-1791493984556519-000001",
+      "path": "PACE-mse-set-at-no-response-passauf-default-1791493984556519-000001.json",
+      "sha256": "dfcb1f8db90806493a1099a88429777c5c0d95d677cd8adf26acbd9a97f7f6bf",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-no-response-passauf-default",
+      "outcome": "surfaced",
+      "observability_score": 2
+    },
+    {
+      "run_id": "PACE-mse-set-at-timeout-passauf-default-1791493985182806-000001",
+      "path": "PACE-mse-set-at-timeout-passauf-default-1791493985182806-000001.json",
+      "sha256": "ae4e38c353962c779f86c25d8c5fc42831a970a6830a40d4a82e8f8fec112867",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-timeout-passauf-default",
+      "outcome": "surfaced",
+      "observability_score": 2
+    },
+    {
+      "run_id": "PACE-mse-set-at-transport-abort-passauf-default-1791493985752591-000001",
+      "path": "PACE-mse-set-at-transport-abort-passauf-default-1791493985752591-000001.json",
+      "sha256": "72473ec88cc75701af989e04f54eef8ef0756082aca7c216d013cfb9d528d2cd",
+      "figure_id": "CELL-PACE-passauf-default",
+      "scenario_id": "PACE-mse-set-at-transport-abort-passauf-default",
+      "outcome": "surfaced",
+      "observability_score": 2
+    },
+    {
+      "run_id": "VSC-pace-ga1-6a80-passauf-default-1791493987139415-000001",
+      "path": "VSC-pace-ga1-6a80-passauf-default-1791493987139415-000001.json",
+      "sha256": "0c40844764ee2baa7b6dd4cae8bbd3249dcadb17186e28bef809d93e51191658",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-ga1-6a80-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-ga1-6f00-passauf-default-1791493988539239-000001",
+      "path": "VSC-pace-ga1-6f00-passauf-default-1791493988539239-000001.json",
+      "sha256": "eb69d9b1cad6e58409cc32e930409338cc940104b2ef3cdb4da8e66c48955ca2",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-ga1-6f00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-ga2-6a80-passauf-default-1791493989991306-000001",
+      "path": "VSC-pace-ga2-6a80-passauf-default-1791493989991306-000001.json",
+      "sha256": "bb9b766799ba11ea5da34dd42ae8199c5806a27985ea5db9a7fb206f00054710",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-ga2-6a80-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-ga2-6f00-passauf-default-1791493991435391-000001",
+      "path": "VSC-pace-ga2-6f00-passauf-default-1791493991435391-000001.json",
+      "sha256": "342c641f63f3cab46483cc57b9cb8e72071d71623b10a8110df7e3fa77078251",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-ga2-6f00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-ga3-6a80-passauf-default-1791493992927305-000001",
+      "path": "VSC-pace-ga3-6a80-passauf-default-1791493992927305-000001.json",
+      "sha256": "3aec83cc4164059c3a888e24f97a64865c66fb0eee191879643807932e47a5e5",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-ga3-6a80-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-ga3-6f00-passauf-default-1791493994431345-000001",
+      "path": "VSC-pace-ga3-6f00-passauf-default-1791493994431345-000001.json",
+      "sha256": "50164564b6488ea54466aeea74d646b4c780ed3b3db040871ea7c51a7325d04e",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-ga3-6f00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-ga4-6300-passauf-default-1791493995983261-000001",
+      "path": "VSC-pace-ga4-6300-passauf-default-1791493995983261-000001.json",
+      "sha256": "a501c0be7f02c2a75d9b760274213a25fda2b87249665cf4ea2ee04022d52775",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-ga4-6300-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-ga4-6a80-passauf-default-1791493997531335-000001",
+      "path": "VSC-pace-ga4-6a80-passauf-default-1791493997531335-000001.json",
+      "sha256": "268ebeabb3caad4e7eea7aec75b097c103ebef8dc5e3d367a17cb2888a59f76a",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-ga4-6a80-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-ga4-6f00-passauf-default-1791493999095398-000001",
+      "path": "VSC-pace-ga4-6f00-passauf-default-1791493999095398-000001.json",
+      "sha256": "8e11e72380742c4b825bb08a47416ef5744ba91b23c541ea8dddb2c34b0ae6bc",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-ga4-6f00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-mse-6a80-passauf-default-1791494000443285-000001",
+      "path": "VSC-pace-mse-6a80-passauf-default-1791494000443285-000001.json",
+      "sha256": "a0d53e5ce5ff1f2819a89eca75f7e1fe45f77c06b9a9a7ec8aa40ef4c82e2cd8",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-mse-6a80-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-mse-6a88-passauf-default-1791494001811315-000001",
+      "path": "VSC-pace-mse-6a88-passauf-default-1791494001811315-000001.json",
+      "sha256": "231a450e6625c43737706bb1ce92f2c97fa35ba3a77a9b536364b7946cd03b48",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-mse-6a88-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-mse-6f00-passauf-default-1791494003171229-000001",
+      "path": "VSC-pace-mse-6f00-passauf-default-1791494003171229-000001.json",
+      "sha256": "bbb7be9ae723696c7ff25e060592632aec8c0449e7be285954a73a213eea936b",
+      "figure_id": "CELL-VSC-PACE-passauf-default",
+      "scenario_id": "VSC-pace-mse-6f00-passauf-default",
+      "outcome": "status_only",
+      "observability_score": 1
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494006050631-000001",
+      "path": "VSC-pace-success-passauf-default-1791494006050631-000001.json",
+      "sha256": "003d901084107303f8379087509a151632aae4c5a6c0d18aafaf446dcfbaf1d4",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494007478664-000001",
+      "path": "VSC-pace-success-passauf-default-1791494007478664-000001.json",
+      "sha256": "3e82e0d44388adcb5bb7ee0752833dd88c10747252986324665ad0c062230556",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494008910440-000002",
+      "path": "VSC-pace-success-passauf-default-1791494008910440-000002.json",
+      "sha256": "2e6bef886e20fc149422d153b7152f82e6bd43a03009b0dbc589a3831e5e5335",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494010362600-000003",
+      "path": "VSC-pace-success-passauf-default-1791494010362600-000003.json",
+      "sha256": "6490e9e9e4139294190ed7f873fd77c033e7b617926a023437be54d24186cbb5",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494011802613-000004",
+      "path": "VSC-pace-success-passauf-default-1791494011802613-000004.json",
+      "sha256": "2e2455d37bdd897927353f4e93b89caedf605f27e6e2e08ae57b7cba2c96f59a",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494013238717-000005",
+      "path": "VSC-pace-success-passauf-default-1791494013238717-000005.json",
+      "sha256": "15590facd77968e491a81579be7382b22c927dcb5d06f92a12056e17e603ed19",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494014678582-000006",
+      "path": "VSC-pace-success-passauf-default-1791494014678582-000006.json",
+      "sha256": "87e4bb85127419cf0592db9df3241bbef492b33de7f37df3d975ad6ad2600c27",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494016118563-000007",
+      "path": "VSC-pace-success-passauf-default-1791494016118563-000007.json",
+      "sha256": "fd2c79b9b2858c6da0396bfa6604ad4e75300304d9bcc9fe29a3a4caf581c606",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494017538647-000008",
+      "path": "VSC-pace-success-passauf-default-1791494017538647-000008.json",
+      "sha256": "5fb7a762dc6e6c53457eaf1542d048ba2f033c2635d2bf57e27bdc6c6f700af1",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494018978638-000009",
+      "path": "VSC-pace-success-passauf-default-1791494018978638-000009.json",
+      "sha256": "2513e83ea73d755a6da6e279629278fb118554c663d8a4bde7dce018044558e0",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494020430672-000010",
+      "path": "VSC-pace-success-passauf-default-1791494020430672-000010.json",
+      "sha256": "3a56fdba6b439b21c0bc024bf9b1472669770f730cb5aa44c256fe659adc7ec3",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494021878624-000011",
+      "path": "VSC-pace-success-passauf-default-1791494021878624-000011.json",
+      "sha256": "155171d69f1eba5d73e559234536d5fdd3d02e2ec1f602847ae48f800340fe2b",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494023330550-000012",
+      "path": "VSC-pace-success-passauf-default-1791494023330550-000012.json",
+      "sha256": "289a22767c39f0182b22cd868c6a18612525b4dc33856b21d1c530dc5eb138a8",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494024762673-000013",
+      "path": "VSC-pace-success-passauf-default-1791494024762673-000013.json",
+      "sha256": "9d16e4d356dbc62ddfd90a55be51650b7f58a85e376641a338dda4fd31f8c5dc",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494026202474-000014",
+      "path": "VSC-pace-success-passauf-default-1791494026202474-000014.json",
+      "sha256": "6834bc1ee0a30279e392a106dcbe714193e69ff1438e85f0bc640896e27b1c1d",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494027638509-000015",
+      "path": "VSC-pace-success-passauf-default-1791494027638509-000015.json",
+      "sha256": "f4d9db2bcfe39d5365ed20578917a56f6928624ec73e74503a468f36737c969c",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494029082670-000016",
+      "path": "VSC-pace-success-passauf-default-1791494029082670-000016.json",
+      "sha256": "90c732f53cfc34c5a8a22f6e9be4a0753578408c68a2d1cb724b5e0f01a1eb14",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494030526520-000017",
+      "path": "VSC-pace-success-passauf-default-1791494030526520-000017.json",
+      "sha256": "ac3bb02540d265a8744c67228e367fd9a77a147fa1451eb64d1edb8ad79ed49c",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494031946693-000018",
+      "path": "VSC-pace-success-passauf-default-1791494031946693-000018.json",
+      "sha256": "1e789d3a8c5805b1f0c31187ae121fba2da675fb5c7706e902fb0a8fde0a4e20",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494033383473-000019",
+      "path": "VSC-pace-success-passauf-default-1791494033383473-000019.json",
+      "sha256": "d5f9029207ca9e389bb7dd66d3359d63993bbdb644bf4b86790e3c5a76d60543",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494034814541-000020",
+      "path": "VSC-pace-success-passauf-default-1791494034814541-000020.json",
+      "sha256": "b4411fd94d01d62cbabfe3c3b7f672931f2525616dc2295de380d8f367518894",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494036246610-000021",
+      "path": "VSC-pace-success-passauf-default-1791494036246610-000021.json",
+      "sha256": "1f1839960b1b4291111289763ef5ad21106309b84b3c46901de0b51c55cbfc0d",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494037682645-000022",
+      "path": "VSC-pace-success-passauf-default-1791494037682645-000022.json",
+      "sha256": "1333c026a086d05b067325bdb6e9d60d10df995a5b82dc64e8a542f243192008",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494039138538-000023",
+      "path": "VSC-pace-success-passauf-default-1791494039138538-000023.json",
+      "sha256": "48f1b39161d3d4742c8b7de83a5d5fe7f07936cd94e57be45313491d1a802c57",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494040570744-000024",
+      "path": "VSC-pace-success-passauf-default-1791494040570744-000024.json",
+      "sha256": "1f3af88821fe74e039752c3f8ac02018cb329ee87f0c0ffbe4ffafae016dd565",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494041986595-000025",
+      "path": "VSC-pace-success-passauf-default-1791494041986595-000025.json",
+      "sha256": "6d5c8a141c3dab131bd58f803db9a1321d4e49220f88c5b67753466f9a5d254d",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494043414634-000026",
+      "path": "VSC-pace-success-passauf-default-1791494043414634-000026.json",
+      "sha256": "b143d84d4c89fb7ef0647b5faec8ab4e2b812fe70a7ccf26f868c5a19ffbbbf8",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494044850969-000027",
+      "path": "VSC-pace-success-passauf-default-1791494044850969-000027.json",
+      "sha256": "674d7eed628402c9fcd0473aee47bd1d13929ba547f46b614cdb03264be14e38",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494046282619-000028",
+      "path": "VSC-pace-success-passauf-default-1791494046282619-000028.json",
+      "sha256": "9491910cccf631f3183999b7134e36c43580f5f963f3e83f490f654478b67c9e",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494047738571-000029",
+      "path": "VSC-pace-success-passauf-default-1791494047738571-000029.json",
+      "sha256": "d4b00e3aa7d3af9e0a5e5051c1eac8be7d22c08b39d4551ad080695444dd3dc3",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494049190514-000030",
+      "path": "VSC-pace-success-passauf-default-1791494049190514-000030.json",
+      "sha256": "39efc702eaffc09fea588f52353b313acb053bb6ecc0789c9768dd9f9e3f898a",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494050630553-000031",
+      "path": "VSC-pace-success-passauf-default-1791494050630553-000031.json",
+      "sha256": "a81d67956d4fff61415fba4ffcc8e8ba380502b8fcc1bc9e2eb593fdec18f0a3",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494052079140-000032",
+      "path": "VSC-pace-success-passauf-default-1791494052079140-000032.json",
+      "sha256": "4628b68d432772b2ab2478446e4f701707a3da8a1bbe64955ad8c8490060dcad",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494053522529-000033",
+      "path": "VSC-pace-success-passauf-default-1791494053522529-000033.json",
+      "sha256": "1c94c00d993eaa9018e55a097d6d6626ea97d41eee7b9ebc3e626c44394f3954",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494054946777-000034",
+      "path": "VSC-pace-success-passauf-default-1791494054946777-000034.json",
+      "sha256": "4846e1e56d47fd41ad711a81f94c7101ec2eedd45088ef726fb11f37b285af57",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494056370512-000035",
+      "path": "VSC-pace-success-passauf-default-1791494056370512-000035.json",
+      "sha256": "5eed2d2470f7cfbfead3f2c52fbc8b655bb817afc913e67bbabfdb6972e6652b",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494057798632-000036",
+      "path": "VSC-pace-success-passauf-default-1791494057798632-000036.json",
+      "sha256": "66367a14ddb3ee3293f779eec4ca311070332e5c4ecbf4d1746a62611337d93f",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494059238701-000037",
+      "path": "VSC-pace-success-passauf-default-1791494059238701-000037.json",
+      "sha256": "4a8603b1ac04d88ed2c5c933068c275cfe7a6adbf35c70a5203d3557fc58c697",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494060694650-000038",
+      "path": "VSC-pace-success-passauf-default-1791494060694650-000038.json",
+      "sha256": "a470ab87a03e4a22f208f055be4445fddfe0257810a8e2b1c97585b4043e4d24",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494062134707-000039",
+      "path": "VSC-pace-success-passauf-default-1791494062134707-000039.json",
+      "sha256": "9d60bf611f9fd6cbadc2ae45cfd2b209e651b60236e68dacdbee7fd83c99402a",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494063582709-000040",
+      "path": "VSC-pace-success-passauf-default-1791494063582709-000040.json",
+      "sha256": "5f4fab02a29c87a58be4709ca8b03170544da3602b090b8fed00fec9f7affd4a",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494065042515-000041",
+      "path": "VSC-pace-success-passauf-default-1791494065042515-000041.json",
+      "sha256": "25410db11ea5938cc4ab34ac14c8561b3a06fb2dd5f7d1290a65e2f6f48fa005",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494066474584-000042",
+      "path": "VSC-pace-success-passauf-default-1791494066474584-000042.json",
+      "sha256": "e03340249ea80f5e72b0913e7a60554f9afbddd7bff523ce3ccc9d22768f242f",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494067914506-000043",
+      "path": "VSC-pace-success-passauf-default-1791494067914506-000043.json",
+      "sha256": "ea4c21dd2a6001852a66dbec31409d2c8f463174de76e19616db721d88295191",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494069362623-000044",
+      "path": "VSC-pace-success-passauf-default-1791494069362623-000044.json",
+      "sha256": "69fa1ae4e57c8bc8ac9795ffa8dbfb7ebb8bf2fa650c8c9a5faff8e005743357",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494070798636-000045",
+      "path": "VSC-pace-success-passauf-default-1791494070798636-000045.json",
+      "sha256": "973014b9e8cb6f1449dea0fabdd7a8d56d3e4c8604cc6e577de4966ec9a6591e",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494072238649-000046",
+      "path": "VSC-pace-success-passauf-default-1791494072238649-000046.json",
+      "sha256": "c3fb10964f288fd6bf86d961d531236eae411611f7e7f9335f8bc7214b2b4bc4",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494073674498-000047",
+      "path": "VSC-pace-success-passauf-default-1791494073674498-000047.json",
+      "sha256": "f678f1569265796bbeea2c56847ea4a4c1c3763f6d96763378155e11c3ac3152",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494075118773-000048",
+      "path": "VSC-pace-success-passauf-default-1791494075118773-000048.json",
+      "sha256": "7c965a3f8e22df706de11a1e9598a1af2d3d21dc86ff95cd55ebdbc34e46e328",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494076570534-000049",
+      "path": "VSC-pace-success-passauf-default-1791494076570534-000049.json",
+      "sha256": "7afce37f99a725d9be34bff7e34c86f11f514837eee14d4ef62a9a90bf33b2b9",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494077998559-000050",
+      "path": "VSC-pace-success-passauf-default-1791494077998559-000050.json",
+      "sha256": "7d400db48d02d5baba354c8a961e7b25d3d8c9b8ea78cd5d141bb857c4653671",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494079430573-000051",
+      "path": "VSC-pace-success-passauf-default-1791494079430573-000051.json",
+      "sha256": "59ec067e083686a8bd5d53d8dee3320c7e68167da9de5f0d7d77a98df536314b",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494080874625-000052",
+      "path": "VSC-pace-success-passauf-default-1791494080874625-000052.json",
+      "sha256": "bdf66b0964e6306b5f06bae2b763e4fd41a77e3599d1f6cba33d0d304240b75b",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494082301589-000053",
+      "path": "VSC-pace-success-passauf-default-1791494082301589-000053.json",
+      "sha256": "d937f5d63212418801f334d01a574d7dd76d56435875646fbea34c510388d140",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494083754756-000054",
+      "path": "VSC-pace-success-passauf-default-1791494083754756-000054.json",
+      "sha256": "408c49d765f74450670d46024999917c1e5bcfd92d05a296851d26d0cd6fb871",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494085214764-000055",
+      "path": "VSC-pace-success-passauf-default-1791494085214764-000055.json",
+      "sha256": "b41917941ac04e1468e59ea6bfe4c85224d140eccbcc20a8591102d9714b012c",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494086658532-000056",
+      "path": "VSC-pace-success-passauf-default-1791494086658532-000056.json",
+      "sha256": "0175ef261a79b5e2c7e8874fb15878dc29a39fbbe44c95e47659b740ad45c7b9",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494088078657-000057",
+      "path": "VSC-pace-success-passauf-default-1791494088078657-000057.json",
+      "sha256": "ac1964165ab336cd72d2005803739632897c1c4b488373e8ce3b9bd20d0cb87e",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494089534546-000058",
+      "path": "VSC-pace-success-passauf-default-1791494089534546-000058.json",
+      "sha256": "ad46f62d58e246e3431d302c74cc65852b23874779af40af8cf9b4e320e9808a",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494090966691-000059",
+      "path": "VSC-pace-success-passauf-default-1791494090966691-000059.json",
+      "sha256": "e2f9950923fa455a2ffd694fee79512ed477084626905c16a8913703d81f2621",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494092410689-000060",
+      "path": "VSC-pace-success-passauf-default-1791494092410689-000060.json",
+      "sha256": "8439b3ec349c06b5ae3e2fdc3504956daae981deb4fd99d56f398553acc3076f",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494093846627-000061",
+      "path": "VSC-pace-success-passauf-default-1791494093846627-000061.json",
+      "sha256": "d9a4614a6fe289474ca5fb0f968d60f471044fb9c9759a1f49e0e787a6edba03",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494095294515-000062",
+      "path": "VSC-pace-success-passauf-default-1791494095294515-000062.json",
+      "sha256": "7387ba91f4776d46155762a2f8233a88cdf31542ca987f46f739722906902a2d",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494096738548-000063",
+      "path": "VSC-pace-success-passauf-default-1791494096738548-000063.json",
+      "sha256": "5cf9b4c59f34a085ab9723ed0d562d4775e96d13360df225668dc02c9b629b2a",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494098182667-000064",
+      "path": "VSC-pace-success-passauf-default-1791494098182667-000064.json",
+      "sha256": "4f5b13afac6d18feacab097f54f86e0e3f1b04ffcd988c98a9e7428099d4706c",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494099630618-000065",
+      "path": "VSC-pace-success-passauf-default-1791494099630618-000065.json",
+      "sha256": "ebb12fac760b9f47bc186dc7232a7b39674d871443be75e64b33c7b566529554",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494101054517-000066",
+      "path": "VSC-pace-success-passauf-default-1791494101054517-000066.json",
+      "sha256": "7f8d00b5aaca62cd2cf8d124eba4268fa4d270d8a01cca3d5265ef547f2bf40d",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494102502495-000067",
+      "path": "VSC-pace-success-passauf-default-1791494102502495-000067.json",
+      "sha256": "c6100da23a6a230f92f202f7f0163312479a223bcc0c9c1c75eb3f2072e4f73f",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494103946553-000068",
+      "path": "VSC-pace-success-passauf-default-1791494103946553-000068.json",
+      "sha256": "fcdfb1913072e49014e539f881cf808f7dcb2e078b09a4bb701c097268610c7a",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494105379459-000069",
+      "path": "VSC-pace-success-passauf-default-1791494105379459-000069.json",
+      "sha256": "2c32b39448ce2d5bd134919ab098c59c1075eb65f0149bfbd69dd6e1d60593d2",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494106806565-000070",
+      "path": "VSC-pace-success-passauf-default-1791494106806565-000070.json",
+      "sha256": "ee42623d9648560fdad9d63690bdeb26803086dc50d67b1491e52747d9a5ea85",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494108238573-000071",
+      "path": "VSC-pace-success-passauf-default-1791494108238573-000071.json",
+      "sha256": "4dbd9af98eed9a7c704a2b659632daa789cd76084e5d54789265f052d5a7fede",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494109694517-000072",
+      "path": "VSC-pace-success-passauf-default-1791494109694517-000072.json",
+      "sha256": "7e3f8f76275caee1378e822eaca0af988399dbfb7cb8d852361d599799c61126",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494111130571-000073",
+      "path": "VSC-pace-success-passauf-default-1791494111130571-000073.json",
+      "sha256": "69ab9abff63b4f51ea38044229e309c57863aaef9b88a85f4f9d9df7016f1a07",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494112574536-000074",
+      "path": "VSC-pace-success-passauf-default-1791494112574536-000074.json",
+      "sha256": "91559f256c7868fe896159eda7b0e455ea4a68caed4367cde410447373b28715",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494114018619-000075",
+      "path": "VSC-pace-success-passauf-default-1791494114018619-000075.json",
+      "sha256": "3244941d9d48c6a5af88c6bb25109d13eeef80a500b333b7f122f8635d2de719",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494115466504-000076",
+      "path": "VSC-pace-success-passauf-default-1791494115466504-000076.json",
+      "sha256": "4d143741e8440eb23fdf90ecef4ada1807c78f93eaa35c1c7803389c17f6cfa4",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494116902548-000077",
+      "path": "VSC-pace-success-passauf-default-1791494116902548-000077.json",
+      "sha256": "37d4c7343ea94d17a4f595dd567cfe144f89c2df90323d0a01d3fbeea046b637",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494118346716-000078",
+      "path": "VSC-pace-success-passauf-default-1791494118346716-000078.json",
+      "sha256": "cfca02e861a11c3bb69305559765897c8609f33ba37763db8ba707eca0aea11c",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494119783081-000079",
+      "path": "VSC-pace-success-passauf-default-1791494119783081-000079.json",
+      "sha256": "b77d0c5cf19abdd48a862c926adfe2221650f8e05d0ccdf6267c54a3abbb56a4",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494121218421-000080",
+      "path": "VSC-pace-success-passauf-default-1791494121218421-000080.json",
+      "sha256": "b0bbd6ce033ebb816c0be5e4e4dad6d4f71cbb291a9abd3a048c923565900004",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494122666505-000081",
+      "path": "VSC-pace-success-passauf-default-1791494122666505-000081.json",
+      "sha256": "f21e95b522a0aab07f271b4a2cdb23117afaf0682d2dd4b2c0150facc8e837fa",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494124106576-000082",
+      "path": "VSC-pace-success-passauf-default-1791494124106576-000082.json",
+      "sha256": "d5c69a60b71aabf0f49c8b1f08d6a6c6efd0e46fa46e82c91a8993b9952da9da",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494125538516-000083",
+      "path": "VSC-pace-success-passauf-default-1791494125538516-000083.json",
+      "sha256": "1ecb20cdd9b54505e0da5c6fadde76b560db54b5cabf886ec3b38564681e9618",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494126974595-000084",
+      "path": "VSC-pace-success-passauf-default-1791494126974595-000084.json",
+      "sha256": "723a76bdb34a76fb5931ea73155c47b7696e7f39858f2c6b53b082b9f6ea2473",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494128418648-000085",
+      "path": "VSC-pace-success-passauf-default-1791494128418648-000085.json",
+      "sha256": "aa8c780e85d04cdb7fadb4c693c48c48db5e3b77e7acae95129bdd7aea291163",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494129870537-000086",
+      "path": "VSC-pace-success-passauf-default-1791494129870537-000086.json",
+      "sha256": "c0eb92fbb24120307218a87745954022c4a2b5def3f639b53200d848dd42c691",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494131294568-000087",
+      "path": "VSC-pace-success-passauf-default-1791494131294568-000087.json",
+      "sha256": "5255bc3aa5cbd3f6216b4b638bb2ffb52c7aa2dbaa2d3f6f1ef4591ba78413f6",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494132746593-000088",
+      "path": "VSC-pace-success-passauf-default-1791494132746593-000088.json",
+      "sha256": "8c70234f040acaf4d451e904233970647bc17c3de3ee9c31bbe59129bc25b6b5",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494134194665-000089",
+      "path": "VSC-pace-success-passauf-default-1791494134194665-000089.json",
+      "sha256": "d06c2d56d8c93596cc714e7b2b363c46fcf6557e5bda30663229e48ef2e19951",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494135650505-000090",
+      "path": "VSC-pace-success-passauf-default-1791494135650505-000090.json",
+      "sha256": "3fc3461332da04cf3979ec669b43e283b788fff775152d1b21c26fa7f89e3320",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494137086695-000091",
+      "path": "VSC-pace-success-passauf-default-1791494137086695-000091.json",
+      "sha256": "19511a2ab01e01d35f1d4bc45f7419bef10b248947298b445e7cdd0c0ececa77",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494138526564-000092",
+      "path": "VSC-pace-success-passauf-default-1791494138526564-000092.json",
+      "sha256": "a77720b6110ebadbe7db832845b82dc3f4fe18b24670eb8b0548d158e280e32c",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494139978658-000093",
+      "path": "VSC-pace-success-passauf-default-1791494139978658-000093.json",
+      "sha256": "4b2d7eaa7a2bf4d16d0bcec28313caf79f9a6d43e3bf8ee194af2ef55f4eff9d",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494141402913-000094",
+      "path": "VSC-pace-success-passauf-default-1791494141402913-000094.json",
+      "sha256": "79b49802260e9dec53ba9c3b529c02317765f8dc9c786193f57e455385cd6d3a",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494142851816-000095",
+      "path": "VSC-pace-success-passauf-default-1791494142851816-000095.json",
+      "sha256": "ed45a5cd4df07ed63f7045cf62e948e2e9c4cebed083640b805f6988f71ef6ca",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494144290521-000096",
+      "path": "VSC-pace-success-passauf-default-1791494144290521-000096.json",
+      "sha256": "e226b53774eb99f96a21f490d6559780d3d340794f51ac243f50a5381046b652",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494145734714-000097",
+      "path": "VSC-pace-success-passauf-default-1791494145734714-000097.json",
+      "sha256": "e0f6f765dc82d03e271176ae5b4cb29099fdcb9de6598b6d9a8bf43dd2458a88",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494147178432-000098",
+      "path": "VSC-pace-success-passauf-default-1791494147178432-000098.json",
+      "sha256": "a102f959dee75d0f4e4c3e8249b7126754c49e043d92b2c9251f51ae777c4509",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494148630639-000099",
+      "path": "VSC-pace-success-passauf-default-1791494148630639-000099.json",
+      "sha256": "98998d4cc193f1f8a020e90fd88c20a693cbea8839f0940be851c759ac425b32",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-passauf-default-1791494150070562-000100",
+      "path": "VSC-pace-success-passauf-default-1791494150070562-000100.json",
+      "sha256": "153b29746f85ec9de5137a3fc215624db0b3b29a217249e09ccb01017f6c8338",
+      "figure_id": "CELL-VSC-pace-success-passauf-default",
+      "scenario_id": "VSC-pace-success-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    },
+    {
+      "run_id": "VSC-pace-success-multi-info-passauf-default-1791494004614669-000001",
+      "path": "VSC-pace-success-multi-info-passauf-default-1791494004614669-000001.json",
+      "sha256": "431b12586d0ca645db4dee0e7a69f50508362b2ce64cc5e29c09f6b51e8d632d",
+      "figure_id": "CELL-VSC-pace-success-multi-info-passauf-default",
+      "scenario_id": "VSC-pace-success-multi-info-passauf-default",
+      "outcome": "not_applicable",
+      "observability_score": null
+    }
+  ],
+  "entries": {
+    "CELL-CTRL-bac-only-passauf-default": {
+      "type": "finding",
+      "scenario": {
+        "id": "CTRL-bac-only-passauf-default",
+        "cell": "CTRL-bac-only",
+        "test_cases": [
+          "CTRL-bac-only"
+        ],
+        "library": "passauf",
+        "mechanism": "PACE",
+        "condition": "pace_not_advertised",
+        "variant": "default",
+        "tier": "wire",
+        "profiles": [
+          {
+            "path": "profiles/controls/CTRL-bac-only.json",
+            "sha256": "f0bffe835801e7763ccb00a623485ba71e643b6f0957cb86a8c299b07df417e1"
+          }
+        ]
+      },
+      "execution": {
+        "driver": "rust/passauf_read",
+        "middleware": null,
+        "suite_n": 1
+      },
+      "observation": {
+        "n": 1,
+        "n_scored": 0,
+        "counts": {
+          "silent": 0,
+          "status_only": 0,
+          "surfaced": 0,
+          "not_applicable": 1,
+          "invalid": 0
+        },
+        "scored_pct": {
+          "silent": 0.0,
+          "status_only": 0.0,
+          "surfaced": 0.0
+        },
+        "dominant_outcome": null,
+        "behaviour_classes": [
+          {
+            "signature": "not_applicable|00001|",
+            "count": 1,
+            "example_run": "CTRL-bac-only-passauf-default-1791494151260689-000001"
+          }
+        ]
+      },
+      "finding": {
+        "threshold_pct": 95.0,
+        "min_n": 2,
+        "applicable": false,
+        "met": false
+      },
+      "artifact_refs": [
+        "CTRL-bac-only-passauf-default-1791494151260689-000001.json"
+      ],
+      "bundle_sha256": "8f5ab91bce74402337d62c8355a421b39c3dd5881bc4a328fdbfd561aca9f514"
+    },
+    "CELL-CTRL-pace-proprietary-params-passauf-default": {
+      "type": "finding",
+      "scenario": {
+        "id": "CTRL-pace-proprietary-params-passauf-default",
+        "cell": "CTRL-pace-proprietary-params",
+        "test_cases": [
+          "CTRL-pace-proprietary-params"
+        ],
+        "library": "passauf",
+        "mechanism": "PACE",
+        "condition": "pace_unsupported_locally",
+        "variant": "default",
+        "tier": "wire",
+        "profiles": [
+          {
+            "path": "profiles/controls/CTRL-pace-proprietary-params.json",
+            "sha256": "7d3977d79fdeb22a7e79728f5a18f0ddd626510ea77d2bfb10cc925971216678"
+          }
+        ]
+      },
+      "execution": {
+        "driver": "rust/passauf_read",
+        "middleware": null,
+        "suite_n": 1
+      },
+      "observation": {
+        "n": 1,
+        "n_scored": 0,
+        "counts": {
+          "silent": 0,
+          "status_only": 0,
+          "surfaced": 0,
+          "not_applicable": 1,
+          "invalid": 0
+        },
+        "scored_pct": {
+          "silent": 0.0,
+          "status_only": 0.0,
+          "surfaced": 0.0
+        },
+        "dominant_outcome": null,
+        "behaviour_classes": [
+          {
+            "signature": "not_applicable|01001|",
+            "count": 1,
+            "example_run": "CTRL-pace-proprietary-params-passauf-default-1791494152572771-000001"
+          }
+        ]
+      },
+      "finding": {
+        "threshold_pct": 95.0,
+        "min_n": 2,
+        "applicable": false,
+        "met": false
+      },
+      "artifact_refs": [
+        "CTRL-pace-proprietary-params-passauf-default-1791494152572771-000001.json"
+      ],
+      "bundle_sha256": "e4fed914a3d4e86ce4ea1b6b3beaf3b461bafd00c9687f00b7a4138f2f3384a3"
+    },
+    "CELL-PACE-passauf-default": {
+      "type": "finding",
+      "scenario": {
+        "id": "SCN-PACE-passauf-default",
+        "cell": "PACE",
+        "test_cases": [
+          "PACE-general-authenticate-6300",
+          "PACE-general-authenticate-6700",
+          "PACE-general-authenticate-6800",
+          "PACE-general-authenticate-6900",
+          "PACE-general-authenticate-6982",
+          "PACE-general-authenticate-6a00",
+          "PACE-general-authenticate-6a80",
+          "PACE-general-authenticate-6a88",
+          "PACE-general-authenticate-6b00",
+          "PACE-general-authenticate-6c00",
+          "PACE-general-authenticate-6e00",
+          "PACE-general-authenticate-6f00",
+          "PACE-general-authenticate-6fff",
+          "PACE-general-authenticate-no-response",
+          "PACE-general-authenticate-timeout",
+          "PACE-general-authenticate-transport-abort",
+          "PACE-mse-set-at-6300",
+          "PACE-mse-set-at-6700",
+          "PACE-mse-set-at-6800",
+          "PACE-mse-set-at-6900",
+          "PACE-mse-set-at-6982",
+          "PACE-mse-set-at-6a00",
+          "PACE-mse-set-at-6a80",
+          "PACE-mse-set-at-6a88",
+          "PACE-mse-set-at-6b00",
+          "PACE-mse-set-at-6c00",
+          "PACE-mse-set-at-6e00",
+          "PACE-mse-set-at-6f00",
+          "PACE-mse-set-at-6fff",
+          "PACE-mse-set-at-no-response",
+          "PACE-mse-set-at-timeout",
+          "PACE-mse-set-at-transport-abort"
+        ],
+        "library": "passauf",
+        "mechanism": "PACE",
+        "condition": "pace_fail_then_bac",
+        "variant": "default",
+        "tier": "wire",
+        "profiles": [
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6300.json",
+            "sha256": "bbb131ca76e10584e3fe4648704048d881bd28393a3aa29d8a5b9ef96fa14aa6"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6700.json",
+            "sha256": "97f878c5c8e76e497f4ce1f52a5fa5ae843def22d2f9a2a6e76924e797be0fc8"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6800.json",
+            "sha256": "9f17cbe7e53721b2e3598ca0d56d8d6d23466293387fd0cf88f954bf3e8d26d0"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6900.json",
+            "sha256": "395c5acb6182f022fb6f9b53238499263698b4b076031ce8c66a535122401e72"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6982.json",
+            "sha256": "0c663ad32b0cf55ed9e9add6f783bd546d9a094f0c4d4545d22caed48c9c759a"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6a00.json",
+            "sha256": "658488ddb1b0e3114a771b3c3211798c5b6d10519559f59dda27ab7ddde76949"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6a80.json",
+            "sha256": "c020169ee5aa6b0544c70d0c8f52a9ce8d69c3240796250de75db45407151e91"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6a88.json",
+            "sha256": "963c9a7c8c0314e5fc6f26f492926ba6a8821b49510b2fad9d19508c974b6718"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6b00.json",
+            "sha256": "6d107d7da4f4557f11e6061723740a5ea8b37af121464459faed2dd6ce54c9a5"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6c00.json",
+            "sha256": "b84d1f45641a7deabf084ee69a4c2e0a940feab70aef93cc4696f1f6e8819279"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6e00.json",
+            "sha256": "9389c4721e57583c3768a098659bda07b862126159d666c32ea1e759cc8a32c4"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6f00.json",
+            "sha256": "6f899321fc654d9c343e05058b157955db30f29d164010a389a4908d60e8b9cb"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-6fff.json",
+            "sha256": "9acfb232606d99268c201048ab933ee3538e288ddec3f9164b75de9b1aa717d8"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-no-response.json",
+            "sha256": "0b38712f29501cdac3a571eb773bb41d84873816745d5b72ec7c2d91b5d747b4"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-timeout.json",
+            "sha256": "4399620ccb1a456cff8dbef277b7af4760ef5b78c7d660eb5b049961c7f41afb"
+          },
+          {
+            "path": "profiles/pace/PACE-general-authenticate-transport-abort.json",
+            "sha256": "321b87014f45a393d04f7ffcc7feb3592f378b190c8f229dd2957433858123f8"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6300.json",
+            "sha256": "b259f24aaaf61031cac7405dd495f42f5d644fb02f900582b49957a0387a1638"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6700.json",
+            "sha256": "e0f136f14998061a017995e4b0a08ea6c3f698cf3bb07fb5fdf27b1329ee9242"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6800.json",
+            "sha256": "b2406ab8262c4d4887ddba44c585ff6265cc328c297a5135982bce54b0986546"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6900.json",
+            "sha256": "3dd3350f61ea8039a6e31c80fbe3df0b64fd3b36621d28cc28e7f1e9cb48295a"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6982.json",
+            "sha256": "d9bcff884628a78a59ab7abfc9548146a6c53618c8ee93f95e2136a3eb2e28f4"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6a00.json",
+            "sha256": "0d5891143be59de98849582f9531e693492e57852c088939dd62683fe4d551f3"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6a80.json",
+            "sha256": "2cf932196f90cec74948a72a7167c0a2af155923c904c08433d08c1242a79ea0"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6a88.json",
+            "sha256": "a6b23960e8a880e1c23a46633ff105bba571c2f5a1edee11bdb303e199e824bc"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6b00.json",
+            "sha256": "ff260fad6a0ad899f420207213da31f1780298d821f87a86f97de3ca7238c3ed"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6c00.json",
+            "sha256": "f8de65990894334a595231a3edc87766ccc05bdcbdc3b7c9b2876ad9ace563c2"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6e00.json",
+            "sha256": "192ffb9b28aba54da9ba1e8c04b85c03e0daef9c1d516ab5a1e60706e0cbb79c"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6f00.json",
+            "sha256": "52704da88e9640b8aadfe59b211d05be7206f4779218ebbd45ce85d843b53651"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-6fff.json",
+            "sha256": "9e14a671293e62f2e5232a0f6fdfc20fe4c210fa94ce70e50a6fe9b7f8dc7932"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-no-response.json",
+            "sha256": "b94ed00d77b068ee563db83fbaab5b92c58407d48ddd4a4576ddd2b32ec73e6e"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-timeout.json",
+            "sha256": "e5656fe0905a99c9644835a0b176f0ea7e967d37819f09c8707dc214262d67a8"
+          },
+          {
+            "path": "profiles/pace/PACE-mse-set-at-transport-abort.json",
+            "sha256": "10386516523353c1ac4ec8dc697a79b7d666f61d0147b0f4b7f4e2c6c8e6375d"
+          }
+        ]
+      },
+      "execution": {
+        "driver": "rust/passauf_read",
+        "middleware": null,
+        "suite_n": 32
+      },
+      "observation": {
+        "n": 32,
+        "n_scored": 32,
+        "counts": {
+          "silent": 1,
+          "status_only": 25,
+          "surfaced": 6,
+          "not_applicable": 0,
+          "invalid": 0
+        },
+        "scored_pct": {
+          "silent": 3.12,
+          "status_only": 78.12,
+          "surfaced": 18.75
+        },
+        "dominant_outcome": "status_only",
+        "behaviour_classes": [
+          {
+            "signature": "status_only|11001|PACE/general_authenticate",
+            "count": 13,
+            "example_run": "PACE-general-authenticate-6300-passauf-default-1791493824808546-000001"
+          },
+          {
+            "signature": "status_only|11001|PACE/mse_set_at",
+            "count": 12,
+            "example_run": "PACE-mse-set-at-6300-passauf-default-1791493844620607-000001"
+          },
+          {
+            "signature": "surfaced|10010|PACE/general_authenticate",
+            "count": 3,
+            "example_run": "PACE-general-authenticate-no-response-passauf-default-1791493842004559-000001"
+          },
+          {
+            "signature": "surfaced|10010|PACE/mse_set_at",
+            "count": 3,
+            "example_run": "PACE-mse-set-at-no-response-passauf-default-1791493984556519-000001"
+          },
+          {
+            "signature": "silent|10000|PACE/mse_set_at",
+            "count": 1,
+            "example_run": "PACE-mse-set-at-6c00-passauf-default-1791493979943205-000001"
+          }
+        ]
+      },
+      "finding": {
+        "threshold_pct": 95.0,
+        "min_n": 2,
+        "applicable": true,
+        "met": false
+      },
+      "artifact_refs": [
+        "PACE-general-authenticate-6300-passauf-default-1791493824808546-000001.json",
+        "PACE-general-authenticate-6700-passauf-default-1791493826196658-000001.json",
+        "PACE-general-authenticate-6800-passauf-default-1791493827576731-000001.json",
+        "PACE-general-authenticate-6900-passauf-default-1791493828940673-000001.json",
+        "PACE-general-authenticate-6982-passauf-default-1791493830320787-000001.json",
+        "PACE-general-authenticate-6a00-passauf-default-1791493831700687-000001.json",
+        "PACE-general-authenticate-6a80-passauf-default-1791493833068747-000001.json",
+        "PACE-general-authenticate-6a88-passauf-default-1791493834448721-000001.json",
+        "PACE-general-authenticate-6b00-passauf-default-1791493835829135-000001.json",
+        "PACE-general-authenticate-6c00-passauf-default-1791493837248719-000001.json",
+        "PACE-general-authenticate-6e00-passauf-default-1791493838624640-000001.json",
+        "PACE-general-authenticate-6f00-passauf-default-1791493840004730-000001.json",
+        "PACE-general-authenticate-6fff-passauf-default-1791493841384781-000001.json",
+        "PACE-general-authenticate-no-response-passauf-default-1791493842004559-000001.json",
+        "PACE-general-authenticate-timeout-passauf-default-1791493842678682-000001.json",
+        "PACE-general-authenticate-transport-abort-passauf-default-1791493843296502-000001.json",
+        "PACE-mse-set-at-6300-passauf-default-1791493844620607-000001.json",
+        "PACE-mse-set-at-6700-passauf-default-1791493845952696-000001.json",
+        "PACE-mse-set-at-6800-passauf-default-1791493847292764-000001.json",
+        "PACE-mse-set-at-6900-passauf-default-1791493848620707-000001.json",
+        "PACE-mse-set-at-6982-passauf-default-1791493849952727-000001.json",
+        "PACE-mse-set-at-6a00-passauf-default-1791493851288705-000001.json",
+        "PACE-mse-set-at-6a80-passauf-default-1791493852620705-000001.json",
+        "PACE-mse-set-at-6a88-passauf-default-1791493853948652-000001.json",
+        "PACE-mse-set-at-6b00-passauf-default-1791493855284676-000001.json",
+        "PACE-mse-set-at-6c00-passauf-default-1791493979943205-000001.json",
+        "PACE-mse-set-at-6e00-passauf-default-1791493981300597-000001.json",
+        "PACE-mse-set-at-6f00-passauf-default-1791493982644739-000001.json",
+        "PACE-mse-set-at-6fff-passauf-default-1791493983984761-000001.json",
+        "PACE-mse-set-at-no-response-passauf-default-1791493984556519-000001.json",
+        "PACE-mse-set-at-timeout-passauf-default-1791493985182806-000001.json",
+        "PACE-mse-set-at-transport-abort-passauf-default-1791493985752591-000001.json"
+      ],
+      "bundle_sha256": "9e8ba483dba35a983e92aa9298f53df1958a3fa2caa9e889d225bbeb49d86b15"
+    },
+    "CELL-VSC-PACE-passauf-default": {
+      "type": "finding",
+      "scenario": {
+        "id": "SCN-VSC-PACE-passauf-default",
+        "cell": "VSC-PACE",
+        "test_cases": [
+          "VSC-pace-ga1-6a80",
+          "VSC-pace-ga1-6f00",
+          "VSC-pace-ga2-6a80",
+          "VSC-pace-ga2-6f00",
+          "VSC-pace-ga3-6a80",
+          "VSC-pace-ga3-6f00",
+          "VSC-pace-ga4-6300",
+          "VSC-pace-ga4-6a80",
+          "VSC-pace-ga4-6f00",
+          "VSC-pace-mse-6a80",
+          "VSC-pace-mse-6a88",
+          "VSC-pace-mse-6f00"
+        ],
+        "library": "passauf",
+        "mechanism": "PACE",
+        "condition": "pace_fail_independent",
+        "variant": "default",
+        "tier": "independent",
+        "profiles": [
+          {
+            "path": "profiles/independent/VSC-pace-ga1-6a80.json",
+            "sha256": "04cee71ef61a5a38b7e06587d6743b7b816bd554b22d87c6f9e6946ff4d88b10"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-ga1-6f00.json",
+            "sha256": "2cfc1e255d658131b1ae61dec453cf61882b4ac866a279e3fd042397fb14b57e"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-ga2-6a80.json",
+            "sha256": "8b6f050d051c281860e95d20b5e3f89f4d8a215a786798743987d5981f6b4ebf"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-ga2-6f00.json",
+            "sha256": "fa9c68995d61b1777004139fce2311e270020aa78b6bb592a39b5fc89495c7eb"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-ga3-6a80.json",
+            "sha256": "b14336609400a46316e7c3ad6d24d6c8dcc8b8e3561a63082f69e3e71282132f"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-ga3-6f00.json",
+            "sha256": "65fa73767e6732d5b4ba36e5dcc7d0ae7db69ab83636e30402332380efc76b8f"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-ga4-6300.json",
+            "sha256": "4d6131938b9014d7d6667e7f1a98d523ea515a8b96450dfae4e6855b4f2aa41f"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-ga4-6a80.json",
+            "sha256": "28bcd0560e82d3f1b49f2c5e053f94bc864fb21cb54d3540f4cc3c329ed0ce18"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-ga4-6f00.json",
+            "sha256": "700bf0227daac9f88fb9738825424b737a4d1aad940cceeb005f31da8d0d2a70"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-mse-6a80.json",
+            "sha256": "35d04ea7b3f119ce44604d0b58bbb38ccdac1c344a003b469fb83495b5475d24"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-mse-6a88.json",
+            "sha256": "70a66208dd5a122e1f1e1e5cd3d266e235411154662d9bf9bf3fe450d63502a7"
+          },
+          {
+            "path": "profiles/independent/VSC-pace-mse-6f00.json",
+            "sha256": "083b56f46a4b01141b98b5a0367a621653aa6300690d5b1ea099b7dd2d87dbda"
+          }
+        ]
+      },
+      "execution": {
+        "driver": "rust/passauf_read",
+        "middleware": null,
+        "suite_n": 12
+      },
+      "observation": {
+        "n": 12,
+        "n_scored": 12,
+        "counts": {
+          "silent": 0,
+          "status_only": 12,
+          "surfaced": 0,
+          "not_applicable": 0,
+          "invalid": 0
+        },
+        "scored_pct": {
+          "silent": 0.0,
+          "status_only": 100.0,
+          "surfaced": 0.0
+        },
+        "dominant_outcome": "status_only",
+        "behaviour_classes": [
+          {
+            "signature": "status_only|11001|PACE/general_authenticate_step4",
+            "count": 3,
+            "example_run": "VSC-pace-ga4-6300-passauf-default-1791493995983261-000001"
+          },
+          {
+            "signature": "status_only|11001|PACE/mse_set_at",
+            "count": 3,
+            "example_run": "VSC-pace-mse-6a80-passauf-default-1791494000443285-000001"
+          },
+          {
+            "signature": "status_only|11001|PACE/general_authenticate_step1",
+            "count": 2,
+            "example_run": "VSC-pace-ga1-6a80-passauf-default-1791493987139415-000001"
+          },
+          {
+            "signature": "status_only|11001|PACE/general_authenticate_step2",
+            "count": 2,
+            "example_run": "VSC-pace-ga2-6a80-passauf-default-1791493989991306-000001"
+          },
+          {
+            "signature": "status_only|11001|PACE/general_authenticate_step3",
+            "count": 2,
+            "example_run": "VSC-pace-ga3-6a80-passauf-default-1791493992927305-000001"
+          }
+        ]
+      },
+      "finding": {
+        "threshold_pct": 95.0,
+        "min_n": 2,
+        "applicable": true,
+        "met": true
+      },
+      "artifact_refs": [
+        "VSC-pace-ga1-6a80-passauf-default-1791493987139415-000001.json",
+        "VSC-pace-ga1-6f00-passauf-default-1791493988539239-000001.json",
+        "VSC-pace-ga2-6a80-passauf-default-1791493989991306-000001.json",
+        "VSC-pace-ga2-6f00-passauf-default-1791493991435391-000001.json",
+        "VSC-pace-ga3-6a80-passauf-default-1791493992927305-000001.json",
+        "VSC-pace-ga3-6f00-passauf-default-1791493994431345-000001.json",
+        "VSC-pace-ga4-6300-passauf-default-1791493995983261-000001.json",
+        "VSC-pace-ga4-6a80-passauf-default-1791493997531335-000001.json",
+        "VSC-pace-ga4-6f00-passauf-default-1791493999095398-000001.json",
+        "VSC-pace-mse-6a80-passauf-default-1791494000443285-000001.json",
+        "VSC-pace-mse-6a88-passauf-default-1791494001811315-000001.json",
+        "VSC-pace-mse-6f00-passauf-default-1791494003171229-000001.json"
+      ],
+      "bundle_sha256": "5633407a2fd0f9a975fe70e8c342eb6a9bfee9242edadd7b6a6512fef1dc2470"
+    },
+    "CELL-VSC-pace-success-passauf-default": {
+      "type": "finding",
+      "scenario": {
+        "id": "SCN-VSC-pace-success-passauf-default",
+        "cell": "VSC-pace-success",
+        "test_cases": [
+          "VSC-pace-success"
+        ],
+        "library": "passauf",
+        "mechanism": "PACE",
+        "condition": "pace_success",
+        "variant": "default",
+        "tier": "independent",
+        "profiles": [
+          {
+            "path": "profiles/independent/VSC-pace-success.json",
+            "sha256": "ade2e69d793b22e3807e4be3bf052cb459e1fbafbe07b75e7997b8deafe0d551"
+          }
+        ]
+      },
+      "execution": {
+        "driver": "rust/passauf_read",
+        "middleware": null,
+        "suite_n": 101
+      },
+      "observation": {
+        "n": 101,
+        "n_scored": 0,
+        "counts": {
+          "silent": 0,
+          "status_only": 0,
+          "surfaced": 0,
+          "not_applicable": 101,
+          "invalid": 0
+        },
+        "scored_pct": {
+          "silent": 0.0,
+          "status_only": 0.0,
+          "surfaced": 0.0
+        },
+        "dominant_outcome": null,
+        "behaviour_classes": [
+          {
+            "signature": "not_applicable|00100|",
+            "count": 101,
+            "example_run": "VSC-pace-success-passauf-default-1791494006050631-000001"
+          }
+        ]
+      },
+      "finding": {
+        "threshold_pct": 95.0,
+        "min_n": 2,
+        "applicable": false,
+        "met": false
+      },
+      "artifact_refs": [
+        "VSC-pace-success-passauf-default-1791494006050631-000001.json",
+        "VSC-pace-success-passauf-default-1791494007478664-000001.json",
+        "VSC-pace-success-passauf-default-1791494008910440-000002.json",
+        "VSC-pace-success-passauf-default-1791494010362600-000003.json",
+        "VSC-pace-success-passauf-default-1791494011802613-000004.json",
+        "VSC-pace-success-passauf-default-1791494013238717-000005.json",
+        "VSC-pace-success-passauf-default-1791494014678582-000006.json",
+        "VSC-pace-success-passauf-default-1791494016118563-000007.json",
+        "VSC-pace-success-passauf-default-1791494017538647-000008.json",
+        "VSC-pace-success-passauf-default-1791494018978638-000009.json",
+        "VSC-pace-success-passauf-default-1791494020430672-000010.json",
+        "VSC-pace-success-passauf-default-1791494021878624-000011.json",
+        "VSC-pace-success-passauf-default-1791494023330550-000012.json",
+        "VSC-pace-success-passauf-default-1791494024762673-000013.json",
+        "VSC-pace-success-passauf-default-1791494026202474-000014.json",
+        "VSC-pace-success-passauf-default-1791494027638509-000015.json",
+        "VSC-pace-success-passauf-default-1791494029082670-000016.json",
+        "VSC-pace-success-passauf-default-1791494030526520-000017.json",
+        "VSC-pace-success-passauf-default-1791494031946693-000018.json",
+        "VSC-pace-success-passauf-default-1791494033383473-000019.json",
+        "VSC-pace-success-passauf-default-1791494034814541-000020.json",
+        "VSC-pace-success-passauf-default-1791494036246610-000021.json",
+        "VSC-pace-success-passauf-default-1791494037682645-000022.json",
+        "VSC-pace-success-passauf-default-1791494039138538-000023.json",
+        "VSC-pace-success-passauf-default-1791494040570744-000024.json",
+        "VSC-pace-success-passauf-default-1791494041986595-000025.json",
+        "VSC-pace-success-passauf-default-1791494043414634-000026.json",
+        "VSC-pace-success-passauf-default-1791494044850969-000027.json",
+        "VSC-pace-success-passauf-default-1791494046282619-000028.json",
+        "VSC-pace-success-passauf-default-1791494047738571-000029.json",
+        "VSC-pace-success-passauf-default-1791494049190514-000030.json",
+        "VSC-pace-success-passauf-default-1791494050630553-000031.json",
+        "VSC-pace-success-passauf-default-1791494052079140-000032.json",
+        "VSC-pace-success-passauf-default-1791494053522529-000033.json",
+        "VSC-pace-success-passauf-default-1791494054946777-000034.json",
+        "VSC-pace-success-passauf-default-1791494056370512-000035.json",
+        "VSC-pace-success-passauf-default-1791494057798632-000036.json",
+        "VSC-pace-success-passauf-default-1791494059238701-000037.json",
+        "VSC-pace-success-passauf-default-1791494060694650-000038.json",
+        "VSC-pace-success-passauf-default-1791494062134707-000039.json",
+        "VSC-pace-success-passauf-default-1791494063582709-000040.json",
+        "VSC-pace-success-passauf-default-1791494065042515-000041.json",
+        "VSC-pace-success-passauf-default-1791494066474584-000042.json",
+        "VSC-pace-success-passauf-default-1791494067914506-000043.json",
+        "VSC-pace-success-passauf-default-1791494069362623-000044.json",
+        "VSC-pace-success-passauf-default-1791494070798636-000045.json",
+        "VSC-pace-success-passauf-default-1791494072238649-000046.json",
+        "VSC-pace-success-passauf-default-1791494073674498-000047.json",
+        "VSC-pace-success-passauf-default-1791494075118773-000048.json",
+        "VSC-pace-success-passauf-default-1791494076570534-000049.json",
+        "VSC-pace-success-passauf-default-1791494077998559-000050.json",
+        "VSC-pace-success-passauf-default-1791494079430573-000051.json",
+        "VSC-pace-success-passauf-default-1791494080874625-000052.json",
+        "VSC-pace-success-passauf-default-1791494082301589-000053.json",
+        "VSC-pace-success-passauf-default-1791494083754756-000054.json",
+        "VSC-pace-success-passauf-default-1791494085214764-000055.json",
+        "VSC-pace-success-passauf-default-1791494086658532-000056.json",
+        "VSC-pace-success-passauf-default-1791494088078657-000057.json",
+        "VSC-pace-success-passauf-default-1791494089534546-000058.json",
+        "VSC-pace-success-passauf-default-1791494090966691-000059.json",
+        "VSC-pace-success-passauf-default-1791494092410689-000060.json",
+        "VSC-pace-success-passauf-default-1791494093846627-000061.json",
+        "VSC-pace-success-passauf-default-1791494095294515-000062.json",
+        "VSC-pace-success-passauf-default-1791494096738548-000063.json",
+        "VSC-pace-success-passauf-default-1791494098182667-000064.json",
+        "VSC-pace-success-passauf-default-1791494099630618-000065.json",
+        "VSC-pace-success-passauf-default-1791494101054517-000066.json",
+        "VSC-pace-success-passauf-default-1791494102502495-000067.json",
+        "VSC-pace-success-passauf-default-1791494103946553-000068.json",
+        "VSC-pace-success-passauf-default-1791494105379459-000069.json",
+        "VSC-pace-success-passauf-default-1791494106806565-000070.json",
+        "VSC-pace-success-passauf-default-1791494108238573-000071.json",
+        "VSC-pace-success-passauf-default-1791494109694517-000072.json",
+        "VSC-pace-success-passauf-default-1791494111130571-000073.json",
+        "VSC-pace-success-passauf-default-1791494112574536-000074.json",
+        "VSC-pace-success-passauf-default-1791494114018619-000075.json",
+        "VSC-pace-success-passauf-default-1791494115466504-000076.json",
+        "VSC-pace-success-passauf-default-1791494116902548-000077.json",
+        "VSC-pace-success-passauf-default-1791494118346716-000078.json",
+        "VSC-pace-success-passauf-default-1791494119783081-000079.json",
+        "VSC-pace-success-passauf-default-1791494121218421-000080.json",
+        "VSC-pace-success-passauf-default-1791494122666505-000081.json",
+        "VSC-pace-success-passauf-default-1791494124106576-000082.json",
+        "VSC-pace-success-passauf-default-1791494125538516-000083.json",
+        "VSC-pace-success-passauf-default-1791494126974595-000084.json",
+        "VSC-pace-success-passauf-default-1791494128418648-000085.json",
+        "VSC-pace-success-passauf-default-1791494129870537-000086.json",
+        "VSC-pace-success-passauf-default-1791494131294568-000087.json",
+        "VSC-pace-success-passauf-default-1791494132746593-000088.json",
+        "VSC-pace-success-passauf-default-1791494134194665-000089.json",
+        "VSC-pace-success-passauf-default-1791494135650505-000090.json",
+        "VSC-pace-success-passauf-default-1791494137086695-000091.json",
+        "VSC-pace-success-passauf-default-1791494138526564-000092.json",
+        "VSC-pace-success-passauf-default-1791494139978658-000093.json",
+        "VSC-pace-success-passauf-default-1791494141402913-000094.json",
+        "VSC-pace-success-passauf-default-1791494142851816-000095.json",
+        "VSC-pace-success-passauf-default-1791494144290521-000096.json",
+        "VSC-pace-success-passauf-default-1791494145734714-000097.json",
+        "VSC-pace-success-passauf-default-1791494147178432-000098.json",
+        "VSC-pace-success-passauf-default-1791494148630639-000099.json",
+        "VSC-pace-success-passauf-default-1791494150070562-000100.json"
+      ],
+      "bundle_sha256": "1ce51518efac65da44c8b69dc4fbd58e9b7d17de8f36af7e3cb20cdb23a4a575"
+    },
+    "CELL-VSC-pace-success-multi-info-passauf-default": {
+      "type": "finding",
+      "scenario": {
+        "id": "VSC-pace-success-multi-info-passauf-default",
+        "cell": "VSC-pace-success-multi-info",
+        "test_cases": [
+          "VSC-pace-success-multi-info"
+        ],
+        "library": "passauf",
+        "mechanism": "PACE",
+        "condition": "pace_success",
+        "variant": "default",
+        "tier": "independent",
+        "profiles": [
+          {
+            "path": "profiles/independent/VSC-pace-success-multi-info.json",
+            "sha256": "efbbfee4c0e3b9efde383e13fd53ff98575d5b97df8f600aa5c82d0eea455adf"
+          }
+        ]
+      },
+      "execution": {
+        "driver": "rust/passauf_read",
+        "middleware": null,
+        "suite_n": 1
+      },
+      "observation": {
+        "n": 1,
+        "n_scored": 0,
+        "counts": {
+          "silent": 0,
+          "status_only": 0,
+          "surfaced": 0,
+          "not_applicable": 1,
+          "invalid": 0
+        },
+        "scored_pct": {
+          "silent": 0.0,
+          "status_only": 0.0,
+          "surfaced": 0.0
+        },
+        "dominant_outcome": null,
+        "behaviour_classes": [
+          {
+            "signature": "not_applicable|00100|",
+            "count": 1,
+            "example_run": "VSC-pace-success-multi-info-passauf-default-1791494004614669-000001"
+          }
+        ]
+      },
+      "finding": {
+        "threshold_pct": 95.0,
+        "min_n": 2,
+        "applicable": false,
+        "met": false
+      },
+      "artifact_refs": [
+        "VSC-pace-success-multi-info-passauf-default-1791494004614669-000001.json"
+      ],
+      "bundle_sha256": "22902f4bb90f8b173a78a83ccfcac2391b4b0ddb491f207ec3227a504cab7de2"
+    }
+  },
+  "environment": {
+    "python": "3.13.5",
+    "go": "go version go1.26.0 linux/amd64",
+    "java": "openjdk version \"21.0.12.1\" 2026-08-18"
+  }
+}
