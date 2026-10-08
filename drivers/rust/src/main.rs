@@ -209,7 +209,7 @@ fn run() -> i32 {
             let cell = Arc::new(Mutex::new(Some(vpcd)));
             let c2 = cell.clone();
             {
-                let card = CallbackSmartcard::new(move |capdu: &[u8]| c2.lock().unwrap().as_mut()?.transceive(capdu));
+                let card = CallbackSmartcard::new(move |capdu: &[u8]| c2.lock().unwrap_or_else(|e| e.into_inner()).as_mut()?.transceive(capdu));
                 let mut boxed: Box<dyn Smartcard> = Box::new(card);
                 let options = ReadOptions {
                     access_key: AccessKey::Mrz {
@@ -222,15 +222,28 @@ fn run() -> i32 {
                     file_prefix: "document".into(),
                     print: false,
                 };
-                match read_document(&mut boxed, &options, &mut |_| {}) {
-                    Ok(doc) => authentication = doc.authentication,
-                    Err(e) => read_err = format!("SessionError::{}: {}", e.kind(), e),
+                // passauf panics when a response is missing or too short (iso7816.rs, exchange: "The card
+                // stopped responding mid-exchange"). Its own app integration (src/ffi/mod.rs) wraps
+                // read_document in catch_unwind and hands the panic to the app as an error; the driver
+                // calls it the same way, so a panic reaches the caller as an error.
+                let outcome = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                    read_document(&mut boxed, &options, &mut |_| {})
+                }));
+                match outcome {
+                    Ok(Ok(doc)) => authentication = doc.authentication,
+                    Ok(Err(e)) => read_err = format!("SessionError::{}: {}", e.kind(), e),
+                    Err(payload) => {
+                        let msg = payload.downcast_ref::<&str>().map(|s| s.to_string())
+                            .or_else(|| payload.downcast_ref::<String>().cloned())
+                            .unwrap_or_else(|| "non-string panic payload".into());
+                        read_err = format!("panic: {}", msg);
+                    }
                 }
             }
-            if let Some(v) = cell.lock().unwrap().take() {
+            if let Some(v) = cell.lock().unwrap_or_else(|e| e.into_inner()).take() {
                 v.close();
             }
-            trace = tr.lock().unwrap().clone();
+            trace = tr.lock().unwrap_or_else(|e| e.into_inner()).clone();
         }
     }
 
