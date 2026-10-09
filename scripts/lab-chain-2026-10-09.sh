@@ -6,6 +6,7 @@
 #  3. T5b: secure-messaging mutants (design D5 side table), run on the CA and AA cells, scored.
 # Progress: ~/cbo/lab-chain.progress. Stop: kill $(cat ~/cbo/lab-chain.pid)
 set -uo pipefail
+# 9 Oct 10:05: rerun after the first pass (evaluate stopped at pace on the 7 known passauf cells; dmrtd driver path).
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 P=~/cbo/lab-chain.progress
@@ -18,11 +19,16 @@ st "start: harness $(git rev-parse --short HEAD)"
 
 if make test > ~/cbo/chain-test.log 2>&1; then st "tests pass"; else st "TESTS FAILED (chain-test.log): stopped"; exit 1; fi
 
-if bash scripts/evaluate.sh > ~/cbo/chain-evaluate.log 2>&1; then
-  st "T56 check evaluation OK (all suites verify against their expectations with DG2)"
-else
-  st "T56 check evaluation FAILED (chain-evaluate.log); T5b still runs"
-fi
+# One suite per call: evaluate.sh stops at the first suite with a mismatch, and the pace suite holds the
+# seven passauf held-out cells whose pre-registered expectation was not met (run f1553f2). Those seven are
+# the expected mismatches; any other mismatch is a change.
+for suite in ${CHECK_SUITES:-pace ca-aa controls independent independent-repeat}; do
+  if SUITES=$suite bash scripts/evaluate.sh > ~/cbo/chain-evaluate-$suite.log 2>&1; then
+    st "T56 check $suite: all entries verify"
+  else
+    st "T56 check $suite: $(grep -c '^VERIFY FAIL' ~/cbo/chain-evaluate-$suite.log) mismatches, of which not passauf: $(grep '^VERIFY FAIL' ~/cbo/chain-evaluate-$suite.log | grep -vc passauf) (chain-evaluate-$suite.log)"
+  fi
+done
 
 mkdir -p mutation/sm-side
 if python3 mutation/make_mutants.py --vendor ../_vendor --steps SM --out mutation/sm-side > ~/cbo/chain-sm-make.log 2>&1; then

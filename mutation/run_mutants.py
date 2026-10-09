@@ -191,6 +191,7 @@ def main() -> None:
     ap.add_argument("--timeout", type=int, default=60)
     ap.add_argument("--mutants", type=Path, default=ROOT / "mutation/mutants.jsonl")
     a = ap.parse_args()
+    a.out, a.vendor = a.out.resolve(), a.vendor.resolve()   # driver copies inside OUT refer to these paths
     a.out.mkdir(parents=True, exist_ok=True)
     reduced = json.loads((ROOT / "mutation/reduced.json").read_text(encoding="utf-8"))["entries"]
     mutants = [json.loads(l) for l in a.mutants.read_text(encoding="utf-8").splitlines() if l.strip()]
