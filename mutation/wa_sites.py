@@ -71,7 +71,7 @@ def main() -> None:
                 if a.extension == "E1":
                     if frozen or lang not in ("java", "cs") or not E1_IF.match(line):
                         continue
-                    if not any(re.search(r"throw", x) for x in lines[no - 1:no + 3]):
+                    if not any(re.search(r"\bthrow\b", x) for x in lines[no - 1:no + 3]):
                         continue
                     kinds = ["check"]
                 elif not frozen:
