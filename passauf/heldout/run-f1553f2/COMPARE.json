@@ -21,7 +21,22 @@
    "PACE-mse-set-at-no-response",
    "PACE-mse-set-at-timeout",
    "PACE-mse-set-at-transport-abort"
-  ]
+  ],
+  "readings": {
+   "pre_registered": {
+    "not_applicable": 104,
+    "status_only": 37,
+    "surfaced": 6,
+    "silent": 1
+   },
+   "strict": {
+    "not_applicable": 104,
+    "status_only": 37,
+    "crash (panic)": 6,
+    "no return (hang)": 1
+   },
+   "rule": "strict: a panic caught at the call boundary is an abort, not a returned error; a call that does not return is counted apart. Both derived from the recorded fields read_err (prefix 'panic:') and hang; no rerun."
+  }
  },
  "misses": [
   {
@@ -39,7 +54,8 @@
    "fault_point": "PACE/general_authenticate",
    "access_control": "",
    "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
-   "hang": false
+   "hang": false,
+   "panic": true
   },
   {
    "test_case": "PACE-general-authenticate-timeout",
@@ -56,7 +72,8 @@
    "fault_point": "PACE/general_authenticate",
    "access_control": "",
    "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
-   "hang": false
+   "hang": false,
+   "panic": true
   },
   {
    "test_case": "PACE-general-authenticate-transport-abort",
@@ -73,7 +90,8 @@
    "fault_point": "PACE/general_authenticate",
    "access_control": "",
    "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
-   "hang": false
+   "hang": false,
+   "panic": true
   },
   {
    "test_case": "PACE-mse-set-at-6c00",
@@ -90,7 +108,8 @@
    "fault_point": "PACE/mse_set_at",
    "access_control": "",
    "read_err": "",
-   "hang": true
+   "hang": true,
+   "panic": false
   },
   {
    "test_case": "PACE-mse-set-at-no-response",
@@ -107,7 +126,8 @@
    "fault_point": "PACE/mse_set_at",
    "access_control": "",
    "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
-   "hang": false
+   "hang": false,
+   "panic": true
   },
   {
    "test_case": "PACE-mse-set-at-timeout",
@@ -124,7 +144,8 @@
    "fault_point": "PACE/mse_set_at",
    "access_control": "",
    "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
-   "hang": false
+   "hang": false,
+   "panic": true
   },
   {
    "test_case": "PACE-mse-set-at-transport-abort",
@@ -141,7 +162,8 @@
    "fault_point": "PACE/mse_set_at",
    "access_control": "",
    "read_err": "panic: The card stopped responding mid-exchange, most likely because it moved out of the reader's field.",
-   "hang": false
+   "hang": false,
+   "panic": true
   }
  ]
 }

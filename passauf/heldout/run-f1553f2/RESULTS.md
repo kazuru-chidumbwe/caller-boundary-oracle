@@ -29,3 +29,18 @@ The expectations were derived from passauf's PACE fallback path (`session.rs`, a
 ## Runs before this one
 
 Two earlier runs of the same manifest stopped and were archived as invalid on Testbed A: `07e0aa2` (the driver did not catch the panic and exited at PACE-general-authenticate-no-response) and `2e0a1a0` (the driver had no call limit and waited forever at PACE-mse-set-at-6c00). Both faults were in the driver; the expectations were not changed. Debug runs of the driver used copies of profiles under `/tmp` (the no-fault vsmartcard PACE success, and copies of the no-response and 6C00 profiles after the first two runs had shown their behaviour).
+
+## Two readings of the panic cells (added 9 Oct 2026)
+
+Each run records the raw facts: `read_err` starts with `panic:` when passauf panicked and the driver caught it, and `hang` is true when the call did not return within 120 s. From these, `results.jsonl` now carries a `panic` flag (derived, no rerun), and `COMPARE.json` gives both readings:
+
+| Outcome | Pre-registered reading (frozen oracle) | Strict reading |
+| --- | ---: | ---: |
+| not applicable | 104 | 104 |
+| status-only | 37 | 37 |
+| surfaced | 6 | 0 |
+| silent | 1 | 0 |
+| abort (panic) | n/a | 6 |
+| no return (hang) | n/a | 1 |
+
+Under the pre-registered reading a caught panic counts as surfaced, like an unchecked exception in the other languages; under the strict reading it is an abort, not a returned error, and passauf returns no PACE failure to its caller as an error at all. The driver catches the panic because passauf's own Android integration does (src/ffi/mod.rs); without the catch the driver terminates and no run is recorded. That decision was made after the first run reached the panic (run 07e0aa2, archived); the raw facts above make every conclusion independent of it.
