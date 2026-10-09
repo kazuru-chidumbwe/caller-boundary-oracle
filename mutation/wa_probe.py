@@ -26,7 +26,7 @@ from probe import ERR_LINE, insert_markers  # noqa: E402  (unchanged frozen plac
 import run_wa_mutants as rw  # noqa: E402
 
 LANG = {"go-webauthn": "go", "java-webauthn-server": "java", "webauthn4j": "java", "fido2-net-lib": "cs"}
-SITE = re.compile(r"CBOPROBE:(W-\d+):")
+SITE = re.compile(r"CBOPROBE:([WX]-\d+):")
 
 
 def build(lib: rw.Lib, files: list[str]) -> tuple[bool, str]:

@@ -28,6 +28,8 @@ SOURCES = {
 }
 EXT = {"go": ".go", "java": ".java", "cs": ".cs"}
 EXCLUDE = re.compile(r"(_test\.go$|/test/|Test\w*\.\w+$|(^|/)tests?/|(^|/)testing/|(^|/)metadata/|(^|/)Metadata/|(^|/)obj/|(^|/)bin/)")
+# Exploratory extension E1 (HELD-OUT-T62.md): Java and C# `if` statements that guard a throw within 3 lines.
+E1_IF = re.compile(r"^\s*(\}\s*)?(else\s+)?if\s*\(")
 REG = re.compile(r"regist|attestation|MakeNewCredential|CreateCredential|FinishRegistration", re.I)
 AUTH = re.compile(r"assert|login|authentic|MakeAssertion|FinishAssertion|ValidateLogin", re.I)
 
@@ -46,6 +48,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--vendor", type=Path, default=ROOT.parent / "_vendor")
     ap.add_argument("--out", type=Path, required=True)
+    ap.add_argument("--extension", choices=["E1"], default=None, help="exploratory extension sites only (X-nnnn)")
     a = ap.parse_args()
     rows = []
     for lib, (rel_root, lang) in SOURCES.items():
@@ -64,14 +67,21 @@ def main() -> None:
                 if not s or s.startswith(("//", "*", "/*", "///", "#")):
                     continue
                 kinds = [k for k, rx in m1_sites.PATTERNS[lang] if re.search(rx, line)]
-                if not kinds or not m1_sites.is_decision(kinds, s):
+                frozen = bool(kinds) and m1_sites.is_decision(kinds, s)
+                if a.extension == "E1":
+                    if frozen or lang not in ("java", "cs") or not E1_IF.match(line):
+                        continue
+                    if not any(re.search(r"throw", x) for x in lines[no - 1:no + 3]):
+                        continue
+                    kinds = ["check"]
+                elif not frozen:
                     continue
                 rows.append({"library": lib, "versions": "x", "file": rel, "line": no, "function": func,
                              "kinds": "+".join(kinds), "step_hint": step(rel, func),
                              "code": re.sub(r"\s+", " ", s)[:200],
                              "context": " | ".join(x.strip() for x in lines[no - 1:no + 5] if x.strip())[:400]})
     for i, r in enumerate(rows, 1):
-        r["site_id"] = f"W-{i:04d}"
+        r["site_id"] = f"{'X' if a.extension else 'W'}-{i:04d}"
     a.out.parent.mkdir(parents=True, exist_ok=True)
     fields = ["site_id", "library", "versions", "file", "line", "function", "kinds", "step_hint", "code", "context"]
     with a.out.open("w", encoding="utf-8", newline="") as fh:
