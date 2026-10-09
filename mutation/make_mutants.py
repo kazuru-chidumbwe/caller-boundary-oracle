@@ -14,6 +14,8 @@ Each mutant is one replacement of a line span in one file. Nothing is compiled h
 builds each mutant and records build failures.
 
 Usage: python3 mutation/make_mutants.py --vendor ../_vendor   (writes mutation/mutants.jsonl and mutants.csv)
+       python3 mutation/make_mutants.py --vendor ../_vendor --steps SM --out mutation/sm-side
+       (design D5 side table: secure-messaging sites, same operators; run on the CA and AA cells)
 """
 
 from __future__ import annotations
@@ -282,9 +284,13 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--vendor", type=Path, default=ROOT.parent / "_vendor")
     ap.add_argument("--sites", type=Path, default=ROOT / "mining" / "m1-sites.csv")
+    ap.add_argument("--steps", default=",".join(sorted(STEPS)), help="comma-separated step hints (default PACE,CA,AA)")
+    ap.add_argument("--out", type=Path, default=ROOT / "mutation", help="directory for mutants.jsonl and mutants.csv")
     a = ap.parse_args()
+    steps = set(a.steps.split(","))
+    a.out.mkdir(parents=True, exist_ok=True)
     sites = [s for s in csv.DictReader(a.sites.open(encoding="utf-8", newline=""))
-             if s["library"] in LIBS and s["step_hint"] in STEPS]
+             if s["library"] in LIBS and s["step_hint"] in steps]
     records = []
     for s in sites:
         versions = s["versions"].split(",") if s["library"] == "gmrtd" else ["x"]
@@ -296,12 +302,12 @@ def main() -> None:
                 continue
             path = source_root(a.vendor, s["library"], v) / s["file"]
             records += mutants_for(s, v, line, path)
-    out = ROOT / "mutation" / "mutants.jsonl"
+    out = a.out / "mutants.jsonl"
     with out.open("w", encoding="utf-8", newline="\n") as f:
         for r in records:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     fields = ["mutant_id", "site_id", "library", "version", "step", "operator", "file", "line", "status", "reason"]
-    with (ROOT / "mutation" / "mutants.csv").open("w", encoding="utf-8", newline="") as f:
+    with (a.out / "mutants.csv").open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
         w.writeheader()
         w.writerows(records)

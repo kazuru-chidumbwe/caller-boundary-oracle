@@ -11,6 +11,8 @@ The reference run must reproduce the expected outcome of every reduced-suite ent
 not, the script stops before any mutant runs.
 
 Usage (lab):  bash mutation/run.sh [--only gmrtd] [--limit N]
+              bash mutation/run.sh --mutants mutation/sm-side/mutants.jsonl --out ../mutruns-sm
+              (secure-messaging mutants run on the CA and AA entries plus CONTROL; design D5)
 """
 
 from __future__ import annotations
@@ -136,7 +138,8 @@ def entries_for(reduced: list[dict], library: str, version: str, step: str | Non
             continue
         if library == "gmrtd" and e.get("gmrtd_pin") != version:
             continue
-        if step is None or e["step"] in (step, "CONTROL"):
+        steps = ("CA", "AA") if step == "SM" else (step,)
+        if step is None or e["step"] in (*steps, "CONTROL"):
             out.append(e)
     return out
 
@@ -186,10 +189,11 @@ def main() -> None:
     ap.add_argument("--only", default=None, help="library name")
     ap.add_argument("--limit", type=int, default=None, help="at most N mutants per library version (smoke test)")
     ap.add_argument("--timeout", type=int, default=60)
+    ap.add_argument("--mutants", type=Path, default=ROOT / "mutation/mutants.jsonl")
     a = ap.parse_args()
     a.out.mkdir(parents=True, exist_ok=True)
     reduced = json.loads((ROOT / "mutation/reduced.json").read_text(encoding="utf-8"))["entries"]
-    mutants = [json.loads(l) for l in (ROOT / "mutation/mutants.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+    mutants = [json.loads(l) for l in a.mutants.read_text(encoding="utf-8").splitlines() if l.strip()]
     mutants = [m for m in mutants if m["status"] == "ok" and (a.only is None or m["library"] == a.only)]
     groups: dict[tuple[str, str], list[dict]] = {}
     for m in mutants:
