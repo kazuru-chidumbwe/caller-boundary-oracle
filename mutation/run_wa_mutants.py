@@ -37,6 +37,9 @@ WA = Path(os.environ.get("WA_BUILD", str(ROOT.parent / "cbo-wa")))   # checkout 
 VENDOR = Path(os.environ.get("VENDOR_DIR", str(ROOT.parent / "_vendor")))
 DOTNET = VENDOR / "dotnet" / "dotnet"
 LOMBOK = Path.home() / ".m2/repository/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar"
+# Compile-only annotation jars the library sources import but the runtime jars do not carry (webauthn4j:
+# libs.versions.toml jetbrains-annotations 26.1.0). On the javac classpath only.
+COMPILE_ONLY = [Path.home() / ".m2/repository/org/jetbrains/annotations/26.1.0/annotations-26.1.0.jar"]
 HELDOUT = ROOT / "webauthn/heldout/run-0f5983b/results.jsonl"
 ARMS = {"go-webauthn": ["go-webauthn"], "java-webauthn-server": ["java-webauthn-server"],
         "webauthn4j": ["webauthn4j-strict", "webauthn4j-nonstrict"], "fido2-net-lib": ["fido2-net-lib"]}
@@ -110,7 +113,7 @@ class Lib:
         if changed is None:
             return True, ""
         cp = f"{WA}/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:{WA}/webauthn/drivers/java/target/lib/*"
-        cmd = ["javac", "-nowarn", "-encoding", "UTF-8", "-proc:full", "-cp", f"{cp}:{LOMBOK}",
+        cmd = ["javac", "-nowarn", "-encoding", "UTF-8", "-proc:full", "-cp", ":".join([cp, str(LOMBOK), *map(str, COMPILE_ONLY)]),
                "-processorpath", str(LOMBOK), "-d", str(classes), str(self.src / changed)]
         rc, msg = sh(cmd, self.src)
         return rc == 0, msg
