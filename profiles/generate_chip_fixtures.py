@@ -8,17 +8,21 @@ The signer is a throwaway self-signed certificate: Passive Authentication fails 
 the empty CSCA pool the drivers use, which gmrtd records without aborting the read.
 
 The harness chip is consistent: it serves DG1 (a TD3 MRZ for the ICAO 9303 Part 11 worked
-example document used by every harness profile) and EF.COM and EF.SOD list exactly the data
-groups it serves (DG1, plus DG14 or DG15 when a profile configures them).
+example document used by every harness profile) and DG2 (ICAO 9303 Part 10: a biometric
+information template holding one ISO/IEC 19794-5 face record with a small greyscale JPEG), and
+EF.COM and EF.SOD list exactly the data groups it serves (DG1 and DG2, plus DG14 or DG15 when a
+profile configures them). Doc 9303 makes DG1 and DG2 mandatory.
 
-Outputs (committed): simulator/fixtures/dg1.hex, sod-dg1.hex, sod-dg1-dg14.hex,
-sod-dg1-dg15.hex, and vsc-*.hex for the independent vsmartcard chip.
+Outputs (committed): simulator/fixtures/dg1.hex, dg2.hex, sod-dg1-dg2.hex, sod-dg1-dg2-dg14.hex,
+sod-dg1-dg2-dg15.hex, and (with --vsmartcard) vsc-*.hex for the independent vsmartcard chip.
 """
 
 from __future__ import annotations
 
+import argparse
 import datetime
 import hashlib
+import io
 from pathlib import Path
 
 from asn1crypto import algos, cms, core, x509 as asn1_x509
@@ -187,14 +191,44 @@ def harness_td3_mrz() -> bytes:
     return (line1 + line2).encode("ascii")
 
 
+def face_jpeg() -> tuple[bytes, int, int]:
+    """A 48 x 64 greyscale JPEG (oval on a flat background), deterministic."""
+    from PIL import Image, ImageDraw
+    w, h = 48, 64
+    img = Image.new("L", (w, h), 200)
+    ImageDraw.Draw(img).ellipse((10, 8, 38, 52), fill=120)
+    buf = io.BytesIO()
+    img.save(buf, format="JPEG", quality=75, optimize=False, progressive=False)
+    return buf.getvalue(), w, h
+
+
+def dg2_face() -> bytes:
+    """DG2 per ICAO 9303 Part 10 (tag 75, one 7F61 group with one 7F60 template) carrying an
+    ISO/IEC 19794-5:2005 facial record (FAC, version 010) with one JPEG image."""
+    jpeg, w, h = face_jpeg()
+    face_info = bytes(4 + 2 + 1 + 1 + 1 + 3 + 2 + 3 + 3)       # length set below; no feature points
+    # face type 1 (full frontal), JPEG, width, height, colour space 3 (8-bit greyscale), source, device, quality
+    image_info = bytes([0x01, 0x00]) + w.to_bytes(2, "big") + h.to_bytes(2, "big") + bytes([0x03, 0x00]) + bytes(4)
+    face_len = len(face_info) + len(image_info) + len(jpeg)
+    face_info = face_len.to_bytes(4, "big") + face_info[4:]
+    record = b"FAC\x00" + b"010\x00" + (14 + face_len).to_bytes(4, "big") + (1).to_bytes(2, "big")
+    record += face_info + image_info + jpeg
+    bht = tlv(bytes([0xA1]), tlv(bytes([0x80]), bytes([0x01, 0x01])) + tlv(bytes([0x81]), bytes([0x02]))
+              + tlv(bytes([0x87]), bytes([0x01, 0x01])) + tlv(bytes([0x88]), bytes([0x00, 0x08])))
+    bit = tlv(bytes([0x7F, 0x60]), bht + tlv(bytes([0x5F, 0x2E]), record))
+    return tlv(bytes([0x75]), tlv(bytes([0x7F, 0x61]), tlv(bytes([0x02]), bytes([0x01])) + bit))
+
+
 def harness_fixtures(key: rsa.RSAPrivateKey, cert: bytes) -> None:
-    """DG1, and SODs listing DG1 alone or with DG14 / DG15, with real hashes."""
+    """DG1, DG2, and SODs listing DG1 and DG2 alone or with DG14 / DG15, with real hashes."""
     dg1 = tlv(bytes([0x61]), tlv(bytes([0x5F, 0x1F]), harness_td3_mrz()))
+    dg2 = dg2_face()
     write_hex("dg1.hex", dg1)
+    write_hex("dg2.hex", dg2)
     dgs = {n: bytes.fromhex(p.read_text(encoding="utf-8").strip()) for n, p in DG_FILES.items()}
-    for name, groups in (("sod-dg1.hex", {1: dg1}),
-                         ("sod-dg1-dg14.hex", {1: dg1, 14: dgs[14]}),
-                         ("sod-dg1-dg15.hex", {1: dg1, 15: dgs[15]})):
+    for name, groups in (("sod-dg1-dg2.hex", {1: dg1, 2: dg2}),
+                         ("sod-dg1-dg2-dg14.hex", {1: dg1, 2: dg2, 14: dgs[14]}),
+                         ("sod-dg1-dg2-dg15.hex", {1: dg1, 2: dg2, 15: dgs[15]})):
         econtent = lds_security_object({n: hashlib.sha256(b).digest() for n, b in groups.items()})
         write_hex(name, retag_as_ef_sod(sign_sod(key, [cert], econtent, "sha256")))
 
@@ -210,9 +244,13 @@ def vsmartcard_fixtures(key: rsa.RSAPrivateKey, cert: bytes) -> None:
 
 
 def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--vsmartcard", action="store_true", help="also rewrite the vsmartcard chip's fixtures")
+    args = ap.parse_args()
     key, cert = self_signed()
     harness_fixtures(key, cert)
-    vsmartcard_fixtures(key, cert)
+    if args.vsmartcard:
+        vsmartcard_fixtures(key, cert)
 
 
 if __name__ == "__main__":

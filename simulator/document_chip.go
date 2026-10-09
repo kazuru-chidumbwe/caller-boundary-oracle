@@ -13,14 +13,17 @@ import (
 //go:embed fixtures/dg1.hex
 var dg1Hex string
 
-//go:embed fixtures/sod-dg1.hex
-var sodDg1Hex string
+//go:embed fixtures/dg2.hex
+var dg2Hex string
 
-//go:embed fixtures/sod-dg1-dg14.hex
-var sodDg1Dg14Hex string
+//go:embed fixtures/sod-dg1-dg2.hex
+var sodDg1Dg2Hex string
 
-//go:embed fixtures/sod-dg1-dg15.hex
-var sodDg1Dg15Hex string
+//go:embed fixtures/sod-dg1-dg2-dg14.hex
+var sodDg1Dg2Dg14Hex string
+
+//go:embed fixtures/sod-dg1-dg2-dg15.hex
+var sodDg1Dg2Dg15Hex string
 
 // ICAO Doc 9303 Part 10 Table 31 EF.DIR sample.
 var baseEfDir = utils.HexToBytes("61094F07A000000247100161094F07A000000247200161094F07A000000247200261094F07A0000002472003")
@@ -39,6 +42,7 @@ const (
 	fileIDEFCOM      = uint16(0x011E)
 	fileIDEFDIR      = uint16(0x2F00)
 	fileIDDG1        = uint16(0x0101)
+	fileIDDG2        = uint16(0x0102)
 	fileIDDG14       = uint16(0x010E)
 	fileIDDG15       = uint16(0x010F)
 )
@@ -83,12 +87,14 @@ func NewDocumentChip(cfg ChipConfig, pass *password.Password) *DocumentChip {
 	if paceSW == "" {
 		paceSW = "6FFF"
 	}
-	// EF.COM and EF.SOD list exactly the data groups served: DG1, plus DG14 or DG15.
-	sod := sodDg1Hex
-	comTags := []byte{0x61}
+	// EF.COM and EF.SOD list exactly the data groups served: DG1 and DG2 (mandatory in
+	// Doc 9303), plus DG14 or DG15.
+	sod := sodDg1Dg2Hex
+	comTags := []byte{0x61, 0x75}
 	files := map[uint16][]byte{
 		fileIDEFDIR: bytesClone(baseEfDir),
 		fileIDDG1:   utils.HexToBytes(strings.TrimSpace(dg1Hex)),
+		fileIDDG2:   utils.HexToBytes(strings.TrimSpace(dg2Hex)),
 	}
 	if cfg.CardAccessHex != "" {
 		files[fileIDCardAccess] = utils.HexToBytes(cfg.CardAccessHex)
@@ -96,11 +102,11 @@ func NewDocumentChip(cfg ChipConfig, pass *password.Password) *DocumentChip {
 	switch {
 	case cfg.Dg14Hex != "":
 		files[fileIDDG14] = utils.HexToBytes(cfg.Dg14Hex)
-		sod = sodDg1Dg14Hex
+		sod = sodDg1Dg2Dg14Hex
 		comTags = append(comTags, 0x6E)
 	case cfg.Dg15Hex != "":
 		files[fileIDDG15] = utils.HexToBytes(cfg.Dg15Hex)
-		sod = sodDg1Dg15Hex
+		sod = sodDg1Dg2Dg15Hex
 		comTags = append(comTags, 0x6F)
 	}
 	files[fileIDEFCOM] = efCom(comTags...)
