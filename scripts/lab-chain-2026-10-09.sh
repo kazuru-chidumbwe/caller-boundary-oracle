@@ -30,17 +30,17 @@ for suite in ${CHECK_SUITES:-pace ca-aa controls independent independent-repeat}
   fi
 done
 
-mkdir -p mutation/sm-side
-if python3 mutation/make_mutants.py --vendor ../_vendor --steps SM --out mutation/sm-side > ~/cbo/chain-sm-make.log 2>&1; then
+mkdir -p ../sm-side
+if python3 mutation/make_mutants.py --vendor ../_vendor --steps SM --out ../sm-side > ~/cbo/chain-sm-make.log 2>&1; then
   st "T5b mutants: $(head -1 ~/cbo/chain-sm-make.log)"
 else
   st "T5b generator FAILED (chain-sm-make.log): stopped"; exit 1
 fi
-if bash mutation/run.sh --mutants mutation/sm-side/mutants.jsonl --out ../mutruns-sm > ~/cbo/chain-sm-run.log 2>&1; then
+if bash mutation/run.sh --mutants ../sm-side/mutants.jsonl --out ../mutruns-sm > ~/cbo/chain-sm-run.log 2>&1; then
   st "T5b runs done"
 else
   st "T5b runs stopped (chain-sm-run.log; tail of ../mutruns-sm/progress.log)"; exit 1
 fi
-python3 mutation/score.py --runs ../mutruns-sm/runs --out mutation/sm-side/out > ~/cbo/chain-sm-score.log 2>&1 \
-  && st "T5b scored (mutation/sm-side/out)" || st "T5b scoring FAILED (chain-sm-score.log)"
+python3 mutation/score.py --runs ../mutruns-sm/runs --out ../sm-side/out > ~/cbo/chain-sm-score.log 2>&1 \
+  && st "T5b scored (~/cbo/sm-side/out)" || st "T5b scoring FAILED (chain-sm-score.log)"
 st "LAB CHAIN ALL DONE"
