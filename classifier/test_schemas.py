@@ -107,7 +107,8 @@ class TestSuites(unittest.TestCase):
                     want = e["expect_outcome"]
                     for o in want if isinstance(want, list) else [want]:
                         self.assertIn(o, outcomes)
-                    key = (e["test_case"], e["library"], e["variant"])
+                    # a held-out manifest gathers entries from several suites; source_suite keeps them apart
+                    key = (e["test_case"], e["library"], e["variant"], e.get("source_suite"))
                     self.assertNotIn(key, keys)
                     keys.add(key)
 
