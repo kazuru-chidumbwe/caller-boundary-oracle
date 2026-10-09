@@ -165,7 +165,7 @@ def main() -> None:
     (a.out / "runs").mkdir(parents=True, exist_ok=True)
     cases_dir = a.out / "cases"
     if not cases_dir.exists():
-        subprocess.run([sys.executable, str(ROOT / "webauthn/authenticator.py"), "--out", str(cases_dir)], check=True)
+        subprocess.run([str(VENDOR / "webauthn-venv/bin/python"), str(ROOT / "webauthn/authenticator.py"), "--out", str(cases_dir)], check=True)
     cases = sorted(p for p in cases_dir.iterdir() if p.is_dir())
     ceremony = {c.name: json.loads((c / "report.json").read_text(encoding="utf-8"))["ceremony"] for c in cases}
     held = {}
