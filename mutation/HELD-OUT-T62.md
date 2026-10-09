@@ -41,3 +41,11 @@ py_webauthn and simplewebauthn are not mutated: `make_mutants.py` has no operato
 ## Not decided by results
 
 If the probe shows that a library's verification is mostly unreached by the cases, that is reported as it is; no case is added for T62.
+
+## Exploratory extension E1 (9 Oct 2026, 14:10 UTC; not part of the frozen held-out claim)
+
+**Why.** The reachability probe showed that the frozen site rule reaches few sites in the Java and C# libraries (java-webauthn-server 10 of 185, webauthn4j 15 of 551, Fido2 2 of 274, 142 unknown). The cause is the frozen check pattern for Java and C#: it marks an `if` only when its condition names a status word (`sw`, `status`), an eMRTD idiom. The verification checks of these libraries (`if (!originMatches) throw ...`) are therefore not sites; only their `throw` lines are, and each runs only in the one case whose fault it rejects. Go is unaffected (its frozen check pattern, `if err != nil`, is generic).
+
+**Extension.** For Java and C# only, an additional check site is every `if` statement whose condition guards a `throw` within the next three lines (the generic form of a failure check), in the same sources and with the same exclusions, step rule, operators (O2, O5), runner, probe and scorers. Extension sites get IDs `X-nnnn`; sites the frozen rule already marks are not repeated.
+
+**Reporting.** The frozen run (sites `W-nnnn`) is the pre-registered held-out result and is reported first, with its reach, unchanged. E1 is reported separately as exploratory and is never pooled with the frozen result or with the development results. Its purpose is to show what the frozen design sees when its one domain-specific pattern is replaced by the generic one, which is the transfer question the paper discusses.
