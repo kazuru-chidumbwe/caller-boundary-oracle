@@ -32,7 +32,9 @@ sys.path.insert(0, str(ROOT / "mining"))
 import m1_sites  # noqa: E402
 
 STEPS = {"PACE", "CA", "AA"}
-LIBS = {"gmrtd": "go", "jmrtd": "java", "emrtd-dotnet": "cs", "dmrtd": "dart"}
+LIBS = {"gmrtd": "go", "jmrtd": "java", "emrtd-dotnet": "cs", "dmrtd": "dart",
+        # T62 held-out WebAuthn libraries (mutation/HELD-OUT-T62.md); sites from mutation/wa_sites.py
+        "go-webauthn": "go", "java-webauthn-server": "java", "webauthn4j": "java", "fido2-net-lib": "cs"}
 SUCCESS_TEST = re.compile(
     r"==\s*(ISO7816\.)?SW_NO_ERROR|==\s*StatusWord\.success|==\s*0x9000\b|(\berr|Err)\s*==\s*nil|"
     r"SW_NO_ERROR\s*==|StatusWord\.success\s*=="
@@ -43,7 +45,11 @@ def source_root(vendor: Path, library: str, version: str) -> Path:
     if library == "gmrtd":
         return vendor / f"gmrtd-{version}"
     return {"jmrtd": vendor / "jmrtd-sources-0.8.9", "emrtd-dotnet": vendor / "emrtd-dotnet",
-            "dmrtd": vendor / "dmrtd"}[library]
+            "dmrtd": vendor / "dmrtd",
+            "go-webauthn": vendor / "wa-src/go-webauthn",
+            "java-webauthn-server": vendor / "wa-src/java-webauthn-server/webauthn-server-core/src/main/java",
+            "webauthn4j": vendor / "wa-src/webauthn4j/webauthn4j-core/src/main/java",
+            "fido2-net-lib": vendor / "wa-src/fido2-net-lib/Src/Fido2"}[library]
 
 
 def occurrences(lines: list[str], lang: str) -> dict[int, tuple[str, str, int]]:

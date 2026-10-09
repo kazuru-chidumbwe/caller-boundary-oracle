@@ -26,7 +26,7 @@ Written 9 October 2026, before any held-out mutant was generated, built or run. 
 
 py_webauthn and simplewebauthn are not mutated: `make_mutants.py` has no operators for Python or TypeScript, and none are added.
 
-**Sites.** Every line of the library's main (non-test) sources above that the unchanged M1 patterns mark as a decision site. Test, example and metadata-service sources are excluded by path (`_test.go`, `src/test/`, `Test`, `metadata/`, `Metadata/`). No site is added or removed by hand.
+**Sites.** Every line of the library's main (non-test) sources above that the unchanged M1 patterns mark as a decision site. Test, test-helper, metadata-service and build-output sources are excluded by path (`mutation/wa_sites.py` EXCLUDE: `_test.go`, `/test/`, file names `Test*`, `test/`, `tests/`, `testing/`, `metadata/`, `Metadata/`, `obj/`, `bin/`). No site is added or removed by hand.
 
 **Step.** The WebAuthn analogue of PACE, CA and AA is the ceremony. A site's step is REG if its file or function name refers to registration or attestation (`regist`, `attestation`, `MakeNewCredential`, `CreateCredential`, `FinishRegistration`), AUTH if it refers to authentication or assertion (`assert`, `login`, `authentic`, `MakeAssertion`, `FinishAssertion`), and BOTH otherwise.
 
