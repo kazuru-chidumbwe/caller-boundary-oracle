@@ -19,7 +19,7 @@ printf 'release\tcommit\tgo_test\tverdict\tdetail\n' > "$result"
 
 run_one() {  # name dir
   local name="$1" dir="$2" log="$out/$1.log" line rc=0
-  cp "$here/zz_t63_leading_zero_test.go" "$dir/chipauth/"
+  cp "$here/zz_t63_leading_zero_test.go.in" "$dir/chipauth/zz_t63_leading_zero_test.go"
   (cd "$dir" && GOFLAGS=-mod=mod go test ./chipauth -run TestT63 -count=1 -v) > "$log" 2>&1 || rc=$?
   line="$(grep -m1 '^T63 ' "$log" || true)"
   if [ -n "$line" ]; then
