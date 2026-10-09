@@ -55,3 +55,4 @@ webauthn/drivers/dotnet/out/
 
 # per-release driver builds of the WebAuthn held-out evaluation (made by webauthn/heldout/build_releases.sh)
 webauthn/heldout/build/
+mining/m2/screen/cache/

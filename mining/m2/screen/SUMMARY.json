@@ -1,0 +1,41 @@
+{
+ "repositories": 532,
+ "by_decision": {
+  "included": 206,
+  "not_included": 259,
+  "E3": 22,
+  "E4": 31,
+  "E1": 14
+ },
+ "by_library_decision": {
+  "dmrtd E1": 1,
+  "dmrtd E4": 5,
+  "dmrtd included": 26,
+  "gmrtd E1": 3,
+  "gmrtd E4": 1,
+  "gmrtd not_included": 2,
+  "jmrtd E1": 9,
+  "jmrtd E4": 22,
+  "jmrtd included": 122,
+  "jmrtd not_included": 250,
+  "nfcpassportreader E1": 1,
+  "nfcpassportreader E3": 22,
+  "nfcpassportreader E4": 3,
+  "nfcpassportreader included": 58,
+  "nfcpassportreader not_included": 7
+ },
+ "call_sites": 314,
+ "call_sites_by_library": {
+  "dmrtd": 46,
+  "jmrtd": 210,
+  "nfcpassportreader": 58
+ },
+ "call_sites_by_library_step": {
+  "dmrtd AA": 24,
+  "dmrtd PACE": 22,
+  "jmrtd AA": 38,
+  "jmrtd CA": 54,
+  "jmrtd PACE": 118,
+  "nfcpassportreader READ": 58
+ }
+}
