@@ -31,6 +31,8 @@ OP_NAME = {"O1": "drop raise", "O2": "error to success", "O3": "swallow in catch
 
 
 def access(run: dict) -> str:
+    if "established" in run:   # WebAuthn runs (T62): acceptance by the library's top-level verdict; absent in eMRTD runs
+        return run["established"]
     ac = (run.get("access_control") or "").upper()
     if ac.startswith("PACE"):
         return "PACE"

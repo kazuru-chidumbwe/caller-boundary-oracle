@@ -34,7 +34,9 @@ py_webauthn and simplewebauthn are not mutated: `make_mutants.py` has no operato
 
 **Build.** Go: the driver is built against the mutated copy through a `replace` directive. Java: the mutated source file is compiled against the release jar and its dependencies (Lombok as annotation processor where the file uses it) and its classes are placed before the release jar on the classpath, as for JMRTD. Fido2: the driver is built against the mutated project instead of the NuGet package. A mutant that does not compile is reported and scored for no oracle.
 
-**Analysis.** `per_arm.py` and `score.py`, unchanged, on the run records. Reported in Section 5.1 next to the development results; nothing is pooled with them.
+**Output differential.** In eMRTD the output differential compares acceptance plus the access control established. The WebAuthn analogue, as the WebAuthn arm defines it (Section 5.4), is acceptance plus the library's top-level verdict (java-webauthn-server `success`; the other three APIs have none and refuse by raising). The runner records it as `established`, and `score.access()` returns that field when a record has it; eMRTD records do not, so their scores are unchanged.
+
+**Analysis.** `per_arm.py` and `score.py`, otherwise unchanged, on the run records (`mutation/run_wa_mutants.py` writes them in the form both read). Reported in Section 5.1 next to the development results; nothing is pooled with them.
 
 ## Not decided by results
 
