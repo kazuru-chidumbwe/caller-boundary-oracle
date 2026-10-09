@@ -38,8 +38,9 @@ def build(lib: rw.Lib, files: list[str]) -> tuple[bool, str]:
     classes.mkdir()
     cp = f"{rw.WA}/webauthn/drivers/java/target/webauthn-drivers-1.0.0.jar:{rw.WA}/webauthn/drivers/java/target/lib/*"
     cmd = ["javac", "-nowarn", "-encoding", "UTF-8", "-proc:full", "-cp", ":".join([cp, str(rw.LOMBOK), *map(str, rw.COMPILE_ONLY)]),
-           "-processorpath", str(rw.LOMBOK), "-d", str(classes), *[str(lib.src / f) for f in files]]
-    return rw.sh(cmd, lib.src, timeout=1800)
+           "-processorpath", str(rw.LOMBOK), "-Xmaxerrs", "10000", "-d", str(classes), *[str(lib.src / f) for f in files]]
+    p = subprocess.run(cmd, cwd=lib.src, capture_output=True, text=True, timeout=1800)
+    return p.returncode == 0, p.stdout + p.stderr   # full output: the error lines name the rejected markers
 
 
 def main() -> None:
@@ -62,7 +63,11 @@ def main() -> None:
         if m and m["status"] == "ok" and m["library"] in LANG:
             groups[m["library"]][m["file"]].add((m["site_id"], m["line"]))
     result = {}
+    prev = a.out / "reach.json"
+    result = json.loads(prev.read_text(encoding="utf-8")) if prev.exists() else {}
     for name, files in groups.items():
+        if f"{name}-x" in result:
+            continue                      # done in an earlier invocation
         lib = rw.Lib(name, a.work)
         lang = LANG[name]
         originals = {f: (lib.src / f).read_bytes() for f in files}
@@ -105,6 +110,7 @@ def main() -> None:
             for f in files:
                 (lib.src / f).write_bytes(originals[f])
         result[f"{name}-x"] = {"status": status, "reached": reached}
+        (a.out / "reach.json").write_text(json.dumps(result, indent=1, sort_keys=True), encoding="utf-8")
         n_placed = sum(v == "placed" for v in status.values())
         n_reached = len({s for ss in reached.values() for s in ss})
         print(f"{time.strftime('%H:%M:%S')} {name}: {len(status)} sites, {n_placed} probed, {n_reached} reached", flush=True)
