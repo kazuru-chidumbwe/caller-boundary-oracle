@@ -42,6 +42,7 @@ ARM_ORDER = [
     ("emrtd-dotnet", "default", "emrtd-dotnet"),
     ("dmrtd", "default", "dmrtd"),
     ("nfcpassportreader", "default", "NFCPassportReader"),
+    ("passauf", "default", "passauf (held out)"),
 ]
 LABEL = {(lib, var): label for lib, var, label in ARM_ORDER}
 ORDER = {(lib, var): i for i, (lib, var, _) in enumerate(ARM_ORDER)}

@@ -153,7 +153,8 @@ def outcome_mix(out: Path) -> None:
     beh = list(csv.DictReader((ROOT / "analysis/out/behaviour.csv").open(encoding="utf-8")))
     arms: dict[str, Counter] = defaultdict(Counter)
     for r in beh:
-        if r["mechanism"] == "CONTROL":
+        # passauf is shown from its held-out run under both readings below, not as an arm row
+        if r["mechanism"] == "CONTROL" or r["arm"].startswith("passauf"):
             continue
         for o, n in re.findall(r"(silent|status_only|surfaced|not_applicable) (\d+)", r["outcomes"]):
             arms[r["arm"]][o] += 1   # cells, not runs: each row is one fault point on one chip

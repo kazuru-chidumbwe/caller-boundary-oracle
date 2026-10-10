@@ -2,3 +2,5 @@ arm,mechanism,chip,fault point,outcome by failure kind
 JMRTD 0.8.9 catch-and-continue,CA,harness,CA/mse_set_at,silent: 6300 6800 6900 6982 6A00 6A80 6A88 6B00 6C00 6E00; surfaced: 6700 6F00 6FFF
 NFCPassportReader,AA,harness,AA/internal_authenticate,status_only: 6300 6700 6800 6900 6A00 6B00 6C00 6E00 6F00; surfaced: 6982 6A80 6A88 6FFF
 NFCPassportReader,AA,independent,AA/internal_authenticate,status_only: 6300 6700 6800 6900 6A00 6B00 6C00 6E00 6F00; surfaced: 6982 6A80 6A88 6FFF
+passauf (held out),PACE,harness,PACE/general_authenticate,status_only: 6300 6700 6800 6900 6982 6A00 6A80 6A88 6B00 6C00 6E00 6F00 6FFF; surfaced: no-response timeout transport-abort
+passauf (held out),PACE,harness,PACE/mse_set_at,silent: 6C00; status_only: 6300 6700 6800 6900 6982 6A00 6A80 6A88 6B00 6E00 6F00 6FFF; surfaced: no-response timeout transport-abort
