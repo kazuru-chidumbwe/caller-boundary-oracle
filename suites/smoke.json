@@ -169,7 +169,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     }
   ]
 }

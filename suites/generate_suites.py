@@ -47,14 +47,16 @@ EXPECT = {
         "passauf": ST,
     },
     "CA": {
-        "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": None,
+        # opt-in arm: the BAC-fallback flag changes PACE only; CA and AA stay status-only as in the default arm,
+        # as the version sweep measured for every release that has the flag (analysis/out/VERSION-SWEEP.md, T15)
+        "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": ST,
         "8fea245-guard": SU, "64bd6ab-guard": SU, "propagate": SU, "catch-continue": S,
         "emrtd-dotnet": None, "dmrtd": None,
         # passauf has Chip Authentication only as PACE-CAM, no MSE:Set KAT/AT CA after BAC
         "passauf": None,
     },
     "AA": {
-        "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": None,
+        "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": ST,
         "8fea245-guard": SU, "64bd6ab-guard": SU, "propagate": SU, "catch-continue": S,
         "emrtd-dotnet": None, "dmrtd": SU,
         # passauf implements no Active Authentication (no INTERNAL AUTHENTICATE in the sources)
@@ -130,7 +132,7 @@ def load_profiles(sub: str) -> list[tuple[str, dict]]:
 INDEPENDENT_EXPECT = {
     "PACE": {arm: NA for arm in EXPECT["PACE"]},
     "AA": {
-        "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": None,
+        "8fea245-default": ST, "64bd6ab-default": ST, "64bd6ab-allow-fallback": ST,
         "8fea245-guard": SU, "64bd6ab-guard": SU, "propagate": S, "catch-continue": S,
         "emrtd-dotnet": None, "dmrtd": SU, "passauf": None,
     },
@@ -259,7 +261,16 @@ def ios_entries() -> list[dict]:
     return out
 
 
+# Libraries held out from the development of the oracle and harness: their expectations were committed before
+# their first run (af4a92d for passauf) and are predictions; a mismatch is a result, reported by verify_manifest.py,
+# not a harness fault.
+HELD_OUT = {"passauf"}
+
+
 def write(suite_id: str, description: str, entries: list[dict]) -> None:
+    for e in entries:
+        if e.get("library") in HELD_OUT:
+            e["held_out"] = True
     doc = {"suite_id": suite_id, "description": description, "seed": 1, "n": 1, "entries": entries}
     path = ROOT / "suites" / f"{suite_id}.json"
     path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8", newline="\n")

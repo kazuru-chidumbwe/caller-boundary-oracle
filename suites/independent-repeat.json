@@ -95,7 +95,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-success.json",
       "expect_outcome": "not_applicable",
-      "n": 100
+      "n": 100,
+      "held_out": true
     }
   ]
 }

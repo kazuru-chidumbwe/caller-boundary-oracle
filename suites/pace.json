@@ -169,7 +169,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6300.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6700-gmrtd-8fea245-default",
@@ -336,7 +337,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6700.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6800-gmrtd-8fea245-default",
@@ -503,7 +505,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6800.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6900-gmrtd-8fea245-default",
@@ -670,7 +673,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6900.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6982-gmrtd-8fea245-default",
@@ -837,7 +841,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6982.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6a00-gmrtd-8fea245-default",
@@ -1004,7 +1009,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6a00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6a80-gmrtd-8fea245-default",
@@ -1184,7 +1190,8 @@
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6a80.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_10a"
+      "icao_p4": "ISO7816_C_10a",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6a88-gmrtd-8fea245-default",
@@ -1351,7 +1358,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6a88.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6b00-gmrtd-8fea245-default",
@@ -1518,7 +1526,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6b00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6c00-gmrtd-8fea245-default",
@@ -1685,7 +1694,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6c00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6e00-gmrtd-8fea245-default",
@@ -1852,7 +1862,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6e00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6f00-gmrtd-8fea245-default",
@@ -2032,7 +2043,8 @@
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6f00.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_10b"
+      "icao_p4": "ISO7816_C_10b",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-6fff-gmrtd-8fea245-default",
@@ -2199,7 +2211,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-6fff.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-no-response-gmrtd-8fea245-default",
@@ -2366,7 +2379,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-no-response.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-timeout-gmrtd-8fea245-default",
@@ -2533,7 +2547,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-timeout.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-general-authenticate-transport-abort-gmrtd-8fea245-default",
@@ -2700,7 +2715,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-general-authenticate-transport-abort.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6300-gmrtd-8fea245-default",
@@ -2867,7 +2883,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6300.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6700-gmrtd-8fea245-default",
@@ -3034,7 +3051,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6700.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6800-gmrtd-8fea245-default",
@@ -3201,7 +3219,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6800.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6900-gmrtd-8fea245-default",
@@ -3368,7 +3387,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6900.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6982-gmrtd-8fea245-default",
@@ -3535,7 +3555,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6982.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6a00-gmrtd-8fea245-default",
@@ -3702,7 +3723,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6a00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6a80-gmrtd-8fea245-default",
@@ -3882,7 +3904,8 @@
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6a80.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_08a"
+      "icao_p4": "ISO7816_C_08a",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6a88-gmrtd-8fea245-default",
@@ -4062,7 +4085,8 @@
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6a88.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_08b"
+      "icao_p4": "ISO7816_C_08b",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6b00-gmrtd-8fea245-default",
@@ -4229,7 +4253,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6b00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6c00-gmrtd-8fea245-default",
@@ -4396,7 +4421,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6c00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6e00-gmrtd-8fea245-default",
@@ -4563,7 +4589,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6e00.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6f00-gmrtd-8fea245-default",
@@ -4743,7 +4770,8 @@
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6f00.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_08c"
+      "icao_p4": "ISO7816_C_08c",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-6fff-gmrtd-8fea245-default",
@@ -4910,7 +4938,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-6fff.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-no-response-gmrtd-8fea245-default",
@@ -5077,7 +5106,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-no-response.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-timeout-gmrtd-8fea245-default",
@@ -5244,7 +5274,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-timeout.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     },
     {
       "scenario_id": "PACE-mse-set-at-transport-abort-gmrtd-8fea245-default",
@@ -5411,7 +5442,8 @@
       "cell": "PACE",
       "driver": "rust",
       "profile": "profiles/pace/PACE-mse-set-at-transport-abort.json",
-      "expect_outcome": "status_only"
+      "expect_outcome": "status_only",
+      "held_out": true
     }
   ]
 }

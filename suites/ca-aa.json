@@ -35,6 +35,21 @@
       "icao_p4": "ISO7816_G_15a"
     },
     {
+      "scenario_id": "CA-mse-set-at-6300-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6300",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6300.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15a"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6300-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6300",
       "library": "gmrtd",
@@ -74,6 +89,21 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6300.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15a"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6300-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6300",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6300.json",
       "expect_outcome": "status_only",
@@ -149,6 +179,21 @@
       "icao_p4": "ISO7816_G_15b"
     },
     {
+      "scenario_id": "CA-mse-set-at-6700-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6700.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15b"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6700-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6700",
       "library": "gmrtd",
@@ -188,6 +233,21 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6700.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15b"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6700-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6700",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6700.json",
       "expect_outcome": "status_only",
@@ -263,6 +323,21 @@
       "icao_p4": "ISO7816_G_15c"
     },
     {
+      "scenario_id": "CA-mse-set-at-6800-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6800.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15c"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6800-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6800",
       "library": "gmrtd",
@@ -302,6 +377,21 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6800.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15c"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6800-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6800",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6800.json",
       "expect_outcome": "status_only",
@@ -377,6 +467,21 @@
       "icao_p4": "ISO7816_G_15d"
     },
     {
+      "scenario_id": "CA-mse-set-at-6900-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6900.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15d"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6900-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6900",
       "library": "gmrtd",
@@ -416,6 +521,21 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6900.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15d"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6900-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6900",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6900.json",
       "expect_outcome": "status_only",
@@ -489,6 +609,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "CA-mse-set-at-6982-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6982",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6982.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6982-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6982",
       "library": "gmrtd",
@@ -526,6 +660,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6982.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6982-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6982",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6982.json",
       "expect_outcome": "status_only"
@@ -597,6 +745,21 @@
       "icao_p4": "ISO7816_G_15e"
     },
     {
+      "scenario_id": "CA-mse-set-at-6a00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6a00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15e"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6a00-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6a00",
       "library": "gmrtd",
@@ -636,6 +799,21 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6a00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15e"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a00-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6a00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6a00.json",
       "expect_outcome": "status_only",
@@ -709,6 +887,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "CA-mse-set-at-6a80-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6a80",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6a80.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6a80-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6a80",
       "library": "gmrtd",
@@ -746,6 +938,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6a80.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a80-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6a80",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6a80.json",
       "expect_outcome": "status_only"
@@ -815,6 +1021,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "CA-mse-set-at-6a88-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6a88",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6a88.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6a88-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6a88",
       "library": "gmrtd",
@@ -852,6 +1072,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6a88.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6a88-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6a88",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6a88.json",
       "expect_outcome": "status_only"
@@ -923,6 +1157,21 @@
       "icao_p4": "ISO7816_G_15f"
     },
     {
+      "scenario_id": "CA-mse-set-at-6b00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6b00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15f"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6b00-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6b00",
       "library": "gmrtd",
@@ -962,6 +1211,21 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6b00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15f"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6b00-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6b00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6b00.json",
       "expect_outcome": "status_only",
@@ -1037,6 +1301,21 @@
       "icao_p4": "ISO7816_G_15g"
     },
     {
+      "scenario_id": "CA-mse-set-at-6c00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6c00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15g"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6c00-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6c00",
       "library": "gmrtd",
@@ -1076,6 +1355,21 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6c00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15g"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6c00-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6c00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6c00.json",
       "expect_outcome": "status_only",
@@ -1151,6 +1445,21 @@
       "icao_p4": "ISO7816_G_15h"
     },
     {
+      "scenario_id": "CA-mse-set-at-6e00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6e00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15h"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6e00-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6e00",
       "library": "gmrtd",
@@ -1190,6 +1499,21 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6e00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15h"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6e00-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6e00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6e00.json",
       "expect_outcome": "status_only",
@@ -1265,6 +1589,21 @@
       "icao_p4": "ISO7816_G_15i"
     },
     {
+      "scenario_id": "CA-mse-set-at-6f00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6f00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15i"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6f00-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6f00",
       "library": "gmrtd",
@@ -1304,6 +1643,21 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6f00.json",
+      "expect_outcome": "status_only",
+      "icao_p4": "ISO7816_G_15i"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6f00-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6f00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6f00.json",
       "expect_outcome": "status_only",
@@ -1377,6 +1731,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "CA-mse-set-at-6fff-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "CA-mse-set-at-6fff",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6fff.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "CA-mse-set-at-6fff-gmrtd-8fea245-guard",
       "test_case": "CA-mse-set-at-6fff",
       "library": "gmrtd",
@@ -1414,6 +1782,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/ca/CA-mse-set-at-6fff.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "CA-mse-set-at-6fff-gmrtd-b861835-allow-fallback",
+      "test_case": "CA-mse-set-at-6fff",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "CA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/ca/CA-mse-set-at-6fff.json",
       "expect_outcome": "status_only"
@@ -1483,6 +1865,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6300-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6300.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6300-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6300",
       "library": "gmrtd",
@@ -1520,6 +1916,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6300.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6300-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6300.json",
       "expect_outcome": "status_only"
@@ -1600,6 +2010,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6700-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6700-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6700",
       "library": "gmrtd",
@@ -1637,6 +2061,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6700.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6700-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6700.json",
       "expect_outcome": "status_only"
@@ -1717,6 +2155,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6800-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6800-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6800",
       "library": "gmrtd",
@@ -1754,6 +2206,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6800.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6800-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6800.json",
       "expect_outcome": "status_only"
@@ -1834,6 +2300,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6900-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6900-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6900",
       "library": "gmrtd",
@@ -1871,6 +2351,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6900.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6900-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6900.json",
       "expect_outcome": "status_only"
@@ -1951,6 +2445,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6982-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6982.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6982-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6982",
       "library": "gmrtd",
@@ -1988,6 +2496,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6982.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6982-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6982.json",
       "expect_outcome": "status_only"
@@ -2068,6 +2590,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6a00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6a00-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6a00",
       "library": "gmrtd",
@@ -2105,6 +2641,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6a00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6a00-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6a00.json",
       "expect_outcome": "status_only"
@@ -2185,6 +2735,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6a80-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6a80.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6a80-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6a80",
       "library": "gmrtd",
@@ -2222,6 +2786,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6a80.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6a80-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6a80.json",
       "expect_outcome": "status_only"
@@ -2302,6 +2880,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6a88-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6a88.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6a88-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6a88",
       "library": "gmrtd",
@@ -2339,6 +2931,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6a88.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6a88-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6a88.json",
       "expect_outcome": "status_only"
@@ -2419,6 +3025,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6b00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6b00-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6b00",
       "library": "gmrtd",
@@ -2456,6 +3076,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6b00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6b00-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6b00.json",
       "expect_outcome": "status_only"
@@ -2536,6 +3170,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6c00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6c00-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6c00",
       "library": "gmrtd",
@@ -2573,6 +3221,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6c00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6c00-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6c00.json",
       "expect_outcome": "status_only"
@@ -2653,6 +3315,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6e00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6e00-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6e00",
       "library": "gmrtd",
@@ -2690,6 +3366,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6e00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6e00-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6e00.json",
       "expect_outcome": "status_only"
@@ -2770,6 +3460,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6f00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6f00.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6f00-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6f00",
       "library": "gmrtd",
@@ -2807,6 +3511,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6f00.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6f00-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6f00.json",
       "expect_outcome": "status_only"
@@ -2887,6 +3605,20 @@
       "expect_outcome": "status_only"
     },
     {
+      "scenario_id": "AA-internal-authenticate-6fff-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "AA-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6fff.json",
+      "expect_outcome": "status_only"
+    },
+    {
       "scenario_id": "AA-internal-authenticate-6fff-gmrtd-8fea245-guard",
       "test_case": "AA-internal-authenticate-6fff",
       "library": "gmrtd",
@@ -2924,6 +3656,20 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/aa/AA-internal-authenticate-6fff.json",
+      "expect_outcome": "status_only"
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6fff-gmrtd-b861835-allow-fallback",
+      "test_case": "AA-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/aa/AA-internal-authenticate-6fff.json",
       "expect_outcome": "status_only"

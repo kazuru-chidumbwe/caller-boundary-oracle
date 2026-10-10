@@ -69,6 +69,9 @@ def check_run_coverage(log_dir: Path, manifest: dict) -> list[str]:
     return errors
 
 
+HELD_OUT_MISMATCHES: list[str] = []
+
+
 def check_expected_outcomes(log_dir: Path, manifest: dict, spec: dict) -> list[str]:
     """Suite entries pin ``expect_outcome``: one outcome, a list of allowed outcomes, or
     {gmrtd commit prefix: outcome}."""
@@ -78,6 +81,7 @@ def check_expected_outcomes(log_dir: Path, manifest: dict, spec: dict) -> list[s
         for e in spec.get("entries", [])
         if "expect_outcome" in e and "scenario_id" in e
     }
+    held_out = {e["scenario_id"] for e in spec.get("entries", []) if e.get("held_out") and "scenario_id" in e}
     if not expect_by_scenario:
         return errors
     checked: set[str] = set()
@@ -100,7 +104,11 @@ def check_expected_outcomes(log_dir: Path, manifest: dict, spec: dict) -> list[s
         got = rec.get("outcome")
         allowed = want if isinstance(want, list) else [want]
         if got not in allowed:
-            errors.append(f"{scenario}: expected {' or '.join(allowed)}, got {got} ({rec['path']})")
+            msg = f"{scenario}: expected {' or '.join(allowed)}, got {got} ({rec['path']})"
+            if scenario in held_out:
+                HELD_OUT_MISMATCHES.append(msg)   # a prediction that did not hold: a result, not a harness fault
+            else:
+                errors.append(msg)
         checked.add(scenario)
     for scenario in sorted(set(expect_by_scenario) - checked):
         errors.append(f"{scenario}: expect_outcome set but no run found")
@@ -255,6 +263,10 @@ def main() -> int:
         skip_schema=args.skip_schema,
         check_pipeline=not args.no_pipeline,
     )
+    if HELD_OUT_MISMATCHES:
+        (args.log_dir / "held-out-mismatches.txt").write_text("\n".join(HELD_OUT_MISMATCHES) + "\n", encoding="utf-8")
+        for m in HELD_OUT_MISMATCHES:
+            print(f"HELD-OUT MISMATCH: {m}")
     if errors:
         for e in errors:
             print(f"VERIFY FAIL: {e}", file=sys.stderr)

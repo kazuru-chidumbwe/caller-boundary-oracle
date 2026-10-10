@@ -208,7 +208,8 @@
       "expect_outcome": "not_applicable",
       "expect_observation": {
         "returned_error": false
-      }
+      },
+      "held_out": true
     },
     {
       "scenario_id": "CTRL-pace-proprietary-params-gmrtd-8fea245-default",
@@ -414,7 +415,8 @@
       "expect_outcome": "not_applicable",
       "expect_observation": {
         "returned_error": false
-      }
+      },
+      "held_out": true
     }
   ]
 }

@@ -39,6 +39,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6300-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6300",
       "library": "gmrtd",
@@ -82,6 +99,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
       "expect_outcome": [
@@ -177,6 +211,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6700-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6700.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6700-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6700",
       "library": "gmrtd",
@@ -220,6 +271,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6700.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6700-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6700",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6700.json",
       "expect_outcome": [
@@ -315,6 +383,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6800-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6800.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6800-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6800",
       "library": "gmrtd",
@@ -358,6 +443,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6800.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6800-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6800",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6800.json",
       "expect_outcome": [
@@ -453,6 +555,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6900-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6900.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6900-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6900",
       "library": "gmrtd",
@@ -496,6 +615,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6900.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6900-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6900",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6900.json",
       "expect_outcome": [
@@ -591,6 +727,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6982-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6982",
       "library": "gmrtd",
@@ -634,6 +787,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
       "expect_outcome": [
@@ -729,6 +899,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6a00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6a00-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6a00",
       "library": "gmrtd",
@@ -772,6 +959,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a00-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6a00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6a00.json",
       "expect_outcome": [
@@ -867,6 +1071,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6a80-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6a80",
       "library": "gmrtd",
@@ -910,6 +1131,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
       "expect_outcome": [
@@ -1005,6 +1243,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6a88-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6a88",
       "library": "gmrtd",
@@ -1048,6 +1303,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
       "expect_outcome": [
@@ -1143,6 +1415,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6b00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6b00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6b00-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6b00",
       "library": "gmrtd",
@@ -1186,6 +1475,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6b00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6b00-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6b00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6b00.json",
       "expect_outcome": [
@@ -1281,6 +1587,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6c00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6c00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6c00-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6c00",
       "library": "gmrtd",
@@ -1324,6 +1647,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6c00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6c00-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6c00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6c00.json",
       "expect_outcome": [
@@ -1419,6 +1759,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6e00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6e00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6e00-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6e00",
       "library": "gmrtd",
@@ -1462,6 +1819,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6e00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6e00-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6e00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6e00.json",
       "expect_outcome": [
@@ -1557,6 +1931,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6f00-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6f00",
       "library": "gmrtd",
@@ -1600,6 +1991,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
       "expect_outcome": [
@@ -1695,6 +2103,23 @@
       ]
     },
     {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-gmrtd-64bd6ab-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "64bd6ab-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "64bd6ab",
+      "allow_bac_fallback": true,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
       "scenario_id": "VSC-aa-internal-authenticate-6fff-gmrtd-8fea245-guard",
       "test_case": "VSC-aa-internal-authenticate-6fff",
       "library": "gmrtd",
@@ -1738,6 +2163,23 @@
       "command": "gmrtd-read",
       "gmrtd_pin": "b861835",
       "allow_bac_fallback": false,
+      "guard": false,
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": [
+        "status_only",
+        "not_applicable"
+      ]
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-gmrtd-b861835-allow-fallback",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "gmrtd",
+      "variant": "b861835-allow-fallback",
+      "cell": "VSC-AA",
+      "driver": "go",
+      "command": "gmrtd-read",
+      "gmrtd_pin": "b861835",
+      "allow_bac_fallback": true,
       "guard": false,
       "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
       "expect_outcome": [
@@ -2003,7 +2445,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-ga1-6a80.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_10a"
+      "icao_p4": "ISO7816_C_10a",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-ga1-6f00-gmrtd-8fea245-default",
@@ -2210,7 +2653,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-ga1-6f00.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_10b"
+      "icao_p4": "ISO7816_C_10b",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-ga2-6a80-gmrtd-8fea245-default",
@@ -2417,7 +2861,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-ga2-6a80.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_12a"
+      "icao_p4": "ISO7816_C_12a",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-ga2-6f00-gmrtd-8fea245-default",
@@ -2624,7 +3069,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-ga2-6f00.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_12b"
+      "icao_p4": "ISO7816_C_12b",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-ga3-6a80-gmrtd-8fea245-default",
@@ -2831,7 +3277,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-ga3-6a80.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_18a"
+      "icao_p4": "ISO7816_C_18a",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-ga3-6f00-gmrtd-8fea245-default",
@@ -3038,7 +3485,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-ga3-6f00.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_18b"
+      "icao_p4": "ISO7816_C_18b",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-ga4-6300-gmrtd-8fea245-default",
@@ -3245,7 +3693,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-ga4-6300.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_24a"
+      "icao_p4": "ISO7816_C_24a",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-ga4-6a80-gmrtd-8fea245-default",
@@ -3452,7 +3901,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-ga4-6a80.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_24b"
+      "icao_p4": "ISO7816_C_24b",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-ga4-6f00-gmrtd-8fea245-default",
@@ -3659,7 +4109,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-ga4-6f00.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_24c"
+      "icao_p4": "ISO7816_C_24c",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-mse-6a80-gmrtd-8fea245-default",
@@ -3866,7 +4317,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-mse-6a80.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_08a"
+      "icao_p4": "ISO7816_C_08a",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-mse-6a88-gmrtd-8fea245-default",
@@ -4073,7 +4525,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-mse-6a88.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_08b"
+      "icao_p4": "ISO7816_C_08b",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-mse-6f00-gmrtd-8fea245-default",
@@ -4280,7 +4733,8 @@
       "driver": "rust",
       "profile": "profiles/independent/VSC-pace-mse-6f00.json",
       "expect_outcome": "status_only",
-      "icao_p4": "ISO7816_C_08c"
+      "icao_p4": "ISO7816_C_08c",
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-success-multi-info-gmrtd-8fea245-default",
@@ -4467,7 +4921,8 @@
       "expect_observation": {
         "succeeded": true,
         "returned_error": false
-      }
+      },
+      "held_out": true
     },
     {
       "scenario_id": "VSC-pace-success-gmrtd-8fea245-default",
@@ -4650,7 +5105,8 @@
       "expect_observation": {
         "succeeded": true,
         "returned_error": false
-      }
+      },
+      "held_out": true
     }
   ]
 }
