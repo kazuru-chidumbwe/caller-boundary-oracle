@@ -19,13 +19,13 @@ import (
 )
 
 type options struct {
-	RPID       string `json:"rpId"`
-	RPName     string `json:"rpName"`
-	Origin     string `json:"origin"`
-	Challenge  string `json:"challenge"`
-	UserID     string `json:"userId"`
-	UserName   string `json:"userName"`
-	RequireUV  bool   `json:"requireUserVerification"`
+	RPID       string   `json:"rpId"`
+	RPName     string   `json:"rpName"`
+	Origin     string   `json:"origin"`
+	Challenge  string   `json:"challenge"`
+	UserID     string   `json:"userId"`
+	UserName   string   `json:"userName"`
+	RequireUV  bool     `json:"requireUserVerification"`
 	Algs       []int64  `json:"pubKeyCredParams"`
 	Allow      []string `json:"allowCredentials"`
 	Credential *struct {

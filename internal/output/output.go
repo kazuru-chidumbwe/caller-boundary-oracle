@@ -11,15 +11,15 @@ import (
 
 // Meta is common run metadata for all drivers.
 type Meta struct {
-	RunID      string             `json:"run_id"`
-	TestCase   string             `json:"test_case"`
-	Library    string             `json:"library"`
-	Mechanism  string             `json:"mechanism"`
-	Condition  string             `json:"condition"`
-	Tier       string             `json:"tier"`
-	Variant    string             `json:"variant"`
-	FigureID   string             `json:"figure_id,omitempty"`
-	Provenance provenance.Record  `json:"provenance"`
+	RunID      string            `json:"run_id"`
+	TestCase   string            `json:"test_case"`
+	Library    string            `json:"library"`
+	Mechanism  string            `json:"mechanism"`
+	Condition  string            `json:"condition"`
+	Tier       string            `json:"tier"`
+	Variant    string            `json:"variant"`
+	FigureID   string            `json:"figure_id,omitempty"`
+	Provenance provenance.Record `json:"provenance"`
 }
 
 // WriteJSON writes a run artifact to logDir/{runID}.json.
