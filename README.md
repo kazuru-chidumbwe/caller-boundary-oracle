@@ -2,7 +2,7 @@
 
 A test harness and oracle for one question: when a security step inside a library fails, does the application that called the library find out?
 
-The harness injects a single failure into one negotiation or authentication step, drives the library through the API an application would use, and records what reaches the caller. The oracle turns those observations into one of five outcomes. The current case study is electronic passport (eMRTD) reader libraries: PACE, Chip Authentication (CA) and Active Authentication (AA), across five libraries in five languages.
+The harness injects a single failure into one negotiation or authentication step, drives the library through the API an application would use, and records what reaches the caller. The oracle turns those observations into one of five outcomes. Two domains use the same oracle unchanged. Electronic passport (eMRTD) reader libraries are tested on PACE, Chip Authentication (CA) and Active Authentication (AA), in six libraries and six languages. WebAuthn relying-party libraries are tested on the verification steps of registration and authentication, in six libraries and five languages (`webauthn/`).
 
 Everything runs against emulated chips. No passport or NFC hardware is needed.
 
@@ -39,6 +39,9 @@ The same predicate is implemented in Go, Python, Java, C# and Dart (`classifier/
 | [emrtd-dotnet](https://github.com/chamnan/emrtd-dotnet) | C# | 0433b3a | `DocumentReader.Read` |
 | [dmrtd](https://github.com/ZeroPass/dmrtd) | Dart | 3b6c091 | `Passport.startSessionPACE` / `startSession`, `activeAuthenticate` |
 | [NFCPassportReader](https://github.com/AndyQ/NFCPassportReader) | Swift (iOS) | 6e37f1a | `PassportReader.startReading`, in the iOS Simulator |
+| [passauf](https://github.com/aveao/passauf) | Rust | v0.2.0 (48b7cc7) | `read_document` through `CallbackSmartcard`; held out (expectations committed before its single run) |
+
+WebAuthn relying-party libraries (`webauthn/drivers/`, one driver per library): py_webauthn 3.0.1, `@simplewebauthn/server` 14.0.3, go-webauthn v0.18.2, java-webauthn-server 2.10.0, webauthn4j 0.31.11 (strict and non-strict manager) and Fido2 4.2.0, plus held-out releases listed in `webauthn/heldout/RELEASES.json`. The fault peer is a software authenticator (`webauthn/authenticator.py`) that violates one verification step per case.
 
 All three gmrtd versions build from one source tree (`internal/gmrtdcompat`, build tags and `gomod/`).
 
@@ -84,7 +87,7 @@ bash scripts/bootstrap-vendor.sh   # gmrtd at the three pins, JMRTD
 make vsmartcard                    # independent chip (OpenPACE + vsmartcard)
 make dotnet                        # .NET SDK + emrtd-dotnet
 make dart                          # Dart SDK + dmrtd
-make test                          # oracle vectors in all five languages, Go tests at all pins
+make test                          # oracle vectors in every driver language, Go tests at all pins
 make smoke                         # one profile across every arm, verified
 make evaluate                      # every Linux suite, each verified against its expectations
 ```
@@ -110,10 +113,13 @@ Kept small and listed so their effect can be checked.
 ```
 classifier/   oracle (Python), suite runner, aggregation, manifest verification
 cmd/          gmrtd driver (gmrtd-read) and the socket chip server (chip-serve)
-drivers/      JMRTD (Java), emrtd-dotnet (C#), dmrtd (Dart), NFCPassportReader (Swift)
+drivers/      JMRTD (Java), emrtd-dotnet (C#), dmrtd (Dart), NFCPassportReader (Swift), passauf (Rust)
 guard/        opt-in caller guard for gmrtd (require PACE, CA or AA)
 internal/     gmrtd version shims, run logic, profiles, provenance, output
-mining/       item lists for the code studies (failure-handling sites)
+mining/       code-study protocol, codebook, item lists, screening and coding sheets
+mutation/     mutation analysis: operators, runners, reachability probe, scorers, results
+passauf/      held-out run of the sixth eMRTD library
+webauthn/     WebAuthn fault peer, drivers, expectations and runs
 profiles/     chip profiles and their generators
 simulator/    harness chip and the vsmartcard peer
 suites/       suite manifests with expected outcomes, and their generator
