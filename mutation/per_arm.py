@@ -158,10 +158,16 @@ def main() -> None:
         k = (p["site"], p["operator"], role(arm))
         dedup.setdefault(k, set()).update(p["delivered"])
     lines += ["", "## Failure-reporting changes after deduplication (site, operator, caller role)", "",
-              "| oracle | detected | of | missed |", "| --- | ---: | ---: | ---: |"]
+              "| oracle | detected | of | missed | McNemar vs caller-boundary (exact p) |",
+              "| --- | ---: | ---: | ---: | ---: |"]
     for o in ORACLES:
         det = sum(o in s for s in dedup.values())
-        lines.append(f"| {NAMES[o]} | {det} | {len(dedup)} | {len(dedup) - det} |")
+        if o == "cbo":
+            lines.append(f"| {NAMES[o]} | {det} | {len(dedup)} | {len(dedup) - det} | n/a |")
+            continue
+        b = sum(("cbo" in s) and (o not in s) for s in dedup.values())
+        c = sum((o in s) and ("cbo" not in s) for s in dedup.values())
+        lines.append(f"| {NAMES[o]} | {det} | {len(dedup)} | {len(dedup) - det} | {mcnemar_exact(b, c):.2g} (b={b}, c={c}) |")
 
     breakage = [p for p in pairs.values() if p["control"]]
     delivery = [p for p in pairs.values() if "cbo" in p["delivery"] and "cbo" not in p["delivered"]]

@@ -43,12 +43,12 @@
 
 ## Failure-reporting changes after deduplication (site, operator, caller role)
 
-| oracle | detected | of | missed |
-| --- | ---: | ---: | ---: |
-| caller-boundary | 40 | 40 | 0 |
-| any error | 33 | 40 | 7 |
-| output differential | 33 | 40 | 7 |
-| ICAO P4 verdict | 25 | 40 | 15 |
+| oracle | detected | of | missed | McNemar vs caller-boundary (exact p) |
+| --- | ---: | ---: | ---: | ---: |
+| caller-boundary | 40 | 40 | 0 | n/a |
+| any error | 33 | 40 | 7 | 0.016 (b=7, c=0) |
+| output differential | 33 | 40 | 7 | 0.016 (b=7, c=0) |
+| ICAO P4 verdict | 25 | 40 | 15 | 6.1e-05 (b=15, c=0) |
 
 ## Not failure reporting
 
