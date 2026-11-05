@@ -12,7 +12,8 @@ The phone connection is kept across runs; if it drops, the hub waits for the pho
 run in progress ends (its driver records a transport failure). A software card can stand in for
 the phone (emrtd_card.py --host 127.0.0.1 --port PHONE_PORT) to test the whole path.
 
-Nothing from the document is logged: the status file holds only connection state and counts.
+Nothing from the document is logged: the status file holds only connection state, counts and the slowest
+chip reply of the last run (milliseconds).
 """
 from __future__ import annotations
 
@@ -81,7 +82,7 @@ def main() -> None:
             phone.settimeout(a.reply_timeout)
             st.set(phone_connected=True, phone_connects=st.s["phone_connects"] + 1)
         run, _ = relay_srv.accept()
-        st.set(runs=st.s["runs"] + 1)
+        st.set(runs=st.s["runs"] + 1, last_run_max_reply_ms=0)
         try:
             while True:
                 msg = recv(run)
@@ -90,7 +91,12 @@ def main() -> None:
                 send(phone, msg)
                 if len(msg) == 1 and msg[0] != 0x04:
                     continue
+                t0 = time.monotonic()
                 rsp = recv(phone)
+                # Slowest chip reply in this run: a chip that delays after failed access attempts shows here.
+                ms = int((time.monotonic() - t0) * 1000)
+                if ms > st.s["last_run_max_reply_ms"]:
+                    st.s["last_run_max_reply_ms"] = ms
                 if rsp is None:
                     raise ConnectionError("phone closed")
                 if len(msg) > 1:
@@ -104,6 +110,7 @@ def main() -> None:
                 pass
             phone = None
         finally:
+            st.write()
             run.close()
 
 
