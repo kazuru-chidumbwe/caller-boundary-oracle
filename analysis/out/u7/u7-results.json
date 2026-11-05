@@ -1,0 +1,475 @@
+{
+ "suite": "u7-bac",
+ "harness": "be99fef",
+ "host": "Testbed A",
+ "runs": [
+  {
+   "run_id": "VSC-bac-only-success-dmrtd-default-1793912092234340-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "dmrtd",
+   "variant": "default",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "",
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-emrtd-dotnet-default-20261105T205451.753617Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "emrtd-dotnet",
+   "variant": "default",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": true
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "",
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-gmrtd-64bd6ab-64bd6ab-allow-fallback-20261105T205447.443758Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "gmrtd",
+   "variant": "64bd6ab-allow-fallback",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": "",
+   "bac_err": "",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-gmrtd-64bd6ab-64bd6ab-default-20261105T205447.314899Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "gmrtd",
+   "variant": "64bd6ab-default",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": "",
+   "bac_err": "",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-gmrtd-64bd6ab-64bd6ab-guard-20261105T205447.763519Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "gmrtd",
+   "variant": "64bd6ab-guard",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": "",
+   "bac_err": "",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-gmrtd-8fea245-8fea245-default-20261105T205447.182937Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "gmrtd",
+   "variant": "8fea245-default",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": "",
+   "bac_err": "",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-gmrtd-8fea245-8fea245-guard-20261105T205447.592381Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "gmrtd",
+   "variant": "8fea245-guard",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": "",
+   "bac_err": "",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-gmrtd-b861835-b861835-allow-fallback-20261105T205448.049046Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "gmrtd",
+   "variant": "b861835-allow-fallback",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": "",
+   "bac_err": "",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-gmrtd-b861835-b861835-default-20261105T205447.895822Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "gmrtd",
+   "variant": "b861835-default",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": "",
+   "bac_err": "",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-gmrtd-b861835-b861835-guard-20261105T205448.178929Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "gmrtd",
+   "variant": "b861835-guard",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": "",
+   "bac_err": "",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-success-jmrtd-catch-continue-20261105T205450.252210Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "jmrtd",
+   "variant": "catch-continue",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "",
+   "step_exception": ""
+  },
+  {
+   "run_id": "VSC-bac-only-success-jmrtd-propagate-20261105T205449.186601Z-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "jmrtd",
+   "variant": "propagate",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "",
+   "step_exception": ""
+  },
+  {
+   "run_id": "VSC-bac-only-success-passauf-default-1793912093443131-000001",
+   "test_case": "VSC-bac-only-success",
+   "library": "passauf",
+   "variant": "default",
+   "outcome": "not_applicable",
+   "observation": {
+    "failed": false,
+    "fired": false,
+    "returned_error": false,
+    "status_signal": true,
+    "succeeded": false
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "",
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-dmrtd-default-1793912097171473-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "dmrtd",
+   "variant": "default",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": false
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "PassportError: SM data objects incorrect",
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-emrtd-dotnet-default-20261105T205456.788656Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "emrtd-dotnet",
+   "variant": "default",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": false
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "CardException: EXTERNAL AUTHENTICATE failed (SW=6988: secure messaging objects incorrect)",
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-gmrtd-64bd6ab-64bd6ab-allow-fallback-20261105T205453.828076Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "gmrtd",
+   "variant": "64bd6ab-allow-fallback",
+   "outcome": "status_only",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": true
+   },
+   "read_document_err": "",
+   "bac_err": "[DoBAC] ExternalAuthenticate error: [ExternalAuthenticate] Status:6988",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-gmrtd-64bd6ab-64bd6ab-default-20261105T205453.683817Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "gmrtd",
+   "variant": "64bd6ab-default",
+   "outcome": "status_only",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": true
+   },
+   "read_document_err": "",
+   "bac_err": "[DoBAC] ExternalAuthenticate error: [ExternalAuthenticate] Status:6988",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-gmrtd-64bd6ab-64bd6ab-guard-20261105T205454.059181Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "gmrtd",
+   "variant": "64bd6ab-guard",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": true
+   },
+   "read_document_err": "",
+   "bac_err": "[DoBAC] ExternalAuthenticate error: [ExternalAuthenticate] Status:6988",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-gmrtd-8fea245-8fea245-default-20261105T205453.571745Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "gmrtd",
+   "variant": "8fea245-default",
+   "outcome": "status_only",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": true
+   },
+   "read_document_err": "",
+   "bac_err": "[DoBAC] ExternalAuthenticate error: [ExternalAuthenticate] Status:6988",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-gmrtd-8fea245-8fea245-guard-20261105T205453.944921Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "gmrtd",
+   "variant": "8fea245-guard",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": true
+   },
+   "read_document_err": "",
+   "bac_err": "[DoBAC] ExternalAuthenticate error: [ExternalAuthenticate] Status:6988",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-gmrtd-b861835-b861835-allow-fallback-20261105T205454.296380Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "gmrtd",
+   "variant": "b861835-allow-fallback",
+   "outcome": "status_only",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": true
+   },
+   "read_document_err": "",
+   "bac_err": "[DoBAC] ExternalAuthenticate error: [ExternalAuthenticate] Status:6988",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-gmrtd-b861835-b861835-default-20261105T205454.176223Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "gmrtd",
+   "variant": "b861835-default",
+   "outcome": "status_only",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": false,
+    "status_signal": true
+   },
+   "read_document_err": "",
+   "bac_err": "[DoBAC] ExternalAuthenticate error: [ExternalAuthenticate] Status:6988",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-gmrtd-b861835-b861835-guard-20261105T205454.414424Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "gmrtd",
+   "variant": "b861835-guard",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": true
+   },
+   "read_document_err": "",
+   "bac_err": "[DoBAC] ExternalAuthenticate error: [ExternalAuthenticate] Status:6988",
+   "read_err": null,
+   "step_exception": null
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-jmrtd-catch-continue-20261105T205456.233738Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "jmrtd",
+   "variant": "catch-continue",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": false
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "BAC: BAC failed in MUTUAL AUTH (SW = 0x6988: SM DATA OBJECTS INCORRECT) (step: 2)",
+   "step_exception": ""
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-jmrtd-propagate-20261105T205455.281339Z-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "jmrtd",
+   "variant": "propagate",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": false,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": false
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "BAC: BAC failed in MUTUAL AUTH (SW = 0x6988: SM DATA OBJECTS INCORRECT) (step: 2)",
+   "step_exception": ""
+  },
+  {
+   "run_id": "VSC-bac-only-wrong-mrz-passauf-default-1793912097739571-000001",
+   "test_case": "VSC-bac-only-wrong-mrz",
+   "library": "passauf",
+   "variant": "default",
+   "outcome": "surfaced",
+   "observation": {
+    "failed": false,
+    "fired": true,
+    "returned_error": true,
+    "status_signal": false,
+    "succeeded": false
+   },
+   "read_document_err": null,
+   "bac_err": null,
+   "read_err": "SessionError::authentication: Could not authenticate with the document: the document refused the key derived from the details given",
+   "step_exception": null
+  }
+ ]
+}
