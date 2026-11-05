@@ -1,0 +1,13 @@
+{
+  "id": "VSC-pace-wrong-mrz",
+  "name": "Independent chip: reader uses an MRZ with one character changed",
+  "mechanism": "PACE",
+  "condition": "pace_fail_wrong_key",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000120",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard"
+}

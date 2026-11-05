@@ -29,7 +29,8 @@ applied (scripts/bootstrap-vsmartcard.sh), and the OpenPACE Python bindings.
 The card connects to a driver acting as the reader (vpcd socket protocol) and serves one
 session. What it serves and which step it fails come from the profile's "vsmartcard" object
 (--profile): dg15, card_access, aa_sw (INTERNAL AUTHENTICATE answers with that status word,
-framed by vsmartcard's own secure-messaging code), and pace_sw with pace_step ("mse" for the
+framed by vsmartcard's own secure-messaging code), relay (a port: pass everything to
+tools/vsmartcard/phone_hub.py, which holds a phone reading a real chip; see relay()), and pace_sw with pace_step ("mse" for the
 first MSE:Set AT, "ga1" to "ga4" for the PACE General Authenticate steps, answered in plaintext
 since secure messaging is not yet established). ga4_body instead lets the card run the real
 PACE step 4 (it verifies the reader's token and switches to the PACE session keys as usual)
@@ -101,7 +102,7 @@ class Report:
 
     def __init__(self, path: str):
         self.path = Path(path) if path else None
-        self.delivered = {"PACE": False, "AA": False}
+        self.delivered = {"PACE": False, "BAC": False, "AA": False}
         self.write()
 
     def mark(self, mechanism: str) -> None:
@@ -161,6 +162,62 @@ def install_bac(os_, mrz: bytes) -> None:
     os_.ins2handler[0x82] = external_authenticate
 
 
+def _recv(sock) -> bytes | None:
+    head = b""
+    while len(head) < 2:
+        part = sock.recv(2 - len(head))
+        if not part:
+            return None
+        head += part
+    n = int.from_bytes(head, "big")
+    body = b""
+    while len(body) < n:
+        part = sock.recv(n - len(body))
+        if not part:
+            return None
+        body += part
+    return body
+
+
+def _send(sock, msg: bytes) -> None:
+    sock.sendall(len(msg).to_bytes(2, "big") + msg)
+
+
+# A refusal by the real chip counts as the delivered fault for its mechanism, so the oracle classifies a
+# genuine failure the same way as an injected one. Instruction bytes: 86 PACE General Authenticate,
+# 82 EXTERNAL AUTHENTICATE (BAC), 88 INTERNAL AUTHENTICATE (Active Authentication).
+RELAY_FAULT_INS = {0x86: "PACE", 0x82: "BAC", 0x88: "AA"}
+
+
+def relay(host: str, port: int, hub_port: int, report: "Report") -> None:
+    """Relay mode (real chip): act as the card toward the driver and pass every message to the phone
+    hub (tools/vsmartcard/phone_hub.py), which holds the connection to the phone reading the real
+    chip. Nothing is logged or stored except the delivered-fault report."""
+    import socket
+    drv = socket.create_connection((host, port), timeout=120)
+    hub = socket.create_connection(("127.0.0.1", hub_port), timeout=120)
+    try:
+        while True:
+            msg = _recv(drv)
+            if msg is None:
+                break
+            _send(hub, msg)
+            if len(msg) == 1 and msg[0] != 0x04:
+                continue  # power control: no answer in the vpcd protocol
+            rsp = _recv(hub)
+            if rsp is None:
+                break
+            if len(msg) >= 4 and len(rsp) >= 2:
+                mech = RELAY_FAULT_INS.get(msg[1])
+                sw = rsp[-2:]
+                if mech and sw != b"\x90\x00" and sw[0] != 0x61:
+                    report.mark(mech)
+            _send(drv, rsp)
+    finally:
+        hub.close()
+        drv.close()
+
+
 def hexfile(name: str) -> bytes:
     return bytes.fromhex((FIXTURES / name).read_text(encoding="utf-8").strip())
 
@@ -193,6 +250,9 @@ def main() -> None:
     ap.add_argument("--log-level", default="WARNING", help="vsmartcard logging level")
     args = ap.parse_args()
     vs = json.loads(Path(args.profile).read_text(encoding="utf-8")).get("vsmartcard", {}) if args.profile else {}
+    if vs.get("relay"):
+        relay(args.host, args.port, int(vs["relay"]), Report(args.report))
+        return
     card_access = vs.get("card_access", "pace-only")
     if card_access not in ("pace-only", "npa"):
         raise SystemExit(f"unknown card_access {card_access!r}")

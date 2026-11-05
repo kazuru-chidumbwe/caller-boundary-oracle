@@ -59,3 +59,6 @@ mining/m2/screen/cache/
 
 # consequence demo run outputs (kept as result notes under analysis/out)
 examples/t13-consequence/out/
+
+# real-chip profiles carry a real MRZ: generated on the run host only
+profiles/real/local/

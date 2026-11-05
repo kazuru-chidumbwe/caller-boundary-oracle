@@ -1,0 +1,16 @@
+{
+  "id": "REHEARSAL-pace-success",
+  "name": "Independent chip behind the phone hub: correct MRZ",
+  "mechanism": "PACE",
+  "condition": "pace_success",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "relay": 35964
+  }
+}
