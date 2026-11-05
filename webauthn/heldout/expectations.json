@@ -2039,5 +2039,162 @@
    "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: (SignCount != 0 or stored != 0) and SignCount <= stored throws InvalidSignCount (211 / 247)",
    "held_out": true
   }
+ },
+ "fido2-net-lib@4.3.2": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: type other than webauthn.create or webauthn.get throws (line 93); Src/Fido2/AuthenticatorAttestationResponse.cs rejects webauthn.get (line 91)",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: challenge mismatch throws InvalidAuthenticatorResponseChallenge (line 105)",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin not in the expected origins throws (line 124)",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: RP ID hash mismatch throws InvalidRpidHash (line 136)",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: UP clear throws UserPresentFlagNotSet (line 140)",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: UV required and clear throws UserVerificationRequirementNotMet (line 144)",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: BS without BE throws InvalidBackupFlags (lines 149 to 150), backported by #690",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AttestationFormat/Packed.cs: self attestation verifies the signature with the credential key and throws 'Failed to validate signature' (line 151)",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: type other than webauthn.get throws (line 140)",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: challenge mismatch throws (line 105)",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin not in the expected origins throws (line 124)",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: RP ID hash mismatch throws InvalidRpidHash (line 158)",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: UP clear throws (line 165)",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: UV required and clear throws (line 169)",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: BS without BE throws InvalidBackupFlags (lines 174 to 175), backported by #690",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: a signature that does not verify throws InvalidSignature (line 213)",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: count 5 not greater than stored 10 throws InvalidSignCount (line 220)",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: UP clear throws UserPresentFlagNotSet (line 140)",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: 'https://rp.cbo.test:8443' is not in the fully qualified expected origins (line 124)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: crossOrigin true with AllowCrossOriginRequests false (default) throws CrossOriginRequestNotAllowed (lines 133 to 134), backported by #690",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AttestationFormat/None.cs: AttStmt.Count != 0 throws (line 13)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAttestationResponse.cs: no PubKeyCredParams entry matches the key alg; throws CredentialAlgorithmRequirementNotMet (line 168)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: UP clear throws UserPresentFlagNotSet outside conformance testing (line 165)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin with port 8443 not in the expected origins (line 124)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorResponse.cs BaseVerify: crossOrigin true with AllowCrossOriginRequests false throws CrossOriginRequestNotAllowed (lines 133 to 134)",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: callback returns false for another user's handle; throws UserHandleNotOwnerOfPublicKey (line 126)",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: AllowCredentials not containing the raw ID throws CredentialIdNotInAllowedCredentials (line 115)",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: (SignCount != 0 or stored != 0) and SignCount <= stored throws InvalidSignCount (line 220)",
+   "held_out": true
+  }
  }
 }

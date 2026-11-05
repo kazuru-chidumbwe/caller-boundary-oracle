@@ -245,6 +245,40 @@ FIDO50 = dict(FIDO_NEW_COMMON, **{
     "A-CNT": ("surfaced", f"{FA}: count 5 not greater than stored 10 throws InvalidSignCount (lines 247 to 248)"),
 })
 
+# Fido2 4.3.2 (NuGet, 29 Oct 2026): the 4.x line with PR #690, which backports the Level 3 crossOrigin/topOrigin
+# and BS-without-BE checks after our report #689 (U3, added 5 Nov 2026 before the run). Source: GitHub tag 4.3.2
+# (f7ed63c), Src/Fido2. Line numbers are 4.3.2.
+FIDO43 = dict(FIDO_NEW_COMMON, **{
+    "R-UPUV": ("surfaced", f"{FR}: UP clear throws UserPresentFlagNotSet (line 140)"),
+    "R-ORIGPORT": ("surfaced", f"{FB}: 'https://rp.cbo.test:8443' is not in the fully qualified expected origins (line 124)"),
+    "R-NONESTMT": ("surfaced", "Src/Fido2/AttestationFormat/None.cs: AttStmt.Count != 0 throws (line 13)"),
+    "R-ALG": ("surfaced", f"{FR}: no PubKeyCredParams entry matches the key alg; throws CredentialAlgorithmRequirementNotMet (line 168)"),
+    "A-UPUV": ("surfaced", f"{FA}: UP clear throws UserPresentFlagNotSet outside conformance testing (line 165)"),
+    "A-ORIGPORT": ("surfaced", f"{FB}: origin with port 8443 not in the expected origins (line 124)"),
+    "A-UH": ("surfaced", f"{FA}: callback returns false for another user's handle; throws UserHandleNotOwnerOfPublicKey (line 126)"),
+    "A-CRED": ("surfaced", f"{FA}: AllowCredentials not containing the raw ID throws CredentialIdNotInAllowedCredentials (line 115)"),
+    "A-CNTEQ": ("surfaced", f"{FA}: (SignCount != 0 or stored != 0) and SignCount <= stored throws InvalidSignCount (line 220)"),
+    "R-XORIG": ("surfaced", f"{FB}: crossOrigin true with AllowCrossOriginRequests false (default) throws CrossOriginRequestNotAllowed (lines 133 to 134), backported by #690"),
+    "A-XORIG": ("surfaced", f"{FB}: crossOrigin true with AllowCrossOriginRequests false throws CrossOriginRequestNotAllowed (lines 133 to 134)"),
+    "R-TYPE": ("surfaced", f"{FB}: type other than webauthn.create or webauthn.get throws (line 93); {FR} rejects webauthn.get (line 91)"),
+    "R-CHAL": ("surfaced", f"{FB}: challenge mismatch throws InvalidAuthenticatorResponseChallenge (line 105)"),
+    "R-ORIG": ("surfaced", f"{FB}: origin not in the expected origins throws (line 124)"),
+    "R-RPID": ("surfaced", f"{FR}: RP ID hash mismatch throws InvalidRpidHash (line 136)"),
+    "R-UP": ("surfaced", f"{FR}: UP clear throws UserPresentFlagNotSet (line 140)"),
+    "R-UV": ("surfaced", f"{FR}: UV required and clear throws UserVerificationRequirementNotMet (line 144)"),
+    "R-BS": ("surfaced", f"{FR}: BS without BE throws InvalidBackupFlags (lines 149 to 150), backported by #690"),
+    "R-ASIG": ("surfaced", "Src/Fido2/AttestationFormat/Packed.cs: self attestation verifies the signature with the credential key and throws 'Failed to validate signature' (line 151)"),
+    "A-TYPE": ("surfaced", f"{FA}: type other than webauthn.get throws (line 140)"),
+    "A-CHAL": ("surfaced", f"{FB}: challenge mismatch throws (line 105)"),
+    "A-ORIG": ("surfaced", f"{FB}: origin not in the expected origins throws (line 124)"),
+    "A-RPID": ("surfaced", f"{FA}: RP ID hash mismatch throws InvalidRpidHash (line 158)"),
+    "A-UP": ("surfaced", f"{FA}: UP clear throws (line 165)"),
+    "A-UV": ("surfaced", f"{FA}: UV required and clear throws (line 169)"),
+    "A-BS": ("surfaced", f"{FA}: BS without BE throws InvalidBackupFlags (lines 174 to 175), backported by #690"),
+    "A-SIG": ("surfaced", f"{FA}: a signature that does not verify throws InvalidSignature (line 213)"),
+    "A-CNT": ("surfaced", f"{FA}: count 5 not greater than stored 10 throws InvalidSignCount (line 220)"),
+})
+
 ARMS: dict[str, dict[str, tuple[str, str]]] = {
     "py_webauthn": PY,
     "py_webauthn@2.8.0": PY,
@@ -259,6 +293,7 @@ ARMS: dict[str, dict[str, tuple[str, str]]] = {
     "webauthn4j-strict@0.30.3.RELEASE": W4J_STRICT_30,
     "fido2-net-lib": FIDO42_NEW,
     "fido2-net-lib@5.0.0-preview.7": FIDO50,
+    "fido2-net-lib@4.3.2": FIDO43,
 }
 
 
