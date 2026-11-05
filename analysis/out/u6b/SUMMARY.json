@@ -1,0 +1,1526 @@
+{
+ "set": "pace-step4",
+ "ts": "20261105T195655Z",
+ "manifests": [
+  "suites/u6-jmrtd.json",
+  "suites/independent.json",
+  "suites/pace.json"
+ ],
+ "n_entries": 128,
+ "changed": [
+  "VSC-pace-ga4body-empty-7c-jmrtd-propagate",
+  "VSC-pace-ga4body-empty-7c-jmrtd-catch-continue",
+  "VSC-pace-ga4body-truncated-86-jmrtd-propagate",
+  "VSC-pace-ga4body-truncated-86-jmrtd-catch-continue"
+ ],
+ "rollup": {
+  "VSC-PACE-GA4BODY/propagate": {
+   "unpatched": {
+    "silent": 2,
+    "surfaced": 2
+   },
+   "patched": {
+    "surfaced": 4
+   }
+  },
+  "VSC-PACE-GA4BODY/catch-continue": {
+   "unpatched": {
+    "silent": 2,
+    "surfaced": 2
+   },
+   "patched": {
+    "surfaced": 4
+   }
+  },
+  "VSC-pace-success/propagate": {
+   "unpatched": {
+    "not_applicable": 2
+   },
+   "patched": {
+    "not_applicable": 2
+   }
+  },
+  "VSC-pace-success/catch-continue": {
+   "unpatched": {
+    "not_applicable": 2
+   },
+   "patched": {
+    "not_applicable": 2
+   }
+  },
+  "VSC-AA/propagate": {
+   "unpatched": {
+    "silent": 13
+   },
+   "patched": {
+    "silent": 13
+   }
+  },
+  "VSC-AA/catch-continue": {
+   "unpatched": {
+    "silent": 13
+   },
+   "patched": {
+    "silent": 13
+   }
+  },
+  "VSC-PACE/propagate": {
+   "unpatched": {
+    "surfaced": 12
+   },
+   "patched": {
+    "surfaced": 12
+   }
+  },
+  "VSC-PACE/catch-continue": {
+   "unpatched": {
+    "silent": 12
+   },
+   "patched": {
+    "silent": 12
+   }
+  },
+  "VSC-pace-success-multi-info/propagate": {
+   "unpatched": {
+    "not_applicable": 1
+   },
+   "patched": {
+    "not_applicable": 1
+   }
+  },
+  "VSC-pace-success-multi-info/catch-continue": {
+   "unpatched": {
+    "not_applicable": 1
+   },
+   "patched": {
+    "not_applicable": 1
+   }
+  },
+  "PACE/propagate": {
+   "unpatched": {
+    "surfaced": 32
+   },
+   "patched": {
+    "surfaced": 32
+   }
+  },
+  "PACE/catch-continue": {
+   "unpatched": {
+    "silent": 32
+   },
+   "patched": {
+    "silent": 32
+   }
+  }
+ },
+ "rows": [
+  {
+   "scenario": "VSC-pace-ga4body-empty-7c-jmrtd-propagate",
+   "cell": "VSC-PACE-GA4BODY",
+   "test_case": "VSC-pace-ga4body-empty-7c",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": true
+  },
+  {
+   "scenario": "VSC-pace-ga4body-empty-7c-jmrtd-catch-continue",
+   "cell": "VSC-PACE-GA4BODY",
+   "test_case": "VSC-pace-ga4body-empty-7c",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": true
+  },
+  {
+   "scenario": "VSC-pace-ga4body-truncated-86-jmrtd-propagate",
+   "cell": "VSC-PACE-GA4BODY",
+   "test_case": "VSC-pace-ga4body-truncated-86",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": true
+  },
+  {
+   "scenario": "VSC-pace-ga4body-truncated-86-jmrtd-catch-continue",
+   "cell": "VSC-PACE-GA4BODY",
+   "test_case": "VSC-pace-ga4body-truncated-86",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": true
+  },
+  {
+   "scenario": "VSC-pace-ga4body-wrong-token-jmrtd-propagate",
+   "cell": "VSC-PACE-GA4BODY",
+   "test_case": "VSC-pace-ga4body-wrong-token",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga4body-wrong-token-jmrtd-catch-continue",
+   "cell": "VSC-PACE-GA4BODY",
+   "test_case": "VSC-pace-ga4body-wrong-token",
+   "integrator": "catch-continue",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga4body-no-data-jmrtd-propagate",
+   "cell": "VSC-PACE-GA4BODY",
+   "test_case": "VSC-pace-ga4body-no-data",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga4body-no-data-jmrtd-catch-continue",
+   "cell": "VSC-PACE-GA4BODY",
+   "test_case": "VSC-pace-ga4body-no-data",
+   "integrator": "catch-continue",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-success-jmrtd-propagate",
+   "cell": "VSC-pace-success",
+   "test_case": "VSC-pace-success",
+   "integrator": "propagate",
+   "expect_outcome": "not_applicable",
+   "unpatched": "not_applicable",
+   "patched": "not_applicable",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-success-jmrtd-catch-continue",
+   "cell": "VSC-pace-success",
+   "test_case": "VSC-pace-success",
+   "integrator": "catch-continue",
+   "expect_outcome": "not_applicable",
+   "unpatched": "not_applicable",
+   "patched": "not_applicable",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6300-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6300",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6300-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6300",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6700-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6700",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6700-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6700",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6800-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6800",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6800-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6800",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6900-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6900",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6900-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6900",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6982-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6982",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6982-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6982",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6a00-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6a00",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6a00-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6a00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6a80-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6a80",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6a80-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6a80",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6a88-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6a88",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6a88-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6a88",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6b00-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6b00",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6b00-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6b00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6c00-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6c00",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6c00-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6c00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6e00-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6e00",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6e00-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6e00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6f00-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6f00",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6f00-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6f00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6fff-jmrtd-propagate",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6fff",
+   "integrator": "propagate",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-aa-internal-authenticate-6fff-jmrtd-catch-continue",
+   "cell": "VSC-AA",
+   "test_case": "VSC-aa-internal-authenticate-6fff",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga1-6a80-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga1-6a80",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga1-6a80-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga1-6a80",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga1-6f00-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga1-6f00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga1-6f00-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga1-6f00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga2-6a80-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga2-6a80",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga2-6a80-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga2-6a80",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga2-6f00-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga2-6f00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga2-6f00-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga2-6f00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga3-6a80-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga3-6a80",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga3-6a80-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga3-6a80",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga3-6f00-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga3-6f00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga3-6f00-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga3-6f00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga4-6300-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga4-6300",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga4-6300-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga4-6300",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga4-6a80-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga4-6a80",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga4-6a80-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga4-6a80",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga4-6f00-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga4-6f00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-ga4-6f00-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-ga4-6f00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-mse-6a80-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-mse-6a80",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-mse-6a80-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-mse-6a80",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-mse-6a88-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-mse-6a88",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-mse-6a88-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-mse-6a88",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-mse-6f00-jmrtd-propagate",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-mse-6f00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-mse-6f00-jmrtd-catch-continue",
+   "cell": "VSC-PACE",
+   "test_case": "VSC-pace-mse-6f00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-success-multi-info-jmrtd-propagate",
+   "cell": "VSC-pace-success-multi-info",
+   "test_case": "VSC-pace-success-multi-info",
+   "integrator": "propagate",
+   "expect_outcome": "not_applicable",
+   "unpatched": "not_applicable",
+   "patched": "not_applicable",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-success-multi-info-jmrtd-catch-continue",
+   "cell": "VSC-pace-success-multi-info",
+   "test_case": "VSC-pace-success-multi-info",
+   "integrator": "catch-continue",
+   "expect_outcome": "not_applicable",
+   "unpatched": "not_applicable",
+   "patched": "not_applicable",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-success-jmrtd-propagate",
+   "cell": "VSC-pace-success",
+   "test_case": "VSC-pace-success",
+   "integrator": "propagate",
+   "expect_outcome": "not_applicable",
+   "unpatched": "not_applicable",
+   "patched": "not_applicable",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "VSC-pace-success-jmrtd-catch-continue",
+   "cell": "VSC-pace-success",
+   "test_case": "VSC-pace-success",
+   "integrator": "catch-continue",
+   "expect_outcome": "not_applicable",
+   "unpatched": "not_applicable",
+   "patched": "not_applicable",
+   "patched_step_exception": "",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6300-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6300",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6300-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6300",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6700-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6700",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6700-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6700",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6800-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6800",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6800-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6800",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6900-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6900",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6900-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6900",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6982-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6982",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6982-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6982",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6a00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6a00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6a00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6a00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6a80-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6a80",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6a80-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6a80",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6a88-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6a88",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6a88-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6a88",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6b00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6b00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6b00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6b00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6c00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6c00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6c00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6c00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6e00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6e00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6e00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6e00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6f00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6f00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6f00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6f00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6fff-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6fff",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-6fff-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-6fff",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-no-response-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-no-response",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-no-response-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-no-response",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-timeout-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-timeout",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-timeout-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-timeout",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-transport-abort-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-transport-abort",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-general-authenticate-transport-abort-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-general-authenticate-transport-abort",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6300-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6300",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6300-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6300",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6700-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6700",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6700-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6700",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6800-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6800",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6800-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6800",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6900-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6900",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6900-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6900",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6982-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6982",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6982-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6982",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6a00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6a00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6a00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6a00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6a80-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6a80",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6a80-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6a80",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6a88-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6a88",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6a88-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6a88",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6b00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6b00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6b00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6b00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6c00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6c00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6c00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6c00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6e00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6e00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6e00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6e00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6f00-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6f00",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6f00-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6f00",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6fff-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6fff",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-6fff-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-6fff",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-no-response-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-no-response",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-no-response-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-no-response",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-timeout-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-timeout",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-timeout-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-timeout",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-transport-abort-jmrtd-propagate",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-transport-abort",
+   "integrator": "propagate",
+   "expect_outcome": "surfaced",
+   "unpatched": "surfaced",
+   "patched": "surfaced",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  },
+  {
+   "scenario": "PACE-mse-set-at-transport-abort-jmrtd-catch-continue",
+   "cell": "PACE",
+   "test_case": "PACE-mse-set-at-transport-abort",
+   "integrator": "catch-continue",
+   "expect_outcome": "silent",
+   "unpatched": "silent",
+   "patched": "silent",
+   "patched_step_exception": "org.jmrtd.CardServiceProtocolException",
+   "changed": false
+  }
+ ]
+}

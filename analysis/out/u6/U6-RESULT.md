@@ -29,8 +29,14 @@ A full-length wrong token is caught, so the defect is the parse path, not the co
 keys are right because the chip completed step 4; the secure-messaging MAC is what still binds later responses
 to the PACE key.
 
-Doc 9303 Part 11 (PACE, step 4) has the terminal verify the chip's authentication token; the run shows JMRTD
-completing PACE without that verification on two malformed bodies.
+Doc 9303 Part 11 (8th ed.), Section 4.4.1, lists the PACE steps that "SHALL be performed", including step 3 f)
+"They exchange and verify the authentication token" (printed p. 12; Figure 1, p. 13: the inspection system verifies
+T_IC). The run shows JMRTD completing PACE without that verification on two malformed bodies.
+
+Patch check (`analysis/out/u6b/`, run 3efa63c): with the one-line change in `patch.diff` (the parse IOException
+is thrown, so doPACEStep4 wraps it as a step-4 failure), the four silent cells become surfaced
+(CardServiceProtocolException); the other 124 JMRTD entries of `u6-jmrtd.json`, `independent.json` and `pace.json`
+are unchanged.
 
 Source: `u6-results.json` (outcome fields per run), `summary.md`, `environment.json`. Raw run files with the APDU
 trace stay on Testbed A (`~/cbo/u6-run`).

@@ -1,0 +1,11 @@
+--- a/org/jmrtd/protocol/PACEProtocol.java
++++ b/org/jmrtd/protocol/PACEProtocol.java
+@@ -690,7 +690,7 @@
+           return step4ResponseInputStream.readValue();
+         }
+       } catch (IOException ioe) {
+-        LOGGER.log(Level.WARNING, "Could not parse step 4 response", ioe);
++        throw new GeneralSecurityException("Could not parse step 4 response", ioe);
+       } finally {
+         try {
+           step4ResponseInputStream.close();
