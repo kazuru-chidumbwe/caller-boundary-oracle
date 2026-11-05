@@ -315,6 +315,24 @@ def main() -> None:
 
             os_.ins2handler[0x86] = failing_ga
 
+    if vs.get("observe_refusals"):
+        # Record the card's own refusals (not injected) as delivered faults, as relay mode does for
+        # a real chip, so a wrong-key cell is classified the same way on both paths. Off by default.
+        for ins, mech in RELAY_FAULT_INS.items():
+            inner = os_.ins2handler[ins]
+
+            def observed(p1, p2, data, inner=inner, mech=mech):
+                try:
+                    sw, resp = inner(p1, p2, data)
+                except SwError:
+                    report.mark(mech)
+                    raise
+                if sw != 0x9000 and (sw >> 8) != 0x61:
+                    report.mark(mech)
+                return sw, resp
+
+            os_.ins2handler[ins] = observed
+
     if ga4_body:
         real_ga = os_.ins2handler[0x86]
         ga_calls = [0]

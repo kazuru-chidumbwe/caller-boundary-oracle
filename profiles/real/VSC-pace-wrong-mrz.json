@@ -9,5 +9,8 @@
     "date_of_birth": "640812",
     "date_of_expiry": "201031"
   },
-  "peer": "vsmartcard"
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "observe_refusals": true
+  }
 }

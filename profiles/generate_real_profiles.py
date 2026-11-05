@@ -83,9 +83,10 @@ def main() -> None:
         print("real-chip profiles written to profiles/real/local/ (gitignored)")
         return
     bad = dict(VSC_MRZ, document_number=wrong(VSC_MRZ["document_number"]))
-    write(ROOT / "profiles/real/VSC-pace-wrong-mrz.json",
-          profile("VSC-pace-wrong-mrz", "Independent chip: reader uses an MRZ with one character changed",
-                  bad, False, "pace_fail_wrong_key"))
+    direct = profile("VSC-pace-wrong-mrz", "Independent chip: reader uses an MRZ with one character changed",
+                     bad, False, "pace_fail_wrong_key")
+    direct["vsmartcard"] = {"observe_refusals": True}  # the chip's own refusal is the delivered fault
+    write(ROOT / "profiles/real/VSC-pace-wrong-mrz.json", direct)
     write(ROOT / "profiles/real/REHEARSAL-pace-success.json",
           profile("REHEARSAL-pace-success", "Independent chip behind the phone hub: correct MRZ",
                   VSC_MRZ, True, "pace_success"))
