@@ -1,0 +1,47 @@
+{
+ "direct_wrong_mrz": {
+  "gmrtd|64bd6ab-guard": "surfaced",
+  "gmrtd|8fea245-guard": "surfaced",
+  "gmrtd|64bd6ab-allow-fallback": "status_only",
+  "gmrtd|8fea245-default": "status_only",
+  "passauf|default": "surfaced",
+  "gmrtd|b861835-default": "surfaced",
+  "gmrtd|64bd6ab-default": "surfaced",
+  "gmrtd|b861835-allow-fallback": "status_only",
+  "gmrtd|b861835-guard": "surfaced",
+  "jmrtd|catch-continue": "surfaced",
+  "jmrtd|propagate": "surfaced",
+  "emrtd-dotnet|default": "surfaced",
+  "dmrtd|default": "surfaced"
+ },
+ "hub_wrong_mrz": {
+  "dmrtd|default": "surfaced",
+  "passauf|default": "surfaced",
+  "gmrtd|64bd6ab-allow-fallback": "status_only",
+  "gmrtd|b861835-guard": "surfaced",
+  "gmrtd|64bd6ab-default": "surfaced",
+  "gmrtd|8fea245-guard": "surfaced",
+  "gmrtd|8fea245-default": "status_only",
+  "gmrtd|b861835-allow-fallback": "status_only",
+  "emrtd-dotnet|default": "surfaced",
+  "gmrtd|b861835-default": "surfaced",
+  "jmrtd|catch-continue": "surfaced",
+  "jmrtd|propagate": "surfaced",
+  "gmrtd|64bd6ab-guard": "surfaced"
+ },
+ "hub_success": {
+  "gmrtd|64bd6ab-guard": "not_applicable",
+  "jmrtd|catch-continue": "not_applicable",
+  "jmrtd|propagate": "not_applicable",
+  "gmrtd|64bd6ab-default": "not_applicable",
+  "gmrtd|8fea245-default": "not_applicable",
+  "passauf|default": "not_applicable",
+  "emrtd-dotnet|default": "not_applicable",
+  "dmrtd|default": "not_applicable",
+  "gmrtd|64bd6ab-allow-fallback": "not_applicable",
+  "gmrtd|b861835-guard": "not_applicable",
+  "gmrtd|b861835-allow-fallback": "not_applicable",
+  "gmrtd|8fea245-guard": "not_applicable",
+  "gmrtd|b861835-default": "not_applicable"
+ }
+}

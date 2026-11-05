@@ -1,0 +1,22 @@
+[22:23:01] start: 805261a dirty=0
+[22:23:04] hub 1223700 card 1223702: {"phone_connected": true, "phone_connects": 1, "runs": 0, "apdus": 0, "since": 1793910181.4989119}
+[22:23:49] SUITE RAN
+[22:23:49] hub: {"phone_connected": true, "phone_connects": 1, "runs": 26, "apdus": 487, "since": 1793910181.4989119}
+runs 39 direct 13 hub-wrong 13 hub-success 13
+hub-success outcomes {'not_applicable': 13}
+wrong-mrz direct vs hub differences: none
+  direct ('dmrtd', 'default') surfaced
+  direct ('emrtd-dotnet', 'default') surfaced
+  direct ('gmrtd', '64bd6ab-allow-fallback') status_only
+  direct ('gmrtd', '64bd6ab-default') surfaced
+  direct ('gmrtd', '64bd6ab-guard') surfaced
+  direct ('gmrtd', '8fea245-default') status_only
+  direct ('gmrtd', '8fea245-guard') surfaced
+  direct ('gmrtd', 'b861835-allow-fallback') status_only
+  direct ('gmrtd', 'b861835-default') surfaced
+  direct ('gmrtd', 'b861835-guard') surfaced
+  direct ('jmrtd', 'catch-continue') surfaced
+  direct ('jmrtd', 'propagate') surfaced
+  direct ('passauf', 'default') surfaced
+[22:23:49] post: dirty=0
+[22:23:49] T20R DONE

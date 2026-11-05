@@ -104,6 +104,24 @@ def main() -> None:
                         "become the real-chip expectations."),
         "seed": 1, "n": 1, "entries": entries})
     print(f"rehearsal: {len(entries)} entries")
+    # Real-chip suite. Expectations: correct MRZ not_applicable (as on the software chip); wrong MRZ the
+    # outcome of the same entry on the software chip with the same change (rehearsal at 805261a, where the
+    # hub path matched the direct path for all 13 entries).
+    reh = ROOT / "analysis/out/t20/REHEARSAL-SUMMARY.json"
+    if reh.is_file():
+        direct = json.loads(reh.read_text())["direct_wrong_mrz"]
+        real = entries_for("REAL-pace-success", "profiles/real/local/REAL-pace-success.json", "not_applicable")
+        for e in entries_for("REAL-pace-wrong-mrz", "profiles/real/local/REAL-pace-wrong-mrz.json", None):
+            e["expect_outcome"] = direct[f"{e['library']}|{e['variant']}"]
+            real.append(e)
+        write(ROOT / "suites/real-chip.json", {
+            "suite_id": "real-chip",
+            "description": ("T20: a real e-passport read through a phone (vsmartcard Remote Smart Card Reader, phone "
+                            "hub, relay mode), correct MRZ and one character changed, every library entry. "
+                            "Expectations from the software-chip rehearsal (analysis/out/t20), committed before the "
+                            "session. Profiles are generated on the run host from CBO_REAL_MRZ and never committed."),
+            "seed": 1, "n": 1, "entries": real})
+        print(f"real-chip: {len(real)} entries")
 
 
 if __name__ == "__main__":
