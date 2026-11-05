@@ -38,15 +38,18 @@ def main() -> int:
         res_path = out / f"{run['id']}.json"
         p = subprocess.run(["java", "-cp", str(JAR), "org.callerboundary.jmrtd.SampleReader",
                             "-profile", str(ROOT / run["profile"]), "-chip-serve", str(CHIP),
-                            "-mode", run["mode"], "-out", str(res_path)],
+                            "-mode", run["mode"], "-out", str(res_path),
+                            "-trusted-chain", str(run.get("trusted_chain", False)).lower()],
                            cwd=ROOT, capture_output=True, text=True, timeout=300)
         if not res_path.is_file():
             rows.append({"id": run["id"], "held": False, "runner_fault": p.stderr[-500:]})
             ok = False
             continue
         res = json.loads(res_path.read_text())
-        got = {k: res.get(k) for k in run["expect"]}
-        held = got == run["expect"]
+        # "<field>_min": the result's <field> must be at least that value (e.g. a signature was returned).
+        got = {k: res.get(k[:-4] if k.endswith("_min") else k) for k in run["expect"]}
+        held = all((got[k] is not None and got[k] >= v) if k.endswith("_min") else got[k] == v
+                   for k, v in run["expect"].items())
         ok &= held
         rows.append({"id": run["id"], "mode": run["mode"], "profile": run["profile"], "expect": run["expect"],
                      "got": got, "held": held, "display": res.get("display"), "error": res.get("error")})

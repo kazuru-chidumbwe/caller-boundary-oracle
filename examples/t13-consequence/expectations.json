@@ -1,18 +1,54 @@
 {
-  "prereg": "internal T13 pre-registration of 11 Oct 2026 (app pattern, profiles, verdict rule); runs R1 to R3 as registered, R4 added 5 Nov 2026 before any run",
-  "app": "drivers/jmrtd SampleReader",
-  "runs": [
-    {"id": "R1", "profile": "profiles/aa/AA-internal-authenticate-6982.json", "mode": "pattern",
-     "expect": {"aa_refused_by_chip": true, "aa_returned": true, "authentic": true},
-     "why": "doAA returns an AAResult with an empty response when the chip refuses INTERNAL AUTHENTICATE under secure messaging (JMRTD bug #90); the pattern trusts the library, so the refused document is shown as authentic"},
-    {"id": "R2", "profile": "profiles/u1/U1-AA-ok.json", "mode": "pattern",
-     "expect": {"aa_refused_by_chip": false, "aa_returned": true, "authentic": true},
-     "why": "the chip signs the challenge; authentic legitimately"},
-    {"id": "R3", "profile": "profiles/aa/AA-internal-authenticate-6982.json", "mode": "defensive",
-     "expect": {"aa_refused_by_chip": true, "aa_returned": true, "authentic": false},
-     "why": "same refused chip; the defensive variant rejects the empty response"},
-    {"id": "R4", "profile": "profiles/u1/U1-AA-ok.json", "mode": "defensive",
-     "expect": {"aa_refused_by_chip": false, "aa_returned": true, "authentic": true},
-     "why": "added control: the defensive check does not reject a chip that signs"}
-  ]
+ "prereg": "internal T13 pre-registration of 11 Oct 2026 (app pattern, profiles, verdict rule); runs R1 to R3 as registered, R4 added 5 Nov 2026 before any run; first run 5 Nov (a0b1068, out/20261105T201119Z) archived as a runner fault: chip-serve had no trusted-chain mode, so the AA-success chip answered INTERNAL AUTHENTICATE with 6D00 and R2/R4 never had a working AA chip. Fixed (chip-serve -trusted-chain, as gmrtd-read); R2/R4 run on the trusted-chain chip; R1/R3 unchanged; rerun from scratch",
+ "app": "drivers/jmrtd SampleReader",
+ "runs": [
+  {
+   "id": "R1",
+   "profile": "profiles/aa/AA-internal-authenticate-6982.json",
+   "mode": "pattern",
+   "expect": {
+    "aa_refused_by_chip": true,
+    "aa_returned": true,
+    "authentic": true
+   },
+   "why": "doAA returns an AAResult with an empty response when the chip refuses INTERNAL AUTHENTICATE under secure messaging (JMRTD bug #90); the pattern trusts the library, so the refused document is shown as authentic"
+  },
+  {
+   "id": "R2",
+   "profile": "profiles/u1/U1-AA-ok.json",
+   "mode": "pattern",
+   "expect": {
+    "aa_refused_by_chip": false,
+    "aa_returned": true,
+    "authentic": true,
+    "aa_response_length_min": 1
+   },
+   "why": "the chip signs the challenge; authentic legitimately",
+   "trusted_chain": true
+  },
+  {
+   "id": "R3",
+   "profile": "profiles/aa/AA-internal-authenticate-6982.json",
+   "mode": "defensive",
+   "expect": {
+    "aa_refused_by_chip": true,
+    "aa_returned": true,
+    "authentic": false
+   },
+   "why": "same refused chip; the defensive variant rejects the empty response"
+  },
+  {
+   "id": "R4",
+   "profile": "profiles/u1/U1-AA-ok.json",
+   "mode": "defensive",
+   "expect": {
+    "aa_refused_by_chip": false,
+    "aa_returned": true,
+    "authentic": true,
+    "aa_response_length_min": 1
+   },
+   "why": "added control: the defensive check does not reject a chip that signs",
+   "trusted_chain": true
+  }
+ ]
 }

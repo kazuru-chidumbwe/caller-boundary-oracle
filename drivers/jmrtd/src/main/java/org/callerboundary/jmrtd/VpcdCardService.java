@@ -58,8 +58,19 @@ public final class VpcdCardService extends CardService {
 
     /** The harness chip: cmd/chip-serve serving the profile. */
     public static VpcdCardService harness(Path chipServe, String profilePath) throws IOException {
-        return new VpcdCardService((port, report) -> List.of(chipServe.toString(),
-                "-profile", profilePath, "-port", Integer.toString(port), "-report", report.toString()));
+        return harness(chipServe, profilePath, false);
+    }
+
+    /** The harness chip; with trustedChain, the trusted-chain chip whose CA and AA succeed. */
+    public static VpcdCardService harness(Path chipServe, String profilePath, boolean trustedChain) throws IOException {
+        return new VpcdCardService((port, report) -> {
+            List<String> cmd = new ArrayList<>(List.of(chipServe.toString(),
+                    "-profile", profilePath, "-port", Integer.toString(port), "-report", report.toString()));
+            if (trustedChain) {
+                cmd.add("-trusted-chain");
+            }
+            return cmd;
+        });
     }
 
     /** The independent chip: the vsmartcard card script serving the profile. */

@@ -47,7 +47,9 @@ public final class SampleReader {
         result.put("app", "SampleReader");
         result.put("mode", mode);
         result.put("profile", profile.id);
-        VpcdCardService card = VpcdCardService.harness(Path.of(a.get("-chip-serve")), a.get("-profile"));
+        boolean trustedChain = Boolean.parseBoolean(a.getOrDefault("-trusted-chain", "false"));
+        result.put("trusted_chain", trustedChain);
+        VpcdCardService card = VpcdCardService.harness(Path.of(a.get("-chip-serve")), a.get("-profile"), trustedChain);
         boolean authentic;
         String shown;
         try {

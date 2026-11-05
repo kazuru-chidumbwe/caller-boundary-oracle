@@ -42,6 +42,7 @@ func main() {
 	host := flag.String("host", "127.0.0.1", "reader host")
 	port := flag.Int("port", 0, "reader port")
 	reportPath := flag.String("report", "", "write delivered-fault report here on exit")
+	trustedChain := flag.Bool("trusted-chain", false, "serve the trusted-chain chip (CA and AA succeed unless the profile injects a failure), as gmrtd-read -trusted-chain")
 	flag.Parse()
 
 	p, err := profile.Load(*profilePath)
@@ -52,6 +53,10 @@ func main() {
 	if err != nil {
 		fatal("profile", err)
 	}
+	if p.Dual && !*trustedChain {
+		fatal("profile", fmt.Errorf("dual profile %s needs -trusted-chain", p.ID))
+	}
+	cfg.Trusted = *trustedChain
 	pass, err := password.NewPasswordMrzi(p.MRZ.DocumentNumber, p.MRZ.DateOfBirth, p.MRZ.DateOfExpiry)
 	if err != nil {
 		fatal("password", err)
