@@ -1,0 +1,167 @@
+{
+ "run": "u6-run",
+ "harness": "b82b3d8",
+ "host": "Testbed A",
+ "runs": [
+  {
+   "run_id": "VSC-pace-ga4body-empty-7c-jmrtd-catch-continue-20261105T194127.653535Z-000001",
+   "test_case": "VSC-pace-ga4body-empty-7c",
+   "integrator": "catch-continue",
+   "outcome": "silent",
+   "observation": {
+    "fired": true,
+    "failed": false,
+    "succeeded": true,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "step_exception": "",
+   "read_err": "",
+   "fault_point": ""
+  },
+  {
+   "run_id": "VSC-pace-ga4body-empty-7c-jmrtd-propagate-20261105T194125.458100Z-000001",
+   "test_case": "VSC-pace-ga4body-empty-7c",
+   "integrator": "propagate",
+   "outcome": "silent",
+   "observation": {
+    "fired": true,
+    "failed": false,
+    "succeeded": true,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "step_exception": "",
+   "read_err": "",
+   "fault_point": ""
+  },
+  {
+   "run_id": "VSC-pace-ga4body-no-data-jmrtd-catch-continue-20261105T194140.711011Z-000001",
+   "test_case": "VSC-pace-ga4body-no-data",
+   "integrator": "catch-continue",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": false
+   },
+   "step_exception": "org.jmrtd.CardServiceProtocolException",
+   "read_err": "BAC: BAC failed in MUTUAL AUTH (SW = 0x6985: CONDITIONS NOT SATISFIED) (step: 2)",
+   "fault_point": ""
+  },
+  {
+   "run_id": "VSC-pace-ga4body-no-data-jmrtd-propagate-20261105T194138.483289Z-000001",
+   "test_case": "VSC-pace-ga4body-no-data",
+   "integrator": "propagate",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": false
+   },
+   "step_exception": "org.jmrtd.CardServiceProtocolException",
+   "read_err": "PACE: PCD side exception in authentication token generation step (step: 4)",
+   "fault_point": ""
+  },
+  {
+   "run_id": "VSC-pace-ga4body-truncated-86-jmrtd-catch-continue-20261105T194132.240202Z-000001",
+   "test_case": "VSC-pace-ga4body-truncated-86",
+   "integrator": "catch-continue",
+   "outcome": "silent",
+   "observation": {
+    "fired": true,
+    "failed": false,
+    "succeeded": true,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "step_exception": "",
+   "read_err": "",
+   "fault_point": ""
+  },
+  {
+   "run_id": "VSC-pace-ga4body-truncated-86-jmrtd-propagate-20261105T194129.877792Z-000001",
+   "test_case": "VSC-pace-ga4body-truncated-86",
+   "integrator": "propagate",
+   "outcome": "silent",
+   "observation": {
+    "fired": true,
+    "failed": false,
+    "succeeded": true,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "step_exception": "",
+   "read_err": "",
+   "fault_point": ""
+  },
+  {
+   "run_id": "VSC-pace-ga4body-wrong-token-jmrtd-catch-continue-20261105T194136.416935Z-000001",
+   "test_case": "VSC-pace-ga4body-wrong-token",
+   "integrator": "catch-continue",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": false
+   },
+   "step_exception": "org.jmrtd.CardServiceProtocolException",
+   "read_err": "BAC: BAC failed in MUTUAL AUTH (SW = 0x6985: CONDITIONS NOT SATISFIED) (step: 2)",
+   "fault_point": ""
+  },
+  {
+   "run_id": "VSC-pace-ga4body-wrong-token-jmrtd-propagate-20261105T194134.244243Z-000001",
+   "test_case": "VSC-pace-ga4body-wrong-token",
+   "integrator": "propagate",
+   "outcome": "surfaced",
+   "observation": {
+    "fired": true,
+    "failed": true,
+    "succeeded": false,
+    "returned_error": true,
+    "status_signal": false
+   },
+   "step_exception": "org.jmrtd.CardServiceProtocolException",
+   "read_err": "PACE: PCD side exception in authentication token generation step (step: 4)",
+   "fault_point": ""
+  },
+  {
+   "run_id": "VSC-pace-success-jmrtd-catch-continue-20261105T194145.402231Z-000001",
+   "test_case": "VSC-pace-success",
+   "integrator": "catch-continue",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": true,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "step_exception": "",
+   "read_err": "",
+   "fault_point": ""
+  },
+  {
+   "run_id": "VSC-pace-success-jmrtd-propagate-20261105T194142.992970Z-000001",
+   "test_case": "VSC-pace-success",
+   "integrator": "propagate",
+   "outcome": "not_applicable",
+   "observation": {
+    "fired": false,
+    "failed": false,
+    "succeeded": true,
+    "returned_error": false,
+    "status_signal": false
+   },
+   "step_exception": "",
+   "read_err": "",
+   "fault_point": ""
+  }
+ ]
+}

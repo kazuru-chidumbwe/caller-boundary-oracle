@@ -1,0 +1,18 @@
+{
+ "summary": {
+  "runs": 148,
+  "unmatched_runs": 0,
+  "cells": 48,
+  "cells_all_held": 48,
+  "runs_held": 148,
+  "runs_not_held": 0,
+  "outcomes": {
+   "not_applicable": 104,
+   "status_only": 38,
+   "surfaced": 6
+  },
+  "hangs": 0,
+  "not_held_cells": []
+ },
+ "misses": []
+}

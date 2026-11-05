@@ -1,0 +1,9 @@
+{
+  "harness_commit": "cc5ecb696b3b78f21c1e9363792ac41df2c4d258",
+  "harness_dirty": false,
+  "oracle_sha256": "e29e03eca5bfd6b935453a5bac7af68a6449564ede074e284c6156e4014a1bb9",
+  "drivers": {
+    "fido2-net-lib": "/home/test/cbo/_vendor/dotnet/dotnet /home/test/cbo/u3-build/fido2-4.2.0/out/Fido2Driver.dll",
+    "fido2-net-lib@4.3.2": "/home/test/cbo/_vendor/dotnet/dotnet /home/test/cbo/u3-build/fido2-4.3.2/out/Fido2Driver.dll"
+  }
+}
