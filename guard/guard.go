@@ -31,7 +31,11 @@ func Require(session *document.Session, mechanisms ...Mechanism) error {
 		var err error
 		switch m {
 		case PACE:
+			// Access control: a PACE error, or a BAC error where BAC was used (ledger B.10).
 			err = session.PaceErr
+			if err == nil {
+				err = session.BacErr
+			}
 		case CA:
 			err = session.ChipAuthErr
 		case AA:

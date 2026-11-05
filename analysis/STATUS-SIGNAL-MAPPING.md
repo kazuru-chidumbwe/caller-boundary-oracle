@@ -4,7 +4,7 @@ The oracle's `status_signal` observation is true when the failure is visible to 
 
 | Library | Field the caller can read | Kind | Where |
 | --- | --- | --- | --- |
-| gmrtd | The session returned with the document records each step's error (`PaceErr`, `ChipAuthErr`, `ActiveAuthErr`) | Explicit: names the failed step | `internal/gmrtdrun/gmrtdrun.go` (`StatusSignal: session != nil && failed`) |
+| gmrtd | The session returned with the document records each step's error (`PaceErr`, `ChipAuthErr`, `ActiveAuthErr`; for access control also `BacErr` where BAC was used, ledger B.10) | Explicit: names the failed step | `internal/gmrtdrun/gmrtdrun.go` (`StatusSignal: session != nil && failed`) |
 | NFCPassportReader | `PACEStatus` and `chipAuthenticationStatus` take the value `.failed`; for Active Authentication, `activeAuthenticationPassed` is false while `activeAuthenticationSupported` is true | Explicit for PACE and CA; a result flag for AA | `tools/ios_collect.py` (`step_state`) |
 | emrtd-dotnet | The returned document names the access control used; when PACE was offered and the document names BAC, PACE did not complete. The PACE error itself goes only to a log callback | **Indirect**: the caller must infer the failure from the access control | `drivers/dotnet/Program.cs` (`StatusSignal: accessControl is not null && !succeeded`) |
 | JMRTD | None: failures are thrown or not reported | n/a | `drivers/jmrtd/.../JmrtdRead.java` (always false) |

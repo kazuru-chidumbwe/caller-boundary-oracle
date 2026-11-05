@@ -254,7 +254,7 @@ def main() -> None:
         relay(args.host, args.port, int(vs["relay"]), Report(args.report))
         return
     card_access = vs.get("card_access", "pace-only")
-    if card_access not in ("pace-only", "npa"):
+    if card_access not in ("pace-only", "npa", "none"):
         raise SystemExit(f"unknown card_access {card_access!r}")
     pace_step = vs.get("pace_step", "")
     if pace_step not in ("", "mse", "ga1", "ga2", "ga3", "ga4"):
@@ -275,6 +275,9 @@ def main() -> None:
     os_.mf.append(emrtd_application(os_.mf, bool(vs.get("dg15"))))
     if card_access == "pace-only":
         os_.mf.select("fid", 0x011C).data = CARD_ACCESS_PACE_ONLY
+    elif card_access == "none":
+        # A chip without PACE: no EF.CardAccess, so readers use BAC (Doc 9303 Part 11 §4.2).
+        os_.mf.remove(os_.mf.select("fid", 0x011C))
 
     if vs.get("aa_sw"):
         aa_sw = int(vs["aa_sw"], 16)
@@ -318,7 +321,11 @@ def main() -> None:
     if vs.get("observe_refusals"):
         # Record the card's own refusals (not injected) as delivered faults, as relay mode does for
         # a real chip, so a wrong-key cell is classified the same way on both paths. Off by default.
+        # A string value names the report key every refusal is recorded under (e.g. "PACE" for the
+        # access-control step of a chip without PACE, whose refusal comes at BAC).
+        as_key = vs["observe_refusals"] if isinstance(vs["observe_refusals"], str) else None
         for ins, mech in RELAY_FAULT_INS.items():
+            mech = as_key or mech
             inner = os_.ins2handler[ins]
 
             def observed(p1, p2, data, inner=inner, mech=mech):

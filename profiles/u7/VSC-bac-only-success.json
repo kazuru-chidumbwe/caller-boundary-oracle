@@ -1,0 +1,16 @@
+{
+  "id": "VSC-bac-only-success",
+  "name": "Independent chip without PACE: BAC with the right MRZ",
+  "mechanism": "PACE",
+  "condition": "bac_only_success",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "card_access": "none"
+  }
+}

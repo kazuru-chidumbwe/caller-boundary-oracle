@@ -99,7 +99,9 @@ func stepState(m guard.Mechanism, s *document.Session) (failed, succeeded bool) 
 	}
 	switch m {
 	case guard.PACE:
-		return s.PaceErr != nil, s.PaceResult != nil && s.PaceResult.Success
+		// The access-control step: PACE, or BAC where gmrtd used it (a chip without PACE, or the
+		// fallback). gmrtd records a BAC failure in BacErr and returns no error (U7, ledger B.10).
+		return s.PaceErr != nil || s.BacErr != nil, s.PaceResult != nil && s.PaceResult.Success
 	case guard.CA:
 		return s.ChipAuthErr != nil, s.ChipAuthResult != nil && s.ChipAuthResult.Success
 	case guard.AA:
