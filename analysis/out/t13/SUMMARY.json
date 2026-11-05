@@ -1,0 +1,82 @@
+{
+ "harness_commit": "46ef67e414b6bb9ca30a9cb5c433154732a56fa5",
+ "all_held": true,
+ "runs": [
+  {
+   "id": "R1",
+   "mode": "pattern",
+   "profile": "profiles/aa/AA-internal-authenticate-6982.json",
+   "expect": {
+    "aa_refused_by_chip": true,
+    "aa_returned": true,
+    "authentic": true
+   },
+   "got": {
+    "aa_refused_by_chip": true,
+    "aa_returned": true,
+    "authentic": true
+   },
+   "held": true,
+   "display": "[pattern] AA-internal-authenticate-6982  document=L898902C ERIKSSON ANNA MARIA  authentic=true",
+   "error": null
+  },
+  {
+   "id": "R2",
+   "mode": "pattern",
+   "profile": "profiles/u1/U1-AA-ok.json",
+   "expect": {
+    "aa_refused_by_chip": false,
+    "aa_returned": true,
+    "authentic": true,
+    "aa_response_length_min": 1
+   },
+   "got": {
+    "aa_refused_by_chip": false,
+    "aa_returned": true,
+    "authentic": true,
+    "aa_response_length_min": 128
+   },
+   "held": true,
+   "display": "[pattern] U1-AA-ok  document=L898902C ERIKSSON ANNA MARIA  authentic=true",
+   "error": null
+  },
+  {
+   "id": "R3",
+   "mode": "defensive",
+   "profile": "profiles/aa/AA-internal-authenticate-6982.json",
+   "expect": {
+    "aa_refused_by_chip": true,
+    "aa_returned": true,
+    "authentic": false
+   },
+   "got": {
+    "aa_refused_by_chip": true,
+    "aa_returned": true,
+    "authentic": false
+   },
+   "held": true,
+   "display": "[defensive] AA-internal-authenticate-6982  document=L898902C ERIKSSON ANNA MARIA  authentic=false",
+   "error": null
+  },
+  {
+   "id": "R4",
+   "mode": "defensive",
+   "profile": "profiles/u1/U1-AA-ok.json",
+   "expect": {
+    "aa_refused_by_chip": false,
+    "aa_returned": true,
+    "authentic": true,
+    "aa_response_length_min": 1
+   },
+   "got": {
+    "aa_refused_by_chip": false,
+    "aa_returned": true,
+    "authentic": true,
+    "aa_response_length_min": 128
+   },
+   "held": true,
+   "display": "[defensive] U1-AA-ok  document=L898902C ERIKSSON ANNA MARIA  authentic=true",
+   "error": null
+  }
+ ]
+}
