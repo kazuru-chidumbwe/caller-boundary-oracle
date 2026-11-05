@@ -1,0 +1,16 @@
+{
+  "id": "VSC-pace-ga4body-empty-7c",
+  "name": "Independent chip: PACE step 4 completed by the chip, answered 9000 with 7C00, no authentication token",
+  "mechanism": "PACE",
+  "condition": "pace_fail_independent",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "ga4_body": "empty-7c"
+  }
+}

@@ -31,7 +31,12 @@ session. What it serves and which step it fails come from the profile's "vsmartc
 (--profile): dg15, card_access, aa_sw (INTERNAL AUTHENTICATE answers with that status word,
 framed by vsmartcard's own secure-messaging code), and pace_sw with pace_step ("mse" for the
 first MSE:Set AT, "ga1" to "ga4" for the PACE General Authenticate steps, answered in plaintext
-since secure messaging is not yet established). --report writes {"fault_delivered": {...}} as
+since secure messaging is not yet established). ga4_body instead lets the card run the real
+PACE step 4 (it verifies the reader's token and switches to the PACE session keys as usual)
+and answers 9000 with a changed response body: "empty-7c" (7C00, no authentication token),
+"truncated-86" (7C04 86 08 and the first two token bytes: outer length consistent, token
+cut short), "wrong-token" (full-length token with every bit inverted) or "no-data" (no
+response data). --report writes {"fault_delivered": {...}} as
 soon as an injected failure is sent, the same report cmd/chip-serve writes, so every driver
 observes delivery the same way.
 """
@@ -63,6 +68,22 @@ MRZ = (
     b"6408125<2010315D<<<<<<<<<<<<<4"
     b"MUSTERMANN<<ERIKA<<<<<<<<<<<<<"
 )
+
+
+def _ga4_token(resp: bytes) -> bytes:
+    """The authentication token T_PICC from the card's own step-4 response (7C L 86 08 T ...)."""
+    if len(resp) < 12 or resp[0] != 0x7C or resp[2] != 0x86 or resp[3] != 0x08:
+        raise RuntimeError(f"unexpected PACE step-4 response {resp.hex()}")
+    return resp[4:12]
+
+
+# Response bodies for a PACE step 4 that the card itself completed (keys already switched).
+GA4_BODIES = {
+    "empty-7c": lambda resp: bytes.fromhex("7C00"),
+    "truncated-86": lambda resp: bytes.fromhex("7C048608") + _ga4_token(resp)[:2],
+    "wrong-token": lambda resp: bytes.fromhex("7C0A8608") + bytes(b ^ 0xFF for b in _ga4_token(resp)),
+    "no-data": lambda resp: b"",
+}
 
 
 class InjectedSwError(SwError):
@@ -178,6 +199,11 @@ def main() -> None:
     pace_step = vs.get("pace_step", "")
     if pace_step not in ("", "mse", "ga1", "ga2", "ga3", "ga4"):
         raise SystemExit(f"unknown pace_step {pace_step!r}")
+    ga4_body = vs.get("ga4_body", "")
+    if ga4_body not in ("",) + tuple(GA4_BODIES):
+        raise SystemExit(f"unknown ga4_body {ga4_body!r}")
+    if ga4_body and pace_step:
+        raise SystemExit("ga4_body and pace_step are exclusive")
     report = Report(args.report)
 
     vicc = VirtualICC(None, "nPA", args.host, args.port, logginglevel=getattr(logging, args.log_level.upper()))
@@ -228,6 +254,20 @@ def main() -> None:
                 return real_ga(p1, p2, data)
 
             os_.ins2handler[0x86] = failing_ga
+
+    if ga4_body:
+        real_ga = os_.ins2handler[0x86]
+        ga_calls = [0]
+
+        def changed_ga4(p1, p2, data):
+            ga_calls[0] += 1
+            sw, resp = real_ga(p1, p2, data)
+            if ga_calls[0] != 4:
+                return sw, resp
+            report.mark("PACE")
+            return sw, GA4_BODIES[ga4_body](resp)
+
+        os_.ins2handler[0x86] = changed_ga4
 
     try:
         vicc.run()

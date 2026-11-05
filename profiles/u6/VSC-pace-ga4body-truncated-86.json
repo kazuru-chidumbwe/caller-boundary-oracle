@@ -1,0 +1,16 @@
+{
+  "id": "VSC-pace-ga4body-truncated-86",
+  "name": "Independent chip: PACE step 4 completed by the chip, answered 9000 with 7C04 86 08 and two token bytes, token cut short",
+  "mechanism": "PACE",
+  "condition": "pace_fail_independent",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "ga4_body": "truncated-86"
+  }
+}

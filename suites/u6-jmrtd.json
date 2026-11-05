@@ -1,0 +1,126 @@
+{
+  "suite_id": "u6-jmrtd",
+  "description": "U6: JMRTD 0.8.9, PACE step 4 completed by the independent chip and answered 9000 with a changed body (empty 7C, truncated 86, wrong token, no data), both integrators, with the PACE positive control. Expectations from the 0.8.9 source (profiles/generate_u6_profiles.py), committed before the run.",
+  "seed": 1,
+  "n": 1,
+  "entries": [
+    {
+      "scenario_id": "VSC-pace-ga4body-empty-7c-jmrtd-propagate",
+      "test_case": "VSC-pace-ga4body-empty-7c",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-PACE-GA4BODY",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/u6/VSC-pace-ga4body-empty-7c.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4body-empty-7c-jmrtd-catch-continue",
+      "test_case": "VSC-pace-ga4body-empty-7c",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-PACE-GA4BODY",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/u6/VSC-pace-ga4body-empty-7c.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4body-truncated-86-jmrtd-propagate",
+      "test_case": "VSC-pace-ga4body-truncated-86",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-PACE-GA4BODY",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/u6/VSC-pace-ga4body-truncated-86.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4body-truncated-86-jmrtd-catch-continue",
+      "test_case": "VSC-pace-ga4body-truncated-86",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-PACE-GA4BODY",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/u6/VSC-pace-ga4body-truncated-86.json",
+      "expect_outcome": "silent"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4body-wrong-token-jmrtd-propagate",
+      "test_case": "VSC-pace-ga4body-wrong-token",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-PACE-GA4BODY",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/u6/VSC-pace-ga4body-wrong-token.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4body-wrong-token-jmrtd-catch-continue",
+      "test_case": "VSC-pace-ga4body-wrong-token",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-PACE-GA4BODY",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/u6/VSC-pace-ga4body-wrong-token.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4body-no-data-jmrtd-propagate",
+      "test_case": "VSC-pace-ga4body-no-data",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-PACE-GA4BODY",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/u6/VSC-pace-ga4body-no-data.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "VSC-pace-ga4body-no-data-jmrtd-catch-continue",
+      "test_case": "VSC-pace-ga4body-no-data",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-PACE-GA4BODY",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/u6/VSC-pace-ga4body-no-data.json",
+      "expect_outcome": "surfaced"
+    },
+    {
+      "scenario_id": "VSC-pace-success-jmrtd-propagate",
+      "test_case": "VSC-pace-success",
+      "library": "jmrtd",
+      "variant": "propagate",
+      "cell": "VSC-pace-success",
+      "driver": "java",
+      "integrator": "propagate",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    },
+    {
+      "scenario_id": "VSC-pace-success-jmrtd-catch-continue",
+      "test_case": "VSC-pace-success",
+      "library": "jmrtd",
+      "variant": "catch-continue",
+      "cell": "VSC-pace-success",
+      "driver": "java",
+      "integrator": "catch-continue",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      }
+    }
+  ]
+}
