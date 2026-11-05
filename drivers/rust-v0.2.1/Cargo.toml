@@ -1,0 +1,19 @@
+[package]
+name = "passauf-read-v021"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "The passauf driver (drivers/rust/src/main.rs, unchanged) built against passauf v0.2.1 (U2)"
+
+[[bin]]
+name = "passauf_read"
+path = "../rust/src/main.rs"
+
+[dependencies]
+# passauf v0.2.1 at 05098d8 (fixes #16, #17), a worktree next to the v0.2.0 checkout.
+passauf = { path = "../../../_vendor/passauf-v0.2.1", default-features = false, features = ["pace"] }
+simplelog = "0.12"
+serde_json = "1.0"
+
+[profile.release]
+debug = false

@@ -57,7 +57,9 @@ DOTNET_DLL = "drivers/dotnet/bin/out/EmrtdDotnetRead.dll"
 DART_EXE = "drivers/dart/build/dmrtd_read"
 
 
-RUST_EXE = "drivers/rust/target/release/passauf_read"
+# CBO_PASSAUF_DRIVER selects another passauf build of the same driver (U2: drivers/rust-v0.2.1).
+RUST_DIR = os.environ.get("CBO_PASSAUF_DRIVER", "drivers/rust")
+RUST_EXE = f"{RUST_DIR}/target/release/passauf_read"
 
 
 def ensure_chip_serve(root: Path) -> Path:
@@ -89,7 +91,7 @@ def ensure_dart_driver(root: Path) -> Path:
 def ensure_rust_driver(root: Path) -> Path:
     """passauf driver; cargo from PATH or ~/.cargo/bin (rustup), toolchain as installed for the lab."""
     cargo = shutil.which("cargo", path=os.pathsep.join([str(Path.home() / ".cargo/bin"), os.environ.get("PATH", "")])) or "cargo"
-    subprocess.check_call([cargo, "build", "--release", "--locked", "-q"], cwd=root / "drivers/rust")
+    subprocess.check_call([cargo, "build", "--release", "--locked", "-q"], cwd=root / RUST_DIR)
     return root / RUST_EXE
 
 
