@@ -386,7 +386,8 @@ fn provenance(root: &str, profile_path: &str, a: &HashMap<String, String>, varia
     json!({
         "harness_commit": git(root, &["rev-parse", "HEAD"]).unwrap_or_else(|| "unknown".into()),
         "harness_dirty": !git(root, &["status", "--porcelain", "--untracked-files=no"]).unwrap_or_default().is_empty(),
-        "passauf_commit": git(&format!("{}/../_vendor/passauf", root), &["rev-parse", "HEAD"]),
+        // CBO_PASSAUF_SRC names the passauf checkout this build links when it is not the default one (U2: v0.2.1).
+        "passauf_commit": git(&std::env::var("CBO_PASSAUF_SRC").unwrap_or_else(|_| format!("{}/../_vendor/passauf", root)), &["rev-parse", "HEAD"]),
         "rust_version": env!("DRIVER_RUSTC_VERSION"),
         "profile_path": rel,
         "profile_sha256": sha,

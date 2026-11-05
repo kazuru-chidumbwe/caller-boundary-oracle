@@ -3,7 +3,8 @@ name = "passauf-read-v021"
 version = "0.1.0"
 edition = "2021"
 publish = false
-description = "The passauf driver (drivers/rust/src/main.rs, unchanged) built against passauf v0.2.1 (U2)"
+description = "The passauf driver (drivers/rust/src/main.rs) built against passauf v0.2.1 (U2)"
+build = "../rust/build.rs"
 
 [[bin]]
 name = "passauf_read"
