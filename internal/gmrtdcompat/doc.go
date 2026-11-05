@@ -7,6 +7,8 @@
 // The version sweep (analysis/version_sweep.py) builds other releases with -tags
 // gmrtd_sweep_optin, gmrtd_sweep_typed or gmrtd_sweep_string (status callback and opt-in
 // differ between releases) and sets Commit with -ldflags -X.
+// The U1 run (analysis/u1_authentic.py) builds v1.4.0 and later with -tags gmrtd_sweep_authentic,
+// which adds a trusted CSCA and RequireAuthenticDocument (NewReaderAuth).
 // Commit is compiled in, so a run artifact names the gmrtd commit its binary was built
 // against rather than whatever happens to be checked out at run time.
 package gmrtdcompat

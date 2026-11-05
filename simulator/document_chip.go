@@ -1,6 +1,8 @@
 package simulator
 
 import (
+	"crypto/ecdh"
+	"crypto/rsa"
 	_ "embed"
 	"encoding/binary"
 	"strings"
@@ -62,6 +64,12 @@ type ChipConfig struct {
 	CaSW string
 	// AaSW fails Active Authentication (INTERNAL AUTHENTICATE under SM) with this status word.
 	AaSW string
+	// Trusted serves the trusted-chain document (trusted_chip.go): DG1, DG2 and EF.SOD verifiable
+	// against TrustedCSCA, DG14/DG15 whose private keys the chip holds, and CA and AA that succeed
+	// unless CaSW or AaSW injects a failure. Dg14Hex/Dg15Hex then only select which group is served.
+	Trusted bool
+	// Dual serves both DG14 and DG15 (trusted chip only).
+	Dual bool
 }
 
 // DocumentChip answers every APDU gmrtd's ReadDocument sends: SELECT/READ of EF.CardAccess,
@@ -78,6 +86,10 @@ type DocumentChip struct {
 	aaSW         []byte
 	caAttempts   int
 	aaAttempts   int
+	trusted      bool
+	aaKey        *rsa.PrivateKey
+	caKey        *ecdh.PrivateKey
+	caArmed      bool
 }
 
 // NewDocumentChip builds a chip from cfg. At most one of Dg14Hex and Dg15Hex may be set,
@@ -114,6 +126,20 @@ func NewDocumentChip(cfg ChipConfig, pass *password.Password) *DocumentChip {
 	chip := &DocumentChip{
 		bac:   NewPaceBacTransceiverWithChannel(paceSW, cfg.PaceFailOn, cfg.PaceChannel, pass),
 		files: files,
+	}
+	if cfg.Trusted {
+		withDg14, withDg15 := cfg.Dual || cfg.Dg14Hex != "", cfg.Dual || cfg.Dg15Hex != ""
+		tf, _ := trustedFiles(withDg14, withDg15)
+		if cfg.CardAccessHex != "" {
+			tf[fileIDCardAccess] = files[fileIDCardAccess]
+		}
+		chip.files, chip.trusted = tf, true
+		if withDg15 {
+			chip.aaKey, _ = trustedAaKey()
+		}
+		if withDg14 {
+			chip.caKey, _ = trustedCaKey()
+		}
 	}
 	if cfg.CaSW != "" {
 		chip.caSW = utils.HexToBytes(cfg.CaSW)
@@ -172,10 +198,21 @@ func (t *DocumentChip) dispatchSM(cmd *PlainCommand) []byte {
 	switch {
 	case cmd.INS == iso7816.INS_MANAGE_SE && cmd.P1 == 0x41 && (cmd.P2 == 0xA4 || cmd.P2 == 0xA6):
 		t.caAttempts++
-		rsp = t.failOr(t.caSW)
+		if len(t.caSW) != 2 && t.trusted && t.caKey != nil && cmd.P2 == 0xA4 {
+			t.caArmed = true
+			rsp = []byte{0x90, 0x00}
+		} else {
+			rsp = t.failOr(t.caSW)
+		}
+	case cmd.INS == iso7816.INS_GENERAL_AUTHENTICATE && t.caArmed:
+		return t.caGeneralAuthenticate(cmd)
 	case cmd.INS == iso7816.INS_INTERNAL_AUTHENTICATE:
 		t.aaAttempts++
-		rsp = t.failOr(t.aaSW)
+		if len(t.aaSW) != 2 && t.trusted && t.aaKey != nil && len(cmd.Data) == 8 {
+			rsp = append(aaSign(t.aaKey, cmd.Data), 0x90, 0x00)
+		} else {
+			rsp = t.failOr(t.aaSW)
+		}
 	default:
 		rsp = t.dispatchPlain(0x00, cmd.INS, cmd.P1, cmd.P2, cmd.Data, cmd.Le, nil)
 	}
@@ -186,6 +223,26 @@ func (t *DocumentChip) dispatchSM(cmd *PlainCommand) []byte {
 	out, err := t.sm.WrapSmResponse(sw, rsp[:len(rsp)-2])
 	if err != nil {
 		return []byte{0x6F, 0x00}
+	}
+	return out
+}
+
+// caGeneralAuthenticate completes Chip Authentication on the trusted chip: it derives the new
+// session keys from the terminal's ephemeral key, answers 7C00 under the old secure messaging,
+// then switches to the new keys with SSC zero.
+func (t *DocumentChip) caGeneralAuthenticate(cmd *PlainCommand) []byte {
+	t.caArmed = false
+	ksEnc, ksMac, err := caKeyAgreement(t.caKey, cmd.Data)
+	if err != nil {
+		out, _ := t.sm.WrapSmResponse(0x6A80, nil)
+		return out
+	}
+	out, err := t.sm.WrapSmResponse(0x9000, []byte{0x7C, 0x00})
+	if err != nil {
+		return []byte{0x6F, 0x00}
+	}
+	if sm, err := NewChipSM3DES(ksEnc, ksMac); err == nil {
+		t.sm = sm
 	}
 	return out
 }

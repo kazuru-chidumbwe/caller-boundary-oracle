@@ -18,6 +18,10 @@ type Options struct {
 	AllowBacFallback bool
 	// Guard applies guard.Require for the targeted mechanism after ReadDocument returns.
 	Guard bool
+	// CSCA, when set, is loaded into the reader's CSCA pool (trusted-chain chip).
+	CSCA []byte
+	// RequireAuthentic calls RequireAuthenticDocument (gmrtd v1.4.0 opt-in).
+	RequireAuthentic bool
 }
 
 // TraceEntry is one APDU exchange from gmrtd's APDU log.
@@ -50,7 +54,7 @@ type Chip interface {
 // Run calls ReadDocument once and observes mechanism.
 func Run(mechanism guard.Mechanism, chip Chip, pass *password.Password, opts Options) (Result, error) {
 	nfc := iso7816.NewNfcSession(chip)
-	r, err := gmrtdcompat.NewReader(nfc, opts.AllowBacFallback)
+	r, err := gmrtdcompat.NewReaderAuth(nfc, opts.AllowBacFallback, opts.CSCA, opts.RequireAuthentic)
 	if err != nil {
 		return Result{}, err
 	}

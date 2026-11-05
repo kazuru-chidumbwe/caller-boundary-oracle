@@ -30,6 +30,7 @@ func ChipConfigFromProfile(p *profile.Profile) (ChipConfig, error) {
 		}
 		cfg.Dg15Hex = fmt.Sprintf("%X", b)
 	}
+	cfg.Dual = p.Dual
 	if cfg.Dg14Hex != "" && cfg.Dg15Hex != "" {
 		return cfg, fmt.Errorf("profile sets both DG14 and DG15; target one mechanism per profile")
 	}

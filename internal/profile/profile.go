@@ -73,6 +73,9 @@ type Profile struct {
 	CAInjection   CAInjection `json:"ca_injection,omitempty"`
 	AAInjection   AAInjection `json:"aa_injection,omitempty"`
 	TAInjection   TAInjection `json:"ta_injection,omitempty"`
+	// Dual serves both DG14 and DG15 on the trusted chip (one mechanism fails, the other may
+	// succeed). Only meaningful with the trusted chain; the harness chip serves one group.
+	Dual bool `json:"dual,omitempty"`
 	// PeerSupport documents asymmetric mechanisms (e.g. TA: gmrtd unsupported).
 	PeerSupport map[string]string `json:"peer_support,omitempty"`
 }

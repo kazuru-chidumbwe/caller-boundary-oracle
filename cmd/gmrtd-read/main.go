@@ -35,6 +35,8 @@ type runArtifact struct {
 type callerOptions struct {
 	AllowBacFallback bool `json:"allow_bac_fallback"`
 	Guard            bool `json:"guard"`
+	RequireAuthentic bool `json:"require_authentic,omitempty"`
+	TrustedChain     bool `json:"trusted_chain,omitempty"`
 }
 
 func main() {
@@ -43,6 +45,8 @@ func main() {
 	variant := flag.String("variant", "baseline", "run variant label")
 	allowFallback := flag.Bool("allow-bac-fallback", false, "call AllowBacFallbackOnPaceError (gmrtd v1.1.3+)")
 	useGuard := flag.Bool("guard", false, "apply guard.Require after ReadDocument")
+	requireAuthentic := flag.Bool("require-authentic", false, "call RequireAuthenticDocument (gmrtd v1.4.0+; build tag gmrtd_sweep_authentic)")
+	trustedChain := flag.Bool("trusted-chain", false, "serve the trusted-chain chip and load its CSCA into the reader's pool")
 	suiteID := flag.String("suite-id", "", "suite id (metadata)")
 	suiteSeed := flag.Int("suite-seed", 1, "suite seed (metadata)")
 	suiteN := flag.Int("suite-n", 1, "runs per suite entry (metadata)")
@@ -67,11 +71,17 @@ func main() {
 	if err != nil {
 		fatal("password", err)
 	}
-	chip, closeChip, err := openChip(p, *profilePath, pass)
+	if p.Dual && !*trustedChain {
+		fatal("profile", fmt.Errorf("dual profile %s needs -trusted-chain", p.ID))
+	}
+	chip, closeChip, err := openChip(p, *profilePath, pass, *trustedChain)
 	if err != nil {
 		fatal("chip", err)
 	}
-	opts := gmrtdrun.Options{AllowBacFallback: *allowFallback, Guard: *useGuard}
+	opts := gmrtdrun.Options{AllowBacFallback: *allowFallback, Guard: *useGuard, RequireAuthentic: *requireAuthentic}
+	if *trustedChain {
+		opts.CSCA = simulator.TrustedCSCA()
+	}
 	res, err := gmrtdrun.Run(mechanism, chip, pass, opts)
 	closeChip()
 	if err != nil {
@@ -85,6 +95,12 @@ func main() {
 	}
 	if opts.Guard {
 		optNames = append(optNames, "guard")
+	}
+	if opts.RequireAuthentic {
+		optNames = append(optNames, "require-authentic")
+	}
+	if *trustedChain {
+		optNames = append(optNames, "trusted-chain")
 	}
 	prov, err := provenance.Collect(provenance.Options{
 		ProfilePath:   *profilePath,
@@ -117,7 +133,7 @@ func main() {
 		Outcome:       outcome,
 		Score:         outcome.ScorePtr(),
 		Meaning:       outcome.Meaning(),
-		CallerOptions: callerOptions{AllowBacFallback: opts.AllowBacFallback, Guard: opts.Guard},
+		CallerOptions: callerOptions{AllowBacFallback: opts.AllowBacFallback, Guard: opts.Guard, RequireAuthentic: opts.RequireAuthentic, TrustedChain: *trustedChain},
 		FaultPoint:    faultPoint(p, mechanism),
 		Result:        res,
 	}
@@ -153,13 +169,17 @@ func faultPoint(p *profile.Profile, m guard.Mechanism) string {
 }
 
 // openChip returns the peer the profile asks for and a function that releases it.
-func openChip(p *profile.Profile, profilePath string, pass *password.Password) (gmrtdrun.Chip, func(), error) {
+func openChip(p *profile.Profile, profilePath string, pass *password.Password, trusted bool) (gmrtdrun.Chip, func(), error) {
+	if trusted && p.Peer != "" {
+		return nil, nil, fmt.Errorf("-trusted-chain needs the harness simulator, not peer %q", p.Peer)
+	}
 	switch p.Peer {
 	case "":
 		cfg, err := simulator.ChipConfigFromProfile(p)
 		if err != nil {
 			return nil, nil, err
 		}
+		cfg.Trusted = trusted
 		return simulator.NewDocumentChip(cfg, pass), func() {}, nil
 	case "vsmartcard":
 		root, err := os.Getwd()
