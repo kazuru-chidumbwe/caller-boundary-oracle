@@ -1,0 +1,21 @@
+{
+  "id": "U1-DUAL-BOTH-6e00",
+  "name": "Trusted chip with DG14 and DG15, AA and CA both rejected (SW 6E00)",
+  "mechanism": "AA",
+  "condition": "dual_both_reject",
+  "tier": "wire",
+  "mrz": {
+    "document_number": "L898902C",
+    "date_of_birth": "690806",
+    "date_of_expiry": "940623"
+  },
+  "dual": true,
+  "aa_injection": {
+    "aa_fail_on": "internal_authenticate",
+    "aa_sw": "6E00"
+  },
+  "ca_injection": {
+    "ca_fail_on": "mse_set_at",
+    "ca_sw": "6E00"
+  }
+}

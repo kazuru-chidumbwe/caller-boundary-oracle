@@ -1,0 +1,17 @@
+{
+  "id": "U1-DUAL-AA-6a88",
+  "name": "Trusted chip with DG14 and DG15, AA rejected (SW 6A88), CA succeeds",
+  "mechanism": "AA",
+  "condition": "dual_aa_reject_ca_ok",
+  "tier": "wire",
+  "mrz": {
+    "document_number": "L898902C",
+    "date_of_birth": "690806",
+    "date_of_expiry": "940623"
+  },
+  "dual": true,
+  "aa_injection": {
+    "aa_fail_on": "internal_authenticate",
+    "aa_sw": "6A88"
+  }
+}

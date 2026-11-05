@@ -1,0 +1,13 @@
+{
+  "id": "U1-DUAL-ok",
+  "name": "Trusted chip with DG14 and DG15, both methods succeed",
+  "mechanism": "AA",
+  "condition": "dual_ok_trusted",
+  "tier": "wire",
+  "mrz": {
+    "document_number": "L898902C",
+    "date_of_birth": "690806",
+    "date_of_expiry": "940623"
+  },
+  "dual": true
+}

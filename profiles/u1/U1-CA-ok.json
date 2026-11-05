@@ -1,0 +1,13 @@
+{
+  "id": "U1-CA-ok",
+  "name": "Trusted chip, Chip Authentication succeeds",
+  "mechanism": "CA",
+  "condition": "ca_ok_trusted",
+  "tier": "wire",
+  "mrz": {
+    "document_number": "L898902C",
+    "date_of_birth": "690806",
+    "date_of_expiry": "940623"
+  },
+  "dg14_hex_path": "testdata/dg14/ca-v2-sample.hex"
+}

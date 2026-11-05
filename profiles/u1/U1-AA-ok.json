@@ -1,0 +1,13 @@
+{
+  "id": "U1-AA-ok",
+  "name": "Trusted chip, Active Authentication succeeds",
+  "mechanism": "AA",
+  "condition": "aa_ok_trusted",
+  "tier": "wire",
+  "mrz": {
+    "document_number": "L898902C",
+    "date_of_birth": "690806",
+    "date_of_expiry": "940623"
+  },
+  "dg15_hex_path": "testdata/dg15/aa-rsa-sample.hex"
+}

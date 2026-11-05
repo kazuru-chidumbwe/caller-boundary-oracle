@@ -1,0 +1,25 @@
+{
+  "_about": "U1 expectations, committed before any measured run. Releases v1.4.0 and v1.7.1 (build tag gmrtd_sweep_authentic). Checks: status_only / surfaced = classifier outcome; no_error = ReadDocument returned no error; error = ReadDocument returned an error; succeeded = targeted method succeeded; failed = targeted method recorded a failure; not_fired = the injected fault was never delivered. E1, E2, E5 and E11 are positive controls: if any fails, the run is invalid (archive, fix, rerun from scratch).",
+  "releases": ["v1.4.0", "v1.7.1"],
+  "reference_release": "v1.3.2",
+  "groups": [
+    {"id": "E1", "arm": "require-authentic", "profiles": ["profiles/controls/CTRL-bac-only.json"], "expect": ["no_error"], "control": true},
+    {"id": "E2", "arm": "require-authentic", "profiles": ["profiles/u1/U1-AA-ok.json"], "expect": ["no_error", "succeeded"], "control": true},
+    {"id": "E3", "arm": "require-authentic", "profiles": ["profiles/aa/AA-internal-authenticate-*.json"], "expect": ["surfaced", "error"]},
+    {"id": "E4", "arm": "require-authentic", "profiles": ["profiles/ca/CA-mse-set-at-*.json"], "expect": ["surfaced", "error"]},
+    {"id": "E5", "arm": "require-authentic", "profiles": ["profiles/u1/U1-CA-ok.json"], "expect": ["no_error", "succeeded"], "control": true},
+    {"id": "E6", "arm": "require-authentic-untrusted", "profiles": ["profiles/aa/AA-internal-authenticate-*.json", "profiles/ca/CA-mse-set-at-*.json", "profiles/controls/CTRL-bac-only.json"], "expect": ["error"]},
+    {"id": "E7", "arm": "default", "profiles": ["profiles/aa/AA-internal-authenticate-*.json", "profiles/ca/CA-mse-set-at-*.json"], "expect": ["status_only"]},
+    {"id": "E8", "arm": "guard", "profiles": ["profiles/aa/AA-internal-authenticate-*.json", "profiles/ca/CA-mse-set-at-*.json"], "expect": ["surfaced"]},
+    {"id": "E9", "arm": "require-authentic", "profiles": ["profiles/u1/U1-DUAL-AA-*.json"], "expect": ["no_error", "failed", "status_only"]},
+    {"id": "E10", "arm": "require-authentic", "profiles": ["profiles/u1/U1-DUAL-CA-*.json"], "expect": ["no_error", "not_fired"]},
+    {"id": "E11", "arm": "require-authentic", "profiles": ["profiles/u1/U1-DUAL-ok.json"], "expect": ["no_error", "succeeded"], "control": true},
+    {"id": "E12", "arm": "require-authentic", "profiles": ["profiles/u1/U1-DUAL-BOTH-*.json"], "expect": ["surfaced", "error"]}
+  ],
+  "arms": {
+    "default": {"trusted_chain": false, "require_authentic": false, "guard": false},
+    "guard": {"trusted_chain": false, "require_authentic": false, "guard": true},
+    "require-authentic-untrusted": {"trusted_chain": false, "require_authentic": true, "guard": false},
+    "require-authentic": {"trusted_chain": true, "require_authentic": true, "guard": false}
+  }
+}
