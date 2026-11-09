@@ -103,7 +103,14 @@ class TestSuites(unittest.TestCase):
             keys = set()
             for e in spec["entries"]:
                 with self.subTest(suite=suite.name, scenario=e["scenario_id"]):
-                    self.assertTrue((ROOT / e["profile"]).is_file())
+                    # real-chip profiles carry a real MRZ and are generated on the run host only (.gitignore)
+                    if not e["profile"].startswith("profiles/real/local/"):
+                        self.assertTrue((ROOT / e["profile"]).is_file())
+                    # the T20 rehearsal's wrong-MRZ cells have no expectations by design: their direct-path
+                    # outcomes become the real-chip expectations, and the hub path is compared with the direct path
+                    if spec["suite_id"] == "real-rehearsal" and "expect_outcome" not in e:
+                        self.assertIn("wrong-mrz", e["test_case"])
+                        continue
                     want = e["expect_outcome"]
                     for o in want if isinstance(want, list) else [want]:
                         self.assertIn(o, outcomes)
