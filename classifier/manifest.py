@@ -97,7 +97,14 @@ def build_manifest(
         for entry in suite_manifest.get("entries", []):
             key = run_key(entry)
             if key in entry_by_key:
-                raise ValueError(f"duplicate suite entry for {key}")
+                # A held-out manifest gathers one entry from several source suites (a single run and a repeat
+                # series of the same profile). Runs cannot be told apart, so such entries pool into one cell;
+                # this is only sound when they make the same claim.
+                prev = entry_by_key[key]
+                same = all(prev.get(f) == entry.get(f) for f in ("profile", "expect_outcome"))
+                if not same or prev.get("source_suite") == entry.get("source_suite"):
+                    raise ValueError(f"duplicate suite entry for {key}")
+                continue
             entry_by_key[key] = entry
 
     groups: dict[tuple[str, str, str], list[dict]] = defaultdict(list)
