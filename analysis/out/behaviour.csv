@@ -60,7 +60,7 @@ gmrtd 1.1.3 + guard,PACE,independent,PACE/general_authenticate_step4,3,surfaced 
 gmrtd 1.1.3 + guard,PACE,independent,PACE/mse_set_at,3,surfaced 3
 gmrtd 1.1.3 + guard,PACE,independent,control,2,not_applicable 2
 gmrtd 1.3.2 default,AA,harness,AA/internal_authenticate,13,status_only 13
-gmrtd 1.3.2 default,AA,independent,AA/internal_authenticate,13,status_only 13
+gmrtd 1.3.2 default,AA,independent,AA/internal_authenticate,13,"status_only 12, not_applicable 1"
 gmrtd 1.3.2 default,CA,harness,CA/mse_set_at,13,status_only 13
 gmrtd 1.3.2 default,PACE,harness,PACE/general_authenticate,16,surfaced 16
 gmrtd 1.3.2 default,PACE,harness,PACE/mse_set_at,16,surfaced 16
@@ -129,7 +129,7 @@ emrtd-dotnet,PACE,independent,PACE/general_authenticate_step4,3,status_only 3
 emrtd-dotnet,PACE,independent,PACE/mse_set_at,3,status_only 3
 emrtd-dotnet,PACE,independent,control,2,not_applicable 2
 dmrtd,AA,harness,AA/internal_authenticate,13,surfaced 13
-dmrtd,AA,independent,AA/internal_authenticate,13,surfaced 13
+dmrtd,AA,independent,AA/internal_authenticate,13,"surfaced 11, not_applicable 2"
 dmrtd,PACE,harness,PACE/general_authenticate,16,surfaced 16
 dmrtd,PACE,harness,PACE/mse_set_at,16,surfaced 16
 dmrtd,PACE,harness,control,2,not_applicable 2

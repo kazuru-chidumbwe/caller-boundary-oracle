@@ -67,7 +67,7 @@ Runs read: 1827 (1127 single-run entries, 700 repeat runs).
 | gmrtd 1.1.3 + guard | PACE | independent | PACE/mse_set_at | 3 | surfaced 3 |
 | gmrtd 1.1.3 + guard | PACE | independent | control | 2 | not_applicable 2 |
 | gmrtd 1.3.2 default | AA | harness | AA/internal_authenticate | 13 | status_only 13 |
-| gmrtd 1.3.2 default | AA | independent | AA/internal_authenticate | 13 | status_only 13 |
+| gmrtd 1.3.2 default | AA | independent | AA/internal_authenticate | 13 | status_only 12, not_applicable 1 |
 | gmrtd 1.3.2 default | CA | harness | CA/mse_set_at | 13 | status_only 13 |
 | gmrtd 1.3.2 default | PACE | harness | PACE/general_authenticate | 16 | surfaced 16 |
 | gmrtd 1.3.2 default | PACE | harness | PACE/mse_set_at | 16 | surfaced 16 |
@@ -136,7 +136,7 @@ Runs read: 1827 (1127 single-run entries, 700 repeat runs).
 | emrtd-dotnet | PACE | independent | PACE/mse_set_at | 3 | status_only 3 |
 | emrtd-dotnet | PACE | independent | control | 2 | not_applicable 2 |
 | dmrtd | AA | harness | AA/internal_authenticate | 13 | surfaced 13 |
-| dmrtd | AA | independent | AA/internal_authenticate | 13 | surfaced 13 |
+| dmrtd | AA | independent | AA/internal_authenticate | 13 | surfaced 11, not_applicable 2 |
 | dmrtd | PACE | harness | PACE/general_authenticate | 16 | surfaced 16 |
 | dmrtd | PACE | harness | PACE/mse_set_at | 16 | surfaced 16 |
 | dmrtd | PACE | harness | control | 2 | not_applicable 2 |
@@ -188,97 +188,97 @@ Kappa is n/a when both arms give one outcome throughout (no variation to correct
 | gmrtd 0.45.0 default | gmrtd 1.1.3 default | 83 | 39 | 0.47 | 0.00 |
 | gmrtd 0.45.0 default | gmrtd 1.1.3 opt-in fallback | 83 | 83 | 1.00 | n/a |
 | gmrtd 0.45.0 default | gmrtd 1.1.3 + guard | 83 | 0 | 0.00 | 0.00 |
-| gmrtd 0.45.0 default | gmrtd 1.3.2 default | 83 | 39 | 0.47 | 0.00 |
+| gmrtd 0.45.0 default | gmrtd 1.3.2 default | 82 | 38 | 0.46 | 0.00 |
 | gmrtd 0.45.0 default | gmrtd 1.3.2 opt-in fallback | 83 | 83 | 1.00 | n/a |
 | gmrtd 0.45.0 default | gmrtd 1.3.2 + guard | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 0.45.0 default | JMRTD 0.8.9 propagate | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 0.45.0 default | JMRTD 0.8.9 catch-and-continue | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 0.45.0 default | emrtd-dotnet | 44 | 44 | 1.00 | n/a |
-| gmrtd 0.45.0 default | dmrtd | 70 | 0 | 0.00 | 0.00 |
+| gmrtd 0.45.0 default | dmrtd | 68 | 0 | 0.00 | 0.00 |
 | gmrtd 0.45.0 default | NFCPassportReader | 83 | 75 | 0.90 | 0.00 |
 | gmrtd 0.45.0 default | passauf (held out) | 44 | 37 | 0.84 | 0.00 |
 | gmrtd 0.45.0 + guard | gmrtd 1.1.3 default | 83 | 44 | 0.53 | 0.00 |
 | gmrtd 0.45.0 + guard | gmrtd 1.1.3 opt-in fallback | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 0.45.0 + guard | gmrtd 1.1.3 + guard | 83 | 83 | 1.00 | n/a |
-| gmrtd 0.45.0 + guard | gmrtd 1.3.2 default | 83 | 44 | 0.53 | 0.00 |
+| gmrtd 0.45.0 + guard | gmrtd 1.3.2 default | 82 | 44 | 0.54 | 0.00 |
 | gmrtd 0.45.0 + guard | gmrtd 1.3.2 opt-in fallback | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 0.45.0 + guard | gmrtd 1.3.2 + guard | 83 | 83 | 1.00 | n/a |
 | gmrtd 0.45.0 + guard | JMRTD 0.8.9 propagate | 83 | 57 | 0.69 | 0.00 |
 | gmrtd 0.45.0 + guard | JMRTD 0.8.9 catch-and-continue | 83 | 3 | 0.04 | 0.00 |
 | gmrtd 0.45.0 + guard | emrtd-dotnet | 44 | 0 | 0.00 | 0.00 |
-| gmrtd 0.45.0 + guard | dmrtd | 70 | 70 | 1.00 | n/a |
+| gmrtd 0.45.0 + guard | dmrtd | 68 | 68 | 1.00 | n/a |
 | gmrtd 0.45.0 + guard | NFCPassportReader | 83 | 8 | 0.10 | 0.00 |
 | gmrtd 0.45.0 + guard | passauf (held out) | 44 | 6 | 0.14 | 0.00 |
 | gmrtd 1.1.3 default | gmrtd 1.1.3 opt-in fallback | 83 | 39 | 0.47 | 0.00 |
 | gmrtd 1.1.3 default | gmrtd 1.1.3 + guard | 83 | 44 | 0.53 | 0.00 |
-| gmrtd 1.1.3 default | gmrtd 1.3.2 default | 83 | 83 | 1.00 | 1.00 |
+| gmrtd 1.1.3 default | gmrtd 1.3.2 default | 82 | 82 | 1.00 | 1.00 |
 | gmrtd 1.1.3 default | gmrtd 1.3.2 opt-in fallback | 83 | 39 | 0.47 | 0.00 |
 | gmrtd 1.1.3 default | gmrtd 1.3.2 + guard | 83 | 44 | 0.53 | 0.00 |
 | gmrtd 1.1.3 default | JMRTD 0.8.9 propagate | 83 | 44 | 0.53 | 0.26 |
 | gmrtd 1.1.3 default | JMRTD 0.8.9 catch-and-continue | 83 | 0 | 0.00 | -0.02 |
 | gmrtd 1.1.3 default | emrtd-dotnet | 44 | 0 | 0.00 | 0.00 |
-| gmrtd 1.1.3 default | dmrtd | 70 | 44 | 0.63 | 0.00 |
+| gmrtd 1.1.3 default | dmrtd | 68 | 44 | 0.65 | 0.00 |
 | gmrtd 1.1.3 default | NFCPassportReader | 83 | 31 | 0.37 | -0.19 |
 | gmrtd 1.1.3 default | passauf (held out) | 44 | 6 | 0.14 | 0.00 |
 | gmrtd 1.1.3 opt-in fallback | gmrtd 1.1.3 + guard | 83 | 0 | 0.00 | 0.00 |
-| gmrtd 1.1.3 opt-in fallback | gmrtd 1.3.2 default | 83 | 39 | 0.47 | 0.00 |
+| gmrtd 1.1.3 opt-in fallback | gmrtd 1.3.2 default | 82 | 38 | 0.46 | 0.00 |
 | gmrtd 1.1.3 opt-in fallback | gmrtd 1.3.2 opt-in fallback | 83 | 83 | 1.00 | n/a |
 | gmrtd 1.1.3 opt-in fallback | gmrtd 1.3.2 + guard | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 1.1.3 opt-in fallback | JMRTD 0.8.9 propagate | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 1.1.3 opt-in fallback | JMRTD 0.8.9 catch-and-continue | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 1.1.3 opt-in fallback | emrtd-dotnet | 44 | 44 | 1.00 | n/a |
-| gmrtd 1.1.3 opt-in fallback | dmrtd | 70 | 0 | 0.00 | 0.00 |
+| gmrtd 1.1.3 opt-in fallback | dmrtd | 68 | 0 | 0.00 | 0.00 |
 | gmrtd 1.1.3 opt-in fallback | NFCPassportReader | 83 | 75 | 0.90 | 0.00 |
 | gmrtd 1.1.3 opt-in fallback | passauf (held out) | 44 | 37 | 0.84 | 0.00 |
-| gmrtd 1.1.3 + guard | gmrtd 1.3.2 default | 83 | 44 | 0.53 | 0.00 |
+| gmrtd 1.1.3 + guard | gmrtd 1.3.2 default | 82 | 44 | 0.54 | 0.00 |
 | gmrtd 1.1.3 + guard | gmrtd 1.3.2 opt-in fallback | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 1.1.3 + guard | gmrtd 1.3.2 + guard | 83 | 83 | 1.00 | n/a |
 | gmrtd 1.1.3 + guard | JMRTD 0.8.9 propagate | 83 | 57 | 0.69 | 0.00 |
 | gmrtd 1.1.3 + guard | JMRTD 0.8.9 catch-and-continue | 83 | 3 | 0.04 | 0.00 |
 | gmrtd 1.1.3 + guard | emrtd-dotnet | 44 | 0 | 0.00 | 0.00 |
-| gmrtd 1.1.3 + guard | dmrtd | 70 | 70 | 1.00 | n/a |
+| gmrtd 1.1.3 + guard | dmrtd | 68 | 68 | 1.00 | n/a |
 | gmrtd 1.1.3 + guard | NFCPassportReader | 83 | 8 | 0.10 | 0.00 |
 | gmrtd 1.1.3 + guard | passauf (held out) | 44 | 6 | 0.14 | 0.00 |
-| gmrtd 1.3.2 default | gmrtd 1.3.2 opt-in fallback | 83 | 39 | 0.47 | 0.00 |
-| gmrtd 1.3.2 default | gmrtd 1.3.2 + guard | 83 | 44 | 0.53 | 0.00 |
-| gmrtd 1.3.2 default | JMRTD 0.8.9 propagate | 83 | 44 | 0.53 | 0.26 |
-| gmrtd 1.3.2 default | JMRTD 0.8.9 catch-and-continue | 83 | 0 | 0.00 | -0.02 |
+| gmrtd 1.3.2 default | gmrtd 1.3.2 opt-in fallback | 82 | 38 | 0.46 | 0.00 |
+| gmrtd 1.3.2 default | gmrtd 1.3.2 + guard | 82 | 44 | 0.54 | 0.00 |
+| gmrtd 1.3.2 default | JMRTD 0.8.9 propagate | 82 | 44 | 0.54 | 0.26 |
+| gmrtd 1.3.2 default | JMRTD 0.8.9 catch-and-continue | 82 | 0 | 0.00 | -0.02 |
 | gmrtd 1.3.2 default | emrtd-dotnet | 44 | 0 | 0.00 | 0.00 |
-| gmrtd 1.3.2 default | dmrtd | 70 | 44 | 0.63 | 0.00 |
-| gmrtd 1.3.2 default | NFCPassportReader | 83 | 31 | 0.37 | -0.19 |
+| gmrtd 1.3.2 default | dmrtd | 67 | 44 | 0.66 | 0.00 |
+| gmrtd 1.3.2 default | NFCPassportReader | 82 | 30 | 0.37 | -0.20 |
 | gmrtd 1.3.2 default | passauf (held out) | 44 | 6 | 0.14 | 0.00 |
 | gmrtd 1.3.2 opt-in fallback | gmrtd 1.3.2 + guard | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 1.3.2 opt-in fallback | JMRTD 0.8.9 propagate | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 1.3.2 opt-in fallback | JMRTD 0.8.9 catch-and-continue | 83 | 0 | 0.00 | 0.00 |
 | gmrtd 1.3.2 opt-in fallback | emrtd-dotnet | 44 | 44 | 1.00 | n/a |
-| gmrtd 1.3.2 opt-in fallback | dmrtd | 70 | 0 | 0.00 | 0.00 |
+| gmrtd 1.3.2 opt-in fallback | dmrtd | 68 | 0 | 0.00 | 0.00 |
 | gmrtd 1.3.2 opt-in fallback | NFCPassportReader | 83 | 75 | 0.90 | 0.00 |
 | gmrtd 1.3.2 opt-in fallback | passauf (held out) | 44 | 37 | 0.84 | 0.00 |
 | gmrtd 1.3.2 + guard | JMRTD 0.8.9 propagate | 83 | 57 | 0.69 | 0.00 |
 | gmrtd 1.3.2 + guard | JMRTD 0.8.9 catch-and-continue | 83 | 3 | 0.04 | 0.00 |
 | gmrtd 1.3.2 + guard | emrtd-dotnet | 44 | 0 | 0.00 | 0.00 |
-| gmrtd 1.3.2 + guard | dmrtd | 70 | 70 | 1.00 | n/a |
+| gmrtd 1.3.2 + guard | dmrtd | 68 | 68 | 1.00 | n/a |
 | gmrtd 1.3.2 + guard | NFCPassportReader | 83 | 8 | 0.10 | 0.00 |
 | gmrtd 1.3.2 + guard | passauf (held out) | 44 | 6 | 0.14 | 0.00 |
 | JMRTD 0.8.9 propagate | JMRTD 0.8.9 catch-and-continue | 83 | 29 | 0.35 | 0.03 |
 | JMRTD 0.8.9 propagate | emrtd-dotnet | 44 | 0 | 0.00 | 0.00 |
-| JMRTD 0.8.9 propagate | dmrtd | 70 | 44 | 0.63 | 0.00 |
+| JMRTD 0.8.9 propagate | dmrtd | 68 | 44 | 0.65 | 0.00 |
 | JMRTD 0.8.9 propagate | NFCPassportReader | 83 | 0 | 0.00 | -0.07 |
 | JMRTD 0.8.9 propagate | passauf (held out) | 44 | 6 | 0.14 | 0.00 |
 | JMRTD 0.8.9 catch-and-continue | emrtd-dotnet | 44 | 0 | 0.00 | 0.00 |
-| JMRTD 0.8.9 catch-and-continue | dmrtd | 70 | 0 | 0.00 | 0.00 |
+| JMRTD 0.8.9 catch-and-continue | dmrtd | 68 | 0 | 0.00 | 0.00 |
 | JMRTD 0.8.9 catch-and-continue | NFCPassportReader | 83 | 0 | 0.00 | -0.00 |
 | JMRTD 0.8.9 catch-and-continue | passauf (held out) | 44 | 1 | 0.02 | 0.00 |
 | emrtd-dotnet | dmrtd | 44 | 0 | 0.00 | 0.00 |
 | emrtd-dotnet | NFCPassportReader | 44 | 44 | 1.00 | n/a |
 | emrtd-dotnet | passauf (held out) | 44 | 37 | 0.84 | 0.00 |
-| dmrtd | NFCPassportReader | 70 | 8 | 0.11 | 0.00 |
+| dmrtd | NFCPassportReader | 68 | 8 | 0.12 | 0.00 |
 | dmrtd | passauf (held out) | 44 | 6 | 0.14 | 0.00 |
 | NFCPassportReader | passauf (held out) | 44 | 37 | 0.84 | 0.00 |
 
 ## Cross-check: harness chip vs independent chip
 
-240 of 240 paired cells give the same outcome on both chips (226 of 226 where both runs were applicable).
+237 of 240 paired cells give the same outcome on both chips (223 of 223 where both runs were applicable).
 
 | arm | mechanism | fault point | failure | harness chip | independent chip | same |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -380,7 +380,7 @@ Kappa is n/a when both arms give one outcome throughout (no variation to correct
 | gmrtd 1.3.2 default | AA | AA/internal_authenticate | 6300 | status_only | status_only | yes |
 | gmrtd 1.3.2 default | AA | AA/internal_authenticate | 6700 | status_only | status_only | yes |
 | gmrtd 1.3.2 default | AA | AA/internal_authenticate | 6800 | status_only | status_only | yes |
-| gmrtd 1.3.2 default | AA | AA/internal_authenticate | 6900 | status_only | status_only | yes |
+| gmrtd 1.3.2 default | AA | AA/internal_authenticate | 6900 | status_only | not_applicable | NO |
 | gmrtd 1.3.2 default | AA | AA/internal_authenticate | 6982 | status_only | status_only | yes |
 | gmrtd 1.3.2 default | AA | AA/internal_authenticate | 6A00 | status_only | status_only | yes |
 | gmrtd 1.3.2 default | AA | AA/internal_authenticate | 6A80 | status_only | status_only | yes |
@@ -478,7 +478,7 @@ Kappa is n/a when both arms give one outcome throughout (no variation to correct
 | emrtd-dotnet | PACE | PACE/mse_set_at | 6A88 | status_only | status_only | yes |
 | emrtd-dotnet | PACE | PACE/mse_set_at | 6F00 | status_only | status_only | yes |
 | emrtd-dotnet | PACE | control | none | not_applicable | not_applicable | yes |
-| dmrtd | AA | AA/internal_authenticate | 6300 | surfaced | surfaced | yes |
+| dmrtd | AA | AA/internal_authenticate | 6300 | surfaced | not_applicable | NO |
 | dmrtd | AA | AA/internal_authenticate | 6700 | surfaced | surfaced | yes |
 | dmrtd | AA | AA/internal_authenticate | 6800 | surfaced | surfaced | yes |
 | dmrtd | AA | AA/internal_authenticate | 6900 | surfaced | surfaced | yes |
@@ -486,7 +486,7 @@ Kappa is n/a when both arms give one outcome throughout (no variation to correct
 | dmrtd | AA | AA/internal_authenticate | 6A00 | surfaced | surfaced | yes |
 | dmrtd | AA | AA/internal_authenticate | 6A80 | surfaced | surfaced | yes |
 | dmrtd | AA | AA/internal_authenticate | 6A88 | surfaced | surfaced | yes |
-| dmrtd | AA | AA/internal_authenticate | 6B00 | surfaced | surfaced | yes |
+| dmrtd | AA | AA/internal_authenticate | 6B00 | surfaced | not_applicable | NO |
 | dmrtd | AA | AA/internal_authenticate | 6C00 | surfaced | surfaced | yes |
 | dmrtd | AA | AA/internal_authenticate | 6E00 | surfaced | surfaced | yes |
 | dmrtd | AA | AA/internal_authenticate | 6F00 | surfaced | surfaced | yes |
@@ -528,10 +528,10 @@ Kappa is n/a when both arms give one outcome throughout (no variation to correct
 | arm | runs | PACE succeeded | PACE failed | failure rate | Wilson 95% CI |
 | --- | --- | --- | --- | --- | --- |
 | gmrtd 0.45.0 default | 100 | 100 | 0 | 0.000 | [0.000, 0.037] |
-| gmrtd 1.1.3 default | 100 | 100 | 0 | 0.000 | [0.000, 0.037] |
+| gmrtd 1.1.3 default | 100 | 99 | 1 | 0.010 | [0.002, 0.054] |
 | gmrtd 1.3.2 default | 100 | 100 | 0 | 0.000 | [0.000, 0.037] |
 | JMRTD 0.8.9 propagate | 100 | 100 | 0 | 0.000 | [0.000, 0.037] |
 | emrtd-dotnet | 100 | 100 | 0 | 0.000 | [0.000, 0.037] |
-| dmrtd | 100 | 94 | 6 | 0.060 | [0.028, 0.125] |
+| dmrtd | 100 | 98 | 2 | 0.020 | [0.006, 0.070] |
 | passauf (held out) | 100 | 100 | 0 | 0.000 | [0.000, 0.037] |
 

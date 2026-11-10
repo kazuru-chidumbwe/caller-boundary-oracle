@@ -97,7 +97,7 @@ gmrtd 1.1.3 + guard,PACE,control,none,not_applicable,not_applicable,yes
 gmrtd 1.3.2 default,AA,AA/internal_authenticate,6300,status_only,status_only,yes
 gmrtd 1.3.2 default,AA,AA/internal_authenticate,6700,status_only,status_only,yes
 gmrtd 1.3.2 default,AA,AA/internal_authenticate,6800,status_only,status_only,yes
-gmrtd 1.3.2 default,AA,AA/internal_authenticate,6900,status_only,status_only,yes
+gmrtd 1.3.2 default,AA,AA/internal_authenticate,6900,status_only,not_applicable,NO
 gmrtd 1.3.2 default,AA,AA/internal_authenticate,6982,status_only,status_only,yes
 gmrtd 1.3.2 default,AA,AA/internal_authenticate,6A00,status_only,status_only,yes
 gmrtd 1.3.2 default,AA,AA/internal_authenticate,6A80,status_only,status_only,yes
@@ -195,7 +195,7 @@ emrtd-dotnet,PACE,PACE/mse_set_at,6A80,status_only,status_only,yes
 emrtd-dotnet,PACE,PACE/mse_set_at,6A88,status_only,status_only,yes
 emrtd-dotnet,PACE,PACE/mse_set_at,6F00,status_only,status_only,yes
 emrtd-dotnet,PACE,control,none,not_applicable,not_applicable,yes
-dmrtd,AA,AA/internal_authenticate,6300,surfaced,surfaced,yes
+dmrtd,AA,AA/internal_authenticate,6300,surfaced,not_applicable,NO
 dmrtd,AA,AA/internal_authenticate,6700,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6800,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6900,surfaced,surfaced,yes
@@ -203,7 +203,7 @@ dmrtd,AA,AA/internal_authenticate,6982,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6A00,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6A80,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6A88,surfaced,surfaced,yes
-dmrtd,AA,AA/internal_authenticate,6B00,surfaced,surfaced,yes
+dmrtd,AA,AA/internal_authenticate,6B00,surfaced,not_applicable,NO
 dmrtd,AA,AA/internal_authenticate,6C00,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6E00,surfaced,surfaced,yes
 dmrtd,AA,AA/internal_authenticate,6F00,surfaced,surfaced,yes
