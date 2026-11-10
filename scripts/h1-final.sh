@@ -19,12 +19,18 @@ st "gofmt: [$(gofmt -l internal guard cmd simulator | tr '\n' ' ')] vet: $(go ve
 make test > "$OUT/test.log" 2>&1 && st "tests pass" || { st "TESTS FAILED: stopped"; exit 1; }
 rm -f bin/chip-serve bin/gmrtd-read drivers/jmrtd/target/jmrtd-driver-0.1.0.jar
 for suite in pace ca-aa controls independent independent-repeat u6-jmrtd u7-bac heldout-passauf-v021; do
-  if SUITES=$suite bash scripts/evaluate.sh > "$OUT/$suite.log" 2>&1; then
+  envs=()
+  # the v0.2.1 suite needs the v0.2.1 build of the same driver (as U2); the default is the v0.2.0 build
+  [[ $suite == heldout-passauf-v021 ]] && envs=(CBO_PASSAUF_DRIVER=drivers/rust-v0.2.1 CBO_PASSAUF_SRC=$HOME/cbo/_vendor/passauf-v0.2.1)
+  if env "${envs[@]}" SUITES=$suite bash scripts/evaluate.sh > "$OUT/$suite.log" 2>&1; then
     st "$suite: all entries verify; held-out mismatches: $(grep -c '^HELD-OUT MISMATCH' "$OUT/$suite.log")"
   else
     st "$suite: FAILED ($(grep -c '^VERIFY FAIL' "$OUT/$suite.log") mismatches outside the held-out entries): see $OUT/$suite.log"
   fi
 done
+# every passauf record of the v0.2.1 suite must name the v0.2.1 commit (05098d8)
+D=$(ls -dt logs/suite-heldout-passauf-v021-* | head -1)
+st "passauf v0.2.1 build check: $(python3 -c 'import json,glob,sys,collections; print(dict(collections.Counter(json.load(open(f))["provenance"].get("passauf_commit","none")[:7] for f in glob.glob(sys.argv[1]+"/*-passauf-*.json"))))' "$D")"
 # WebAuthn arm from the checkout where its drivers are built, moved to the same commit
 WA=~/cbo/cbo-wa
 git -C "$WA" fetch -q "$ROOT" HEAD && git -C "$WA" checkout -q FETCH_HEAD && st "WebAuthn checkout at $(git -C "$WA" rev-parse --short HEAD)"
