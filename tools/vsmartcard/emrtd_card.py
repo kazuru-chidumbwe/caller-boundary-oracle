@@ -37,7 +37,14 @@ PACE step 4 (it verifies the reader's token and switches to the PACE session key
 and answers 9000 with a changed response body: "empty-7c" (7C00, no authentication token),
 "truncated-86" (7C04 86 08 and the first two token bytes: outer length consistent, token
 cut short), "wrong-token" (full-length token with every bit inverted) or "no-data" (no
-response data). --report writes {"fault_delivered": {...}} as
+response data). access_control "enforce" makes the eMRTD application refuse plain access as a
+genuine chip does: a SELECT of an LDS file (EF.COM, EF.SOD, DG1 to DG16) by file identifier, and
+any READ BINARY or READ RECORD of an LDS file (by short EF identifier, by file identifier, or of
+the currently selected file), answer 6982 (security status not satisfied) unless the command
+carries secure messaging. Files in the MF (EF.CardAccess, EF.DIR) stay readable in plain, as Doc
+9303 Part 10 allows. Without it (the default) the card serves LDS files in plain whatever the
+access-control state, as vsmartcard does, which is how a clone or an emulator behaves after a
+failed BAC. --report writes {"fault_delivered": {...}} as
 soon as an injected failure is sent, the same report cmd/chip-serve writes, so every driver
 observes delivery the same way.
 """
@@ -218,6 +225,55 @@ def relay(host: str, port: int, hub_port: int, report: "Report") -> None:
         drv.close()
 
 
+# LDS1 files of the eMRTD application (Doc 9303 Part 10): EF.COM 011E (SFI 1E), EF.SOD 011D (SFI 1D),
+# DG1 to DG16 0101 to 0110 (SFI 01 to 10).
+LDS_FIDS = {0x011E, 0x011D} | {0x0100 + n for n in range(1, 17)}
+LDS_SFIS = {0x1E, 0x1D} | set(range(1, 17))
+SW_SECURITY_STATUS = b"\x69\x82"
+
+
+def _lc_data(msg: bytes) -> bytes:
+    """Command data of a short or extended APDU (header CLA INS P1 P2, then Lc and data)."""
+    if len(msg) <= 5:
+        return b""
+    if msg[4] == 0 and len(msg) >= 7:  # extended length: 00 Lc1 Lc2
+        n = int.from_bytes(msg[5:7], "big")
+        return msg[7:7 + n]
+    return msg[5:5 + msg[4]]
+
+
+def install_access_control(os_, emrtd_df) -> None:
+    """Refuse plain (unprotected) access to LDS files with 6982, as a genuine chip does before, and
+    after a failed, access control. Commands with secure messaging (CLA bits 3 and 4) pass to the
+    card unchanged, so a reader that completed BAC or PACE reads as before."""
+    inner_execute = os_.execute
+
+    def lds_selected() -> bool:
+        ef = os_.mf.currentEF()
+        return ef is not None and ef.parent is emrtd_df and ef.fid in LDS_FIDS
+
+    def enforcing_execute(msg: bytes) -> bytes:
+        if len(msg) >= 4 and (msg[0] & 0x0C) == 0:
+            ins, p1, p2 = msg[1], msg[2], msg[3]
+            deny = False
+            if ins == 0xA4 and p1 in (0x00, 0x02):
+                data = _lc_data(msg)
+                deny = len(data) == 2 and int.from_bytes(data, "big") in LDS_FIDS
+            elif ins == 0xB0:
+                deny = (p1 & 0x1F) in LDS_SFIS if p1 & 0x80 else lds_selected()
+            elif ins == 0xB1:
+                fid = (p1 << 8) | p2
+                deny = fid in LDS_FIDS if fid else lds_selected()
+            elif ins in (0xB2, 0xB3):
+                sfi = p2 >> 3
+                deny = sfi in LDS_SFIS if sfi else lds_selected()
+            if deny:
+                return SW_SECURITY_STATUS
+        return inner_execute(msg)
+
+    os_.execute = enforcing_execute
+
+
 def hexfile(name: str) -> bytes:
     return bytes.fromhex((FIXTURES / name).read_text(encoding="utf-8").strip())
 
@@ -264,6 +320,9 @@ def main() -> None:
         raise SystemExit(f"unknown ga4_body {ga4_body!r}")
     if ga4_body and pace_step:
         raise SystemExit("ga4_body and pace_step are exclusive")
+    access_control = vs.get("access_control", "")
+    if access_control not in ("", "enforce"):
+        raise SystemExit(f"unknown access_control {access_control!r}")
     report = Report(args.report)
 
     vicc = VirtualICC(None, "nPA", args.host, args.port, logginglevel=getattr(logging, args.log_level.upper()))
@@ -272,7 +331,10 @@ def main() -> None:
     assert shipped[:59] == MRZ[:59] and shipped[60:] == MRZ[60:], "vsmartcard nPA MRZ changed; update the harness profile"
     os_.SAM.mrz = MRZ
     install_bac(os_, MRZ)
-    os_.mf.append(emrtd_application(os_.mf, bool(vs.get("dg15"))))
+    emrtd_df = emrtd_application(os_.mf, bool(vs.get("dg15")))
+    os_.mf.append(emrtd_df)
+    if access_control == "enforce":
+        install_access_control(os_, emrtd_df)
     if card_access == "pace-only":
         os_.mf.select("fid", 0x011C).data = CARD_ACCESS_PACE_ONLY
     elif card_access == "none":

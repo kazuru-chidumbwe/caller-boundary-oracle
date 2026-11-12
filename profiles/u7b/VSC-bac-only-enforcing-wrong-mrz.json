@@ -1,0 +1,18 @@
+{
+  "id": "VSC-bac-only-enforcing-wrong-mrz",
+  "name": "BAC with an MRZ with one character changed on an independent chip that refuses plain access to LDS files (6982), as a genuine chip does",
+  "mechanism": "PACE",
+  "condition": "bac_only_wrong_key",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000120",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "card_access": "none",
+    "observe_refusals": "PACE",
+    "access_control": "enforce"
+  }
+}

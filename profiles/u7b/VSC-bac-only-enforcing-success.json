@@ -1,0 +1,17 @@
+{
+  "id": "VSC-bac-only-enforcing-success",
+  "name": "BAC with the right MRZ on an independent chip that refuses plain access to LDS files (6982), as a genuine chip does",
+  "mechanism": "PACE",
+  "condition": "bac_only_success",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "card_access": "none",
+    "access_control": "enforce"
+  }
+}

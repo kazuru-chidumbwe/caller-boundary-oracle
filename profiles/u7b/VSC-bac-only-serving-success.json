@@ -1,0 +1,16 @@
+{
+  "id": "VSC-bac-only-serving-success",
+  "name": "BAC with the right MRZ on an independent chip that serves LDS files in plain after a failed BAC (vsmartcard as shipped)",
+  "mechanism": "PACE",
+  "condition": "bac_only_success",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "card_access": "none"
+  }
+}
