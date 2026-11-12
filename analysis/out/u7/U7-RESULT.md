@@ -1,5 +1,8 @@
 # U7 result: access control on a chip without PACE, right and wrong MRZ, every library entry
 
+**Correction (12 Nov 2026):** the independent chip used here served LDS files in plain after the failed BAC, so "no data group was read" below is wrong: gmrtd read EF.SOD, EF.COM and DG1. On a chip that enforces access control gmrtd fails later at EF.SOD (6982). See `../u7b/U7B-RESULT.md`, which reruns U7 on both chips and supersedes this file.
+
+
 Harness be99fef (clean before and after); independent chip with no EF.CardAccess (`card_access: none`), so every
 reader uses BAC; wrong MRZ = document number T22000120 instead of T22000129; the chip's own refusal of EXTERNAL
 AUTHENTICATE is the delivered fault (`observe_refusals: "PACE"`, the access-control key the drivers read).

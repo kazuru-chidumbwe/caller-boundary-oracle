@@ -1,0 +1,7 @@
+[16:36:56] start: d5971d0 dirty=0
+[16:36:56] u7b-bac: start
+[16:38:11] u7b-bac: rc=0 SUITE OK — 52 runs under /home/test/cbo/u7b-runs/u7b-bac/ VERIFY OK — /home/test/cbo/u7b-runs/u7b-bac/artifact-manifest.json SUITE OK (/home/test/cbo/u7b-runs/u7b-bac) 
+[16:38:11] independent: start
+[16:41:49] independent: rc=0 SUITE OK — 325 runs under /home/test/cbo/u7b-runs/independent/ VERIFY OK — /home/test/cbo/u7b-runs/independent/artifact-manifest.json SUITE OK (/home/test/cbo/u7b-runs/independent) 
+[16:41:49] post: dirty=0
+[16:41:49] U7B DONE

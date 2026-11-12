@@ -1,0 +1,366 @@
+[
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "dmrtd",
+  "variant": "default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "emrtd-dotnet",
+  "variant": "default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "gmrtd",
+  "variant": "64bd6ab-allow-fallback",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "gmrtd",
+  "variant": "64bd6ab-default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "gmrtd",
+  "variant": "64bd6ab-guard",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "gmrtd",
+  "variant": "8fea245-default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "gmrtd",
+  "variant": "8fea245-guard",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "gmrtd",
+  "variant": "b861835-allow-fallback",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "gmrtd",
+  "variant": "b861835-default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "gmrtd",
+  "variant": "b861835-guard",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "jmrtd",
+  "variant": "catch-continue",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "jmrtd",
+  "variant": "propagate",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-success",
+  "library": "passauf",
+  "variant": "default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "dmrtd",
+  "variant": "default",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "emrtd-dotnet",
+  "variant": "default",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "64bd6ab-allow-fallback",
+  "outcome": "surfaced",
+  "error": "[ReadDocument] runSteps error: [runSteps] error: [readEfSod] ReadFile error: [ReadFile] SelectEF error: [Selec"
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "64bd6ab-default",
+  "outcome": "surfaced",
+  "error": "[ReadDocument] runSteps error: [runSteps] error: [readEfSod] ReadFile error: [ReadFile] SelectEF error: [Selec"
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "64bd6ab-guard",
+  "outcome": "surfaced",
+  "error": "[ReadDocument] runSteps error: [runSteps] error: [readEfSod] ReadFile error: [ReadFile] SelectEF error: [Selec"
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "8fea245-default",
+  "outcome": "surfaced",
+  "error": "[ReadDocument] runSteps error: [runSteps] error: [readEfSod] ReadFile error: [ReadFile] SelectEF error: [Selec"
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "8fea245-guard",
+  "outcome": "surfaced",
+  "error": "[ReadDocument] runSteps error: [runSteps] error: [readEfSod] ReadFile error: [ReadFile] SelectEF error: [Selec"
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "b861835-allow-fallback",
+  "outcome": "surfaced",
+  "error": "[ReadDocument] runSteps error: [runSteps] error: [readEfSod] ReadFile error: [ReadFile] SelectEF error: [Selec"
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "b861835-default",
+  "outcome": "surfaced",
+  "error": "[ReadDocument] runSteps error: [runSteps] error: [readEfSod] ReadFile error: [ReadFile] SelectEF error: [Selec"
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "b861835-guard",
+  "outcome": "surfaced",
+  "error": "[ReadDocument] runSteps error: [runSteps] error: [readEfSod] ReadFile error: [ReadFile] SelectEF error: [Selec"
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "jmrtd",
+  "variant": "catch-continue",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "jmrtd",
+  "variant": "propagate",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-enforcing-wrong-mrz",
+  "library": "passauf",
+  "variant": "default",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "dmrtd",
+  "variant": "default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "emrtd-dotnet",
+  "variant": "default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "gmrtd",
+  "variant": "64bd6ab-allow-fallback",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "gmrtd",
+  "variant": "64bd6ab-default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "gmrtd",
+  "variant": "64bd6ab-guard",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "gmrtd",
+  "variant": "8fea245-default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "gmrtd",
+  "variant": "8fea245-guard",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "gmrtd",
+  "variant": "b861835-allow-fallback",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "gmrtd",
+  "variant": "b861835-default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "gmrtd",
+  "variant": "b861835-guard",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "jmrtd",
+  "variant": "catch-continue",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "jmrtd",
+  "variant": "propagate",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-success",
+  "library": "passauf",
+  "variant": "default",
+  "outcome": "not_applicable",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "dmrtd",
+  "variant": "default",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "emrtd-dotnet",
+  "variant": "default",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "64bd6ab-allow-fallback",
+  "outcome": "status_only",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "64bd6ab-default",
+  "outcome": "status_only",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "64bd6ab-guard",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "8fea245-default",
+  "outcome": "status_only",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "8fea245-guard",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "b861835-allow-fallback",
+  "outcome": "status_only",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "b861835-default",
+  "outcome": "status_only",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "gmrtd",
+  "variant": "b861835-guard",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "jmrtd",
+  "variant": "catch-continue",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "jmrtd",
+  "variant": "propagate",
+  "outcome": "surfaced",
+  "error": ""
+ },
+ {
+  "cell": "VSC-bac-only-serving-wrong-mrz",
+  "library": "passauf",
+  "variant": "default",
+  "outcome": "surfaced",
+  "error": ""
+ }
+]
