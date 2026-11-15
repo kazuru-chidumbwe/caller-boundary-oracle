@@ -57,10 +57,13 @@ def verdicts(run: dict) -> dict[str, object]:
 
 
 def effective(run: dict, ref: dict) -> dict:
-    """Use the rerun's agreement with the reference to discard one-off differences on the independent chip."""
-    rerun = run.get("rerun")
-    if rerun and rerun.get("status") == "ok" and verdicts(rerun) == verdicts(ref):
-        return ref
+    """Use a rerun's agreement with the reference to discard one-off differences on the independent chip.
+
+    Runs from change 13 on carry up to three reruns in "reruns"; older runs carry one in "rerun"."""
+    reruns = run.get("reruns") or ([run["rerun"]] if run.get("rerun") else [])
+    for rerun in reruns:
+        if rerun.get("status") == "ok" and verdicts(rerun) == verdicts(ref):
+            return ref
     return run
 
 
