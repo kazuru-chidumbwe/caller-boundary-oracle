@@ -35,6 +35,8 @@ DEFAULT_PIN = "64bd6ab"
 JMRTD_JAR = ROOT / "drivers/jmrtd/target/jmrtd-driver-0.1.0.jar"
 CHIP_SERVE = ROOT / "bin" / "chip-serve"
 SKIP = {"artifact-manifest.json", "environment.json"}
+REF_RUNS = 3       # reference runs per scenario, all with the same signature
+REF_ATTEMPTS = 3   # fresh reference sets tried before the version is refused
 
 
 def log(out: Path, msg: str) -> None:
@@ -210,18 +212,32 @@ def main() -> None:
             ok, msg = lib.build(None)
             if not ok:
                 raise SystemExit(f"reference build failed for {name} {version}: {msg}")
-            runs, bad = [], []
-            for e in entries_for(reduced, name, version, None):
-                r = run_entry(lib, e, ref_dir / e["scenario_id"], a.timeout)
+            # the reference is run REF_RUNS times and must give the same signature in every run of every scenario: a
+            # one-off random effect in a single reference run (gmrtd's random PACE failure, D5/D6) would otherwise
+            # make every mutant of that version differ from it on the baselines' fields (A5-3 run 125, 14 Nov)
+            entries = entries_for(reduced, name, version, None)
+            for attempt in range(1, REF_ATTEMPTS + 1):
+                reps = [[run_entry(lib, e, ref_dir / f"a{attempt}-r{k}" / e["scenario_id"], a.timeout) for e in entries]
+                        for k in range(REF_RUNS)]
+                unstable = [e["scenario_id"] for i, e in enumerate(entries) if len({signature(rep[i]) for rep in reps}) > 1]
+                if not unstable:
+                    break
+                log(a.out, f"REF {name} {version}: attempt {attempt}, {len(unstable)} scenarios differ between the "
+                           f"{REF_RUNS} runs: {unstable[:3]}")
+            else:
+                (ref_dir / "UNSTABLE.json").write_text(json.dumps(unstable, indent=1), encoding="utf-8")
+                raise SystemExit(f"reference for {name} {version} not stable after {REF_ATTEMPTS} attempts: {unstable[:3]}")
+            runs, bad = reps[0], []
+            for e, r in zip(entries, runs):
                 want = e["expect_outcome"] if isinstance(e["expect_outcome"], list) else [e["expect_outcome"]]
                 if r.get("outcome") not in want:
                     bad.append((e["scenario_id"], r.get("outcome"), want, r["status"]))
-                runs.append(r)
             if bad:
                 (ref_dir / "MISMATCH.json").write_text(json.dumps(bad, indent=1), encoding="utf-8")
                 raise SystemExit(f"reference for {name} {version} does not reproduce the expectations: {bad[:3]}")
             ref_file.write_text(json.dumps({"mutant_id": ref_dir.name, "harness": head, "runs": runs}, indent=1), encoding="utf-8")
-            log(a.out, f"REF {name} {version}: {len(runs)} runs reproduce the expectations")
+            log(a.out, f"REF {name} {version}: {len(runs)} runs reproduce the expectations, identical in {REF_RUNS} "
+                       f"runs (attempt {attempt})")
         ref = {r["scenario_id"]: r for r in json.loads(ref_file.read_text(encoding="utf-8"))["runs"]}
 
         todo = ms if a.limit is None else ms[: a.limit]
