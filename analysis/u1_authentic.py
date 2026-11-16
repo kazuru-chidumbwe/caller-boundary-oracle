@@ -78,6 +78,7 @@ def check(r: dict, want: str) -> bool:
     if "harness_error" in r:
         return False
     return {"status_only": r["outcome"] == "status_only", "surfaced": r["outcome"] == "surfaced",
+            "not_applicable": r["outcome"] == "not_applicable",
             "no_error": r["read_err"] == "", "error": r["read_err"] != "", "succeeded": bool(r["succeeded"]),
             "failed": bool(r["failed"]), "not_fired": not r["fired"]}[want]
 
@@ -86,9 +87,11 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--vendor", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
+    ap.add_argument("--expectations", type=Path, default=ROOT / "analysis" / "u1_expectations.json",
+                    help="expectations file (default: the U1 file; R1 uses analysis/r1_expectations.json)")
     a = ap.parse_args()
     a.out.mkdir(parents=True, exist_ok=True)
-    exp = json.loads((ROOT / "analysis" / "u1_expectations.json").read_text(encoding="utf-8"))
+    exp = json.loads(a.expectations.read_text(encoding="utf-8"))
     head = git(ROOT, "rev-parse", "HEAD")
     if git(ROOT, "status", "--porcelain", "--untracked-files=no"):
         sys.exit("harness tree is dirty; commit first")
