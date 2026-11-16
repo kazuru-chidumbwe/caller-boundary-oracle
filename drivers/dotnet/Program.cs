@@ -122,7 +122,7 @@ static JsonObject Provenance(string root, Args a)
     string rel = Path.GetRelativePath(root, profileFull).Replace('\\', '/');
     return new JsonObject
     {
-        ["harness_commit"] = Git(root, "rev-parse", "HEAD") ?? "unknown",
+        ["harness_commit"] = Environment.GetEnvironmentVariable("EMRTD_HARNESS_COMMIT") is { Length: > 0 } hc && hc.Trim().Length > 0 ? hc.Trim() : Git(root, "rev-parse", "HEAD") ?? "unknown",
         ["harness_dirty"] = (Git(root, "status", "--porcelain", "--untracked-files=no") ?? "").Length > 0,
         ["emrtd_dotnet_commit"] = Git(Environment.GetEnvironmentVariable("EmrtdDotnetDir") is { Length: > 0 } dir ? dir : Path.Combine(root, "../_vendor/emrtd-dotnet"), "rev-parse", "HEAD"),
         ["dotnet_version"] = Environment.Version.ToString(),

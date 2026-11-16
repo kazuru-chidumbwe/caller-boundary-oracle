@@ -284,7 +284,9 @@ Future<Map<String, Object?>> _provenance(String root, String profilePath, Map<St
   final epoch = int.tryParse(Platform.environment['SOURCE_DATE_EPOCH'] ?? '');
   final captured = epoch != null ? DateTime.fromMillisecondsSinceEpoch(epoch * 1000, isUtc: true) : DateTime.now().toUtc();
   return {
-    'harness_commit': await git(root, ['rev-parse', 'HEAD']) ?? 'unknown',
+    'harness_commit': (Platform.environment['EMRTD_HARNESS_COMMIT'] ?? '').trim().isNotEmpty
+        ? Platform.environment['EMRTD_HARNESS_COMMIT']!.trim()
+        : (await git(root, ['rev-parse', 'HEAD']) ?? 'unknown'),
     'harness_dirty': ((await git(root, ['status', '--porcelain', '--untracked-files=no'])) ?? '').isNotEmpty,
     'dmrtd_commit': await git('$root/../_vendor/dmrtd', ['rev-parse', 'HEAD']),
     'dart_version': Platform.version.split(' ').first,

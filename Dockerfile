@@ -1,6 +1,6 @@
 # Reproduction image for the caller-boundary oracle harness.
 #
-#   docker build -t caller-boundary-oracle .
+#   docker build --build-arg HARNESS_COMMIT=$(git rev-parse HEAD) -t caller-boundary-oracle .
 #   docker run --rm caller-boundary-oracle                       # make smoke: one profile per library, verified
 #   docker run --rm caller-boundary-oracle make evaluate         # every Linux suite, verified
 #
@@ -28,6 +28,9 @@ RUN curl -fsSL https://sh.rustup.rs -o /tmp/rustup.sh \
 
 ENV PATH="/usr/local/go/bin:/root/go/bin:/root/.cargo/bin:${PATH}"
 ENV GOTOOLCHAIN=local
+# The image has no .git; pass the commit so every run record names it: --build-arg HARNESS_COMMIT=$(git rev-parse HEAD)
+ARG HARNESS_COMMIT=unknown
+ENV EMRTD_HARNESS_COMMIT=${HARNESS_COMMIT}
 ENV GOPROXY=https://proxy.golang.org,direct
 
 # The bootstrap scripts place pinned sources in ../_vendor, next to this tree.
