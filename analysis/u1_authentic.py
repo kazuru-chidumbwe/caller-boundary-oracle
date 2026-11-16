@@ -118,12 +118,17 @@ def main() -> None:
             for pat in g["profiles"]:
                 for prof in sorted(glob.glob(str(ROOT / pat))):
                     rel = str(Path(prof).relative_to(ROOT)).replace(os.sep, "/")
-                    r = run(exe, rel, g["arm"], exp["arms"][g["arm"]], a.out / "runs" / tag / g["arm"] / Path(rel).stem)
-                    ok = all(check(r, w) for w in g["expect"])
-                    if g.get("control") and not ok:
-                        control_fail = True
-                    results["groups"].append({"group": g["id"], "release": tag, "arm": g["arm"], "profile": rel,
-                                              "expect": g["expect"], "as_expected": ok, **r})
+                    n = int(g.get("repeat", 1))
+                    for i in range(1, n + 1):
+                        log_dir = a.out / "runs" / tag / g["arm"] / Path(rel).stem
+                        if n > 1:
+                            log_dir = log_dir / f"r{i:03d}"
+                        r = run(exe, rel, g["arm"], exp["arms"][g["arm"]], log_dir)
+                        ok = all(check(r, w) for w in g["expect"])
+                        if g.get("control") and not ok:
+                            control_fail = True
+                        results["groups"].append({"group": g["id"], "release": tag, "arm": g["arm"], "profile": rel,
+                                                  "run": i, "expect": g["expect"], "as_expected": ok, **r})
             print(f"{tag} {g['id']} done", flush=True)
 
     (a.out / "u1-results.json").write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
