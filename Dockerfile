@@ -1,43 +1,46 @@
-# Bounded reproduction image for the eMRTD differential harness.
-# Goal: one buildable artifact reviewers can run without a hand-tuned host.
+# Reproduction image for the caller-boundary oracle harness.
 #
-#   docker build -t emrtd-harness .
-#   docker run --rm emrtd-harness                 # make smoke (TC-AC-01)
-#   docker run --rm emrtd-harness bash scripts/run_offline_pa.sh
+#   docker build -t caller-boundary-oracle .
+#   docker run --rm caller-boundary-oracle                       # make smoke: one profile per library, verified
+#   docker run --rm caller-boundary-oracle make evaluate         # every Linux suite, verified
 #
-# Requires network at build time (gmrtd clone + Maven Central JMRTD 0.8.6).
-# Synthetic profiles only — no NFC / physical documents.
-# Option A: does NOT clone E3V3A; JMRTD comes from Maven Central and is
-# verified by SHA-256 in scripts/install-jmrtd-local.sh.
+# Requires network at build time: pinned library sources (gmrtd, emrtd-dotnet, dmrtd, passauf, OpenPACE,
+# vsmartcard) are fetched by the bootstrap scripts, JMRTD 0.8.9 comes from Maven Central and is checked by
+# SHA-256. The same steps as the Linux CI workflow. Synthetic and emulated chips only.
 
 FROM eclipse-temurin:17-jdk-jammy
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates \
-    curl \
-    git \
-    make \
-    maven \
-    python3 \
+    ca-certificates curl git make maven unzip \
+    python3 python3-venv python3-dev python3-setuptools \
+    autoconf automake libtool pkg-config libssl-dev swig gengetopt help2man build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-ARG GO_VERSION=1.26.5
-ARG GO_SHA256=5c2c3b16caefa1d968a94c1daca04a7ca301a496d9b086e17ad77bb81393f053
+ARG GO_VERSION=1.26.10
+ARG GO_SHA256=ccfe7ae822d2c2f41f4fe7c956199967a4dac22d0ee0d2b2bfdb440aab3b20c5
 RUN curl -fsSL -o /tmp/go.tgz "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" \
     && echo "${GO_SHA256}  /tmp/go.tgz" | sha256sum -c - \
     && tar -C /usr/local -xzf /tmp/go.tgz && rm /tmp/go.tgz
-ENV PATH="/usr/local/go/bin:/root/go/bin:${PATH}"
+
+ARG RUST_VERSION=1.92.0
+RUN curl -fsSL https://sh.rustup.rs -o /tmp/rustup.sh \
+    && sh /tmp/rustup.sh -y --profile minimal --default-toolchain "${RUST_VERSION}" && rm /tmp/rustup.sh
+
+ENV PATH="/usr/local/go/bin:/root/go/bin:/root/.cargo/bin:${PATH}"
 ENV GOTOOLCHAIN=local
 ENV GOPROXY=https://proxy.golang.org,direct
-ENV JMRTD_VERSION=0.8.6
 
-# go.mod replace path expects sibling ../_vendor/gmrtd relative to this tree.
-WORKDIR /workspace/emrtd-differential-harness
+# The bootstrap scripts place pinned sources in ../_vendor, next to this tree.
+WORKDIR /workspace/caller-boundary-oracle
 COPY . .
 
 RUN bash scripts/bootstrap-vendor.sh \
     && bash scripts/install-jmrtd-local.sh \
-    && (cd drivers/jmrtd && mvn -q -DskipTests package) \
-    && go test ./classifier/... ./middleware/...
+    && bash scripts/bootstrap-passauf.sh \
+    && bash scripts/bootstrap-vsmartcard.sh \
+    && bash scripts/bootstrap-dotnet.sh \
+    && bash scripts/bootstrap-dart.sh \
+    && make venv \
+    && go test ./classifier/...
 
 CMD ["make", "smoke"]

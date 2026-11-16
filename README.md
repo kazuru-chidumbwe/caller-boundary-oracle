@@ -78,12 +78,14 @@ Every suite entry states its expected outcome before it runs (`suites/generate_s
 
 ## Quick start (Linux)
 
-Requirements: Go 1.26, Java 17 and Maven, Python 3.11 or later, and the build tools for OpenPACE (Debian: `autoconf automake libtool pkg-config libssl-dev swig python3-dev gengetopt help2man`). The .NET SDK and the Dart SDK are installed into `../_vendor` by their bootstrap scripts.
+Requirements: Go 1.26, Java 17 and Maven, Python 3.11 or later, Rust (1.92.0 used) with cargo, and the build tools for OpenPACE (Debian: `autoconf automake libtool pkg-config libssl-dev swig python3-dev gengetopt help2man`). The .NET SDK and the Dart SDK are installed into `../_vendor` by their bootstrap scripts.
 
 ```bash
 git clone https://github.com/kazuru-chidumbwe/caller-boundary-oracle.git
 cd caller-boundary-oracle
-bash scripts/bootstrap-vendor.sh   # gmrtd at the three pins, JMRTD
+bash scripts/bootstrap-vendor.sh   # gmrtd at the three pins
+bash scripts/install-jmrtd-local.sh # JMRTD 0.8.9 from Maven Central, SHA-256 checked
+bash scripts/bootstrap-passauf.sh  # passauf v0.2.0 and v0.2.1 for the Rust driver
 make vsmartcard                    # independent chip (OpenPACE + vsmartcard)
 make dotnet                        # .NET SDK + emrtd-dotnet
 make dart                          # Dart SDK + dmrtd
@@ -91,6 +93,8 @@ make test                          # oracle vectors in every driver language, Go
 make smoke                         # one profile across every arm, verified
 make evaluate                      # every Linux suite, each verified against its expectations
 ```
+
+The same steps, with every toolchain pinned, build the container image: `docker build -t caller-boundary-oracle .`, then `docker run --rm caller-boundary-oracle` (smoke) or `... make evaluate`.
 
 One suite: `make suite MANIFEST=suites/pace.json`. Run artifacts go to `logs/`; verified summaries to `artifacts/`.
 
