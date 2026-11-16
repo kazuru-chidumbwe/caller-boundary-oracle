@@ -18,7 +18,7 @@ jobs:
 
       - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
         with:
-          go-version: '1.26.5'
+          go-version: '1.26.10'
           cache: false
 
       - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
@@ -36,6 +36,7 @@ jobs:
         run: |
           bash scripts/bootstrap-vendor.sh
           bash scripts/install-jmrtd-local.sh
+          bash scripts/bootstrap-passauf.sh
           bash scripts/bootstrap-vsmartcard.sh
           bash scripts/bootstrap-dotnet.sh
           bash scripts/bootstrap-dart.sh
