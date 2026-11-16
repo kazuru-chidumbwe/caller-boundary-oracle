@@ -32,5 +32,6 @@ PY
 done
 python3 -c "
 import json,glob,sys,collections
-c=collections.Counter(json.load(open(f))['provenance'].get('emrtd_dotnet_commit','none')[:7] for f in glob.glob(sys.argv[1]+'/l3-*/*.json') if 'manifest' not in f)
+recs=[json.load(open(f)) for f in glob.glob(sys.argv[1]+'/l3-*/**/*.json', recursive=True)]
+c=collections.Counter(r['provenance'].get('emrtd_dotnet_commit','none')[:7] for r in recs if isinstance(r,dict) and 'provenance' in r)
 print('emrtd_dotnet_commit in run records:', dict(c))" "$OUT"
