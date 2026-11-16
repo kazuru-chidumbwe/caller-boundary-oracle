@@ -39,7 +39,7 @@ Reading:
   control (PACE failed and BAC did not succeed): 0 runs. Only D11 depends on the chip's behaviour after a failed BAC.
 
 Upstream: reply on gmrtd #572 with the trace, then the pull request the maintainer invited (BAC returns its error;
-reader test with EXTERNAL AUTHENTICATE rejected). Both wait for approval of the reply.
+reader test with EXTERNAL AUTHENTICATE rejected).
 
 Source: `u7b-results.json` (outcome and error per run), `progress.txt`, run records in
 `../../data/suite-u7b-bac-20261112T143656Z/`.
