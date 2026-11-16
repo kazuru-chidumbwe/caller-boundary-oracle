@@ -1,0 +1,34 @@
+diff --git a/Sources/NFCPassportReader/PassportReader.swift b/Sources/NFCPassportReader/PassportReader.swift
+index 41ad0de..d8ee567 100644
+--- a/Sources/NFCPassportReader/PassportReader.swift
++++ b/Sources/NFCPassportReader/PassportReader.swift
+@@ -76,3 +76,3 @@ public class PassportReader : NSObject {
+     private lazy var tracer = ReaderTracer(logger: logger)
+-    private var passport : NFCPassportModel = NFCPassportModel()
++    var passport : NFCPassportModel = NFCPassportModel()
+     
+@@ -81,7 +81,7 @@ public class PassportReader : NSObject {
+     
+-    private var dataGroupsToRead : [DataGroupId] = []
+-    private var readAllDatagroups = false
+-    private var skipSecureElements = true
+-    private var skipCA = false
+-    private var skipPACE = false
++    var dataGroupsToRead : [DataGroupId] = []
++    var readAllDatagroups = false
++    var skipSecureElements = true
++    var skipCA = false
++    var skipPACE = false
+     /// If PACE is attempted and fails, fall back to BAC. Default true keeps existing behavior.
+@@ -95,4 +95,9 @@ public class PassportReader : NSObject {
+     private var paceHandler : PACEHandler?
+-    private var accessKey : PassportAccessKey = .mrz("")
+-    private var aaChallenge: [UInt8]?
++    var accessKey : PassportAccessKey = .mrz("")
++    // Test shim (harness): the oracle driver sets the MRZ key as in 2.3.3 and 3.0.0.
++    var mrzKey : String {
++        get { if case .mrz(let k) = accessKey { return k } else { return "" } }
++        set { accessKey = .mrz(newValue) }
++    }
++    var aaChallenge: [UInt8]?
+     private var dataAmountToReadOverride : Int? = nil

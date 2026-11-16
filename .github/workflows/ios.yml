@@ -13,6 +13,8 @@ on:
       - "suites/ios.json"
       - "profiles/**"
       - "scripts/bootstrap-vsmartcard.sh"
+      - "scripts/bootstrap-ios.sh"
+      - "suites/ios-nfcpr3.json"
       - "cmd/chip-serve/**"
       - "simulator/**"
       - ".github/workflows/ios.yml"
@@ -24,6 +26,23 @@ jobs:
   nfcpassportreader:
     runs-on: macos-15
     timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # 2.3.3: the study's pinned release, every profile. 3.0.0 (D3 fix) and 3.0.1: the 26 Active
+          # Authentication status-word cells and two controls, predictions in suites/ios-nfcpr3.json.
+          - nfcpr: "2.3.3"
+            manifest: suites/ios.json
+            suite: ios
+          - nfcpr: "3.0.0"
+            manifest: suites/ios-nfcpr3.json
+            suite: ios-nfcpr3
+          - nfcpr: "3.0.1"
+            manifest: suites/ios-nfcpr3.json
+            suite: ios-nfcpr3
+    env:
+      NFCPR_VERSION: ${{ matrix.nfcpr }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
@@ -63,7 +82,7 @@ jobs:
       - name: Run plan in the iOS Simulator
         working-directory: harness
         run: |
-          python3 tools/ios_plan.py --manifest suites/ios.json --out "$RUNNER_TEMP/plan.json"
+          python3 tools/ios_plan.py --manifest "${{ matrix.manifest }}" --out "$RUNNER_TEMP/plan.json"
           UDID=$(xcrun simctl list devices available -j | python3 -c "import json,sys; d=json.load(sys.stdin)['devices']; print(next(x['udid'] for k,v in sorted(d.items(), reverse=True) if 'iOS' in k for x in v if x['name'].startswith('iPhone')))")
           echo "simulator $UDID"
           cd drivers/ios
@@ -77,21 +96,21 @@ jobs:
         working-directory: harness
         run: |
           python3 tools/ios_collect.py --plan "$RUNNER_TEMP/plan.json" --test-log "$RUNNER_TEMP/test.log" \
-            --chip-reports "$RUNNER_TEMP/chip" --log-dir "$RUNNER_TEMP/ios-runs"
+            --chip-reports "$RUNNER_TEMP/chip" --log-dir "$RUNNER_TEMP/ios-runs" --suite-id "${{ matrix.suite }}"
           tail -20 "$RUNNER_TEMP/broker.log"
 
       - name: Verify against suites/ios.json
         working-directory: harness
         run: |
           make venv
-          .venv/bin/python3 classifier/aggregate.py --log-dir "$RUNNER_TEMP/ios-runs" --manifest suites/ios.json \
-            --suite-id ios --suite-seed 1
-          .venv/bin/python3 classifier/verify_manifest.py "$RUNNER_TEMP/ios-runs" --manifest suites/ios.json --no-pipeline
+          .venv/bin/python3 classifier/aggregate.py --log-dir "$RUNNER_TEMP/ios-runs" --manifest "${{ matrix.manifest }}" \
+            --suite-id "${{ matrix.suite }}" --suite-seed 1
+          .venv/bin/python3 classifier/verify_manifest.py "$RUNNER_TEMP/ios-runs" --manifest "${{ matrix.manifest }}" --no-pipeline
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: ios-runs
+          name: ios-runs-nfcpr-${{ matrix.nfcpr }}
           path: |
             ${{ runner.temp }}/ios-runs/
             ${{ runner.temp }}/test.log
