@@ -79,6 +79,7 @@ def check(r: dict, want: str) -> bool:
         return False
     return {"status_only": r["outcome"] == "status_only", "surfaced": r["outcome"] == "surfaced",
             "not_applicable": r["outcome"] == "not_applicable",
+            "returned_error": bool(r["returned_error"]),
             "no_error": r["read_err"] == "", "error": r["read_err"] != "", "succeeded": bool(r["succeeded"]),
             "failed": bool(r["failed"]), "not_fired": not r["fired"]}[want]
 
