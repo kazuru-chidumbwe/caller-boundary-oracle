@@ -1,0 +1,109 @@
+{
+  "_about": "R2 expectations (gmrtd fix check), committed before any run. Release v1.9.1 (build tag gmrtd_sweep_authentic); pull requests #523 (D4, BAC after PACE the library cannot perform) and #524 (D5, ECDH secret at field size) were merged 13 Oct 2026 and first released in v1.4.0 (GitHub compare: both merge commits behind v1.3.3, ahead of v1.4.0). Source v1.9.1: reader.performPace continues to BAC when Session.PaceErr is pace.ErrPACEUnsupportedLocally and still records PaceErr; chipauth.deriveSessionKeys and pace key agreement take the secret through cryptoutils.EcDhSharedSecret. Predictions: F1 the proprietary-parameter control reads over BAC without an error in the default arm (D4 fixed; 1.1.3 to 1.3.2 refused it); F2 the guard arm still refuses it, because PaceErr is recorded; F3 and F4 the BAC-only control reads without an error in both arms; F5 every PACE failure on the harness chip is surfaced in the default arm and F6 in the guard arm, as in 1.3.2; F7 the PACE positive control on the independent chip succeeds without an error in 100 of 100 runs. D5 itself is checked by analysis/t63/run.sh over every tag: D5_PRESENT up to v1.3.3, D5_ABSENT from v1.4.0, control D5_ABSENT. Checks as in U1; F7 is a positive control (a failure is reported, not hidden).",
+  "releases": [
+    "v1.9.1"
+  ],
+  "reference_release": "v1.3.2",
+  "groups": [
+    {
+      "id": "F1",
+      "arm": "default",
+      "profiles": [
+        "profiles/controls/CTRL-pace-proprietary-params.json"
+      ],
+      "expect": [
+        "no_error",
+        "not_applicable"
+      ]
+    },
+    {
+      "id": "F2",
+      "arm": "guard",
+      "profiles": [
+        "profiles/controls/CTRL-pace-proprietary-params.json"
+      ],
+      "expect": [
+        "error",
+        "not_applicable"
+      ]
+    },
+    {
+      "id": "F3",
+      "arm": "default",
+      "profiles": [
+        "profiles/controls/CTRL-bac-only.json"
+      ],
+      "expect": [
+        "no_error",
+        "not_applicable"
+      ]
+    },
+    {
+      "id": "F4",
+      "arm": "guard",
+      "profiles": [
+        "profiles/controls/CTRL-bac-only.json"
+      ],
+      "expect": [
+        "no_error",
+        "not_applicable"
+      ]
+    },
+    {
+      "id": "F5",
+      "arm": "default",
+      "profiles": [
+        "profiles/pace/PACE-*.json"
+      ],
+      "expect": [
+        "surfaced",
+        "error"
+      ]
+    },
+    {
+      "id": "F6",
+      "arm": "guard",
+      "profiles": [
+        "profiles/pace/PACE-*.json"
+      ],
+      "expect": [
+        "surfaced",
+        "error"
+      ]
+    },
+    {
+      "id": "F7",
+      "arm": "default",
+      "profiles": [
+        "profiles/independent/VSC-pace-success.json"
+      ],
+      "repeat": 100,
+      "expect": [
+        "no_error",
+        "succeeded"
+      ]
+    }
+  ],
+  "arms": {
+    "default": {
+      "trusted_chain": false,
+      "require_authentic": false,
+      "guard": false
+    },
+    "guard": {
+      "trusted_chain": false,
+      "require_authentic": false,
+      "guard": true
+    },
+    "require-authentic-untrusted": {
+      "trusted_chain": false,
+      "require_authentic": true,
+      "guard": false
+    },
+    "require-authentic": {
+      "trusted_chain": true,
+      "require_authentic": true,
+      "guard": false
+    }
+  }
+}
