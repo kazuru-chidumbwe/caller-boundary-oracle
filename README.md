@@ -94,7 +94,7 @@ make smoke                         # one profile across every arm, verified
 make evaluate                      # every Linux suite, each verified against its expectations
 ```
 
-The same steps, with every toolchain pinned, build the container image: `docker build -t caller-boundary-oracle .`, then `docker run --rm caller-boundary-oracle` (smoke) or `... make evaluate`.
+The same steps, with every toolchain pinned, build the container image: `docker build --build-arg HARNESS_COMMIT=$(git rev-parse HEAD) -t caller-boundary-oracle .`, then `docker run --rm caller-boundary-oracle` (smoke) or `... make evaluate`.
 
 One suite: `make suite MANIFEST=suites/pace.json`. Run artifacts go to `logs/`; verified summaries to `artifacts/`.
 

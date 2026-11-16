@@ -384,7 +384,8 @@ fn provenance(root: &str, profile_path: &str, a: &HashMap<String, String>, varia
     };
     let num = |k: &str, d: u64| a.get(k).and_then(|s| s.parse::<u64>().ok()).unwrap_or(d);
     json!({
-        "harness_commit": git(root, &["rev-parse", "HEAD"]).unwrap_or_else(|| "unknown".into()),
+        "harness_commit": std::env::var("EMRTD_HARNESS_COMMIT").ok().map(|s| s.trim().to_string()).filter(|s| !s.is_empty())
+            .or_else(|| git(root, &["rev-parse", "HEAD"])).unwrap_or_else(|| "unknown".into()),
         "harness_dirty": !git(root, &["status", "--porcelain", "--untracked-files=no"]).unwrap_or_default().is_empty(),
         // CBO_PASSAUF_SRC names the passauf checkout this build links when it is not the default one (U2: v0.2.1).
         "passauf_commit": git(&std::env::var("CBO_PASSAUF_SRC").unwrap_or_else(|_| format!("{}/../_vendor/passauf", root)), &["rev-parse", "HEAD"]),
