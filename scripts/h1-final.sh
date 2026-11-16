@@ -7,8 +7,8 @@
 set -uo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
-P=~/cbo/h1.progress; OUT=~/cbo/h1-run
-echo $$ > ~/cbo/h1.pid; : > "$P"; rm -f ~/cbo/H1-DONE; mkdir -p "$OUT"
+TAG=${RUN_TAG:-h1}; P=~/cbo/$TAG.progress; OUT=~/cbo/$TAG-run; FLAG=~/cbo/${TAG^^}-DONE
+echo $$ > ~/cbo/$TAG.pid; : > "$P"; rm -f "$FLAG"; mkdir -p "$OUT"
 st() { echo "[$(date -u +%FT%TZ)] $*" >> "$P"; }
 PATH="/usr/local/go/bin:$PATH"
 if [[ -x "$ROOT/.venv/bin/python3" ]]; then PATH="$ROOT/.venv/bin:$PATH"; fi
@@ -18,7 +18,7 @@ st "start: harness $C, dirty=$(git status --porcelain | grep -v '^??' | wc -l), 
 st "gofmt: [$(gofmt -l internal guard cmd simulator | tr '\n' ' ')] vet: $(go vet ./internal/... ./guard/... ./cmd/... >/dev/null 2>&1 && echo ok || echo FAIL)"
 make test > "$OUT/test.log" 2>&1 && st "tests pass" || { st "TESTS FAILED: stopped"; exit 1; }
 rm -f bin/chip-serve bin/gmrtd-read drivers/jmrtd/target/jmrtd-driver-0.1.0.jar
-for suite in pace ca-aa controls independent independent-repeat u6-jmrtd u7-bac heldout-passauf-v021; do
+for suite in ${RUN_SUITES:-pace ca-aa controls independent independent-repeat u6-jmrtd u7-bac heldout-passauf-v021}; do
   envs=()
   # the v0.2.1 suite needs the v0.2.1 build of the same driver (as U2); the default is the v0.2.0 build
   [[ $suite == heldout-passauf-v021 ]] && envs=(CBO_PASSAUF_DRIVER=drivers/rust-v0.2.1 CBO_PASSAUF_SRC=$HOME/cbo/_vendor/passauf-v0.2.1)
@@ -45,4 +45,4 @@ python3 -c 'import json,sys; json.dump(json.load(open(sys.argv[1]))["drivers"], 
     --drivers "$W/drivers-u3.json" --out "$W/u3" --expectations webauthn/heldout/expectations.json > "$W/u3.log" 2>&1 )
 st "WebAuthn fido2-net-lib 4.2.0 and 4.3.2: $(tail -1 "$W/u3/VERIFY.txt" 2>/dev/null)"
 st "post: dirty=$(git status --porcelain | grep -v '^??' | wc -l)"
-st "H1 ALL DONE"; touch ~/cbo/H1-DONE
+st "${TAG^^} ALL DONE"; touch "$FLAG"
