@@ -88,6 +88,10 @@ def main() -> int:
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--batch", default="1")
     a = ap.parse_args()
+    if a.study == "m1" and a.batch == "2":
+        # CODEBOOK.md, M1 batch 2: WebAuthn steps as named in webauthn/FAULTS.md; BAC fallback does not apply.
+        VARS["m1"]["step"] = ["TYPE", "CHAL", "ORIG", "RPID", "FLAGS", "SIG", "CNT", "OTHER", "NOT_A_SITE"]
+        VARS["m1"]["fallback"] = ["RETRY", "OTHER", "NONE"]
     key = LOCATION[a.study][0]
     with a.items.open(encoding="utf-8") as f:
         items = sorted(csv.DictReader(f), key=lambda r: r[key])

@@ -36,6 +36,18 @@ Process, sampling and agreement rules are in the code-study protocol (`PROTOCOL.
 | `if (sw != 0x9000) return new byte[0];` where the caller treats the bytes as the signature | AA | CONVERT | YES | NONE | NO |
 | `catch (e) { }` and the next step runs | SM | SWALLOW | YES | NONE | NO |
 
+### M1 batch 2: WebAuthn relying-party libraries (added 16 November 2026, before any batch 2 item was coded)
+
+Rows M1-0675 onward (`m1-sites-b2.csv`). Every variable and decision rule above applies, with these readings:
+
+| Variable | Batch 2 reading |
+| --- | --- |
+| step | The relying-party check that failed, named as in `webauthn/FAULTS.md`: TYPE (client data type), CHAL (challenge), ORIG (origin), RPID (RP ID hash), FLAGS (UP, UV, BE or BS), SIG (assertion signature or packed attestation signature), CNT (signature counter), OTHER, NOT_A_SITE. A certificate-chain or trust check is OTHER. |
+| fallback | BAC does not apply. RETRY, OTHER or NONE as above; treating a counter that did not increase as a warning is not a fallback. |
+| reaches_api | "The public read or authenticate call" is the library's public registration or authentication verification call (for example `verify_authentication_response`, `finishAssertion`, `verifyAuthenticationResponse`). |
+
+Example (constructed): `if (!flags.up) throw new Error("User not present")` inside the public verification call: FLAGS, THROW, NO, NONE, DIRECT.
+
 ## M2: application call sites
 
 **Unit.** One call site from the M2 list: a place where an application calls a library's PACE, CA, AA or document-read API, or reads its result.
