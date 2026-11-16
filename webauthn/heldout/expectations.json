@@ -2196,5 +2196,947 @@
    "reason": "Src/Fido2/AuthenticatorAssertionResponse.cs: (SignCount != 0 or stored != 0) and SignCount <= stored throws InvalidSignCount (line 220)",
    "held_out": true
   }
+ },
+ "simplewebauthn@14.1.0": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "status_only",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: verifyRegistrationResponse returns verified: false when the attestation statement verifier fails (registration/verifyRegistrationResponse.js lines 173 to 202) instead of throwing",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "status_only",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: verifyAuthenticationResponse returns verified: the result of verifySignature (authentication/verifyAuthenticationResponse.js line 207); a bad signature is a false field, not an exception",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: development: every other mandatory check throws an Error (verifyRegistrationResponse.js, verifyAuthenticationResponse.js lines 123 to 195)",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/registration/verifyRegistrationResponse.js: UP clear throws (line 115) before the UV check",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/registration/verifyRegistrationResponse.js: exact comparison origin !== expectedOrigin throws (line 83)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "silent",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/registration/verifyRegistrationResponse.js: destructures type, origin, challenge, tokenBinding only (line 51); crossOrigin and topOrigin are not read in registration, and the result is verified: true",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/registration/verifyRegistrationResponse.js: fmt none with attStmt.size > 0 throws (lines 189 to 192)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/registration/verifyRegistrationResponse.js: pubKeyAlg -7 not in supportedAlgorithmIDs [-257] (passed by the driver) throws (lines 137 to 140)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/authentication/verifyAuthenticationResponse.js: UP clear throws (line 175)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/authentication/verifyAuthenticationResponse.js: exact comparison throws (line 120)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/authentication/verifyAuthenticationResponse.js: crossOrigin true with topOrigin set and no expectedTopOrigin (the driver passes none) throws 'Detected cross-origin authentication response' (lines 75 to 88)",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/authentication/verifyAuthenticationResponse.js: userHandle is only type-checked (lines 130 to 133) and never compared with a stored user; the result is verified: true",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "silent",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/authentication/verifyAuthenticationResponse.js: the options take one credential and no allow list (line 28); response.id is not compared with credential.id, and the signature verifies under the stored key",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); the other changes are TPM and Android Key attestation, which no case uses. Base: esm/authentication/verifyAuthenticationResponse.js: counter 10 <= stored 10 with a nonzero counter throws (lines 186 to 192)",
+   "held_out": true
+  }
+ },
+ "java-webauthn-server@2.10.1": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: development: finishRegistration and finishAssertion throw on every mandatory step; validateSignatureCounter defaults to true, so a non-increasing count throws InvalidSignatureCountException; BS without BE is rejected when the response is parsed",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: com/yubico/webauthn/FinishRegistrationSteps.java: Step14 asserts the UP flag unless the create is conditional (line 309); IllegalArgumentException",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: com/yubico/webauthn/FinishRegistrationSteps.java: Step9 OriginMatcher.isAllowed (line 220) accepts only an exact match when allowOriginPort and allowOriginSubdomain are false (OriginMatcher.java)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "silent",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: no source file of webauthn-server-core 2.10.0 reads crossOrigin or topOrigin; finishRegistration succeeds and RegistrationResult has no cross-origin field",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "silent",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: com/yubico/webauthn/FinishRegistrationSteps.java: Step18 maps fmt none to NoneAttestationStatementVerifier (line 418), whose verifyAttestationSignature returns true without reading the statement; allowUntrustedAttestation defaults to true, so registration succeeds",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: com/yubico/webauthn/FinishRegistrationSteps.java: Step16 asserts that the key alg is in pubKeyCredParams (line 362); the request lists RS256 only",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: com/yubico/webauthn/FinishAssertionSteps.java: Step16 asserts the UP flag (line 486)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: com/yubico/webauthn/FinishAssertionSteps.java: Step13 OriginMatcher.isAllowed (line 418), exact match only under the defaults",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "silent",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: crossOrigin is not read anywhere in 2.10.0; finishAssertion succeeds with isSuccess true",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: com/yubico/webauthn/FinishAssertionSteps.java: Step6 asserts that the request user handle equals the response user handle (line 271)",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: com/yubico/webauthn/FinishAssertionSteps.java: Step5 asserts that the response credential ID is in allowCredentials ('Unrequested credential ID', line 173)",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java (userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged. Base: com/yubico/webauthn/FinishAssertionSteps.java: Step21 throws InvalidSignatureCountException when validateSignatureCounter is true and the count is not greater than the stored nonzero count (lines 641 and 646 to 648)",
+   "held_out": true
+  }
+ },
+ "webauthn4j-nonstrict@0.32.0.RELEASE": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "silent",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: createNonStrictWebAuthnManager installs NullPackedAttestationStatementVerifier (WebAuthnManager bytecode), which does not verify the packed attestation signature, and RegistrationData has no field for it",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: the non-attestation checks throw VerificationException subclasses; MaliciousCounterValueException is thrown by the default counter handler",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier.verify with userPresenceRequired throws UserNotPresentException (line 209 (188))",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: OriginVerifierImpl throws BadOriginException; SimpleOriginPredicate uses Origin.equals, which compares scheme, host and port (443 against 8443) (line 171 (158))",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: TopOriginVerifier throws BadTopOriginException when crossOrigin is true and no top-origin predicate is configured (line 187 (171); verifier/internal/TopOriginVerifier.java)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: BeanAssertUtil.validate (line 125 (112)) calls NoneAttestationStatement.validate, which throws BadAttestationStatementException when any property was set (data/attestation/statement/NoneAttestationStatement.java line 32); this runs before the statement verifiers, so in both arms",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: COSEAlgorithmIdentifierVerifier.verify(alg, pubKeyCredParams) throws for ES256 against [RS256] (line 231 (207))",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier.verify throws UserNotPresentException (line 204 (182))",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line 174 (156))",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: TopOriginVerifier throws BadTopOriginException (line 183 (163))",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: step 6 (user handle) is marked 'out of WebAuthn4J scope. It's caller's responsibility' (lines 120 to 128 (96 to 103)); AuthenticationParameters carries no user handle and verification succeeds",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: CredentialIdVerifier.verify throws NotAllowedCredentialIdException for an ID not in allowCredentials (line 117 (92))",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: presentedSignCount 10 is not greater than stored 10, so DefaultCoreMaliciousCounterValueHandler throws MaliciousCounterValueException (lines 228 to 247 (217 to 234))",
+   "held_out": true
+  }
+ },
+ "webauthn4j-strict@0.32.0.RELEASE": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: positive control: nothing injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: development: PackedAttestationStatementVerifier checks the signature; all other checks as in the non-strict arm",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: UPUVFlagsVerifier.verify with userPresenceRequired throws UserNotPresentException (line 209 (188))",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: OriginVerifierImpl throws BadOriginException; SimpleOriginPredicate uses Origin.equals, which compares scheme, host and port (443 against 8443) (line 171 (158))",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: TopOriginVerifier throws BadTopOriginException when crossOrigin is true and no top-origin predicate is configured (line 187 (171); verifier/internal/TopOriginVerifier.java)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: BeanAssertUtil.validate (line 125 (112)) calls NoneAttestationStatement.validate, which throws BadAttestationStatementException when any property was set (data/attestation/statement/NoneAttestationStatement.java line 32); this runs before the statement verifiers, so in both arms",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/RegistrationDataVerifier.java: COSEAlgorithmIdentifierVerifier.verify(alg, pubKeyCredParams) throws for ES256 against [RS256] (line 231 (207))",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: UPUVFlagsVerifier.verify throws UserNotPresentException (line 204 (182))",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: OriginVerifierImpl throws BadOriginException (line 174 (156))",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: TopOriginVerifier throws BadTopOriginException (line 183 (163))",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "silent",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: step 6 (user handle) is marked 'out of WebAuthn4J scope. It's caller's responsibility' (lines 120 to 128 (96 to 103)); AuthenticationParameters carries no user handle and verification succeeds",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: CredentialIdVerifier.verify throws NotAllowedCredentialIdException for an ID not in allowCredentials (line 117 (92))",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases carry it; assertion cases have no AT flag); no verifier step a case reaches changed. Base: com/webauthn4j/verifier/AuthenticationDataVerifier.java: presentedSignCount 10 is not greater than stored 10, so DefaultCoreMaliciousCounterValueHandler throws MaliciousCounterValueException (lines 228 to 247 (217 to 234))",
+   "held_out": true
+  }
+ },
+ "fido2-net-lib@4.3.3": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: type other than webauthn.create or webauthn.get throws (line 93); Src/Fido2/AuthenticatorAttestationResponse.cs rejects webauthn.get (line 91)",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: challenge mismatch throws InvalidAuthenticatorResponseChallenge (line 105)",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin not in the expected origins throws (line 124)",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: RP ID hash mismatch throws InvalidRpidHash (line 136)",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: UP clear throws UserPresentFlagNotSet (line 140)",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: UV required and clear throws UserVerificationRequirementNotMet (line 144)",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: BS without BE throws InvalidBackupFlags (lines 149 to 150), backported by #690",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AttestationFormat/Packed.cs: self attestation verifies the signature with the credential key and throws 'Failed to validate signature' (line 151)",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: type other than webauthn.get throws (line 140)",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: challenge mismatch throws (line 105)",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin not in the expected origins throws (line 124)",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: RP ID hash mismatch throws InvalidRpidHash (line 158)",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: UP clear throws (line 165)",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: UV required and clear throws (line 169)",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: BS without BE throws InvalidBackupFlags (lines 174 to 175), backported by #690",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: a signature that does not verify throws InvalidSignature (line 213)",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: count 5 not greater than stored 10 throws InvalidSignCount (line 220)",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: UP clear throws UserPresentFlagNotSet (line 140)",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: 'https://rp.cbo.test:8443' is not in the fully qualified expected origins (line 124)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: crossOrigin true with AllowCrossOriginRequests false (default) throws CrossOriginRequestNotAllowed (lines 133 to 134), backported by #690",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AttestationFormat/None.cs: AttStmt.Count != 0 throws (line 13)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: no PubKeyCredParams entry matches the key alg; throws CredentialAlgorithmRequirementNotMet (line 168)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: UP clear throws UserPresentFlagNotSet outside conformance testing (line 165)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin with port 8443 not in the expected origins (line 124)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: crossOrigin true with AllowCrossOriginRequests false throws CrossOriginRequestNotAllowed (lines 133 to 134)",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: callback returns false for another user's handle; throws UserHandleNotOwnerOfPublicKey (line 126)",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: AllowCredentials not containing the raw ID throws CredentialIdNotInAllowedCredentials (line 115)",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props (GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: (SignCount != 0 or stored != 0) and SignCount <= stored throws InvalidSignCount (line 220)",
+   "held_out": true
+  }
+ },
+ "fido2-net-lib@5.0.0-preview.10": {
+  "R-OK-NONE": {
+   "outcome": "not_applicable",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-OK-PACKED": {
+   "outcome": "not_applicable",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "R-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: type other than webauthn.create throws (line 93)",
+   "held_out": true
+  },
+  "R-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: challenge mismatch throws InvalidAuthenticatorResponseChallenge",
+   "held_out": true
+  },
+  "R-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin not in the expected origins throws (line 125)",
+   "held_out": true
+  },
+  "R-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: RP ID hash mismatch throws InvalidRpidHash (line 142)",
+   "held_out": true
+  },
+  "R-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: UP clear throws UserPresentFlagNotSet (line 147)",
+   "held_out": true
+  },
+  "R-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: UV required and clear throws UserVerificationRequirementNotMet (line 151)",
+   "held_out": true
+  },
+  "R-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: BS without BE throws InvalidBackupFlags (lines 157 to 158), the Level 3 check absent from 4.2.0",
+   "held_out": true
+  },
+  "R-ASIG": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AttestationFormat/Packed.cs: self attestation verifies the signature with the credential key and throws when it fails (line 165)",
+   "held_out": true
+  },
+  "A-OK": {
+   "outcome": "not_applicable",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: positive control: no fault injected; the ceremony must be accepted",
+   "held_out": true
+  },
+  "A-TYPE": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: type other than webauthn.get throws (line 157)",
+   "held_out": true
+  },
+  "A-CHAL": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: challenge mismatch throws",
+   "held_out": true
+  },
+  "A-ORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin not in the expected origins throws (line 125)",
+   "held_out": true
+  },
+  "A-RPID": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: RP ID hash mismatch throws InvalidRpidHash (line 175)",
+   "held_out": true
+  },
+  "A-UP": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: UP clear throws (line 181)",
+   "held_out": true
+  },
+  "A-UV": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: UV required and clear throws (line 186)",
+   "held_out": true
+  },
+  "A-BS": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: BS without BE throws InvalidBackupFlags (lines 191 to 192)",
+   "held_out": true
+  },
+  "A-SIG": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: a signature that does not verify throws InvalidSignature (line 241)",
+   "held_out": true
+  },
+  "A-CNT": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: count 5 not greater than stored 10 throws InvalidSignCount (lines 247 to 248)",
+   "held_out": true
+  },
+  "R-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: UP clear throws UserPresentFlagNotSet (139 / 147, the latter outside conditional mediation)",
+   "held_out": true
+  },
+  "R-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: 'https://rp.cbo.test:8443' is not in the fully qualified expected origins (103 / 125)",
+   "held_out": true
+  },
+  "R-XORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: crossOrigin true with AllowCrossOriginRequests false (default) throws CrossOriginRequestNotAllowed (5.0.0-preview.7 lines 135 to 136)",
+   "held_out": true
+  },
+  "R-NONESTMT": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AttestationFormat/None.cs: AttStmt.Count != 0 throws 'Attestation format none should have no attestation statement' (line 12, both)",
+   "held_out": true
+  },
+  "R-ALG": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAttestationResponse.cs: no PubKeyCredParams entry ([RS256] from the driver) matches the key alg; throws CredentialAlgorithmRequirementNotMet (161 / 175)",
+   "held_out": true
+  },
+  "A-UPUV": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: UP clear throws UserPresentFlagNotSet outside conformance testing (164 / 181)",
+   "held_out": true
+  },
+  "A-ORIGPORT": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: origin with port 8443 not in the expected origins (103 / 125)",
+   "held_out": true
+  },
+  "A-XORIG": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorResponse.cs BaseVerify: crossOrigin true with AllowCrossOriginRequests false throws CrossOriginRequestNotAllowed",
+   "held_out": true
+  },
+  "A-UH": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: the driver's IsUserHandleOwnerOfCredentialId callback returns false for another user's handle, and the library throws UserHandleNotOwnerOfPublicKey (124 to 126 / 141 to 143)",
+   "held_out": true
+  },
+  "A-CRED": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: AllowCredentials not containing the raw ID throws CredentialIdNotInAllowedCredentials (111 to 115 / 118 to 122)",
+   "held_out": true
+  },
+  "A-CNTEQ": {
+   "outcome": "surfaced",
+   "reason": "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet x5c[0] signer fix; none applies to a case under the driver's default configuration. Base: Src/Fido2/AuthenticatorAssertionResponse.cs: (SignCount != 0 or stored != 0) and SignCount <= stored throws InvalidSignCount (211 / 247)",
+   "held_out": true
+  }
  }
 }

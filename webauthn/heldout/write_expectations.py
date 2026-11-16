@@ -279,6 +279,38 @@ FIDO43 = dict(FIDO_NEW_COMMON, **{
     "A-CNT": ("surfaced", f"{FA}: count 5 not greater than stored 10 throws InvalidSignCount (line 220)"),
 })
 
+
+# L1 current-release recheck (added 16 Nov 2026 before the run). Each newer release is predicted from its source
+# diff against the release already measured: if no verification step that a case reaches changed, the case keeps
+# that release's outcome and reason. Diffs read on GitHub (compare views) on 16 Nov 2026.
+DERIVED: dict[str, tuple[str, str]] = {
+    "simplewebauthn@14.1.0": ("simplewebauthn",
+        "same as 14.0.3: v14.0.3...v14.1.0 moves the origin check into helpers/matchExpectedOrigin.ts (exact match, "
+        "plus BAD_ARGUMENT for an expected origin with a trailing slash or non-ASCII characters, which ours has not), "
+        "adds ASCII checks of the expected RP ID, and adds a provider-metadata lookup after verification that returns "
+        "nothing while MetadataService and ConvenienceMetadataService are DISABLED (not initialised by the driver); "
+        "the other changes are TPM and Android Key attestation, which no case uses"),
+    "java-webauthn-server@2.10.1": ("java-webauthn-server",
+        "same as 2.10.0: 2.10.0...2.10.1 changes only webauthn-server-attestation MetadataStatement.java "
+        "(userVerificationDetails optional, MDS 3.1) and CI; webauthn-server-core is unchanged"),
+    "webauthn4j-nonstrict@0.32.0.RELEASE": ("webauthn4j-nonstrict",
+        "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes "
+        "AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases "
+        "carry it; assertion cases have no AT flag); no verifier step a case reaches changed"),
+    "webauthn4j-strict@0.32.0.RELEASE": ("webauthn4j-strict",
+        "same as 0.31.11: 0.31.11...0.32.0 adds ML-DSA keys and algorithms, iOS App Attest changes, and makes "
+        "AuthenticatorDataConverter parse attested credential data whenever the AT flag is set (registration cases "
+        "carry it; assertion cases have no AT flag); no verifier step a case reaches changed"),
+    "fido2-net-lib@4.3.3": ("fido2-net-lib@4.3.2",
+        "same as 4.3.2: 4.3.2...4.3.3 is one commit, System.Formats.Cbor 9.0.0 to 9.0.24 in Directory.Packages.props "
+        "(GHSA-vmv3-wvjp-wqpj); no Src/Fido2 change"),
+    "fido2-net-lib@5.0.0-preview.10": ("fido2-net-lib@5.0.0-preview.7",
+        "same as 5.0.0-preview.7: preview.7...preview.10 adds Secure Payment Confirmation (payment.get accepted only "
+        "when a payment is expected; assertion step 10 still requires webauthn.get otherwise), AAGUID allow and deny "
+        "lists (empty by default), metadata-consistency checks (off without a metadata statement), and the SafetyNet "
+        "x5c[0] signer fix; none applies to a case under the driver's default configuration"),
+}
+
 ARMS: dict[str, dict[str, tuple[str, str]]] = {
     "py_webauthn": PY,
     "py_webauthn@2.8.0": PY,
@@ -311,6 +343,9 @@ def main() -> None:
             outcome, reason = NA if case in CONTROLS else table[case]
             rows[case] = {"outcome": outcome, "reason": reason, "held_out": True}
         out[arm] = rows
+    for arm, (base, note) in DERIVED.items():
+        out[arm] = {case: {"outcome": r["outcome"], "reason": f"{note}. Base: {r['reason']}", "held_out": True}
+                    for case, r in out[base].items()}
     (HERE / "expectations.json").write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
     n = sum(1 for a in out.values() for r in a.values() if r["held_out"])
     print(f"{len(out)} arms, {n} held-out pairs")
