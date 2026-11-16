@@ -1,0 +1,320 @@
+{
+  "suite_id": "ios-nfcpr3",
+  "description": "NFCPassportReader 3.0.0 (8e1758e, D3 fix) and 3.0.1 (e52a401) in the iOS Simulator: the 26 Active Authentication status-word cells (harness and independent chip) and two controls. Predictions written from the 3.0.0 source before any 3.0.x run (16 Nov 2026); 3.0.1 leaves TagReader.send and the AA path unchanged, so the same predictions apply. Profiles as in suites/ios.json.",
+  "seed": 1,
+  "n": 1,
+  "entries": [
+    {
+      "scenario_id": "AA-internal-authenticate-6300-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6300",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6300.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6700-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6700",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6700.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6800-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6800",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6800.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6900-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6900",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6900.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6982-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6982",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6982.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6a00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6a00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6a00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6a80-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6a80.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6a88-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6a88",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6a88.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6b00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6b00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6b00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6c00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6c00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6c00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6e00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6e00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6e00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6f00-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6f00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "AA-internal-authenticate-6fff-nfcpassportreader-default",
+      "test_case": "AA-internal-authenticate-6fff",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "AA",
+      "driver": "ios",
+      "profile": "profiles/aa/AA-internal-authenticate-6fff.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "CTRL-bac-only-nfcpassportreader-default",
+      "test_case": "CTRL-bac-only",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "CTRL-bac-only",
+      "driver": "ios",
+      "profile": "profiles/controls/CTRL-bac-only.json",
+      "expect_outcome": "not_applicable",
+      "prediction_basis": "control: nothing injected; the read must complete as on 2.3.3"
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6300-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6300",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6300.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6700-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6700",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6700.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6800-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6800",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6800.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6900-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6900",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6900.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6982-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6982",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6982.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6a00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a80-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6a80",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a80.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6a88-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6a88",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6a88.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6b00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6b00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6b00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6c00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6c00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6c00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6e00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6e00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6e00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6f00-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6f00",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6f00.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-aa-internal-authenticate-6fff-nfcpassportreader-default",
+      "test_case": "VSC-aa-internal-authenticate-6fff",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-AA",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-aa-internal-authenticate-6fff.json",
+      "expect_outcome": "surfaced",
+      "prediction_basis": "3.0.0 TagReader.send throws on any status other than 9000 (6300 as InvalidMRZKey, others as ResponseError); doActiveAuthenticationIfNeccessary calls doInternalAuthentication with a bare try await, so the error reaches the caller of startReading. 2.3.3 returned SW2=00 errors as success (D3)."
+    },
+    {
+      "scenario_id": "VSC-pace-success-nfcpassportreader-default",
+      "test_case": "VSC-pace-success",
+      "library": "nfcpassportreader",
+      "variant": "default",
+      "cell": "VSC-pace-success",
+      "driver": "ios",
+      "profile": "profiles/independent/VSC-pace-success.json",
+      "expect_outcome": "not_applicable",
+      "expect_observation": {
+        "succeeded": true,
+        "returned_error": false
+      },
+      "prediction_basis": "control: nothing injected; the read must complete as on 2.3.3"
+    }
+  ]
+}
