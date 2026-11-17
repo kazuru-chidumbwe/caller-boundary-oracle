@@ -29,7 +29,9 @@ applied (scripts/bootstrap-vsmartcard.sh), and the OpenPACE Python bindings.
 The card connects to a driver acting as the reader (vpcd socket protocol) and serves one
 session. What it serves and which step it fails come from the profile's "vsmartcard" object
 (--profile): dg15, card_access, aa_sw (INTERNAL AUTHENTICATE answers with that status word,
-framed by vsmartcard's own secure-messaging code), relay (a port: pass everything to
+framed by vsmartcard's own secure-messaging code), dg14 (serve DG14, the harness chip's CA sample, listed in
+EF.COM and EF.SOD), ca_sw (MSE:Set AT or Set KAT for Chip Authentication answers with that status word under
+secure messaging), relay (a port: pass everything to
 tools/vsmartcard/phone_hub.py, which holds a phone reading a real chip; see relay()), and pace_sw with pace_step ("mse" for the
 first MSE:Set AT, "ga1" to "ga4" for the PACE General Authenticate steps, answered in plaintext
 since secure messaging is not yet established); pace_channel ("no_response", "timeout" or
@@ -285,9 +287,11 @@ def hexfile(name: str) -> bytes:
     return bytes.fromhex((FIXTURES / name).read_text(encoding="utf-8").strip())
 
 
-def emrtd_application(mf, with_dg15: bool) -> DF:
+def emrtd_application(mf, with_dg15: bool, with_dg14: bool = False) -> DF:
+    if with_dg14 and with_dg15:
+        raise SystemExit("dg14 and dg15 together have no SOD fixture")
     df = DF(parent=mf, fid=0x0004, dfname=EMRTD_AID, bertlv_data=[])
-    tags = b"\x61\x6f" if with_dg15 else b"\x61"
+    tags = b"\x61\x6f" if with_dg15 else b"\x61\x6e" if with_dg14 else b"\x61"
     com = pack([(0x5F01, 4, b"0107"), (0x5F36, 6, b"040000"), (0x5C, len(tags), tags)])
     # Short EF identifiers as in Doc 9303 Part 10 (EF.COM 1E, EF.SOD 1D, DGn = n), so readers
     # that use READ BINARY with an SFI find the files.
@@ -296,8 +300,12 @@ def emrtd_application(mf, with_dg15: bool) -> DF:
 
     df.append(ef(0x011E, 0x1E, pack([(0x60, len(com), com)])))
     df.append(ef(0x0101, 0x01, hexfile("vsc-dg1.hex")))
-    sod = "vsc-sod-dg1-dg15.hex" if with_dg15 else "vsc-sod-dg1.hex"
+    sod = "vsc-sod-dg1-dg15.hex" if with_dg15 else "vsc-sod-dg1-dg14.hex" if with_dg14 else "vsc-sod-dg1.hex"
     df.append(ef(0x011D, 0x1D, hexfile(sod)))
+    if with_dg14:
+        # A5-9: the Chip Authentication info and key the harness chip serves (testdata/dg14/ca-v2-sample.hex)
+        dg14 = bytes.fromhex((FIXTURES.parents[1] / "testdata" / "dg14" / "ca-v2-sample.hex").read_text().strip())
+        df.append(ef(0x010E, 0x0E, dg14))
     if with_dg15:
         dg15 = bytes.fromhex((FIXTURES.parents[1] / "testdata" / "dg15" / "aa-rsa-sample.hex").read_text().strip())
         df.append(ef(0x010F, 0x0F, dg15))
@@ -343,7 +351,7 @@ def main() -> None:
     assert shipped[:59] == MRZ[:59] and shipped[60:] == MRZ[60:], "vsmartcard nPA MRZ changed; update the harness profile"
     os_.SAM.mrz = MRZ
     install_bac(os_, MRZ)
-    emrtd_df = emrtd_application(os_.mf, bool(vs.get("dg15")))
+    emrtd_df = emrtd_application(os_.mf, bool(vs.get("dg15")), bool(vs.get("dg14")))
     os_.mf.append(emrtd_df)
     if access_control == "enforce":
         install_access_control(os_, emrtd_df)
@@ -361,6 +369,24 @@ def main() -> None:
             raise InjectedSwError(aa_sw)
 
         os_.ins2handler[0x88] = failing_internal_authenticate
+
+    if vs.get("ca_sw"):
+        # A5-9: Chip Authentication rejected at its first command, as the harness chip's CA profiles do
+        # (ca_fail_on mse_set_at): MSE:Set AT for CA (P1P2 41A4, AES) or MSE:Set KAT (41A6, 3DES) answers with
+        # the status word, framed by vsmartcard's secure messaging (the PACE channel). Other MSE commands
+        # (PACE C1A4, TA 81A4) pass to the card unchanged.
+        ca_sw = int(vs["ca_sw"], 16)
+        report.delivered["CA"] = False
+        report.write()
+        real_mse_ca = os_.ins2handler[0x22]
+
+        def failing_ca_mse(p1, p2, data):
+            if p1 == 0x41 and p2 in (0xA4, 0xA6):
+                report.mark("CA")
+                raise InjectedSwError(ca_sw)
+            return real_mse_ca(p1, p2, data)
+
+        os_.ins2handler[0x22] = failing_ca_mse
 
     if pace_channel:
         # A5-9b: the channel faults of the harness chip (simulator/pace_bac_transceiver.go deliverPaceFailure), at

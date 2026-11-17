@@ -243,11 +243,25 @@ def vsmartcard_fixtures(key: rsa.RSAPrivateKey, cert: bytes) -> None:
         write_hex(name, retag_as_ef_sod(sign_sod(key, [cert], econtent, "sha256")))
 
 
+def vsmartcard_dg14_fixture(key: rsa.RSAPrivateKey, cert: bytes) -> None:
+    """A5-9: an SOD listing the independent chip's DG1 (the committed vsc-dg1.hex, unchanged) and DG14 (the CA
+    sample the harness chip serves), so readers reach Chip Authentication through their shipped call path."""
+    dg1 = bytes.fromhex((OUT / "vsc-dg1.hex").read_text(encoding="utf-8").strip())
+    dg14 = bytes.fromhex(DG_FILES[14].read_text(encoding="utf-8").strip())
+    econtent = lds_security_object({n: hashlib.sha256(b).digest() for n, b in {1: dg1, 14: dg14}.items()})
+    write_hex("vsc-sod-dg1-dg14.hex", retag_as_ef_sod(sign_sod(key, [cert], econtent, "sha256")))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--vsmartcard", action="store_true", help="also rewrite the vsmartcard chip's fixtures")
+    ap.add_argument("--vsmartcard-dg14-only", action="store_true",
+                    help="write only vsc-sod-dg1-dg14.hex (A5-9), leaving every other fixture as committed")
     args = ap.parse_args()
     key, cert = self_signed()
+    if args.vsmartcard_dg14_only:
+        vsmartcard_dg14_fixture(key, cert)
+        return
     harness_fixtures(key, cert)
     if args.vsmartcard:
         vsmartcard_fixtures(key, cert)
