@@ -32,7 +32,9 @@ session. What it serves and which step it fails come from the profile's "vsmartc
 framed by vsmartcard's own secure-messaging code), relay (a port: pass everything to
 tools/vsmartcard/phone_hub.py, which holds a phone reading a real chip; see relay()), and pace_sw with pace_step ("mse" for the
 first MSE:Set AT, "ga1" to "ga4" for the PACE General Authenticate steps, answered in plaintext
-since secure messaging is not yet established). ga4_body instead lets the card run the real
+since secure messaging is not yet established); pace_channel ("no_response", "timeout" or
+"transport_abort") at that step answers with an empty frame instead (after 50 ms for "timeout"),
+the channel faults of the harness chip. ga4_body instead lets the card run the real
 PACE step 4 (it verifies the reader's token and switches to the PACE session keys as usual)
 and answers 9000 with a changed response body: "empty-7c" (7C00, no authentication token),
 "truncated-86" (7C04 86 08 and the first two token bytes: outer length consistent, token
@@ -55,6 +57,7 @@ import argparse
 import hashlib
 import json
 import logging
+import time
 from pathlib import Path
 
 import virtualsmartcard.CryptoUtils as vsCrypto
@@ -92,6 +95,10 @@ GA4_BODIES = {
     "wrong-token": lambda resp: bytes.fromhex("7C0A8608") + bytes(b ^ 0xFF for b in _ga4_token(resp)),
     "no-data": lambda resp: b"",
 }
+
+
+# Channel faults as the harness chip delivers them (no_response, timeout, transport_abort: an empty frame).
+CHANNEL_FAULTS = ("no_response", "timeout", "transport_abort")
 
 
 class InjectedSwError(SwError):
@@ -320,6 +327,11 @@ def main() -> None:
         raise SystemExit(f"unknown ga4_body {ga4_body!r}")
     if ga4_body and pace_step:
         raise SystemExit("ga4_body and pace_step are exclusive")
+    pace_channel = vs.get("pace_channel", "")
+    if pace_channel not in ("",) + CHANNEL_FAULTS:
+        raise SystemExit(f"unknown pace_channel {pace_channel!r}")
+    if pace_channel and not pace_step:
+        raise SystemExit("pace_channel needs pace_step")
     access_control = vs.get("access_control", "")
     if access_control not in ("", "enforce"):
         raise SystemExit(f"unknown access_control {access_control!r}")
@@ -350,7 +362,27 @@ def main() -> None:
 
         os_.ins2handler[0x88] = failing_internal_authenticate
 
-    if pace_step:
+    if pace_channel:
+        # A5-9b: the channel faults of the harness chip (simulator/pace_bac_transceiver.go deliverPaceFailure), at
+        # the same PACE step pace_sw would fail: the card answers that command with an empty frame, after 50 ms
+        # for "timeout". The card's own PACE code never sees the command.
+        target_ins = 0x22 if pace_step == "mse" else 0x86
+        target_n = 1 if pace_step == "mse" else int(pace_step[2])
+        seen = [0]
+        inner_execute = os_.execute
+
+        def channel_fault_execute(msg: bytes) -> bytes:
+            if len(msg) >= 4 and msg[1] == target_ins:
+                seen[0] += 1
+                if seen[0] == target_n:
+                    report.mark("PACE")
+                    if pace_channel == "timeout":
+                        time.sleep(0.05)
+                    return b""
+            return inner_execute(msg)
+
+        os_.execute = channel_fault_execute
+    elif pace_step:
         pace_sw = int(vs["pace_sw"], 16)
         if pace_step == "mse":
             real_mse = os_.ins2handler[0x22]

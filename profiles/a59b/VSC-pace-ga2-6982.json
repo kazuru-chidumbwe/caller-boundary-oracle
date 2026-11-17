@@ -1,0 +1,17 @@
+{
+  "id": "VSC-pace-ga2-6982",
+  "name": "Independent chip: PACE fails at General Authenticate step 2 (SW 6982)",
+  "mechanism": "PACE",
+  "condition": "pace_fail_independent",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "pace_step": "ga2",
+    "pace_sw": "6982"
+  }
+}
