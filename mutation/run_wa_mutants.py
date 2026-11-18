@@ -104,8 +104,10 @@ class Lib:
             rc, msg = sh(["go", "build", "-o", str(self.bin / "driver"), "."], self.gdir, env=env)
             return rc == 0, msg
         if self.name == "fido2-net-lib":
+            # NuGetAudit off: System.Formats.Cbor 9.0.0 gained advisory GHSA-vmv3-wvjp-wqpj after the T62 build, and the
+            # project treats NU1902 as an error. The restore and the package set are unchanged (build environment only).
             rc, msg = sh([str(DOTNET), "build", str(self.ddir), "-c", "Release", "-o", str(self.bin / "out"),
-                          "-nologo", "-v", "q"], self.ddir, timeout=1200)
+                          "-nologo", "-v", "q", "-p:NuGetAudit=false"], self.ddir, timeout=1200)
             return rc == 0, msg
         classes = self.bin / "classes"
         shutil.rmtree(classes, ignore_errors=True)
