@@ -6,6 +6,8 @@ The harness injects a single failure into one negotiation or authentication step
 
 Everything runs against emulated chips. No passport or NFC hardware is needed.
 
+The harness core is written in Go: the fault-injecting chip (`simulator/`), its socket server (`cmd/chip-serve`), the gmrtd driver (`cmd/gmrtd-read`), the run logic (`internal/`) and an opt-in caller guard (`guard/`). The oracle runner and the analysis are in Python, and each library is driven in its own language. Defects found with the harness have been fixed upstream in gmrtd, JMRTD, vsmartcard, passauf and fido2-net-lib ([list](#defects-reported-upstream)).
+
 ## The oracle
 
 Each run records five observations. `fired` comes from the chip (the injected failure was actually delivered); the other four come from the library and the calling code.
