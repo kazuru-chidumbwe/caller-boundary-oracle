@@ -45,6 +45,8 @@ WebAuthn relying-party libraries (`webauthn/drivers/`, one driver per library): 
 
 All three gmrtd versions build from one source tree (`internal/gmrtdcompat`, build tags and `gomod/`).
 
+Newer releases that changed failure reporting were rechecked with the same profiles, each with its expectations committed before the run: gmrtd v1.4.0 (`RequireAuthenticDocument`), v1.9.1 and v1.10.0; JMRTD 0.8.10 (`scripts/jmrtd_release_check.py`); passauf v0.2.1 (`drivers/rust-v0.2.1`); and NFCPassportReader 3.0.0 and 3.0.1 in iOS CI (`suites/ios-nfcpr3.json`). Results are under `analysis/out/`.
+
 ## Chips
 
 Two independent chips answer the libraries.
@@ -109,6 +111,8 @@ Kept small and listed so their effect can be checked.
 | Patch | What it changes | Why it cannot change the measured behaviour |
 | --- | --- | --- |
 | `drivers/ios/nfcpassportreader-test-visibility.patch` | Eight `private var` properties of `PassportReader` become internal | Access level only, so the test can set read options and call `startReading` without an NFC session |
+| `drivers/ios/nfcpassportreader-test-visibility-3.0.0.patch`, `-3.0.1.patch` | The same access change for 3.0.0 and 3.0.1 | As above |
+| `drivers/ios/nfcpr-optin-4b0d6f6.patch` | The opt-ins proposed upstream in NFCPassportReader #285, on top of 3.0.1 | Used only by `suites/ios-nfcpr-optin.json`, which tests the proposal; every other iOS suite runs the released code |
 | `drivers/dart/` stubs | Stand-ins for `flutter_nfc_kit`, `expandable` and `diffie_hellman` | dmrtd declares them but its reader code does not use them: `flutter_nfc_kit` is imported only by dmrtd's NFC provider, which the driver replaces with its own transport; `expandable` only by dmrtd's example app; `diffie_hellman` nowhere. `scripts/bootstrap-dart.sh` checks these import facts against the pinned dmrtd. No dmrtd code is changed |
 | `tools/vsmartcard/vsmartcard-python3.patch` | Four str/bytes fixes in vsmartcard | Affects the independent chip only, not a library under test |
 
@@ -120,7 +124,7 @@ cmd/          gmrtd driver (gmrtd-read) and the socket chip server (chip-serve)
 drivers/      JMRTD (Java), emrtd-dotnet (C#), dmrtd (Dart), NFCPassportReader (Swift), passauf (Rust)
 guard/        opt-in caller guard for gmrtd (require PACE, CA or AA)
 internal/     gmrtd version shims, run logic, profiles, provenance, output
-mining/       code-study protocol, codebook, item lists, screening and coding sheets
+mining/       code-study protocol, codebook, item lists and screening
 mutation/     mutation analysis: operators, runners, reachability probe, scorers, results
 passauf/      held-out run of the sixth eMRTD library
 webauthn/     WebAuthn fault peer, drivers, expectations and runs
@@ -135,6 +139,24 @@ scripts/      bootstrap, run, evaluate and reproduction scripts
 ## Provenance
 
 Each run artifact records the harness commit and whether the tree was clean, the library commit or version, toolchain versions, the profile path and its SHA-256, the suite, and the run index. Aggregation writes `artifact-manifest.json` per suite with per-run hashes; `make verify-manifest` re-checks a log directory against its manifest.
+
+## Defects reported upstream
+
+Every defect the harness found was reported to the library's maintainers first. Fixes that have landed:
+
+| Project | Report | Fix |
+| --- | --- | --- |
+| gmrtd | PACE advertised but unsupported, no BAC fallback | [#523](https://github.com/gmrtd/gmrtd/pull/523), merged |
+| gmrtd | ECDH shared secret not encoded at field size | [#524](https://github.com/gmrtd/gmrtd/pull/524), merged |
+| gmrtd | No way to fail a read when Chip or Active Authentication fails ([#525](https://github.com/gmrtd/gmrtd/issues/525)) | `RequireAuthenticDocument` option ([#537](https://github.com/gmrtd/gmrtd/pull/537)), v1.4.0 |
+| gmrtd | `ReadDocument` returns no error when BAC fails ([#572](https://github.com/gmrtd/gmrtd/issues/572)) | [#582](https://github.com/gmrtd/gmrtd/pull/582), merged, v1.10.0 |
+| JMRTD | Active Authentication rejection reported as success; PACE step 4 failure (SourceForge bugs 90 and 91) | Fixed in 0.8.10 |
+| vsmartcard | Secure messaging send sequence counter MACed at variable length ([#341](https://github.com/frankmorgner/vsmartcard/issues/341)) | [#344](https://github.com/frankmorgner/vsmartcard/pull/344), merged |
+| vsmartcard | Responses omit the protected status word DO'99' ([#342](https://github.com/frankmorgner/vsmartcard/issues/342)) | [#343](https://github.com/frankmorgner/vsmartcard/pull/343), merged |
+| passauf | 6CXX status word retried without a limit ([#16](https://github.com/aveao/passauf/issues/16)); short response panics ([#17](https://github.com/aveao/passauf/issues/17)) | Fixed in v0.2.1 |
+| fido2-net-lib | WebAuthn Level 3 cross-origin and backup-state checks ([#689](https://github.com/passwordless-lib/fido2-net-lib/issues/689)) | [#690](https://github.com/passwordless-lib/fido2-net-lib/pull/690), merged |
+
+Open: dmrtd [#51](https://github.com/ZeroPass/dmrtd/issues/51) and [#52](https://github.com/ZeroPass/dmrtd/issues/52) (fix proposed in [#54](https://github.com/ZeroPass/dmrtd/pull/54)), passauf [#18](https://github.com/aveao/passauf/pull/18) and [#19](https://github.com/aveao/passauf/pull/19), NFCPassportReader [#285](https://github.com/AndyQ/NFCPassportReader/pull/285) (opt-ins to fail a read on Chip or Active Authentication failure; `suites/ios-nfcpr-optin.json` tests it), py_webauthn [#289](https://github.com/duo-labs/py_webauthn/issues/289) and java-webauthn-server [#526](https://github.com/Yubico/java-webauthn-server/issues/526).
 
 ## Security
 

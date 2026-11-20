@@ -15,8 +15,9 @@ abstract: >-
   authentication step inside a library reaches the application that called it.
   Faults are injected by emulated chips into PACE, Chip Authentication and Active
   Authentication; each run is classified as surfaced, status-only, silent, not
-  applicable or invalid. The case study covers five eMRTD reader libraries in five
-  languages (gmrtd, JMRTD, emrtd-dotnet, dmrtd, NFCPassportReader).
+  applicable or invalid. The case study covers six eMRTD reader libraries in six
+  languages (gmrtd, JMRTD, emrtd-dotnet, dmrtd, NFCPassportReader, passauf) and
+  six WebAuthn relying-party libraries.
 keywords:
   - test oracle
   - fault injection
