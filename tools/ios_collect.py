@@ -131,7 +131,7 @@ def main() -> None:
                 "run_index": i,
                 "driver": "ios/NFCPassportReaderOracleTests",
                 "variant": "optin" if entry.get("optin") else "default",
-                "caller_options": {"allowChipAuthenticationFailure": False, "allowActiveAuthenticationFailure": False} if entry.get("optin") else None,
+                "caller_options": "allowChipAuthenticationFailure=false,allowActiveAuthenticationFailure=false" if entry.get("optin") else None,
                 "captured_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             },
             "outcome": outcome.value,
