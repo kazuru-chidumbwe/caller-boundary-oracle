@@ -1,0 +1,214 @@
+{
+  "_about": "R3 expectations (gmrtd v1.10.0 recheck), committed before any run. Release v1.10.0 (19 Nov 2026, 5530224) carries the D11 fix (PR #582, eeff067: performBac fails closed). Prediction from the source diff v1.9.1...v1.10.0: reader.go changes only performBac, which now returns an error when no secure messaging exists after BAC (BAC error, or no MRZ password); ReadDocument stops before any LDS file. Other changes are the mobile package (LastReadError), the PACE error wrapping in ErrNoSecureMessaging (PACE path only), tests and CI. So E1 to E12 hold as in R1 (every profile ends access control with secure messaging). D11 changes: a failed BAC is now an error in the default arm (B1 surfaced with an error, on both the non-enforcing and the serving chip), the guard still surfaces it (B2), the enforcing chip now stops at BAC with an error (B3), and the BAC success controls stay not applicable (B4). Positive controls: E1, E2, E5, E11.",
+  "releases": [
+    "v1.10.0"
+  ],
+  "reference_release": "v1.3.2",
+  "groups": [
+    {
+      "id": "E1",
+      "arm": "require-authentic",
+      "profiles": [
+        "profiles/controls/CTRL-bac-only.json"
+      ],
+      "expect": [
+        "no_error"
+      ],
+      "control": true
+    },
+    {
+      "id": "E2",
+      "arm": "require-authentic",
+      "profiles": [
+        "profiles/u1/U1-AA-ok.json"
+      ],
+      "expect": [
+        "no_error",
+        "succeeded"
+      ],
+      "control": true
+    },
+    {
+      "id": "E3",
+      "arm": "require-authentic",
+      "profiles": [
+        "profiles/aa/AA-internal-authenticate-*.json"
+      ],
+      "expect": [
+        "surfaced",
+        "error"
+      ]
+    },
+    {
+      "id": "E4",
+      "arm": "require-authentic",
+      "profiles": [
+        "profiles/ca/CA-mse-set-at-*.json"
+      ],
+      "expect": [
+        "surfaced",
+        "error"
+      ]
+    },
+    {
+      "id": "E5",
+      "arm": "require-authentic",
+      "profiles": [
+        "profiles/u1/U1-CA-ok.json"
+      ],
+      "expect": [
+        "no_error",
+        "succeeded"
+      ],
+      "control": true
+    },
+    {
+      "id": "E6",
+      "arm": "require-authentic-untrusted",
+      "profiles": [
+        "profiles/aa/AA-internal-authenticate-*.json",
+        "profiles/ca/CA-mse-set-at-*.json",
+        "profiles/controls/CTRL-bac-only.json"
+      ],
+      "expect": [
+        "error"
+      ]
+    },
+    {
+      "id": "E7",
+      "arm": "default",
+      "profiles": [
+        "profiles/aa/AA-internal-authenticate-*.json",
+        "profiles/ca/CA-mse-set-at-*.json"
+      ],
+      "expect": [
+        "status_only"
+      ]
+    },
+    {
+      "id": "E8",
+      "arm": "guard",
+      "profiles": [
+        "profiles/aa/AA-internal-authenticate-*.json",
+        "profiles/ca/CA-mse-set-at-*.json"
+      ],
+      "expect": [
+        "surfaced"
+      ]
+    },
+    {
+      "id": "E9",
+      "arm": "require-authentic",
+      "profiles": [
+        "profiles/u1/U1-DUAL-AA-*.json"
+      ],
+      "expect": [
+        "no_error",
+        "failed",
+        "status_only"
+      ]
+    },
+    {
+      "id": "E10",
+      "arm": "require-authentic",
+      "profiles": [
+        "profiles/u1/U1-DUAL-CA-*.json"
+      ],
+      "expect": [
+        "no_error",
+        "not_fired"
+      ]
+    },
+    {
+      "id": "E11",
+      "arm": "require-authentic",
+      "profiles": [
+        "profiles/u1/U1-DUAL-ok.json"
+      ],
+      "expect": [
+        "no_error",
+        "succeeded"
+      ],
+      "control": true
+    },
+    {
+      "id": "E12",
+      "arm": "require-authentic",
+      "profiles": [
+        "profiles/u1/U1-DUAL-BOTH-*.json"
+      ],
+      "expect": [
+        "surfaced",
+        "error"
+      ]
+    },
+    {
+      "id": "B1",
+      "arm": "default",
+      "profiles": [
+        "profiles/u7/VSC-bac-only-wrong-mrz.json",
+        "profiles/u7b/VSC-bac-only-serving-wrong-mrz.json"
+      ],
+      "expect": [
+        "surfaced",
+        "error"
+      ]
+    },
+    {
+      "id": "B2",
+      "arm": "guard",
+      "profiles": [
+        "profiles/u7/VSC-bac-only-wrong-mrz.json",
+        "profiles/u7b/VSC-bac-only-serving-wrong-mrz.json"
+      ],
+      "expect": [
+        "surfaced"
+      ]
+    },
+    {
+      "id": "B3",
+      "arm": "default",
+      "profiles": [
+        "profiles/u7b/VSC-bac-only-enforcing-wrong-mrz.json"
+      ],
+      "expect": [
+        "surfaced",
+        "error"
+      ]
+    },
+    {
+      "id": "B4",
+      "arm": "default",
+      "profiles": [
+        "profiles/u7/VSC-bac-only-success.json",
+        "profiles/u7b/VSC-bac-only-serving-success.json",
+        "profiles/u7b/VSC-bac-only-enforcing-success.json"
+      ],
+      "expect": [
+        "not_applicable"
+      ]
+    }
+  ],
+  "arms": {
+    "default": {
+      "trusted_chain": false,
+      "require_authentic": false,
+      "guard": false
+    },
+    "guard": {
+      "trusted_chain": false,
+      "require_authentic": false,
+      "guard": true
+    },
+    "require-authentic-untrusted": {
+      "trusted_chain": false,
+      "require_authentic": true,
+      "guard": false
+    },
+    "require-authentic": {
+      "trusted_chain": true,
+      "require_authentic": true,
+      "guard": false
+    }
+  }
+}
