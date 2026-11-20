@@ -38,8 +38,8 @@ type AAInjection struct {
 	AaSW     string `json:"aa_sw"`
 	// AaBadSignature (trusted chip only): answer INTERNAL AUTHENTICATE with 9000 and a signature
 	// that does not verify (the real signature with one byte changed).
-	AaBadSignature bool `json:"aa_bad_signature,omitempty"`
-	Notes    string `json:"notes"`
+	AaBadSignature bool   `json:"aa_bad_signature,omitempty"`
+	Notes          string `json:"notes"`
 }
 
 type TAInjection struct {

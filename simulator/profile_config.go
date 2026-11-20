@@ -9,12 +9,12 @@ import (
 // ChipConfigFromProfile builds the harness chip described by a profile.
 func ChipConfigFromProfile(p *profile.Profile) (ChipConfig, error) {
 	cfg := ChipConfig{
-		CardAccessHex: p.CardAccessHex,
-		PaceSW:        p.Injection.PaceSW,
-		PaceFailOn:    p.Injection.PaceFailOn,
-		PaceChannel:   p.Injection.PaceChannel,
-		CaSW:          p.CAInjection.CaSW,
-		AaSW:          p.AAInjection.AaSW,
+		CardAccessHex:  p.CardAccessHex,
+		PaceSW:         p.Injection.PaceSW,
+		PaceFailOn:     p.Injection.PaceFailOn,
+		PaceChannel:    p.Injection.PaceChannel,
+		CaSW:           p.CAInjection.CaSW,
+		AaSW:           p.AAInjection.AaSW,
 		AaBadSignature: p.AAInjection.AaBadSignature,
 	}
 	if p.Dg14HexPath != "" {
