@@ -120,6 +120,11 @@ func caKeyAgreement(key *ecdh.PrivateKey, data []byte) (ksEnc, ksMac []byte, err
 	if err != nil {
 		return nil, nil, err
 	}
+	return caKeysFromPoint(key, pt)
+}
+
+// caKeysFromPoint derives the 3DES session keys from the terminal's ephemeral public key.
+func caKeysFromPoint(key *ecdh.PrivateKey, pt []byte) (ksEnc, ksMac []byte, err error) {
 	pub, err := ecdh.P256().NewPublicKey(pt)
 	if err != nil {
 		return nil, nil, fmt.Errorf("terminal key: %w", err)

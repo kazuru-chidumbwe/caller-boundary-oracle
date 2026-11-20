@@ -205,6 +205,10 @@ func (t *DocumentChip) dispatchSM(cmd *PlainCommand) []byte {
 		if len(t.caSW) != 2 && t.trusted && t.caKey != nil && cmd.P2 == 0xA4 {
 			t.caArmed = true
 			rsp = []byte{0x90, 0x00}
+		} else if len(t.caSW) != 2 && t.trusted && t.caKey != nil && cmd.P2 == 0xA6 {
+			// MSE:Set KAT (Chip Authentication with 3DES, ICAO 9303-11 6.2): the terminal's
+			// ephemeral key is in tag 91; answer under the old keys, then switch.
+			return t.caSetKAT(cmd)
 		} else {
 			rsp = t.failOr(t.caSW)
 		}
@@ -246,6 +250,26 @@ func (t *DocumentChip) caGeneralAuthenticate(cmd *PlainCommand) []byte {
 		return out
 	}
 	out, err := t.sm.WrapSmResponse(0x9000, []byte{0x7C, 0x00})
+	if err != nil {
+		return []byte{0x6F, 0x00}
+	}
+	if sm, err := NewChipSM3DES(ksEnc, ksMac); err == nil {
+		t.sm = sm
+	}
+	return out
+}
+
+func (t *DocumentChip) caSetKAT(cmd *PlainCommand) []byte {
+	pt, _, err := derTLV(cmd.Data, 0x91)
+	var ksEnc, ksMac []byte
+	if err == nil {
+		ksEnc, ksMac, err = caKeysFromPoint(t.caKey, pt)
+	}
+	if err != nil {
+		out, _ := t.sm.WrapSmResponse(0x6A80, nil)
+		return out
+	}
+	out, err := t.sm.WrapSmResponse(0x9000, nil)
 	if err != nil {
 		return []byte{0x6F, 0x00}
 	}
