@@ -15,6 +15,7 @@ on:
       - "scripts/bootstrap-vsmartcard.sh"
       - "scripts/bootstrap-ios.sh"
       - "suites/ios-nfcpr3.json"
+      - "suites/ios-nfcpr-optin.json"
       - "cmd/chip-serve/**"
       - "simulator/**"
       - ".github/workflows/ios.yml"
@@ -32,15 +33,10 @@ jobs:
         include:
           # 2.3.3: the study's pinned release, every profile. 3.0.0 (D3 fix) and 3.0.1: the 26 Active
           # Authentication status-word cells and two controls, predictions in suites/ios-nfcpr3.json.
-          - nfcpr: "2.3.3"
-            manifest: suites/ios.json
-            suite: ios
-          - nfcpr: "3.0.0"
-            manifest: suites/ios-nfcpr3.json
-            suite: ios-nfcpr3
-          - nfcpr: "3.0.1"
-            manifest: suites/ios-nfcpr3.json
-            suite: ios-nfcpr3
+          - nfcpr: "3.0.1-optin"
+            manifest: suites/ios-nfcpr-optin.json
+            suite: ios-nfcpr-optin
+            swift_flags: "-DCBO_NFCPR_OPTIN"
     env:
       NFCPR_VERSION: ${{ matrix.nfcpr }}
     steps:
@@ -89,7 +85,7 @@ jobs:
           xcodebuild -list
           set -o pipefail
           TEST_RUNNER_CBO_PLAN="$RUNNER_TEMP/plan.json" TEST_RUNNER_CBO_BROKER_PORT=35963 \
-            xcodebuild test -scheme NFCPassportReaderOracle-Package -destination "id=$UDID" 2>&1 | tee "$RUNNER_TEMP/test.log"
+            xcodebuild test -scheme NFCPassportReaderOracle-Package -destination "id=$UDID"               ${{ matrix.swift_flags && format('OTHER_SWIFT_FLAGS=''$(inherited) {0}''', matrix.swift_flags) || '' }} 2>&1 | tee "$RUNNER_TEMP/test.log"
 
       - name: Collect run artifacts
         if: always()

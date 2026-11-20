@@ -46,6 +46,9 @@ def main() -> None:
             "profile": e["profile"],
             "mechanism": p["mechanism"],
             "mrz_key": mrz_key(p["mrz"]),
+            # nfcpr-optin: the driver sets allowChipAuthenticationFailure and
+            # allowActiveAuthenticationFailure to false for this run.
+            "optin": bool(e.get("optin", False)),
         })
     args.out.write_text(json.dumps(plan, indent=2) + chr(10), encoding="utf-8")
     print(f"wrote {len(plan)} runs to {args.out}")

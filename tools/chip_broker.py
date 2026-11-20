@@ -74,6 +74,8 @@ def serve_one(reader: socket.socket, chip_serve: str, out: Path) -> None:
                "--profile", str(ROOT / profile_path), "--report", str(report)]
     else:
         cmd = [chip_serve, "-profile", str(ROOT / profile_path), "-port", str(port), "-report", str(report)]
+        if profile.get("trusted_chain"):
+            cmd.append("-trusted-chain")
     chip_proc = subprocess.Popen(cmd, cwd=ROOT)
     listener.settimeout(30)
     chip, _ = listener.accept()

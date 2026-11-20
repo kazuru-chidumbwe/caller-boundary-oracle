@@ -15,6 +15,7 @@ func ChipConfigFromProfile(p *profile.Profile) (ChipConfig, error) {
 		PaceChannel:   p.Injection.PaceChannel,
 		CaSW:          p.CAInjection.CaSW,
 		AaSW:          p.AAInjection.AaSW,
+		AaBadSignature: p.AAInjection.AaBadSignature,
 	}
 	if p.Dg14HexPath != "" {
 		b, err := profile.LoadHexFile(p.Dg14HexPath)

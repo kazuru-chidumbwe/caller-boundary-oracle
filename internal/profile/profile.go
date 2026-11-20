@@ -36,6 +36,9 @@ type CAInjection struct {
 type AAInjection struct {
 	AaFailOn string `json:"aa_fail_on"`
 	AaSW     string `json:"aa_sw"`
+	// AaBadSignature (trusted chip only): answer INTERNAL AUTHENTICATE with 9000 and a signature
+	// that does not verify (the real signature with one byte changed).
+	AaBadSignature bool `json:"aa_bad_signature,omitempty"`
 	Notes    string `json:"notes"`
 }
 
@@ -76,6 +79,8 @@ type Profile struct {
 	// Dual serves both DG14 and DG15 on the trusted chip (one mechanism fails, the other may
 	// succeed). Only meaningful with the trusted chain; the harness chip serves one group.
 	Dual bool `json:"dual,omitempty"`
+	// TrustedChain asks tools/chip_broker.py to start chip-serve with -trusted-chain.
+	TrustedChain bool `json:"trusted_chain,omitempty"`
 	// PeerSupport documents asymmetric mechanisms (e.g. TA: gmrtd unsupported).
 	PeerSupport map[string]string `json:"peer_support,omitempty"`
 }

@@ -15,6 +15,8 @@ case "${NFCPR_VERSION:-2.3.3}" in
   2.3.3) COMMIT=6e37f1ab249fef82771da46d32707f2b94ed090f; PATCH=nfcpassportreader-test-visibility.patch ;;
   3.0.0) COMMIT=8e1758eb23db64ecc90f237be791521d7999e07c; PATCH=nfcpassportreader-test-visibility-3.0.0.patch ;;
   3.0.1) COMMIT=e52a401e3651c2e898adcc31e3e059e224813bcc; PATCH=nfcpassportreader-test-visibility-3.0.1.patch ;;
+  # 3.0.1 plus the proposed opt-ins (allowChipAuthenticationFailure, allowActiveAuthenticationFailure).
+  3.0.1-optin) COMMIT=e52a401e3651c2e898adcc31e3e059e224813bcc; PATCH=nfcpassportreader-test-visibility-3.0.1.patch; EXTRA=nfcpr-optin-4b0d6f6.patch ;;
   *) echo "unknown NFCPR_VERSION ${NFCPR_VERSION}" >&2; exit 1 ;;
 esac
 
@@ -24,5 +26,7 @@ fi
 cd "$VENDOR_DIR/NFCPassportReader"
 git fetch -q origin
 git checkout -q -f --detach "$COMMIT"
+# The proposed change goes in first: the visibility patch's context includes the lines it adds to.
+if [[ -n "${EXTRA:-}" ]]; then git apply "$ROOT/drivers/ios/$EXTRA"; fi
 git apply "$ROOT/drivers/ios/$PATCH"
 echo "NFCPassportReader ${NFCPR_VERSION:-2.3.3} ${COMMIT:0:7} ready (+ $PATCH)"

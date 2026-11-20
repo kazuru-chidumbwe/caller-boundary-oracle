@@ -13,6 +13,7 @@ final class RunPlanTests: XCTestCase {
         let profile: String
         let mechanism: String
         let mrz_key: String
+        let optin: Bool?
     }
 
     func testRunPlan() async throws {
@@ -35,6 +36,13 @@ final class RunPlanTests: XCTestCase {
                 reader.skipCA = false
                 reader.skipSecureElements = true
                 reader.aaChallenge = [1, 2, 3, 4, 5, 6, 7, 8]
+                #if CBO_NFCPR_OPTIN
+                if entry.optin == true {
+                    reader.allowChipAuthenticationFailure = false
+                    reader.allowActiveAuthenticationFailure = false
+                }
+                #endif
+                result["optin"] = entry.optin ?? false
                 var readErr = ""
                 do {
                     _ = try await reader.startReading(tagReader: TagReader(tag: tag))

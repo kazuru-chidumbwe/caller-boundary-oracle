@@ -1,0 +1,19 @@
+{
+  "id": "OPT-AA-bad-signature",
+  "name": "Trusted chip, INTERNAL AUTHENTICATE answers 9000 with a signature that does not verify",
+  "mechanism": "AA",
+  "condition": "aa_bad_signature_trusted",
+  "tier": "wire",
+  "mrz": {
+    "document_number": "L898902C",
+    "date_of_birth": "690806",
+    "date_of_expiry": "940623"
+  },
+  "trusted_chain": true,
+  "dg15_hex_path": "testdata/dg15/aa-rsa-sample.hex",
+  "aa_injection": {
+    "aa_fail_on": "internal_authenticate",
+    "aa_sw": "",
+    "aa_bad_signature": true
+  }
+}

@@ -64,6 +64,8 @@ type ChipConfig struct {
 	CaSW string
 	// AaSW fails Active Authentication (INTERNAL AUTHENTICATE under SM) with this status word.
 	AaSW string
+	// AaBadSignature makes the trusted chip's AA signature fail verification while the status is 9000.
+	AaBadSignature bool
 	// Trusted serves the trusted-chain document (trusted_chip.go): DG1, DG2 and EF.SOD verifiable
 	// against TrustedCSCA, DG14/DG15 whose private keys the chip holds, and CA and AA that succeed
 	// unless CaSW or AaSW injects a failure. Dg14Hex/Dg15Hex then only select which group is served.
@@ -87,6 +89,7 @@ type DocumentChip struct {
 	caAttempts   int
 	aaAttempts   int
 	trusted      bool
+	aaBadSig     bool
 	aaKey        *rsa.PrivateKey
 	caKey        *ecdh.PrivateKey
 	caArmed      bool
@@ -147,6 +150,7 @@ func NewDocumentChip(cfg ChipConfig, pass *password.Password) *DocumentChip {
 	if cfg.AaSW != "" {
 		chip.aaSW = utils.HexToBytes(cfg.AaSW)
 	}
+	chip.aaBadSig = cfg.AaBadSignature
 	return chip
 }
 
@@ -209,7 +213,11 @@ func (t *DocumentChip) dispatchSM(cmd *PlainCommand) []byte {
 	case cmd.INS == iso7816.INS_INTERNAL_AUTHENTICATE:
 		t.aaAttempts++
 		if len(t.aaSW) != 2 && t.trusted && t.aaKey != nil && len(cmd.Data) == 8 {
-			rsp = append(aaSign(t.aaKey, cmd.Data), 0x90, 0x00)
+			sig := aaSign(t.aaKey, cmd.Data)
+			if t.aaBadSig {
+				sig[len(sig)/2] ^= 0xFF
+			}
+			rsp = append(sig, 0x90, 0x00)
 		} else {
 			rsp = t.failOr(t.aaSW)
 		}
@@ -335,7 +343,7 @@ func (t *DocumentChip) FaultDelivered(mechanism string) bool {
 	case "CA":
 		return len(t.caSW) == 2 && t.caAttempts > 0
 	case "AA":
-		return len(t.aaSW) == 2 && t.aaAttempts > 0
+		return (len(t.aaSW) == 2 || (t.aaBadSig && t.trusted && t.aaKey != nil)) && t.aaAttempts > 0
 	}
 	return false
 }
