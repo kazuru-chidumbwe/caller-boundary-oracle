@@ -1,0 +1,21 @@
+{
+  "id": "VSC-ca-mse-set-at-6a88",
+  "name": "Independent chip: PACE, then Chip Authentication rejected at MSE:Set AT (SW 6A88) under SM",
+  "mechanism": "CA",
+  "condition": "ca_reject_after_pace",
+  "tier": "independent",
+  "peer": "vsmartcard",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "vsmartcard": {
+    "dg14": true,
+    "ca_sw": "6A88"
+  },
+  "ca_injection": {
+    "ca_fail_on": "mse_set_at",
+    "ca_sw": "6A88"
+  }
+}

@@ -13,7 +13,7 @@ Mutants: 180 generated and run; 16 did not compile; 0 had a crashed or timed-out
 | emrtd-dotnet | O2 error to success | 2 | 0 | 0 | 0 | 0 | 0 | 2 |
 | emrtd-dotnet | O5 invert check | 2 | 0 | 1 | 1 | 1 | 0 | 1 |
 | gmrtd | O2 error to success | 66 | 0 | 0 | 0 | 0 | 0 | 66 |
-| gmrtd | O5 invert check | 66 | 57 | 60 | 63 | 60 | 0 | 3 |
+| gmrtd | O5 invert check | 66 | 57 | 63 | 63 | 63 | 0 | 3 |
 | jmrtd | O1 drop raise | 11 | 0 | 0 | 0 | 0 | 0 | 11 |
 | jmrtd | O2 error to success | 1 | 1 | 1 | 1 | 1 | 0 | 0 |
 | jmrtd | O3 swallow in catch | 5 | 0 | 0 | 0 | 0 | 0 | 5 |
@@ -21,8 +21,8 @@ Mutants: 180 generated and run; 16 did not compile; 0 had a crashed or timed-out
 | all | O1 drop raise | 19 | 0 | 0 | 0 | 0 | 0 | 19 |
 | all | O2 error to success | 70 | 1 | 1 | 1 | 1 | 0 | 69 |
 | all | O3 swallow in catch | 5 | 0 | 0 | 0 | 0 | 0 | 5 |
-| all | O5 invert check | 70 | 59 | 63 | 66 | 63 | 0 | 4 |
-| all | all | 164 | 60 | 64 | 67 | 64 | 0 | 97 |
+| all | O5 invert check | 70 | 59 | 66 | 66 | 66 | 0 | 4 |
+| all | all | 164 | 60 | 67 | 67 | 67 | 0 | 97 |
 
 ## How the outcome changed where only CBO noticed (per run)
 

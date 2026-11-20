@@ -64,6 +64,8 @@ type ChipConfig struct {
 	CaSW string
 	// AaSW fails Active Authentication (INTERNAL AUTHENTICATE under SM) with this status word.
 	AaSW string
+	// AaBadSignature makes the trusted chip's AA signature fail verification while the status is 9000.
+	AaBadSignature bool
 	// Trusted serves the trusted-chain document (trusted_chip.go): DG1, DG2 and EF.SOD verifiable
 	// against TrustedCSCA, DG14/DG15 whose private keys the chip holds, and CA and AA that succeed
 	// unless CaSW or AaSW injects a failure. Dg14Hex/Dg15Hex then only select which group is served.
@@ -87,6 +89,7 @@ type DocumentChip struct {
 	caAttempts   int
 	aaAttempts   int
 	trusted      bool
+	aaBadSig     bool
 	aaKey        *rsa.PrivateKey
 	caKey        *ecdh.PrivateKey
 	caArmed      bool
@@ -147,6 +150,7 @@ func NewDocumentChip(cfg ChipConfig, pass *password.Password) *DocumentChip {
 	if cfg.AaSW != "" {
 		chip.aaSW = utils.HexToBytes(cfg.AaSW)
 	}
+	chip.aaBadSig = cfg.AaBadSignature
 	return chip
 }
 
@@ -201,6 +205,10 @@ func (t *DocumentChip) dispatchSM(cmd *PlainCommand) []byte {
 		if len(t.caSW) != 2 && t.trusted && t.caKey != nil && cmd.P2 == 0xA4 {
 			t.caArmed = true
 			rsp = []byte{0x90, 0x00}
+		} else if len(t.caSW) != 2 && t.trusted && t.caKey != nil && cmd.P2 == 0xA6 {
+			// MSE:Set KAT (Chip Authentication with 3DES, ICAO 9303-11 6.2): the terminal's
+			// ephemeral key is in tag 91; answer under the old keys, then switch.
+			return t.caSetKAT(cmd)
 		} else {
 			rsp = t.failOr(t.caSW)
 		}
@@ -209,7 +217,11 @@ func (t *DocumentChip) dispatchSM(cmd *PlainCommand) []byte {
 	case cmd.INS == iso7816.INS_INTERNAL_AUTHENTICATE:
 		t.aaAttempts++
 		if len(t.aaSW) != 2 && t.trusted && t.aaKey != nil && len(cmd.Data) == 8 {
-			rsp = append(aaSign(t.aaKey, cmd.Data), 0x90, 0x00)
+			sig := aaSign(t.aaKey, cmd.Data)
+			if t.aaBadSig {
+				sig[len(sig)/2] ^= 0xFF
+			}
+			rsp = append(sig, 0x90, 0x00)
 		} else {
 			rsp = t.failOr(t.aaSW)
 		}
@@ -238,6 +250,26 @@ func (t *DocumentChip) caGeneralAuthenticate(cmd *PlainCommand) []byte {
 		return out
 	}
 	out, err := t.sm.WrapSmResponse(0x9000, []byte{0x7C, 0x00})
+	if err != nil {
+		return []byte{0x6F, 0x00}
+	}
+	if sm, err := NewChipSM3DES(ksEnc, ksMac); err == nil {
+		t.sm = sm
+	}
+	return out
+}
+
+func (t *DocumentChip) caSetKAT(cmd *PlainCommand) []byte {
+	pt, _, err := derTLV(cmd.Data, 0x91)
+	var ksEnc, ksMac []byte
+	if err == nil {
+		ksEnc, ksMac, err = caKeysFromPoint(t.caKey, pt)
+	}
+	if err != nil {
+		out, _ := t.sm.WrapSmResponse(0x6A80, nil)
+		return out
+	}
+	out, err := t.sm.WrapSmResponse(0x9000, nil)
 	if err != nil {
 		return []byte{0x6F, 0x00}
 	}
@@ -335,7 +367,7 @@ func (t *DocumentChip) FaultDelivered(mechanism string) bool {
 	case "CA":
 		return len(t.caSW) == 2 && t.caAttempts > 0
 	case "AA":
-		return len(t.aaSW) == 2 && t.aaAttempts > 0
+		return (len(t.aaSW) == 2 || (t.aaBadSig && t.trusted && t.aaKey != nil)) && t.aaAttempts > 0
 	}
 	return false
 }

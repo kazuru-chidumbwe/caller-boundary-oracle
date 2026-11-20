@@ -1,0 +1,18 @@
+{
+  "id": "VSC-pace-ga4-timeout",
+  "name": "Independent chip: PACE fails at General Authenticate step 4 (timeout)",
+  "mechanism": "PACE",
+  "condition": "pace_fail_independent",
+  "tier": "independent",
+  "mrz": {
+    "document_number": "T22000129",
+    "date_of_birth": "640812",
+    "date_of_expiry": "201031"
+  },
+  "peer": "vsmartcard",
+  "vsmartcard": {
+    "pace_step": "ga4",
+    "pace_sw": "6FFF",
+    "pace_channel": "timeout"
+  }
+}

@@ -25,14 +25,14 @@
 
 ## Failure-reporting changes after deduplication (site, operator, caller role)
 
-| oracle | detected | of | missed |
-| --- | ---: | ---: | ---: |
-| caller-boundary | 1 | 1 | 0 |
-| any error | 1 | 1 | 0 |
-| output differential | 1 | 1 | 0 |
-| ICAO P4 verdict | 1 | 1 | 0 |
+| oracle | detected | of | missed | McNemar vs caller-boundary (exact p) |
+| --- | ---: | ---: | ---: | ---: |
+| caller-boundary | 1 | 1 | 0 | n/a |
+| any error | 1 | 1 | 0 | 1 (b=0, c=0) |
+| output differential | 1 | 1 | 0 | 1 (b=0, c=0) |
+| ICAO P4 verdict | 1 | 1 | 0 | 1 (b=0, c=0) |
 
 ## Not failure reporting
 
-- Ordinary breakage (a change on a control run, nothing injected): 172 pairs; seen by caller-boundary 0, any error 164, output differential 172, ICAO P4 verdict 164.
+- Ordinary breakage (a change on a control run, nothing injected): 172 pairs; seen by caller-boundary 0, any error 167, output differential 172, ICAO P4 verdict 172.
 - Delivery changed only (the failure is no longer, or now, delivered): 117 pairs; seen by caller-boundary 117, any error 58, output differential 58, ICAO P4 verdict 1.

@@ -37,6 +37,7 @@ CHIP_SERVE = ROOT / "bin" / "chip-serve"
 SKIP = {"artifact-manifest.json", "environment.json"}
 REF_RUNS = 3       # reference runs per scenario, all with the same signature
 REF_ATTEMPTS = 3   # fresh reference sets tried before the version is refused
+MUT_RERUNS = 3     # independent-chip mutant run differing from the reference: further runs, stop at the first match (change 13)
 
 
 def log(out: Path, msg: str) -> None:
@@ -261,8 +262,15 @@ def main() -> None:
                         for e in entries_for(reduced, name, version, m["step"]):
                             r = run_entry(lib, e, mdir / e["scenario_id"], a.timeout)
                             if is_independent(e) and signature(r) != signature(ref[e["scenario_id"]]):
-                                r2 = run_entry(lib, e, mdir / (e["scenario_id"] + "-rerun"), a.timeout)
-                                r["rerun"] = r2
+                                reruns = []
+                                for k in range(1, MUT_RERUNS + 1):
+                                    sub = "-rerun" if k == 1 else f"-rerun{k}"
+                                    r2 = run_entry(lib, e, mdir / (e["scenario_id"] + sub), a.timeout)
+                                    reruns.append(r2)
+                                    if signature(r2) == signature(ref[e["scenario_id"]]):
+                                        break
+                                r["rerun"] = reruns[0]
+                                r["reruns"] = reruns
                             runs.append(r)
                         result = {"mutant": m, "build": "ok", "runs": runs}
                 finally:
